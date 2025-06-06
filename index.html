@@ -1,7 +1,195 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebalance Impact - Sustainable Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Ensure images and SVGs scale responsively */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-stone-50 text-stone-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
+            <!-- Small Logo - Top Left -->
+            <div class="flex items-center space-x-4 mb-4 md:mb-0 order-2 md:order-1">
+                <img
+                    src="small_transparent.png"
+                    alt="Small Logo"
+                    class="h-12 w-auto rounded-md"
+                    onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
+                />
+            </div>
+
+            <!-- Long Logo - Centered for larger screens, top for smaller screens -->
+            <div class="flex-grow flex justify-center order-1 md:order-2 w-full md:w-auto">
+                <img
+                    src="long_transparent.png"
+                    alt="Long Logo"
+                    class="h-20 w-auto rounded-md"
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x50/CCCCCC/FFFFFF?text=Rebalance+Impact';"
+                />
+            </div>
+
+            <!-- Navigation Links - Top Right -->
+            <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
+                <a href="#" class="hover:text-green-800 transition duration-300">Services</a>
+                <a href="#" class="hover:text-green-800 transition duration-300">Insights</a>
+                <a href="#" class="hover:text-green-800 transition duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Sustainable Reporting Section -->
+        <section id="sustainable-reporting" class="py-16 md:py-20 border-b border-green-800/20 last:border-b-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="order-2 md:order-1">
+                    <div class="text-green-800 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
+                        Sustainable Reporting
+                    </h2>
+                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                        Reporting Today, Sustaining Tomorrow
+                    </h3>
+                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                        For the South African market, complying with evolving international and potential national sustainable reporting regulations is not just a necessity but a strategic advantage. We empower your business with comprehensive sustainable reporting that fosters an attractive and resilient business model. Our expertise covers every facet required by leading frameworks like ESRS, from meticulous GHG accounting and water stewardship to biodiversity impact assessments and crucial social impact metrics.
+                    </p>
+                    <a
+                        href="/sustainable-reporting"
+                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        Explore This Service &rarr;
+                    </a>
+                </div>
+                <!-- Image -->
+                <div class="order-1 md:order-2 flex justify-center">
+                    <img
+                        src="https://placehold.co/400x250/d4b29c/36454F?text=Sustainable+Reporting"
+                        alt="Sustainable Reporting"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Analytics Section -->
+        <section id="data-analytics" class="py-16 md:py-20 border-b border-green-800/20 last:border-b-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image (order reversed for alternating layout) -->
+                <div class="order-1 md:order-1 flex justify-center">
+                    <img
+                        src="https://placehold.co/400x250/9cabb0/36454F?text=Data+Analytics"
+                        alt="Data Analytics"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
+                    />
+                </div>
+                <!-- Text Content -->
+                <div class="order-2 md:order-2">
+                    <div class="text-green-800 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
+                        Data Analytics
+                    </h2>
+                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                        Insights from Data: Powering Your Performance
+                    </h3>
+                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                        In today's complex landscape, reliable and consistent data is paramount for informed decision-making. Our advanced data analytics expertise, coupled with intuitive, real-time dashboards, provides you with unparalleled visibility into your operations. We don't just present data; we transform it into actionable intelligence. Through meticulous gap assessments, we identify hidden opportunities and unlock tailored strategies to significantly enhance your operational efficiency and drive sustainable growth.
+                    </p>
+                    <a
+                        href="/data-analytics"
+                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        Explore This Service &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Institute Section -->
+        <section id="knowledge-institute" class="py-16 md:py-20 border-b border-green-800/20 last:border-b-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="order-2 md:order-1">
+                    <div class="text-green-800 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
+                        Knowledge Institute
+                    </h2>
+                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                        Knowledge for a Resilient Future
+                    </h3>
+                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                        Our Knowledge Institute is grounded in robust scientific principles, delivering profound insights crucial for navigating the complexities of sustainability. We empower decision-makers and relevant stakeholders by translating intricate research into accessible, short-form content such as insightful blog posts, comprehensive reports, and authoritative white papers. Our mission is to equip you with the knowledge and understanding needed to build a truly sustainable and resilient future for your organization and the broader community.
+                    </p>
+                    <a
+                        href="/knowledge-institute"
+                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        Explore This Service &rarr;
+                    </a>
+                </div>
+                <!-- Image -->
+                <div class="order-1 md:order-2 flex justify-center">
+                    <img
+                        src="https://placehold.co/400x250/c0d9bf/36454F?text=Knowledge+Institute"
+                        alt="Knowledge Institute"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-choose-us" class="py-16 md:py-20 bg-amber-100 rounded-xl shadow-lg mt-12">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-green-900 mb-6">Why Choose Us?</h2>
+                <p class="text-xl text-stone-700 leading-relaxed max-w-3xl mx-auto mb-10">
+                    We are a small, dedicated firm committed to personally and intimately understanding the unique life of your business. This deep intimacy allows us to offer unparalleled flexibility, crafting unique, tailor-made solutions and fostering truly collaborative relationships. Our distinctive expertise, blending both accounting rigor and environmental science insight, perfectly positions us to navigate and lead the evolution of non-financial (ESG) reporting, ensuring your business is not just compliant, but thriving in a sustainable future.
+                </p>
+                <a
+                    href="/about-us"
+                    class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                >
+                    Learn More About Us &rarr;
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-green-200">Privacy Policy</a>
+                <a href="#" class="hover:text-green-200">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
