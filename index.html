@@ -7,7 +7,11 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the Inter font and general body styling */
+        /* Custom Tailwind CSS Configuration for Brand Colors */
+        :root {
+            --color-forest-green: #334C33; /* CMYK 80,50,80,0 equivalent */
+            --color-sandy-brown: #CCB999; /* CMYK 20,15,30,0 equivalent */
+        }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -38,7 +42,7 @@
             padding: 0.5rem 0; /* Vertical padding */
         }
         .dropdown-content a {
-            color: #1E4032; /* Forest green text for dropdown links */
+            color: var(--color-forest-green); /* Forest green text for dropdown links */
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -53,6 +57,19 @@
             display: block;
         }
     </style>
+    <script>
+        // Custom Tailwind CSS Configuration for Brand Colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': 'var(--color-forest-green)',
+                        'sandy-brown': 'var(--color-sandy-brown)',
+                    }
+                }
+            }
+        };
+    </script>
 </head>
 <body class="font-sans antialiased bg-stone-50 text-stone-800">
 
@@ -68,28 +85,28 @@
                         class="h-12 w-auto rounded-md"
                         onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
                     />
-                    <span class="text-2xl font-bold text-green-900">Rebalance Impact</span>
+                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
                 </a>
             </div>
 
             <!-- Navigation Links - Top Right -->
             <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
                 <div class="dropdown">
-                    <a href="#" class="hover:text-green-800 transition duration-300 cursor-pointer">Services</a>
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Services</a>
                     <div class="dropdown-content rounded-lg">
                         <a href="sustainable-reporting.html">Sustainable Reporting</a>
                         <a href="data-analytics.html">Data Analytics</a>
                         <a href="knowledge-institute.html">Knowledge Capacity</a>
                     </div>
                 </div>
-                <a href="#" class="hover:text-green-800 transition duration-300">Insights</a>
-                <a href="#" class="hover:text-green-800 transition duration-300">Contact</a>
+                <a href="#" class="hover:text-forest-green transition duration-300">Insights</a>
+                <a href="#" class="hover:text-forest-green transition duration-300">Contact</a>
             </nav>
         </div>
     </header>
 
     <!-- Main Logo and Slogan Section (Hero Banner) -->
-    <section class="py-16 md:py-24 text-center rounded-xl shadow-lg mx-4 mt-8">
+    <section class="py-16 md:py-24 bg-white text-center rounded-xl shadow-lg mx-4 mt-8">
         <div class="container mx-auto px-4 flex flex-col items-center">
             <img
                 src="long_transparent.png"
@@ -97,7 +114,7 @@
                 class="h-48 md:h-56 w-auto rounded-md mb-8"
                 onerror="this.onerror=null;this.src='https://placehold.co/300x100/CCCCCC/FFFFFF?text=Rebalance+Impact';"
             />
-            <h1 class="text-5xl md:text-6xl font-extrabold text-green-900 leading-tight">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-forest-green leading-tight">
                 De-risk tomorrow <br /> Today
             </h1>
         </div>
@@ -107,15 +124,15 @@
     <main class="container mx-auto px-4 py-8">
 
         <!-- Sustainable Reporting Section -->
-        <section id="sustainable-reporting" class="py-16 md:py-20 border-b border-green-900/50 last:border-b-0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
-                <div class="order-2 md:order-1">
-                    <div class="text-green-800 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+        <section id="sustainable-reporting" class="py-16 md:py-20">
+            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content with Border -->
+                <div class="order-2 md:order-1 p-6 border border-gray-300 rounded-lg shadow-sm">
+                    <div class="text-forest-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
-                        Sustainable Reporting
+                    <h2 class="text-4xl font-bold mb-4 leading-tight">
+                        <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
                     </h2>
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
                         Reporting Today, Sustaining Tomorrow
@@ -125,7 +142,7 @@
                     </p>
                     <a
                         href="sustainable-reporting.html"
-                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
@@ -140,10 +157,12 @@
                 </div>
             </div>
         </section>
+        <!-- Separator Line -->
+        <div class="h-1 bg-forest-green w-4/5 mx-auto my-12 rounded-full"></div>
 
         <!-- Data Analytics Section -->
-        <section id="data-analytics" class="py-16 md:py-20 border-b border-green-800/20 last:border-b-0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section id="data-analytics" class="py-16 md:py-20">
+            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- Image (order reversed for alternating layout) -->
                 <div class="order-1 md:order-1 flex justify-center">
                     <img
@@ -152,13 +171,13 @@
                         class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
                     />
                 </div>
-                <!-- Text Content -->
-                <div class="order-2 md:order-2">
-                    <div class="text-green-800 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                <!-- Text Content with Border -->
+                <div class="order-2 md:order-2 p-6 border border-gray-300 rounded-lg shadow-sm">
+                    <div class="text-forest-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
-                        Data Analytics
+                    <h2 class="text-4xl font-bold mb-4 leading-tight">
+                        <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
                     </h2>
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
                         Insights from Data: Powering Your Performance
@@ -168,24 +187,26 @@
                     </p>
                     <a
                         href="data-analytics.html"
-                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
                 </div>
             </div>
         </section>
+        <!-- Separator Line -->
+        <div class="h-1 bg-forest-green w-4/5 mx-auto my-12 rounded-full"></div>
 
         <!-- Knowledge Institute Section -->
-        <section id="knowledge-institute" class="py-16 md:py-20 border-b border-green-800/20 last:border-b-0">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
-                <div class="order-2 md:order-1">
-                    <div class="text-green-800 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E4032" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <section id="knowledge-institute" class="py-16 md:py-20">
+            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content with Border -->
+                <div class="order-2 md:order-1 p-6 border border-gray-300 rounded-lg shadow-sm">
+                    <div class="text-forest-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-green-900 mb-4 leading-tight">
-                        Knowledge Institute
+                    <h2 class="text-4xl font-bold mb-4 leading-tight">
+                        <a href="knowledge-institute.html" class="text-forest-green hover:text-stone-200 transition duration-300">Knowledge Institute</a>
                     </h2>
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
                         Knowledge for a Resilient Future
@@ -195,7 +216,7 @@
                     </p>
                     <a
                         href="knowledge-institute.html"
-                        class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                        class="inline-block bg-sandy-brown text-forest-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
@@ -212,30 +233,88 @@
         </section>
 
         <!-- Why Choose Us Section -->
-        <section id="why-choose-us" class="py-16 md:py-20 bg-amber-100 rounded-xl shadow-lg mt-12">
+        <section id="why-choose-us" class="py-16 md:py-20 bg-sandy-brown rounded-xl shadow-lg mt-12">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold text-green-900 mb-6">Why Choose Us?</h2>
+                <h2 class="text-4xl font-bold text-forest-green mb-6">Why Choose Us?</h2>
                 <p class="text-xl text-stone-700 leading-relaxed max-w-3xl mx-auto mb-10">
                     We are a small, dedicated firm committed to personally and intimately understanding the unique life of your business. This deep intimacy allows us to offer unparalleled flexibility, crafting unique, tailor-made solutions and fostering truly collaborative relationships. Our distinctive expertise, blending both accounting rigor and environmental science insight, perfectly positions us to navigate and lead the evolution of non-financial (ESG) reporting, ensuring your business is not just compliant, but thriving in a sustainable future.
                 </p>
                 <a
                     href="about-us.html"
-                    class="inline-block bg-green-800 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                 >
                     Learn More About Us &rarr;
                 </a>
             </div>
         </section>
 
+        <!-- Get a Quote / Contact Us Section -->
+        <section id="contact-and-quote" class="py-16 md:py-20 mt-12 rounded-xl shadow-lg bg-white">
+            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <!-- Left: Get a Quote -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-4xl font-bold text-forest-green mb-6">Get a quote in 5 minutes</h2>
+                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                        Click the button below to fill out a short form. This will help us understand your basic fundamental needs and wishes, allowing us to provide a more accurate and tailored quote for your business.
+                    </p>
+                    <a
+                        href="get-quote.html"
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        Get Quote &rarr;
+                    </a>
+                </div>
+
+                <!-- Right: Contact Us Form -->
+                <div class="bg-stone-50 p-8 rounded-xl shadow-inner">
+                    <h2 class="text-3xl font-bold text-forest-green mb-6 text-center">Contact Us</h2>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="org-name" class="block text-lg font-medium text-stone-700 mb-2">Organization Name</label>
+                            <input type="text" id="org-name" name="organization_name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="Your Organization's Name" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-stone-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="your@example.com" />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-stone-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="Tell us about your needs..."></textarea>
+                        </div>
+                        <div>
+                            <p class="block text-lg font-medium text-stone-700 mb-2">Query relates to:</p>
+                            <div class="flex flex-wrap gap-4">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="query_topic[]" value="reporting" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700">Sustainable Reporting</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="query_topic[]" value="data-analytics" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700">Data Analytics</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" name="query_topic[]" value="knowledge" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700">Knowledge Capacity</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-green-900 text-white py-8 mt-12">
+    <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-6">
-                <a href="#" class="hover:text-green-200">Privacy Policy</a>
-                <a href="#" class="hover:text-green-200">Terms of Service</a>
+                <a href="#" class="hover:text-stone-200">Privacy Policy</a>
+                <a href="#" class="hover:text-stone-200">Terms of Service</a>
             </div>
         </div>
     </footer>
