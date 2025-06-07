@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebalance Impact - Sustainable Solutions</title>
-    <!-- Tailwind CSS CDN: A utility-first CSS framework for rapid UI development -->
+    <!-- Tailwind CSS CDN: A utility-first CSS framework for rapid UI development by providing pre-defined classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the Inter font and general body styling */
+        /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
+        :root {
+            --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
+            --color-sandy-brown: #CCB999; /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+        }
+        /* Custom styles for the Inter font and general body styling to ensure consistent typography */
         body {
-            font-family: 'Inter', sans-serif; /* Sets the primary font for the entire body */
-            -webkit-font-smoothing: antialiased; /* Enhances font rendering on WebKit browsers */
-            -moz-osx-font-smoothing: grayscale; /* Enhances font rendering on Mozilla browsers */
+            font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
+            -webkit-font-smoothing: antialiased; /* Optimizes font rendering for smoother appearance on WebKit browsers (e.g., Chrome, Safari) */
+            -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
         }
-        /* Ensures images and SVGs scale responsively within their containers */
+        /* Ensures all images and SVG icons scale responsively within their parent containers */
         img, svg {
-            max-width: 100%; /* Prevents images/SVGs from overflowing their parents horizontally */
-            height: auto;    /* Maintains aspect ratio when scaling */
+            max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
+            height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
         }
-        /* Styles for the dropdown menu container */
+        /* Styles for the dropdown menu container (e.g., for "Services") */
         .dropdown {
-            position: relative; /* Allows positioning of child dropdown-content */
-            display: inline-block; /* Allows the dropdown to sit next to other nav items */
+            position: relative; /* Establishes a positioning context for absolutely positioned children (the dropdown content) */
+            display: inline-block; /* Allows the dropdown element to sit inline with other navigation items, while still respecting block-level properties like width/height */
         }
-        /* Styles for the hidden dropdown content (the actual menu items) */
+        /* Styles for the hidden dropdown content (the actual menu items that appear on hover) */
         .dropdown-content {
-            display: none; /* Hidden by default */
-            position: absolute; /* Positioned relative to its .dropdown parent */
-            background-color: #f9f9f9; /* Off-white background for menu items */
-            min-width: 180px; /* Minimum width of the dropdown */
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Soft shadow for depth */
-            z-index: 1000; /* Ensures the dropdown appears above other content */
-            border-radius: 0.5rem; /* Rounded corners for the dropdown box */
-            overflow: hidden; /* Clips content that might overflow rounded corners */
-            top: 100%; /* Positions the dropdown directly below the parent link */
-            left: 50%; /* Centers the dropdown horizontally relative to its parent link */
-            transform: translateX(-50%); /* Fine-tunes horizontal centering */
-            padding: 0.5rem 0; /* Vertical padding inside the dropdown */
+            display: none; /* Hides the dropdown content by default */
+            position: absolute; /* Positions the dropdown content relative to its nearest positioned ancestor (.dropdown) */
+            background-color: #f9f9f9; /* Sets a light, off-white background for the dropdown menu */
+            min-width: 180px; /* Defines a minimum width for the dropdown, ensuring readability */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Applies a subtle shadow for a lifted, professional appearance */
+            z-index: 1000; /* Ensures the dropdown appears on top of other elements on the page */
+            border-radius: 0.5rem; /* Adds rounded corners to the dropdown box for a softer look */
+            overflow: hidden; /* Ensures that any content extending beyond the rounded corners is clipped */
+            top: 100%; /* Positions the top edge of the dropdown content directly below the parent link */
+            left: 50%; /* Attempts to horizontally center the dropdown content relative to its parent link */
+            transform: translateX(-50%); /* Fine-tunes horizontal centering by offsetting by half its own width */
+            padding: 0.5rem 0; /* Adds vertical padding inside the dropdown, creating space above and below menu items */
         }
-        /* Styles for individual links within the dropdown */
+        /* Styles for individual links within the dropdown menu */
         .dropdown-content a {
-            color: var(--color-forest-green); /* Text color set to custom forest green */
-            padding: 12px 16px; /* Padding around each link */
-            text-decoration: none; /* Removes underline from links */
-            display: block; /* Makes the entire link area clickable */
-            text-align: left; /* Aligns text to the left within the dropdown */
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+            color: var(--color-forest-green); /* Sets the text color of dropdown links to the custom forest green */
+            padding: 12px 16px; /* Adds padding around each link for better clickability and spacing */
+            text-decoration: none; /* Removes the default underline from links */
+            display: block; /* Makes the entire area of the link (including padding) clickable */
+            text-align: left; /* Aligns the text of the dropdown links to the left */
+            transition: background-color 0.3s, color 0.3s; /* Applies a smooth transition effect when background or text color changes on hover */
         }
-        /* Hover styles for individual links within the dropdown */
+        /* Hover styles for individual links within the dropdown menu */
         .dropdown-content a:hover {
-            background-color: #e2e8f0; /* Light gray background on hover */
-            color: #0A3623; /* Slightly darker green text on hover */
+            background-color: #e2e8f0; /* Changes the background color to a light gray when a link is hovered */
+            color: #0A3623; /* Darkens the text color slightly on hover for visual feedback */
         }
-        /* Shows the dropdown content when the .dropdown parent is hovered */
+        /* Shows the dropdown content when the main .dropdown parent element is hovered over */
         .dropdown:hover .dropdown-content {
-            display: block;
+            display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
         }
     </style>
     <script>
-        // Custom Tailwind CSS Configuration: Extending Tailwind's default theme with custom colors
+        // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
+        // It must be placed after the Tailwind CDN script to ensure Tailwind is loaded and available for configuration.
         tailwind.config = {
             theme: {
-                extend: {
-                    colors: {
-                        'forest-green': 'var(--color-forest-green)', /* Custom forest green color */
-                        'sandy-brown': 'var(--color-sandy-brown)',   /* Custom sandy brown color */
+                extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
+                    colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
+                        'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
+                        'sandy-brown': 'var(--color-sandy-brown)',   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
                     }
                 }
             }
@@ -73,154 +79,171 @@
 </head>
 <body class="font-sans antialiased bg-stone-50 text-stone-800">
 
-    <!-- Header Section: Contains top navigation and logos -->
+    <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
-            <!-- Small Logo and Company Name - Top Left, Clickable to Home -->
+            <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
             <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
                 <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
                     <img
-                        src="small_transparent.png" /* Source for the small logo image */
-                        alt="Small Logo" /* Alt text for accessibility */
-                        class="h-12 w-auto rounded-md" /* Tailwind classes for height, auto width, rounded corners */
-                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';" /* Fallback image if original fails to load */
+                        src="small_transparent.png"
+                        alt="Small Logo"
+                        class="h-12 w-auto rounded-md"
+                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
                     />
-                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span> /* Company name next to the logo */
+                    <!-- Displays the company name with custom forest green color and bold text -->
+                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
                 </a>
             </div>
 
-            <!-- Navigation Links - Top Right -->
+            <!-- Navigation Links - Top Right: Contains links to other main sections or pages of the website. -->
             <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
                 <div class="dropdown">
-                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Services</a> /* Services link with dropdown functionality */
+                    <!-- The "Services" link, which triggers the dropdown menu on hover -->
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Services</a>
                     <div class="dropdown-content rounded-lg">
-                        <a href="sustainable-reporting.html">Sustainable Reporting</a> /* Dropdown item link */
-                        <a href="data-analytics.html">Data Analytics</a> /* Dropdown item link */
-                        <a href="knowledge-institute.html">Knowledge Capacity</a> /* Dropdown item link */
+                        <!-- Dropdown menu item for Sustainable Reporting service -->
+                        <a href="sustainable-reporting.html">Sustainable Reporting</a>
+                        <!-- Dropdown menu item for Data Analytics service -->
+                        <a href="data-analytics.html">Data Analytics</a>
+                        <!-- Dropdown menu item for Knowledge Capacity service -->
+                        <a href="knowledge-institute.html">Knowledge Capacity</a>
                     </div>
                 </div>
-                <a href="#" class="hover:text-forest-green transition duration-300">Insights</a> /* Navigation link */
-                <a href="#" class="hover:text-forest-green transition duration-300">Contact</a> /* Navigation link */
+                <!-- Navigation link for the "Insights" section/page -->
+                <a href="#" class="hover:text-forest-green transition duration-300">Insights</a>
+                <!-- Navigation link for the "Contact" section/page -->
+                <a href="#" class="hover:text-forest-green transition duration-300">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Logo and Slogan Section (Hero Banner) -->
+    <!-- Main Logo and Slogan Section (Hero Banner): A prominent section featuring the main company logo and a key slogan. -->
     <section class="py-16 md:py-24 bg-white text-center rounded-xl shadow-lg mx-4 mt-8">
         <div class="container mx-auto px-4 flex flex-col items-center">
             <img
-                src="long_transparent.png" /* Source for the main logo image */
-                alt="Rebalance Impact Main Logo" /* Alt text for accessibility */
-                class="h-48 md:h-56 w-auto rounded-md mb-8" /* Tailwind classes for height, auto width, rounded corners, margin-bottom */
-                onerror="this.onerror=null;this.src='https://placehold.co/300x100/CCCCCC/FFFFFF?text=Rebalance+Impact';" /* Fallback image if original fails to load */
+                src="long_transparent.png"
+                alt="Rebalance Impact Main Logo"
+                class="h-48 md:h-56 w-auto rounded-md mb-8"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x100/CCCCCC/FFFFFF?text=Rebalance+Impact';"
             />
+            <!-- The main slogan, with <br /> creating a line break for "Today" -->
             <h1 class="text-4xl md:text-5xl font-extrabold text-forest-green leading-tight">
-                De-risk tomorrow <br /> Today /* Main slogan with line break */
+                De-risk tomorrow <br /> Today
             </h1>
         </div>
     </section>
 
-    <!-- Main Content Area: Contains the primary sections of the homepage -->
+    <!-- Main Content Area: Contains the primary sections of the homepage, structured to highlight core services and value proposition. -->
     <main class="container mx-auto px-4 py-8">
 
-        <!-- Sustainable Reporting Section -->
+        <!-- Sustainable Reporting Section: Details the first core service offered. -->
         <section id="sustainable-reporting" class="py-16 md:py-20">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content with Border: Groups icon, headings, paragraph, and button -->
+                <!-- Text Content with Border: This div groups the icon, headings, descriptive paragraph, and action button. It has a border and shadow. -->
                 <div class="order-2 md:order-1 p-6 border border-gray-300 rounded-lg shadow-sm">
                     <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Sustainable Reporting (Leaf) -->
+                        <!-- SVG Icon for Sustainable Reporting (Leaf): A scalable vector graphic representing sustainability. -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
                     </div>
                     <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a> /* Clickable main heading for the section */
+                        <!-- The main heading for this service, which is also a clickable link to its dedicated page -->
+                        <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
                     </h2>
+                    <!-- A compelling slogan for the Sustainable Reporting service -->
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Reporting Today, Sustaining Tomorrow /* Slogan for the section */
+                        Reporting Today, Sustaining Tomorrow
                     </h3>
                     <p class="text-lg text-stone-700 leading-relaxed mb-8">
                         For the South African market, complying with evolving international and potential national sustainable reporting regulations is not just a necessity but a strategic advantage. We empower your business with comprehensive sustainable reporting that fosters an attractive and resilient business model. Our expertise covers every facet required by leading frameworks like ESRS, from meticulous GHG accounting and water stewardship to biodiversity impact assessments and crucial social impact metrics.
                     </p>
+                    <!-- Button prompting users to explore this service further -->
                     <a
                         href="sustainable-reporting.html"
-                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg" /* Button linking to service page */
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
                 </div>
-                <!-- Image associated with Sustainable Reporting -->
+                <!-- Image associated with Sustainable Reporting: Visual representation complementing the service description. -->
                 <div class="order-1 md:order-2 flex justify-center">
                     <img
-                        src="ESG_stock_photo.jpeg" /* Source for the ESG stock photo */
-                        alt="Sustainable Reporting" /* Alt text for accessibility */
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover" /* Tailwind classes for styling */
-                        onerror="this.onerror=null;this.src='https://placehold.co/400x250/d4b29c/36454F?text=Sustainable+Reporting';" /* Fallback image */
+                        src="ESG_stock_photo.jpeg"
+                        alt="Sustainable Reporting"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x250/d4b29c/36454F?text=Sustainable+Reporting';"
                     />
                 </div>
             </div>
         </section>
-        <!-- Separator Line: A visual divider between sections -->
+        <!-- Separator Line: A horizontal divider to visually separate sections. -->
         <div class="h-1 bg-forest-green w-4/5 mx-auto my-12 rounded-full"></div>
 
-        <!-- Data Analytics Section -->
+        <!-- Data Analytics Section: Details the second core service offered. -->
         <section id="data-analytics" class="py-16 md:py-20">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Image associated with Data Analytics (order reversed for alternating layout) -->
+                <!-- Image associated with Data Analytics: Placed first on larger screens for an alternating layout. -->
                 <div class="order-1 md:order-1 flex justify-center">
                     <img
-                        src="https://placehold.co/400x250/9cabb0/36454F?text=Data+Analytics" /* Placeholder image for Data Analytics */
-                        alt="Data Analytics" /* Alt text for accessibility */
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover" /* Tailwind classes for styling */
+                        src="https://placehold.co/400x250/9cabb0/36454F?text=Data+Analytics"
+                        alt="Data Analytics"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
                     />
                 </div>
-                <!-- Text Content with Border: Groups icon, headings, paragraph, and button -->
+                <!-- Text Content with Border: Groups icon, headings, descriptive paragraph, and action button. -->
                 <div class="order-2 md:order-2 p-6 border border-gray-300 rounded-lg shadow-sm">
                     <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Data Analytics (Bar Chart) -->
+                        <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                     </div>
                     <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a> /* Clickable main heading for the section */
+                        <!-- The main heading for this service, also a clickable link -->
+                        <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
                     </h2>
+                    <!-- A catchy slogan for the Data Analytics service -->
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Insights from Data: Powering Your Performance /* Slogan for the section */
+                        Insights from Data: Powering Your Performance
                     </h3>
                     <p class="text-lg text-stone-700 leading-relaxed mb-8">
                         In today's complex landscape, reliable and consistent data is paramount for informed decision-making. Our advanced data analytics expertise, coupled with intuitive, real-time dashboards, provides you with unparalleled visibility into your operations. We don't just present data; we transform it into actionable intelligence. Through meticulous gap assessments, we identify hidden opportunities and unlock tailored strategies to significantly enhance your operational efficiency and drive sustainable growth.
                     </p>
+                    <!-- Button to explore Data Analytics service -->
                     <a
                         href="data-analytics.html"
-                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg" /* Button linking to service page */
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
                 </div>
             </div>
         </section>
-        <!-- Separator Line: A visual divider between sections -->
+        <!-- Separator Line: Another horizontal divider between sections. -->
         <div class="h-1 bg-forest-green w-4/5 mx-auto my-12 rounded-full"></div>
 
-        <!-- Knowledge Institute Section -->
+        <!-- Knowledge Institute Section: Details the third core service offered. -->
         <section id="knowledge-institute" class="py-16 md:py-20">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content with Border: Groups icon, headings, paragraph, and button -->
+                <!-- Text Content with Border: Groups icon, headings, descriptive paragraph, and action button. -->
                 <div class="order-2 md:order-1 p-6 border border-gray-300 rounded-lg shadow-sm">
                     <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Knowledge Institute (Open Book) -->
+                        <!-- SVG Icon for Knowledge Institute (Open Book): A scalable vector graphic representing knowledge and learning. -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
                     </div>
                     <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <a href="knowledge-institute.html" class="text-forest-green hover:text-stone-200 transition duration-300">Knowledge Institute</a> /* Clickable main heading for the section */
+                        <!-- The main heading for this service, also a clickable link -->
+                        <a href="knowledge-institute.html" class="text-forest-green hover:text-stone-200 transition duration-300">Knowledge Institute</a>
                     </h2>
+                    <!-- A slogan emphasizing future resilience through knowledge -->
                     <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Knowledge for a Resilient Future /* Slogan for the section */
+                        Knowledge for a Resilient Future
                     </h3>
                     <p class="text-lg text-stone-700 leading-relaxed mb-8">
                         Our Knowledge Institute is grounded in robust scientific principles, delivering profound insights crucial for navigating the complexities of sustainability. We empower decision-makers and relevant stakeholders by translating intricate research into accessible, short-form content such as insightful blog posts, comprehensive reports, and authoritative white papers. Our mission is to equip you with the knowledge and understanding needed to build a truly sustainable and resilient future for your organization and the broader community.
                     </p>
+                    <!-- Button to explore Knowledge Institute service -->
                     <a
                         href="knowledge-institute.html"
-                        class="inline-block bg-sandy-brown text-forest-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition duration-300 shadow-lg" /* Button linking to service page */
+                        class="inline-block bg-sandy-brown text-forest-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition duration-300 shadow-lg"
                     >
                         Explore This Service &rarr;
                     </a>
@@ -228,48 +251,50 @@
                 <!-- Image associated with Knowledge Institute -->
                 <div class="order-1 md:order-2 flex justify-center">
                     <img
-                        src="https://placehold.co/400x250/c0d9bf/36454F?text=Knowledge+Institute" /* Placeholder image for Knowledge Institute */
-                        alt="Knowledge Institute" /* Alt text for accessibility */
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover" /* Tailwind classes for styling */
+                        src="https://placehold.co/400x250/c0d9bf/36454F?text=Knowledge+Institute"
+                        alt="Knowledge Institute"
+                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
                     />
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
+        <!-- Why Choose Us Section: Highlights the unique advantages of choosing Rebalance Impact. -->
         <section id="why-choose-us" class="py-16 md:py-20 bg-sandy-brown rounded-xl shadow-lg mt-12">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-4xl font-bold text-forest-green mb-6">Why Choose Us?</h2>
                 <p class="text-xl text-stone-700 leading-relaxed max-w-3xl mx-auto mb-10">
                     We are a small, dedicated firm committed to personally and intimately understanding the unique life of your business. This deep intimacy allows us to offer unparalleled flexibility, crafting unique, tailor-made solutions and fostering truly collaborative relationships. Our distinctive expertise, blending both accounting rigor and environmental science insight, perfectly positions us to navigate and lead the evolution of non-financial (ESG) reporting, ensuring your business is not just compliant, but thriving in a sustainable future.
                 </p>
+                <!-- Button linking to the About Us page -->
                 <a
                     href="about-us.html"
-                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg" /* Button linking to About Us page */
+                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                 >
                     Learn More About Us &rarr;
                 </a>
             </div>
         </section>
 
-        <!-- Get a Quote / Contact Us Section -->
+        <!-- Get a Quote / Contact Us Section: Provides options for users to request a quote or send a direct message. -->
         <section id="contact-and-quote" class="py-16 md:py-20 mt-12 rounded-xl shadow-lg bg-white">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <!-- Left: Get a Quote content -->
+                <!-- Left Column: "Get a Quote" content -->
                 <div class="text-center md:text-left">
                     <h2 class="text-4xl font-bold text-forest-green mb-6">Get a quote in 5 minutes</h2>
                     <p class="text-lg text-stone-700 leading-relaxed mb-8">
                         Click the button below to fill out a short form. This will help us understand your basic fundamental needs and wishes, allowing us to provide a more accurate and tailored quote for your business.
                     </p>
+                    <!-- Button linking to the Get a Quote form page -->
                     <a
                         href="get-quote.html"
-                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg" /* Button linking to Get a Quote page */
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
                         Get Quote &rarr;
                     </a>
                 </div>
 
-                <!-- Right: Contact Us Form -->
+                <!-- Right Column: Contact Us Form -->
                 <div class="bg-stone-50 p-8 rounded-xl shadow-inner">
                     <h2 class="text-3xl font-bold text-forest-green mb-6 text-center">Contact Us</h2>
                     <form action="#" method="POST" class="space-y-6">
@@ -312,12 +337,14 @@
 
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer Section: Contains copyright information and privacy/terms links. -->
     <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-6">
+                <!-- Link to Privacy Policy page -->
                 <a href="#" class="hover:text-stone-200">Privacy Policy</a>
+                <!-- Link to Terms of Service page -->
                 <a href="#" class="hover:text-stone-200">Terms of Service</a>
             </div>
         </div>
