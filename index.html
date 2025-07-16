@@ -77,8 +77,7 @@
         };
     </script>
 </head>
-<!-- Body Section: Contains the main content of the webpage, including header, main content area, and footer. -->
-<body class="font-sans antialiased text-stone-800" style="background-color: rgba(197, 158, 110, 0.317);">
+<body class="font-sans antialiased bg-sandy-brown/10 text-stone-800">
 
     <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
@@ -119,46 +118,71 @@
         </div>
     </header>
 
+    <!-- Main Logo and Slogan Section (Hero Banner): A prominent section featuring the main company logo and a key slogan. -->
+    <section class="py-16 md:py-24 bg-sandy-brown/10 text-center rounded-xl shadow-lg mx-4 mt-8">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <img
+                src="long_transparent.png"
+                alt="Rebalance Impact Main Logo"
+                class="h-48 md:h-56 w-auto rounded-md mb-8"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x100/CCCCCC/FFFFFF?text=Rebalance+Impact';"
+            />
+            <!-- The main slogan, with <br /> creating a line break for "Today" -->
+            <h1 class="text-4xl md:text-5xl font-extrabold text-forest-green leading-tight">
+                De-risk tomorrow <br /> Today
+            </h1>
+        </div>
+    </section>
+
     <!-- Main Content Area: Contains the primary sections of the homepage, structured to highlight core services and value proposition. -->
     <main class="container mx-auto px-4 py-8">
 
         <!-- Sustainable Reporting Section: Details the first core service offered. -->
-        <section id="sustainable-reporting" class="py-4 md:py-6">
-            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content with Border: This div groups the icon, headings, descriptive paragraph, and action button. It has a border and shadow. -->
-                <div class="order-2 md:order-1 p-6 border-8 border-forest-green rounded-lg shadow-sm">
-                    <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Sustainable Reporting (Leaf): A scalable vector graphic representing sustainability. -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+        <section id="sustainable-reporting" class="py-16 md:py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="text-forest-green mb-4">
+                    <!-- SVG Icon for Sustainable Reporting (Leaf): A scalable vector graphic representing sustainability. -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
+                    <!-- The main heading for this service, which is also a clickable link to its dedicated page -->
+                    <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
+                </h2>
+                <!-- A compelling slogan for the Sustainable Reporting service -->
+                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                    Reporting Today, Sustaining Tomorrow
+                </h3>
+                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mx-auto mb-12">
+                    Sustainable reporting is crucial for businesses to demonstrate their commitment to environmental, social, and governance (ESG) principles. It enhances transparency, builds stakeholder trust, and contributes to a resilient business model in a rapidly changing global landscape.
+                </p>
+                <!-- Three columns for Sustainable Reporting details -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Column 1: Gap Assessment -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">Gap Assessment</h4>
+                        <img src="https://placehold.co/200x150/d4b29c/36454F?text=Gap+Assessment" alt="Gap Assessment" class="rounded-md mb-4">
+                        <p class="text-stone-700">Identifying discrepancies between current practices and international sustainable reporting regulations, including ESRS requirements.</p>
                     </div>
-                    <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <!-- The main heading for this service, which is also a clickable link to its dedicated page -->
-                        <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
-                    </h2>
-                    <!-- A compelling slogan for the Sustainable Reporting service -->
-                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Reporting Today, Sustaining Tomorrow
-                    </h3>
-                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
-                        For the South African market, complying with evolving international and potential national sustainable reporting regulations is not just a necessity but a strategic advantage. We empower your business with comprehensive sustainable reporting that fosters an attractive and resilient business model. Our expertise covers every facet required by leading frameworks like ESRS, from meticulous GHG accounting and water stewardship to biodiversity impact assessments and crucial social impact metrics.
-                    </p>
-                    <!-- Button prompting users to explore this service further -->
-                    <a
-                        href="sustainable-reporting.html"
-                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
-                    >
-                        Explore This Service &rarr;
-                    </a>
+                    <!-- Column 2: Double Materiality Assessment -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">Double Materiality Assessment</h4>
+                        <img src="https://placehold.co/200x150/9cabb0/36454F?text=Double+Materiality" alt="Double Materiality Assessment" class="rounded-md mb-4">
+                        <p class="text-stone-700">Evaluating both financial and impact materiality to provide a holistic view of your business's sustainability performance.</p>
+                    </div>
+                    <!-- Column 3: Reporting -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">Reporting</h4>
+                        <img src="https://placehold.co/200x150/c0d9bf/36454F?text=Reporting" alt="Reporting" class="rounded-md mb-4">
+                        <p class="text-stone-700">Comprehensive coverage of all aspects required by ESRS, from GHG accounting to water, biodiversity, and social impacts.</p>
+                    </div>
                 </div>
-                <!-- Image associated with Sustainable Reporting: Visual representation complementing the service description. -->
-                <div class="order-1 md:order-2 flex justify-center">
-                    <img
-                        src="ESG_stock_photo.jpeg"
-                        alt="Sustainable Reporting"
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
-                        onerror="this.onerror=null;this.src='https://placehold.co/400x250/d4b29c/36454F?text=Sustainable+Reporting';"
-                    />
-                </div>
+                <!-- Button prompting users to explore this service further -->
+                <a
+                    href="sustainable-reporting.html"
+                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-12"
+                >
+                    Explore This Service &rarr;
+                </a>
             </div>
         </section>
         <!-- Separator Line: A horizontal divider to visually separate sections. -->
@@ -166,40 +190,44 @@
 
         <!-- Data Analytics Section: Details the second core service offered. -->
         <section id="data-analytics" class="py-16 md:py-20">
-            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Image associated with Data Analytics: Placed first on larger screens for an alternating layout. -->
-                <div class="order-1 md:order-1 flex justify-center">
-                    <img
-                        src="https://placehold.co/400x250/9cabb0/36454F?text=Data+Analytics"
-                        alt="Data Analytics"
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
-                    />
+            <div class="container mx-auto px-4 text-center">
+                <div class="text-forest-green mb-4">
+                    <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
                 </div>
-                <!-- Text Content with Border: Groups icon, headings, descriptive paragraph, and action button. -->
-                <div class="order-2 md:order-2 p-6 border border-gray-300 rounded-lg shadow-sm">
-                    <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
+                    <!-- The main heading for this service, also a clickable link -->
+                    <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
+                </h2>
+                <!-- A catchy slogan for the Data Analytics service -->
+                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                    Insights from Data: Powering Your Performance
+                </h3>
+                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mx-auto mb-12">
+                    Leverage the power of reliable and consistent data to drive informed decision-making. Our data analytics expertise transforms raw data into actionable intelligence, providing real-time tracking and identifying opportunities for enhanced operational efficiency.
+                </p>
+                <!-- Two columns for Data Analytics details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column 1: All-in-one dashboard -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">All-in-one dashboard</h4>
+                        <img src="https://placehold.co/200x150/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md mb-4">
+                        <p class="text-stone-700">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
                     </div>
-                    <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <!-- The main heading for this service, also a clickable link -->
-                        <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
-                    </h2>
-                    <!-- A catchy slogan for the Data Analytics service -->
-                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Insights from Data: Powering Your Performance
-                    </h3>
-                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
-                        In today's complex landscape, reliable and consistent data is paramount for informed decision-making. Our advanced data analytics expertise, coupled with intuitive, real-time dashboards, provides you with unparalleled visibility into your operations. We don't just present data; we transform it into actionable intelligence. Through meticulous gap assessments, we identify hidden opportunities and unlock tailored strategies to significantly enhance your operational efficiency and drive sustainable growth.
-                    </p>
-                    <!-- Button to explore Data Analytics service -->
-                    <a
-                        href="data-analytics.html"
-                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
-                    >
-                        Explore This Service &rarr;
-                    </a>
+                    <!-- Column 2: Business efficiency -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">Business efficiency</h4>
+                        <img src="https://placehold.co/200x150/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md mb-4">
+                        <p class="text-stone-700">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+                    </div>
                 </div>
+                <!-- Button to explore Data Analytics service -->
+                <a
+                    href="data-analytics.html"
+                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-12"
+                >
+                    Explore This Service &rarr;
+                </a>
             </div>
         </section>
         <!-- Separator Line: Another horizontal divider between sections. -->
@@ -207,40 +235,44 @@
 
         <!-- Knowledge Institute Section: Details the third core service offered. -->
         <section id="knowledge-institute" class="py-16 md:py-20">
-            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content with Border: Groups icon, headings, descriptive paragraph, and action button. -->
-                <div class="order-2 md:order-1 p-6 border border-gray-300 rounded-lg shadow-sm">
-                    <div class="text-forest-green mb-4">
-                        <!-- SVG Icon for Knowledge Institute (Open Book): A scalable vector graphic representing knowledge and learning. -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+            <div class="container mx-auto px-4 text-center">
+                <div class="text-forest-green mb-4">
+                    <!-- SVG Icon for Knowledge Institute (Open Book): A scalable vector graphic representing knowledge and learning. -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.5 2 6.5A7 7 0 0 1 11 20z"/><path d="M2 21c0-3 1.5-4 4-4s5 1 7 2c0 0 0 0 0 0C11 9 9 6 5 2"/></svg>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
+                    <!-- The main heading for this service, also a clickable link -->
+                    <a href="knowledge-institute.html" class="text-forest-green hover:text-stone-200 transition duration-300">Knowledge Institute</a>
+                </h2>
+                <!-- A slogan emphasizing future resilience through knowledge -->
+                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                    Knowledge for a Resilient Future
+                </h3>
+                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mx-auto mb-12">
+                    Our Knowledge Institute provides science-backed insights through various content formats, empowering decision-makers and stakeholders to build a sustainable and resilient future.
+                </p>
+                <!-- Two columns for Knowledge Institute details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Column 1: World of non-financial reporting -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">World of non-financial reporting</h4>
+                        <img src="https://placehold.co/200x150/d4b29c/36454F?text=World+of+Reporting" alt="World of non-financial reporting" class="rounded-md mb-4">
+                        <p class="text-stone-700">Stay ahead with our expert analysis on the evolving landscape of non-financial and ESG reporting standards.</p>
                     </div>
-                    <h2 class="text-4xl font-bold mb-4 leading-tight">
-                        <!-- The main heading for this service, also a clickable link -->
-                        <a href="knowledge-institute.html" class="text-forest-green hover:text-stone-200 transition duration-300">Knowledge Institute</a>
-                    </h2>
-                    <!-- A slogan emphasizing future resilience through knowledge -->
-                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                        Knowledge for a Resilient Future
-                    </h3>
-                    <p class="text-lg text-stone-700 leading-relaxed mb-8">
-                        Our Knowledge Institute is grounded in robust scientific principles, delivering profound insights crucial for navigating the complexities of sustainability. We empower decision-makers and relevant stakeholders by translating intricate research into accessible, short-form content such as insightful blog posts, comprehensive reports, and authoritative white papers. Our mission is to equip you with the knowledge and understanding needed to build a truly sustainable and resilient future for your organization and the broader community.
-                    </p>
-                    <!-- Button to explore Knowledge Institute service -->
-                    <a
-                        href="knowledge-institute.html"
-                        class="inline-block bg-sandy-brown text-forest-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition duration-300 shadow-lg"
-                    >
-                        Explore This Service &rarr;
-                    </a>
+                    <!-- Column 2: Publications -->
+                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center">
+                        <h4 class="text-xl font-bold text-forest-green mb-4">Publications</h4>
+                        <img src="https://placehold.co/200x150/9cabb0/36454F?text=Publications" alt="Publications" class="rounded-md mb-4">
+                        <p class="text-stone-700">Access our short-form content, blog posts, reports, and white papers designed to inform and empower you.</p>
+                    </div>
                 </div>
-                <!-- Image associated with Knowledge Institute -->
-                <div class="order-1 md:order-2 flex justify-center">
-                    <img
-                        src="https://placehold.co/400x250/c0d9bf/36454F?text=Knowledge+Institute"
-                        alt="Knowledge Institute"
-                        class="rounded-xl shadow-lg w-full max-w-md h-auto object-cover"
-                    />
-                </div>
+                <!-- Button to explore Knowledge Institute service -->
+                <a
+                    href="knowledge-institute.html"
+                    class="inline-block bg-sandy-brown text-forest-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-amber-700 transition duration-300 shadow-lg mt-12"
+                >
+                    Explore This Service &rarr;
+                </a>
             </div>
         </section>
 
@@ -256,7 +288,7 @@
                     href="about-us.html"
                     class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                 >
-                    Learn More About Us;
+                    Learn More About Us &rarr;
                 </a>
             </div>
         </section>
@@ -275,7 +307,7 @@
                         href="get-quote.html"
                         class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
                     >
-                        Get Quote;
+                        Get Quote &rarr;
                     </a>
                 </div>
 
