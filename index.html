@@ -117,6 +117,38 @@
                 margin-left: 1.5rem; /* Add space for data analytics image on right */
                 margin-right: 0;
             }
+            .carousel-slide.layout-row {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .carousel-slide.layout-row .image-area {
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+            }
+
+            /* Layout for slides with image on right, text on left */
+            .carousel-slide.layout-row-reverse {
+                flex-direction: row-reverse;
+                text-align: right; /* Align text to the right for reversed layout */
+                align-items: flex-start;
+            }
+            .carousel-slide.layout-row-reverse .image-area {
+                margin-left: 1.5rem;
+                margin-right: 0;
+            }
+
+            /* Common styles for content and image areas in row layouts */
+            .carousel-slide.layout-row .content-area,
+            .carousel-slide.layout-row-reverse .content-area {
+                flex-grow: 1;
+                width: auto;
+            }
+            .carousel-slide.layout-row .image-area,
+            .carousel-slide.layout-row-reverse .image-area {
+                width: 50%; /* Adjust image area width for row layouts */
+                max-width: 300px; /* Limit max width for images in row layout */
+            }
         }
 
         .carousel-button {
@@ -343,12 +375,12 @@
                 <div id="reporting-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
-                            <!-- Slide 1: New to ESG Reporting -->
-                            <div class="carousel-slide">
-                                <div class="image-area w-full md:w-1/3 flex justify-center md:justify-start mb-4 md:mb-0">
-                                    <img src="https://placehold.co/200x150/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md">
+                            <!-- Slide 1: New to ESG Reporting (Image Left, Text Right) -->
+                            <div class="carousel-slide layout-row">
+                                <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0">
+                                    <img src="https://placehold.co/300x200/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md object-cover">
                                 </div>
-                                <div class="content-area w-full md:w-2/3 text-center md:text-left">
+                                <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">New to ESG reporting?</h4>
                                     <p class="text-stone-700 leading-relaxed">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
                                     <a
@@ -359,12 +391,12 @@
                                     </a>
                                 </div>
                             </div>
-                            <!-- Slide 2: Done this before? -->
-                            <div class="carousel-slide">
-                                <div class="image-area w-full md:w-1/3 flex justify-center md:justify-start mb-4 md:mb-0">
-                                    <img src="https://placehold.co/200x150/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md">
+                            <!-- Slide 2: Done this before? (Image Top, Text Below) -->
+                            <div class="carousel-slide layout-col">
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="https://placehold.co/300x250/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md object-cover">
                                 </div>
-                                <div class="content-area w-full md:w-2/3 text-center md:text-left">
+                                <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Done this before?</h4>
                                     <p class="text-stone-700 leading-relaxed">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
                                     <a
@@ -393,9 +425,12 @@
                 <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2 md:order-1">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
-                            <!-- Slide 1: All-in-one dashboard -->
-                            <div class="carousel-slide data-analytics">
-                                <div class="content-area w-full md:w-2/3 text-center md:text-right">
+                            <!-- Slide 1: All-in-one dashboard (Image Right, Text Left) -->
+                            <div class="carousel-slide layout-row-reverse data-analytics">
+                                <div class="image-area w-full md:w-1/2 flex justify-center md:justify-end mb-4 md:mb-0">
+                                    <img src="https://placehold.co/300x200/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md object-cover">
+                                </div>
+                                <div class="content-area w-full md:w-1/2 text-center md:text-right flex flex-col items-center md:items-end">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
                                     <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
                                     <a
@@ -405,13 +440,13 @@
                                         View Dashboard &rarr;
                                     </a>
                                 </div>
-                                <div class="image-area w-full md:w-1/3 flex justify-center md:justify-end mb-4 md:mb-0">
-                                    <img src="https://placehold.co/200x150/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md">
-                                </div>
                             </div>
-                            <!-- Slide 2: Business efficiency -->
-                            <div class="carousel-slide data-analytics">
-                                <div class="content-area w-full md:w-2/3 text-center md:text-right">
+                            <!-- Slide 2: Business efficiency (Image Top, Text Below) -->
+                            <div class="carousel-slide layout-col data-analytics">
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="https://placehold.co/300x250/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md object-cover">
+                                </div>
+                                <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
                                     <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
                                     <a
@@ -420,9 +455,6 @@
                                     >
                                         Boost Efficiency &rarr;
                                     </a>
-                                </div>
-                                <div class="image-area w-full md:w-1/3 flex justify-center md:justify-end mb-4 md:mb-0">
-                                    <img src="https://placehold.co/200x150/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md">
                                 </div>
                             </div>
                         </div>
