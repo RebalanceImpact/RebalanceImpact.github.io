@@ -68,12 +68,16 @@
             overflow: hidden;
             width: 100%;
             border-radius: 0.5rem;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            /* Removed box-shadow here */
+            min-height: 400px; /* Increased height for the carousel container */
+            display: flex; /* Use flexbox to center slides vertically */
+            align-items: center; /* Center slides vertically */
         }
 
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%; /* Ensure wrapper takes full width */
         }
 
         .carousel-slide {
@@ -86,6 +90,10 @@
             justify-content: center; /* Center content vertically */
             padding: 1.5rem; /* Add padding inside the slide */
             border-radius: 0.5rem; /* Match container border-radius */
+            /* Removed background-color and shadow-sm from here */
+            border: 1px solid var(--color-forest-green); /* Keep the outline */
+            background-color: transparent; /* Ensure no background color */
+            height: 100%; /* Ensure slide takes full height of container */
         }
 
         .carousel-button {
@@ -313,20 +321,32 @@
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <!-- Slide 1: New to ESG Reporting -->
-                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #a0773e46;">
+                            <div class="carousel-slide">
                                 <a href="new-to-esg-reporting.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
                                     <h4 class="text-xl font-bold text-forest-green mb-4">New to ESG reporting?</h4>
                                     <img src="https://placehold.co/200x150/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md mb-4">
                                 </a>
                                 <p class="text-stone-700 text-center">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
+                                <a
+                                    href="new-to-esg-reporting.html"
+                                    class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                >
+                                    Learn More &rarr;
+                                </a>
                             </div>
                             <!-- Slide 2: Done this before? -->
-                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #a0773e46;">
+                            <div class="carousel-slide">
                                 <a href="esg-services.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
                                     <h4 class="text-xl font-bold text-forest-green mb-4">Done this before?</h4>
                                     <img src="https://placehold.co/200x150/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md mb-4">
                                 </a>
                                 <p class="text-stone-700 text-center">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
+                                <a
+                                    href="esg-services.html"
+                                    class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                >
+                                    Explore Services &rarr;
+                                </a>
                             </div>
                         </div>
                         <!-- Carousel Navigation Buttons -->
@@ -347,16 +367,28 @@
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <!-- Slide 1: All-in-one dashboard -->
-                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #608b5c46;">
+                            <div class="carousel-slide">
                                 <h4 class="text-xl font-bold text-forest-green mb-4">All-in-one dashboard</h4>
                                 <img src="https://placehold.co/200x150/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md mb-4">
                                 <p class="text-stone-700 text-center">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
+                                <a
+                                    href="data-kpis.html"
+                                    class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                >
+                                    View Dashboard &rarr;
+                                </a>
                             </div>
                             <!-- Slide 2: Business efficiency -->
-                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #608b5c46;">
+                            <div class="carousel-slide">
                                 <h4 class="text-xl font-bold text-forest-green mb-4">Business efficiency</h4>
                                 <img src="https://placehold.co/200x150/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md mb-4">
                                 <p class="text-stone-700 text-center">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+                                <a
+                                    href="assessments.html"
+                                    class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                >
+                                    Boost Efficiency &rarr;
+                                </a>
                             </div>
                         </div>
                         <!-- Carousel Navigation Buttons -->
