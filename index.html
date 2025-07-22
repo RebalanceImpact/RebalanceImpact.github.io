@@ -83,7 +83,7 @@
 
         .carousel-slide {
             width: 100%; /* Each slide takes half the wrapper width */
-            min-width: 0; /* Prevent overflow */
+            min-width: 50%; /* Prevent overflow */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
             display: flex; /* Use flexbox for content alignment within the slide */
@@ -191,12 +191,12 @@
 
                 // Function to move to the next slide
                 function nextSlide() {
-                    showSlide(currentSlide + 1);
+                    showSlide(currentSlide + 2);
                 }
 
                 // Function to move to the previous slide
                 function prevSlide() {
-                    showSlide(currentSlide - 1);
+                    showSlide(currentSlide - 2);
                 }
 
                 // Start automatic sliding
