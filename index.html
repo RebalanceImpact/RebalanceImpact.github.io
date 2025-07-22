@@ -69,7 +69,7 @@
             width: 100%;
             border-radius: 0.5rem;
             min-height: 400px; /* Increased height for the carousel container to accommodate new layouts */
-            /* Removed border: 1px solid var(--color-forest-green); */
+            border: none; /* Removed border as requested */
             background-color: transparent; /* Ensure no background color */
         }
 
@@ -97,11 +97,11 @@
             word-break: break-word; /* Ensure long words break to fit container */
         }
 
-        /* --- New Layout Styles --- */
+        /* --- Custom Layout Styles for Carousel Slides --- */
 
-        /* Base styles for slides with landscape images */
-        .carousel-slide.layout-landscape-top-left,
-        .carousel-slide.layout-landscape-top-right {
+        /* Layout for Portrait Images (Image Left/Right, Text Opposite) */
+        .carousel-slide.layout-portrait-left,
+        .carousel-slide.layout-portrait-right {
             flex-direction: column; /* Default to column for small screens */
             align-items: center; /* Center horizontally for column layout */
             text-align: center; /* Center text for column layout */
@@ -110,7 +110,7 @@
 
         /* Responsive adjustments for specific new layouts */
         @media (min-width: 768px) { /* md breakpoint */
-            /* Portrait Layout (Sustainable Reporting Slide 1) - Existing, maintained for context*/
+            /* Portrait Layout: Image Left, Text Right (Sustainable Reporting Slide 1) */
             .carousel-slide.layout-portrait-left {
                 flex-direction: row;
                 text-align: left;
@@ -330,8 +330,10 @@
 </head>
 <body style="background-color: rgba(255, 242, 232, 0.265); font-family: sans-serif; color: #403f3f;">
 
+    <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
+            <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
             <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
                 <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
                     <img
@@ -340,11 +342,14 @@
                         class="h-12 w-auto rounded-md"
                         onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
                     />
+                    <!-- Displays the company name with custom forest green color and bold text -->
                     <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
                 </a>
             </div>
 
+            <!-- Navigation Links - Top Right: Contains links to other main sections or pages of the website. -->
             <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
+                <!-- Reporting Solutions Dropdown -->
                 <div class="dropdown">
                     <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Reporting Solutions</a>
                     <div class="dropdown-content rounded-lg">
@@ -352,6 +357,7 @@
                         <a href="assisting-reporting.html">Reporting Assistance</a>
                     </div>
                 </div>
+                <!-- Data Solutions Dropdown -->
                 <div class="dropdown">
                     <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Data Solutions</a>
                     <div class="dropdown-content rounded-lg">
@@ -359,6 +365,7 @@
                         <a href="assessments.html">Assessments</a>
                     </div>
                 </div>
+                <!-- Insights Dropdown -->
                 <div class="dropdown">
                     <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Insights</a>
                     <div class="dropdown-content rounded-lg">
@@ -366,6 +373,7 @@
                         <a href="mailing-list.html">Join Our Mailing List</a>
                     </div>
                 </div>
+                <!-- About Us Dropdown -->
                 <div class="dropdown">
                     <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">About Us</a>
                     <div class="dropdown-content rounded-lg">
@@ -377,10 +385,13 @@
         </div>
     </header>
 
+    <!-- Main Content Area: Contains the primary sections of the homepage, structured to highlight core services and value proposition. -->
     <main class="container mx-auto px-1 py-8">
 
+        <!-- Sustainable Reporting Section: Details the first core service offered. -->
         <section id="sustainable-reporting" class="py-8 md:py-10">
             <div class="container mx-auto px-2 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
+                <!-- Left Column: Text Content (Heading, Slogan, Description, SVG) -->
                 <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-r-2 md:border-forest-green md:pr-8">
                     <div class="mb-4">
                         <span class="text-forest-green">
@@ -409,10 +420,11 @@
                     </a>
                 </div>
 
+                <!-- Right Column: Carousel for Reporting details -->
                 <div id="reporting-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
-                            <!-- First slide: Portrait Layout with Image on the Left -->
+                            <!-- Slide 1: New to ESG Reporting (Portrait Image Left, Text Right) -->
                             <div class="carousel-slide layout-portrait-left">
                                 <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0">
                                     <img src="images/road_forest.jpg" alt="New to ESG Reporting" class="rounded-md object-cover">
@@ -428,6 +440,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <!-- Slide 2: Done this before? (Landscape Image Top-Right, Text Left) -->
                             <div class="carousel-slide layout-landscape-top-right">
                                 <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Done this before?</h4>
@@ -454,9 +467,11 @@
 
         <section id="data-analytics" class="py-8 md:py-10">
             <div class="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
+                <!-- Left Column: Carousel for Data Analytics details -->
                 <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2 md:order-1">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
+                            <!-- Slide 1: All-in-one dashboard (Landscape Image Top-Left, Text Right) -->
                             <div class="carousel-slide layout-landscape-top-left data-analytics">
                                 <div class="image-area w-full flex justify-center mb-4">
                                     <img src="images/data_analytics_landscape.jpeg" alt="All-in-one dashboard" class="rounded-md object-cover">
@@ -472,6 +487,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <!-- Slide 2: Business efficiency (Landscape Image Top-Right, Text Left) -->
                             <div class="carousel-slide layout-landscape-top-right data-analytics">
                                 <div class="content-area w-full text-left flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
@@ -493,6 +509,7 @@
                     </div>
                 </div>
 
+                <!-- Right Column: Text Content (Heading, Slogan, Description, SVG) -->
                 <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-l-2 md:border-forest-green md:pl-8">
                     <div class="mb-4">
                         <span class="text-forest-green flex justify-center md:justify-start w-full">
