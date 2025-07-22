@@ -61,6 +61,60 @@
         .dropdown:hover .dropdown-content {
             display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
         }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%; /* Each slide takes full width of its container */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            flex-shrink: 0; /* Prevent slides from shrinking */
+            display: flex; /* Use flexbox for content alignment within the slide */
+            flex-direction: column; /* Stack content vertically */
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            padding: 1.5rem; /* Add padding inside the slide */
+            border-radius: 0.5rem; /* Match container border-radius */
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            border-radius: 9999px; /* Full rounded corners */
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -75,6 +129,86 @@
                 }
             }
         };
+
+        // JavaScript for the carousel functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to initialize a carousel
+            function initializeCarousel(carouselId) {
+                const carouselContainer = document.getElementById(carouselId);
+                if (!carouselContainer) return; // Exit if container not found
+
+                const carouselWrapper = carouselContainer.querySelector('.carousel-wrapper');
+                const slides = carouselContainer.querySelectorAll('.carousel-slide');
+                const prevButton = carouselContainer.querySelector('.carousel-button.prev');
+                const nextButton = carouselContainer.querySelector('.carousel-button.next');
+
+                let currentSlide = 0;
+                let autoSlideInterval;
+                const slideIntervalTime = 5000; // 5 seconds
+
+                // Function to show a specific slide
+                function showSlide(index) {
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+                    carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                // Function to move to the next slide
+                function nextSlide() {
+                    showSlide(currentSlide + 1);
+                }
+
+                // Function to move to the previous slide
+                function prevSlide() {
+                    showSlide(currentSlide - 1);
+                }
+
+                // Start automatic sliding
+                function startAutoSlide() {
+                    stopAutoSlide(); // Clear any existing interval
+                    autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
+                }
+
+                // Stop automatic sliding
+                function stopAutoSlide() {
+                    clearInterval(autoSlideInterval);
+                }
+
+                // Event listeners for navigation buttons
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        stopAutoSlide();
+                        prevSlide();
+                        startAutoSlide(); // Restart auto-slide after manual interaction
+                    });
+                }
+
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        stopAutoSlide();
+                        nextSlide();
+                        startAutoSlide(); // Restart auto-slide after manual interaction
+                    });
+                }
+
+                // Initialize the first slide and start auto-sliding
+                showSlide(0);
+                startAutoSlide();
+
+                // Pause auto-slide on hover for better user experience
+                carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+                carouselContainer.addEventListener('mouseleave', startAutoSlide);
+            }
+
+            // Initialize carousels for both sections
+            initializeCarousel('reporting-carousel');
+            initializeCarousel('data-analytics-carousel');
+        });
     </script>
 </head>
 <body style="background-color: rgba(255, 242, 232, 0.265); font-family: sans-serif; color: #403f3f;">
@@ -139,56 +273,67 @@
 
         <!-- Sustainable Reporting Section: Details the first core service offered. -->
         <section id="sustainable-reporting" class="py-8 md:py-10">
-            <div class="container mx-auto px-2 text-center">
-                <!-- SVG Icon for Sustainable Reporting (Leaf) centered -->
-                <div class="flex justify-center mb-4">
-                    <span class="text-forest-green">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <rect x="4" y="3" width="16" height="18" rx="2" />
-                            <path d="M8 7h8M8 11h5" />
-                            <ellipse cx="16" cy="17" rx="3" ry="1.5" fill="none" stroke="var(--color-forest-green)" />
-                            <path d="M14.5 17.2c.25-.6 1-1.2 1.5-1" />
-                        </svg>
-                    </span>
-                </div>
-                <!-- Main heading centered -->
-                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
-                    <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
-                </h2>
-                <!-- Compelling slogan centered -->
-                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                    Reporting Today, Sustaining Tomorrow
-                </h3>
-                <!-- Description text centered -->
-                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mx-auto mb-12">
-                    Sustainable reporting is crucial for businesses to demonstrate their commitment to environmental, social, and governance (ESG) principles. It enhances transparency, builds stakeholder trust, and contributes to a resilient business model in a rapidly changing global landscape.
-                </p>
-                <!-- Two columns for Sustainable Reporting details -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Column 1: New to ESG Reporting -->
-                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center" style="background-color: #a0773e46;">
-                        <a href="new-to-esg-reporting.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
-                            <h4 class="text-xl font-bold text-forest-green mb-4">New to ESG reporting?</h4>
-                            <img src="https://placehold.co/200x150/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md mb-4">
-                        </a>
-                        <p class="text-stone-700">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
+            <div class="container mx-auto px-2 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
+                <!-- Left Column: Text Content (Heading, Slogan, Description, SVG) -->
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start">
+                    <!-- SVG Icon for Sustainable Reporting (Leaf) -->
+                    <div class="mb-4">
+                        <span class="text-forest-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect x="4" y="3" width="16" height="18" rx="2" />
+                                <path d="M8 7h8M8 11h5" />
+                                <ellipse cx="16" cy="17" rx="3" ry="1.5" fill="none" stroke="var(--color-forest-green)" />
+                                <path d="M14.5 17.2c.25-.6 1-1.2 1.5-1" />
+                            </svg>
+                        </span>
                     </div>
-                    <!-- Column 2: Done this before? -->
-                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center" style="background-color: #a0773e46;">
-                        <a href="esg-services.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
-                            <h4 class="text-xl font-bold text-forest-green mb-4">Done this before?</h4>
-                            <img src="https://placehold.co/200x150/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md mb-4">
-                        </a>
-                        <p class="text-stone-700">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
+                    <!-- Main heading -->
+                    <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
+                        <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
+                    </h2>
+                    <!-- Compelling slogan -->
+                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                        Reporting Today, Sustaining Tomorrow
+                    </h3>
+                    <!-- Description text -->
+                    <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mb-12">
+                        Sustainable reporting is crucial for businesses to demonstrate their commitment to environmental, social, and governance (ESG) principles. It enhances transparency, builds stakeholder trust, and contributes to a resilient business model in a rapidly changing global landscape.
+                    </p>
+                    <!-- Button prompting users to explore this service further -->
+                    <a
+                        href="sustainable-reporting.html"
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        More about sustainable reporting &rarr;
+                    </a>
+                </div>
+
+                <!-- Right Column: Carousel for Reporting details -->
+                <div id="reporting-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0">
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <!-- Slide 1: New to ESG Reporting -->
+                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #a0773e46;">
+                                <a href="new-to-esg-reporting.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
+                                    <h4 class="text-xl font-bold text-forest-green mb-4">New to ESG reporting?</h4>
+                                    <img src="https://placehold.co/200x150/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md mb-4">
+                                </a>
+                                <p class="text-stone-700 text-center">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
+                            </div>
+                            <!-- Slide 2: Done this before? -->
+                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #a0773e46;">
+                                <a href="esg-services.html" class="block text-center hover:opacity-75 transition-opacity duration-300">
+                                    <h4 class="text-xl font-bold text-forest-green mb-4">Done this before?</h4>
+                                    <img src="https://placehold.co/200x150/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md mb-4">
+                                </a>
+                                <p class="text-stone-700 text-center">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
+                            </div>
+                        </div>
+                        <!-- Carousel Navigation Buttons -->
+                        <button class="carousel-button prev">&#10094;</button>
+                        <button class="carousel-button next">&#10095;</button>
                     </div>
                 </div>
-                <!-- Button prompting users to explore this service further -->
-                <a
-                    href="sustainable-reporting.html"
-                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-12"
-                >
-                    More about sustainable reporting &rarr;
-                </a>
             </div>
         </section>
         <!-- Separator Line: A horizontal divider to visually separate sections. -->
@@ -196,50 +341,61 @@
 
         <!-- Data Analytics Section: Details the second core service offered. -->
         <section id="data-analytics" class="py-8 md:py-10">
-            <div class="container mx-auto px-4 text-center">
-                <div class="flex justify-center mb-4">
-                    <span class="text-forest-green flex justify-center w-full">
-                        <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-analytics">
-                            <polyline points="3 17 8 12 13 14 18 7 21 10" />
-                            <line x1="3" y1="22" x2="21" y2="22" />
-                            <line x1="3" y1="2" x2="3" y2="22" />
-                        </svg>
-                    </span>
-                </div>
-                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
-                    <!-- The main heading for this service, also a clickable link -->
-                    <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
-                </h2>
-                <!-- A catchy slogan for the Data Analytics service -->
-                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                    Insights from Data: Powering Your Performance
-                </h3>
-                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mx-auto mb-12">
-                    Leverage the power of reliable and consistent data to drive informed decision-making. Our data analytics expertise transforms raw data into actionable intelligence, providing real-time tracking and identifying opportunities for enhanced operational efficiency.
-                </p>
-                <!-- Two columns for Data Analytics details -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Column 1: All-in-one dashboard -->
-                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center" style="background-color: #608b5c46;">
-                        <h4 class="text-xl font-bold text-forest-green mb-4">All-in-one dashboard</h4>
-                        <img src="https://placehold.co/200x150/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md mb-4">
-                        <p class="text-stone-700">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
-                    </div>
-                    <!-- Column 2: Business efficiency -->
-                    <div class="p-6 border border-forest-green rounded-lg shadow-sm flex flex-col items-center" style="background-color: #608b5c46;">
-                        <h4 class="text-xl font-bold text-forest-green mb-4">Business efficiency</h4>
-                        <img src="https://placehold.co/200x150/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md mb-4">
-                        <p class="text-stone-700">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+            <div class="container mx-auto px-4 text-center md:text-right flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
+                <!-- Left Column: Carousel for Data Analytics details -->
+                <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2 md:order-1">
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <!-- Slide 1: All-in-one dashboard -->
+                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #608b5c46;">
+                                <h4 class="text-xl font-bold text-forest-green mb-4">All-in-one dashboard</h4>
+                                <img src="https://placehold.co/200x150/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md mb-4">
+                                <p class="text-stone-700 text-center">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
+                            </div>
+                            <!-- Slide 2: Business efficiency -->
+                            <div class="carousel-slide p-6 border border-forest-green rounded-lg shadow-sm" style="background-color: #608b5c46;">
+                                <h4 class="text-xl font-bold text-forest-green mb-4">Business efficiency</h4>
+                                <img src="https://placehold.co/200x150/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md mb-4">
+                                <p class="text-stone-700 text-center">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+                            </div>
+                        </div>
+                        <!-- Carousel Navigation Buttons -->
+                        <button class="carousel-button prev">&#10094;</button>
+                        <button class="carousel-button next">&#10095;</button>
                     </div>
                 </div>
-                <!-- Button to explore Data Analytics service -->
-                <a
-                    href="data-analytics.html"
-                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-12"
-                >
-                    Explore This Service &rarr;
-                </a>
+
+                <!-- Right Column: Text Content (Heading, Slogan, Description, SVG) -->
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-end order-1 md:order-2">
+                    <div class="mb-4">
+                        <span class="text-forest-green flex justify-center md:justify-end w-full">
+                            <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-analytics">
+                                <polyline points="3 17 8 12 13 14 18 7 21 10" />
+                                <line x1="3" y1="22" x2="21" y2="22" />
+                                <line x1="3" y1="2" x2="3" y2="22" />
+                            </svg>
+                        </span>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
+                        <!-- The main heading for this service, also a clickable link -->
+                        <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
+                    </h2>
+                    <!-- A catchy slogan for the Data Analytics service -->
+                    <h3 class="text-2xl text-stone-700 font-semibold mb-6">
+                        Insights from Data: Powering Your Performance
+                    </h3>
+                    <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mb-12">
+                        Leverage the power of reliable and consistent data to drive informed decision-making. Our data analytics expertise transforms raw data into actionable intelligence, providing real-time tracking and identifying opportunities for enhanced operational efficiency.
+                    </p>
+                    <!-- Button to explore Data Analytics service -->
+                    <a
+                        href="data-analytics.html"
+                        class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
+                    >
+                        Explore This Service &rarr;
+                    </a>
+                </div>
             </div>
         </section>
         <!-- Separator Line: Another horizontal divider between sections. -->
