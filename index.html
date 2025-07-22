@@ -76,13 +76,14 @@
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%; /* Ensure wrapper takes full width */
+            width: 200%; /* Two slides: wrapper is twice the container width */
             height: 100%; /* Ensure wrapper takes full height of container */
             align-items: center; /* Center slides vertically within the wrapper */
         }
 
         .carousel-slide {
-            min-width: 100%; /* Each slide takes full width of its container */
+            width: 50%; /* Each slide takes half the wrapper width */
+            min-width: 0; /* Prevent overflow */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
             display: flex; /* Use flexbox for content alignment within the slide */
@@ -96,13 +97,13 @@
             word-wrap: break-word; /* Ensure long words break to fit container */
             word-break: break-word; /* Ensure long words break to fit container */
         }
-
         /* Adjustments for larger screens within carousel slides for text wrapping */
         @media (min-width: 768px) { /* md breakpoint */
             .carousel-slide {
                 flex-direction: row; /* Arrange content in a row on larger screens */
                 text-align: left; /* Align text to the left on larger screens */
                 align-items: flex-start; /* Align items to the start of the cross axis */
+                width: 50%; /* Ensure each slide stays at half the wrapper width */
             }
             .carousel-slide .content-area {
                 flex-grow: 1; /* Allow content area to grow and take available space */
