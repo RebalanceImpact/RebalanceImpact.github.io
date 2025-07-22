@@ -68,7 +68,7 @@
             overflow: hidden;
             width: 100%;
             border-radius: 0.5rem;
-            min-height: 400px; /* Increased height for the carousel container to accommodate new layouts */
+            min-height: 900px; /* Increased height for the carousel container to accommodate new layouts */
             border: 1px solid var(--color-forest-green); /* Keep the outline */
             background-color: transparent; /* Ensure no background color */
         }
@@ -76,13 +76,13 @@
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
+            width: 200%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
             height: 100%; /* Ensure wrapper takes full height of container */
             align-items: flex-start; /* Align items to the top within the wrapper */
         }
 
         .carousel-slide {
-            width: 100%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
+            width: 50%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
             min-width: 50%; /* Ensure it doesn't shrink below this */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
@@ -144,7 +144,7 @@
             /* Portrait Layout: Image Right, Text Left */
             .carousel-slide.layout-portrait-right {
                 flex-direction: row-reverse; /* Reverse order */
-                text-align: left;
+                text-align: left; /* Changed from right to left */
                 align-items: flex-start;
             }
             .carousel-slide.layout-portrait-right .image-area {
@@ -170,8 +170,8 @@
             /* Landscape Layout: Text Top, Image Below */
             .carousel-slide.layout-landscape-bottom {
                 flex-direction: column; /* Remains column */
-                text-align: center; /* Center text for this layout */
-                align-items: center; /* Center items for this layout */
+                text-align: left; /* Changed from center to left */
+                align-items: flex-start; /* Changed from center to flex-start */
                 justify-content: flex-start; /* Align content to top */
             }
             .carousel-slide.layout-landscape-bottom .content-area {
@@ -471,7 +471,7 @@
                         <div class="carousel-wrapper">
                             <!-- Slide 1: All-in-one dashboard (Portrait Image Right, Text Left) -->
                             <div class="carousel-slide layout-portrait-right data-analytics">
-                                <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-end">
+                                <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
                                     <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
                                     <a
@@ -487,7 +487,7 @@
                             </div>
                             <!-- Slide 2: Business efficiency (Landscape Image Top, Text Below) -->
                             <div class="carousel-slide layout-landscape-bottom data-analytics">
-                                <div class="content-area w-full text-center flex flex-col items-center">
+                                <div class="content-area w-full text-center md:text-left flex flex-col items-center md:items-start">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
                                     <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
                                     <a
@@ -509,9 +509,9 @@
                 </div>
 
                 <!-- Right Column: Text Content (Heading, Slogan, Description, SVG) -->
-                <div class="w-full md:w-1/2 flex flex-col items-center md:items-end order-1 md:order-2">
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start order-1 md:order-2">
                     <div class="mb-4">
-                        <span class="text-forest-green flex justify-center md:justify-end w-full">
+                        <span class="text-forest-green flex justify-center md:justify-start w-full">
                             <!-- SVG Icon for Data Analytics (Bar Chart): A scalable vector graphic representing data and analysis. -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-analytics">
                                 <polyline points="3 17 8 12 13 14 18 7 21 10" />
