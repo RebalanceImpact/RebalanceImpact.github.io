@@ -68,7 +68,7 @@
             overflow: hidden;
             width: 100%;
             border-radius: 0.5rem;
-            min-height: 900px; /* Increased height for the carousel container to accommodate new layouts */
+            min-height: 400px; /* Reverted to original height */
             border: 1px solid var(--color-forest-green); /* Keep the outline */
             background-color: transparent; /* Ensure no background color */
         }
@@ -76,14 +76,14 @@
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 200%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
+            width: 100%; /* Reverted to original width */
             height: 100%; /* Ensure wrapper takes full height of container */
             align-items: flex-start; /* Align items to the top within the wrapper */
         }
 
         .carousel-slide {
-            width: 50%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
-            min-width: 50%; /* Ensure it doesn't shrink below this */
+            width: 100%; /* Reverted to original width */
+            min-width: 50%; /* Reverted to original min-width */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
             display: flex; /* Use flexbox for content alignment within the slide */
