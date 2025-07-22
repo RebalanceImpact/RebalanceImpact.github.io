@@ -68,27 +68,26 @@
             overflow: hidden;
             width: 100%;
             border-radius: 0.5rem;
-            min-height: 500px; /* Increased height for the carousel container */
-            border: 2px solid var(--color-forest-green); /* Keep the outline */
+            min-height: 900px; /* Increased height for the carousel container to accommodate new layouts */
+            border: 1px solid var(--color-forest-green); /* Keep the outline */
             background-color: transparent; /* Ensure no background color */
         }
 
         .carousel-wrapper {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%; /* Two slides: wrapper is twice the container width */
+            width: 200%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
             height: 100%; /* Ensure wrapper takes full height of container */
-            align-items: center; /* Center slides vertically within the wrapper */
+            align-items: flex-start; /* Align items to the top within the wrapper */
         }
 
         .carousel-slide {
-            width: 100%; /* Each slide takes half the wrapper width */
-            min-width: 50%; /* Prevent overflow */
+            width: 50%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
+            min-width: 50%; /* Ensure it doesn't shrink below this */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
             display: flex; /* Use flexbox for content alignment within the slide */
-            flex-direction: column; /* Stack content vertically by default */
-            align-items: center; /* Center content horizontally by default */
+            align-items: center; /* Default: Center content horizontally */
             justify-content: flex-start; /* Align content to the top */
             padding: 1.5rem; /* Add padding inside the slide */
             border-radius: 0.5rem; /* Match container border-radius */
@@ -97,57 +96,101 @@
             word-wrap: break-word; /* Ensure long words break to fit container */
             word-break: break-word; /* Ensure long words break to fit container */
         }
-        /* Adjustments for larger screens within carousel slides for text wrapping */
+
+        /* Layout for Portrait Images (Image Left/Right, Text Opposite) */
+        .carousel-slide.layout-portrait-left,
+        .carousel-slide.layout-portrait-right {
+            flex-direction: column; /* Default to column for small screens */
+        }
+
+        /* Layout for Landscape Images (Text Top, Image Below) */
+        .carousel-slide.layout-landscape-bottom {
+            flex-direction: column; /* Always column for this layout */
+            justify-content: space-between; /* Distribute space to push image to bottom if needed */
+        }
+
+        .carousel-slide.layout-landscape-bottom .image-area img {
+            width: 100%; /* Landscape image takes full width */
+            height: auto;
+        }
+
+        /* Responsive adjustments for carousel slides */
         @media (min-width: 768px) { /* md breakpoint */
-            .carousel-slide {
-                flex-direction: row; /* Arrange content in a row on larger screens */
-                text-align: left; /* Align text to the left on larger screens */
-                align-items: flex-start; /* Align items to the start of the cross axis */
-                width: 100%; /* Ensure each slide stays at half the wrapper width */
-            }
-            .carousel-slide .content-area {
-                flex-grow: 1; /* Allow content area to grow and take available space */
-                width: auto; /* Allow content area to adjust its width based on flex-grow */
-            }
-            .carousel-slide .image-area {
-                margin-right: 1.5rem; /* Add space between image and text */
-                margin-bottom: 0; /* Remove bottom margin on larger screens */
-            }
-            .carousel-slide.data-analytics .image-area {
-                margin-left: 1.5rem; /* Add space for data analytics image on right */
-                margin-right: 0;
-            }
-            .carousel-slide.layout-row {
+            /* Portrait Layout: Image Left, Text Right */
+            .carousel-slide.layout-portrait-left {
                 flex-direction: row;
                 text-align: left;
                 align-items: flex-start;
             }
-            .carousel-slide.layout-row .image-area {
+            .carousel-slide.layout-portrait-left .image-area {
+                width: 40%; /* Adjust image area width for portrait */
+                height: 100%; /* Image takes full height of slide */
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin-right: 1.5rem;
                 margin-bottom: 0;
             }
+            .carousel-slide.layout-portrait-left .image-area img {
+                height: 100%; /* Make image fill height */
+                width: auto; /* Maintain aspect ratio */
+                object-fit: contain; /* Ensure image is fully visible */
+            }
+            .carousel-slide.layout-portrait-left .content-area {
+                width: 60%; /* Adjust content area width */
+                flex-grow: 1;
+            }
 
-            /* Layout for slides with image on right, text on left */
-            .carousel-slide.layout-row-reverse {
-                flex-direction: row-reverse;
-                text-align: right; /* Align text to the right for reversed layout */
+            /* Portrait Layout: Image Right, Text Left */
+            .carousel-slide.layout-portrait-right {
+                flex-direction: row-reverse; /* Reverse order */
+                text-align: right;
                 align-items: flex-start;
             }
-            .carousel-slide.layout-row-reverse .image-area {
+            .carousel-slide.layout-portrait-right .image-area {
+                width: 40%; /* Adjust image area width for portrait */
+                height: 100%; /* Image takes full height of slide */
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin-left: 1.5rem;
                 margin-right: 0;
+                
+            }
+            .carousel-slide.layout-portrait-right .image-area img {
+                height: 100%; /* Make image fill height */
+                width: auto; /* Maintain aspect ratio */
+                object-fit: contain; /* Ensure image is fully visible */
+            }
+            .carousel-slide.layout-portrait-right .content-area {
+                width: 60%; /* Adjust content area width */
+                flex-grow: 1;
             }
 
-            /* Common styles for content and image areas in row layouts */
-            .carousel-slide.layout-row .content-area,
-            .carousel-slide.layout-row-reverse .content-area {
-                flex-grow: 1;
-                width: auto;
+            /* Landscape Layout: Text Top, Image Below */
+            .carousel-slide.layout-landscape-bottom {
+                flex-direction: column; /* Remains column */
+                text-align: center; /* Center text for this layout */
+                align-items: center; /* Center items for this layout */
+                justify-content: flex-start; /* Align content to top */
             }
-            .carousel-slide.layout-row .image-area,
-            .carousel-slide.layout-row-reverse .image-area {
-                width: 50%; /* Adjust image area width for row layouts */
-                max-width: 300px; /* Limit max width for images in row layout */
+            .carousel-slide.layout-landscape-bottom .content-area {
+                width: 100%; /* Content takes full width */
+                margin-bottom: 1.5rem; /* Space between text and image */
+            }
+            .carousel-slide.layout-landscape-bottom .image-area {
+                width: 100%; /* Image takes full width */
+                height: auto;
+                flex-grow: 1; /* Allow image area to grow to fill remaining space */
+                display: flex;
+                align-items: flex-end; /* Push image to bottom if content is short */
+                justify-content: center;
+            }
+            .carousel-slide.layout-landscape-bottom .image-area img {
+                width: 100%; /* Ensure image fills width */
+                height: auto;
+                max-height: 400px; /* Limit max height for landscape images */
+                object-fit: contain; /* Ensure image is fully visible */
             }
         }
 
@@ -218,6 +261,7 @@
                     } else {
                         currentSlide = index;
                     }
+                    // The transform value is crucial: it moves the wrapper by the full width of one slide
                     carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
                 }
 
@@ -375,10 +419,10 @@
                 <div id="reporting-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
-                            <!-- Slide 1: New to ESG Reporting (Image Left, Text Right) -->
-                            <div class="carousel-slide layout-row">
+                            <!-- Slide 1: New to ESG Reporting (Portrait Image Left, Text Right) -->
+                            <div class="carousel-slide layout-portrait-left">
                                 <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0">
-                                    <img src="https://placehold.co/300x200/d4b29c/36454F?text=Start+ESG+Journey" alt="New to ESG Reporting" class="rounded-md object-cover">
+                                    <img src="https://placehold.co/300x500/d4b29c/36454F?text=Portrait+ESG" alt="New to ESG Reporting" class="rounded-md object-cover">
                                 </div>
                                 <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">New to ESG reporting?</h4>
@@ -391,11 +435,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <!-- Slide 2: Done this before? (Image Top, Text Below) -->
-                            <div class="carousel-slide layout-col">
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="https://placehold.co/300x250/9cabb0/36454F?text=Enhance+ESG+Journey" alt="Enhance ESG Journey" class="rounded-md object-cover">
-                                </div>
+                            <!-- Slide 2: Done this before? (Landscape Image Top, Text Below) -->
+                            <div class="carousel-slide layout-landscape-bottom">
                                 <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Done this before?</h4>
                                     <p class="text-stone-700 leading-relaxed">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
@@ -405,6 +446,9 @@
                                     >
                                         Explore Services &rarr;
                                     </a>
+                                </div>
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Enhance" alt="Enhance ESG Journey" class="rounded-md object-cover">
                                 </div>
                             </div>
                         </div>
@@ -425,11 +469,8 @@
                 <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2 md:order-1">
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
-                            <!-- Slide 1: All-in-one dashboard (Image Right, Text Left) -->
-                            <div class="carousel-slide layout-row-reverse data-analytics">
-                                <div class="image-area w-full md:w-1/2 flex justify-center md:justify-end mb-4 md:mb-0">
-                                    <img src="https://placehold.co/300x200/d4b29c/36454F?text=Dashboard" alt="All-in-one dashboard" class="rounded-md object-cover">
-                                </div>
+                            <!-- Slide 1: All-in-one dashboard (Portrait Image Right, Text Left) -->
+                            <div class="carousel-slide layout-portrait-right data-analytics">
                                 <div class="content-area w-full md:w-1/2 text-center md:text-right flex flex-col items-center md:items-end">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
                                     <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
@@ -440,12 +481,12 @@
                                         View Dashboard &rarr;
                                     </a>
                                 </div>
-                            </div>
-                            <!-- Slide 2: Business efficiency (Image Top, Text Below) -->
-                            <div class="carousel-slide layout-col data-analytics">
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="https://placehold.co/300x250/9cabb0/36454F?text=Efficiency" alt="Business efficiency" class="rounded-md object-cover">
+                                <div class="image-area w-full md:w-1/2 flex justify-center md:justify-end mb-4 md:mb-0">
+                                    <img src="https://placehold.co/300x500/d4b29c/36454F?text=Portrait+Dashboard" alt="All-in-one dashboard" class="rounded-md object-cover">
                                 </div>
+                            </div>
+                            <!-- Slide 2: Business efficiency (Landscape Image Top, Text Below) -->
+                            <div class="carousel-slide layout-landscape-bottom data-analytics">
                                 <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
                                     <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
@@ -455,6 +496,9 @@
                                     >
                                         Boost Efficiency &rarr;
                                     </a>
+                                </div>
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Efficiency" alt="Business efficiency" class="rounded-md object-cover">
                                 </div>
                             </div>
                         </div>
