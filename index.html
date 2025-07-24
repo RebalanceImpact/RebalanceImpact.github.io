@@ -122,7 +122,7 @@
             .carousel-slide.layout-portrait-left {
                 display: flex;
                 flex-direction: row;
-                align-items: stretch; /* Both children match height */
+                align-items: flex-start; /* Both children match height */
                 flex-wrap: nowrap;    /* Prevents wrapping unless truly necessary */
             }
             .carousel-slide.layout-portrait-left .image-area,
@@ -131,7 +131,7 @@
             }
             .carousel-slide.layout-portrait-left .image-area {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 padding-left: 0.5rem;    /* Spacing from left edge */
                 padding-right: 1rem;     /* Spacing from image to text */
@@ -140,7 +140,7 @@
             }
             .carousel-slide.layout-portrait-left .image-area img {
                 max-width: 100%;
-                max-height: 250px;      /* Or your preferred size */
+                max-height: 275px;      /* Or your preferred size */
                 width: auto;
                 height: auto;           /* Let aspect ratio rule */
                 object-fit: contain;
@@ -148,12 +148,12 @@
             .carousel-slide.layout-portrait-left .content-area {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 text-align: left;
                 padding-left: 0;        /* Start flush against image area */
                 padding-right: 1rem;    /* Add right padding if needed */
             }
-            
+
             /* Landscape Image Top Layout (Image above text - for Data Analytics Slide 1) */
             .carousel-slide.layout-landscape-image-top {
                 flex-direction: column; /* Stacks vertically */
