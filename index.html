@@ -397,73 +397,79 @@
 
         <!-- Sustainable Reporting Section: Details the first core service offered. -->
         <section id="sustainable-reporting" class="py-8 md:py-10">
+            <div class="container mx-auto px-2 flex flex-col md:flex-row items-stretch justify-center gap-8">
+            <!-- Left Column -->
             <div class="w-full md:w-1/2 flex flex-col items-start pl-4 md:pl-8">
-            <div class="mb-4">
+                <div class="mb-4">
                 <span class="text-forest-green">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <rect x="4" y="3" width="16" height="18" rx="2" />
-                        <path d="M8 7h8M8 11h5" />
-                        <ellipse cx="16" cy="17" rx="3" ry="1.5" fill="none" stroke="var(--color-forest-green)" />
-                        <path d="M14.5 17.2c.25-.6 1-1.2 1.5-1" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none"
+                    stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="4" y="3" width="16" height="18" rx="2" />
+                    <path d="M8 7h8M8 11h5" />
+                    <ellipse cx="16" cy="17" rx="3" ry="1.5" fill="none" stroke="var(--color-forest-green)" />
+                    <path d="M14.5 17.2c.25-.6 1-1.2 1.5-1" />
                     </svg>
                 </span>
-            </div>
-            <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green text-left">
-                <a href="sustainable-reporting.html" class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
-            </h2>
-            <h3 class="text-2xl text-stone-700 font-semibold mb-6 text-left">
+                </div>
+                <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green text-left">
+                <a href="sustainable-reporting.html"
+                    class="text-forest-green hover:text-green-800 transition duration-300">Sustainable Reporting</a>
+                </h2>
+                <h3 class="text-2xl text-stone-700 font-semibold mb-6 text-left">
                 Reporting Today, Sustaining Tomorrow
-            </h3>
-            <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mb-12 text-left">
+                </h3>
+                <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mb-12 text-left">
                 Sustainable reporting is crucial for businesses to demonstrate their commitment to environmental, social, and governance (ESG) principles. It enhances transparency, builds stakeholder trust, and contributes to a resilient business model in a rapidly changing global landscape.
-            </p>
-            <div class="w-full flex justify-center">
-                <a href="sustainable-reporting.html" class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">
+                </p>
+                <div class="w-full flex justify-center">
+                <a href="sustainable-reporting.html"
+                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">
                     More about sustainable reporting &rarr;
                 </a>
-            </div>
+                </div>
             </div>
 
-            <!-- Middle Vertical Line (matches Sustainable Reporting section) -->
-            <div class="hidden md:flex flex-shrink-0 h-[350px] w-0.5 bg-forest-green mx-8 rounded-full justify-center items-center md:order-1"></div>
+            <!-- Vertical Divider -->
+            <div class="hidden md:flex items-stretch">
+                <div class="w-px bg-forest-green mx-8 rounded-full h-full"></div>
+            </div>
 
-            <!-- Right Column: Carousel for Reporting details -->
+            <!-- Right Column (Carousel Section) -->
             <div id="reporting-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0">
                 <div class="carousel-container">
                 <div class="carousel-wrapper">
-                    <!-- Slide 1: New to ESG Reporting (Portrait Image Left, Text Right) -->
-                    <div class="carousel-slide layout-portrait-left">
+                    <!-- Slide 1: New to ESG Reporting -->
+                    <div class="carousel-slide layout-portrait-left md:flex">
                     <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0">
                         <img src="images/road_forest.jpg" alt="New to ESG Reporting" class="rounded-md object-cover">
                     </div>
                     <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
-                        <h4 class="text-xl font-bold text-forest-green mb-2 text-center">New to ESG reporting?</h4>
+                        <h4 class="text-xl font-bold text-forest-green mb-2 text-center md:text-left">New to ESG reporting?</h4>
                         <p class="text-stone-700 leading-relaxed">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
-                        <a
-                        href="new-to-esg-reporting.html"
-                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                        >
+                        <a href="new-to-esg-reporting.html"
+                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4">
                         Learn More &rarr;
                         </a>
                     </div>
                     </div>
-                    <!-- Slide 2: Done this before? (Landscape Image Centered under text) -->
+                    <!-- Slide 2: Done this before? -->
                     <div class="carousel-slide layout-landscape-image-bottom">
                     <div class="content-area w-full text-center flex flex-col items-center">
                         <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Done this before?</h4>
                         <p class="text-stone-700 leading-relaxed">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
-                        <a
-                        href="esg-services.html"
-                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                        >
+                        <a href="esg-services.html"
+                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4">
                         Explore Services &rarr;
                         </a>
                     </div>
                     <div class="image-area w-full flex justify-center mt-4">
-                        <img src="images/ESG_stock_photo.jpeg" alt="Enhance ESG Journey" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
+                        <img src="images/ESG_stock_photo.jpeg" alt="Enhance ESG Journey"
+                        class="rounded-md object-cover max-w-[250px] max-h-[150px]">
                     </div>
                     </div>
                 </div>
+                <!-- Carousel Navigation Buttons -->
                 <button class="carousel-button prev">&#10094;</button>
                 <button class="carousel-button next">&#10095;</button>
                 </div>
