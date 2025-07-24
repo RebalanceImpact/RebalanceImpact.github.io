@@ -119,33 +119,41 @@
 
         /* Responsive adjustments for specific new layouts */
         @media (min-width: 768px) {
-            /* Portrait Layout: Image Left, Text Right */
             .carousel-slide.layout-portrait-left {
+                display: flex;
                 flex-direction: row;
-                align-items: flex-start;
-                flex-wrap: wrap; /* Allows text to flow beneath image if it’s taller */
+                align-items: stretch; /* Both children match height */
+                flex-wrap: nowrap;    /* Prevents wrapping unless truly necessary */
+            }
+            .carousel-slide.layout-portrait-left .image-area,
+            .carousel-slide.layout-portrait-left .content-area {
+                width: 50%;
             }
             .carousel-slide.layout-portrait-left .image-area {
-                width: 50%;          /* Increased from 40% to allow the image more space */
-                height: 110%;        /* Image area height increased by 25% */
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-right: 1rem;/* Space between image and text */
-                margin-left: 0.5rem;   /* NEW: Space between image and the left edge */
-                margin-bottom: 0;
+                padding-left: 0.5rem;    /* Spacing from left edge */
+                padding-right: 1rem;     /* Spacing from image to text */
+                margin: 0;               /* Remove margin for predictable sizing */
+                height: auto;            /* Remove explicit heights */
             }
             .carousel-slide.layout-portrait-left .image-area img {
-                height: 110%;        /* Make image itself larger */
+                max-width: 100%;
+                max-height: 250px;      /* Or your preferred size */
                 width: auto;
+                height: auto;           /* Let aspect ratio rule */
                 object-fit: contain;
             }
             .carousel-slide.layout-portrait-left .content-area {
-                width: 50%;          /* 60% → 50% so text is adjacent to the larger image */
-                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 text-align: left;
+                padding-left: 0;        /* Start flush against image area */
+                padding-right: 1rem;    /* Add right padding if needed */
             }
-
+            
             /* Landscape Image Top Layout (Image above text - for Data Analytics Slide 1) */
             .carousel-slide.layout-landscape-image-top {
                 flex-direction: column; /* Stacks vertically */
