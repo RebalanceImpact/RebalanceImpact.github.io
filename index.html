@@ -467,50 +467,8 @@
 
         <section id="data-analytics" class="py-8 md:py-10">
             <div class="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
-                <!-- Left Column: Carousel for Data Analytics details - Now on the right -->
-                <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-1">
-                    <div class="carousel-container">
-                        <div class="carousel-wrapper">
-                            <!-- Slide 1: All-in-one dashboard (Landscape Image Top-Left, Text Right) -->
-                            <div class="carousel-slide layout-landscape-top-left data-analytics">
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="images/data_analytics_landscape.jpeg" alt="All-in-one dashboard" class="rounded-md object-cover">
-                                </div>
-                                <div class="content-area w-full text-left flex flex-col items-center md:items-start">
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
-                                    <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
-                                    <a
-                                        href="data-kpis.html"
-                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                                    >
-                                        View Dashboard &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Slide 2: Business efficiency (Landscape Image Top-Right, Text Left) -->
-                            <div class="carousel-slide layout-landscape-top-right data-analytics">
-                                <div class="content-area w-full text-left flex flex-col items-center">
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
-                                    <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
-                                    <a
-                                        href="assessments.html"
-                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                                    >
-                                        Boost Efficiency &rarr;
-                                    </a>
-                                </div>
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Efficiency" alt="Business efficiency" class="rounded-md object-cover">
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button prev">&#10094;</button>
-                        <button class="carousel-button next">&#10095;</button>
-                    </div>
-                </div>
-
-                <!-- Right Column: Text Content (Heading, Slogan, Description, SVG) - Now on the left -->
-                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-r-2 md:border-forest-green md:pr-8 order-2">
+                <!-- Left Column: Text Content (Heading, Slogan, Description, SVG) -->
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-r-2 md:border-forest-green md:pr-8 order-1">
                     <div class="mb-4">
                         <span class="text-forest-green flex justify-center md:justify-start w-full">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-analytics">
@@ -535,6 +493,48 @@
                     >
                         Explore This Service &rarr;
                     </a>
+                </div>
+
+                <!-- Right Column: Carousel for Data Analytics details -->
+                <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2">
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <!-- Slide 1: All-in-one dashboard (Landscape Image Top, Text Below) -->
+                            <div class="carousel-slide layout-landscape-image-top data-analytics">
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="https://placehold.co/500x300/d4b29c/36454F?text=Landscape+Dashboard+Top" alt="All-in-one dashboard" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
+                                </div>
+                                <div class="content-area w-full text-left flex flex-col items-center md:items-start">
+                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
+                                    <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
+                                    <a
+                                        href="data-kpis.html"
+                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                    >
+                                        View Dashboard &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Slide 2: Business efficiency (Landscape Image Centered under text) -->
+                            <div class="carousel-slide layout-landscape-image-top data-analytics">
+                                <div class="content-area w-full text-left flex flex-col items-center">
+                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
+                                    <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+                                    <a
+                                        href="assessments.html"
+                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                    >
+                                        Boost Efficiency &rarr;
+                                    </a>
+                                </div>
+                                <div class="image-area w-full flex justify-center mt-4">
+                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Efficiency+Bottom" alt="Business efficiency" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-button prev">&#10094;</button>
+                        <button class="carousel-button next">&#10095;</button>
+                    </div>
                 </div>
             </div>
         </section>
