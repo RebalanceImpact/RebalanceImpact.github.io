@@ -108,6 +108,15 @@
             justify-content: flex-start;
         }
 
+        /* Base styles for landscape image layouts where image is above or below text */
+        .carousel-slide.layout-landscape-image-top,
+        .carousel-slide.layout-landscape-image-bottom {
+            flex-direction: column; /* Always column for these layouts */
+            align-items: center; /* Center horizontally for column layout */
+            text-align: center; /* Center text for column layout */
+            justify-content: flex-start;
+        }
+
         /* Responsive adjustments for specific new layouts */
         @media (min-width: 768px) { /* md breakpoint */
             /* Portrait Layout: Image Left, Text Right (Sustainable Reporting Slide 1) */
@@ -136,72 +145,70 @@
             }
 
             /* Landscape Image Top-Right Layout (Sustainable Reporting Slide 2, Data Analytics Slide 2) */
-            .carousel-slide.layout-landscape-top-right {
-                flex-direction: row; /* Image and text side-by-side */
+            /* This layout is now replaced by layout-landscape-image-bottom for SR Slide 2 and DA Slide 2 */
+            /* The previous definition for layout-landscape-top-right is removed to avoid conflicts */
+
+
+            /* Landscape Image Top Layout (Image above text - for Data Analytics Slide 1) */
+            .carousel-slide.layout-landscape-image-top {
+                flex-direction: column; /* Stacks vertically */
                 text-align: left; /* Text aligns to the left */
-                align-items: flex-start; /* Align content to the top */
-                justify-content: flex-start; /* Align content to the left */
+                align-items: flex-start; /* Align content to the top-left */
+                justify-content: flex-start;
             }
-            .carousel-slide.layout-landscape-top-right .image-area {
-                order: 2; /* Image on the right */
-                width: 50%; /* Adjust image area width */
-                max-width: 300px; /* Limit max width of image */
+            .carousel-slide.layout-landscape-image-top .image-area {
+                order: 1; /* Image at the top */
+                width: 100%; /* Image takes full width of slide */
                 display: flex;
-                justify-content: flex-end; /* Push image to the right */
-                margin-left: 1.5rem; /* Space between text and image */
-                margin-bottom: 0; /* Remove vertical margin */
+                justify-content: center; /* Center image horizontally */
+                margin-bottom: 1.5rem; /* Space below image */
             }
-            .carousel-slide.layout-landscape-top-right .image-area img {
+            .carousel-slide.layout-landscape-image-top .image-area img {
                 height: auto; /* Maintain aspect ratio */
-                width: 100%; /* Image takes full width of its area */
-                max-height: 250px; /* Max height for landscape image */
+                width: auto; /* Image takes natural width */
+                max-width: 250px; /* Limit max width for landscape image */
+                max-height: 150px; /* Limit max height for landscape image */
                 object-fit: contain;
             }
-            .carousel-slide.layout-landscape-top-right .content-area {
-                order: 1; /* Text on the left */
-                width: 50%; /* Adjust content area width */
+            .carousel-slide.layout-landscape-image-top .content-area {
+                order: 2; /* Text below image */
+                width: 100%; /* Content takes full width */
                 flex-grow: 1;
                 text-align: left;
                 align-items: flex-start; /* Ensure text content aligns to start */
             }
-            .carousel-slide.layout-landscape-top-right .content-area h4 {
+            .carousel-slide.layout-landscape-image-top .content-area h4 {
                 text-align: center; /* Keep heading centered as requested */
             }
 
-
-            /* Landscape Image Top-Left Layout (Data Analytics Slide 1) */
-            .carousel-slide.layout-landscape-top-left {
-                flex-direction: row; /* Image and text side-by-side */
+            /* Landscape Image Bottom Layout (Image below text - for Sustainable Reporting Slide 2, Data Analytics Slide 2) */
+            .carousel-slide.layout-landscape-image-bottom {
+                flex-direction: column; /* Stacks vertically */
                 text-align: left; /* Text aligns to the left */
-                align-items: flex-start; /* Align content to the top */
-                justify-content: flex-start; /* Align content to the left */
+                align-items: flex-start; /* Align content to the top-left */
+                justify-content: flex-start; /* Align content to the top */
             }
-            .carousel-slide.layout-landscape-top-left .image-area {
-                order: 1; /* Image on the left */
-                width: 50%; /* Adjust image area width */
-                max-width: 300px; /* Limit max width of image */
+            .carousel-slide.layout-landscape-image-bottom .content-area {
+                order: 1; /* Text at the top */
+                width: 100%; /* Content takes full width */
+                margin-bottom: 1.5rem; /* Space below text */
+            }
+            .carousel-slide.layout-landscape-image-bottom .image-area {
+                order: 2; /* Image at the bottom */
+                width: 100%; /* Image takes full width of slide */
                 display: flex;
-                justify-content: flex-start; /* Push image to the left */
-                margin-right: 1.5rem; /* Space between text and image */
-                margin-bottom: 0; /* Remove vertical margin */
+                justify-content: center; /* Center image horizontally */
             }
-            .carousel-slide.layout-landscape-top-left .image-area img {
+            .carousel-slide.layout-landscape-image-bottom .image-area img {
                 height: auto; /* Maintain aspect ratio */
-                width: 100%; /* Image takes full width of its area */
-                max-height: 250px; /* Max height for landscape image */
+                width: auto; /* Image takes natural width */
+                max-width: 250px; /* Limit max width for landscape image */
+                max-height: 150px; /* Limit max height for landscape image */
                 object-fit: contain;
             }
-            .carousel-slide.layout-landscape-top-left .content-area {
-                order: 2; /* Text on the right */
-                width: 50%; /* Adjust content area width */
-                flex-grow: 1;
-                text-align: left;
-                align-items: flex-start; /* Ensure text content aligns to start */
-            }
-            .carousel-slide.layout-landscape-top-left .content-area h4 {
+            .carousel-slide.layout-landscape-image-bottom .content-area h4 {
                 text-align: center; /* Keep heading centered as requested */
             }
-
         }
 
         .carousel-button {
@@ -328,7 +335,7 @@
         });
     </script>
 </head>
-<body style="background-color: rgba(255, 242, 232, 0.265); font-family: sans-serif; color: #403f3f;">
+<body>
 
     <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
@@ -440,8 +447,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <!-- Slide 2: Done this before? (Landscape Image Top-Right, Text Left) -->
-                            <div class="carousel-slide layout-landscape-top-right">
+                            <!-- Slide 2: Done this before? (Landscape Image Centered under text) -->
+                            <div class="carousel-slide layout-landscape-image-bottom">
                                 <div class="content-area w-full text-center flex flex-col items-center">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Done this before?</h4>
                                     <p class="text-stone-700 leading-relaxed">Looking to add additional KPIs? Needing to comply with new initiatives? Pick and choose from our range of services to enhance your ESG reporting.</p>
@@ -452,8 +459,8 @@
                                         Explore Services &rarr;
                                     </a>
                                 </div>
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="images/ESG_stock_photo.jpeg" alt="Enhance ESG Journey" class="rounded-md object-cover">
+                                <div class="image-area w-full flex justify-center mt-4">
+                                    <img src="images/ESG_stock_photo.jpeg" alt="Enhance ESG Journey" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
                                 </div>
                             </div>
                         </div>
@@ -467,8 +474,50 @@
 
         <section id="data-analytics" class="py-8 md:py-10">
             <div class="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8">
-                <!-- Left Column: Text Content (Heading, Slogan, Description, SVG) -->
-                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-r-2 md:border-forest-green md:pr-8 order-1">
+                <!-- Left Column: Carousel for Data Analytics details -->
+                <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-1">
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <!-- Slide 1: All-in-one dashboard (Landscape Image Top, Text Below) -->
+                            <div class="carousel-slide layout-landscape-image-top data-analytics">
+                                <div class="image-area w-full flex justify-center mb-4">
+                                    <img src="images/data_analytics_landscape.jpeg" alt="All-in-one dashboard" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
+                                </div>
+                                <div class="content-area w-full text-left flex flex-col items-center md:items-start">
+                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
+                                    <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
+                                    <a
+                                        href="data-kpis.html"
+                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                    >
+                                        View Dashboard &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Slide 2: Business efficiency (Landscape Image Centered under text) -->
+                            <div class="carousel-slide layout-landscape-image-bottom data-analytics">
+                                <div class="content-area w-full text-left flex flex-col items-center">
+                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
+                                    <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
+                                    <a
+                                        href="assessments.html"
+                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
+                                    >
+                                        Boost Efficiency &rarr;
+                                    </a>
+                                </div>
+                                <div class="image-area w-full flex justify-center mt-4">
+                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Efficiency+Bottom" alt="Business efficiency" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-button prev">&#10094;</button>
+                        <button class="carousel-button next">&#10095;</button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text Content (Heading, Slogan, Description, SVG) -->
+                <div class="w-full md:w-1/2 flex flex-col items-center md:items-start md:border-l-2 md:border-forest-green md:pl-8 order-2">
                     <div class="mb-4">
                         <span class="text-forest-green flex justify-center md:justify-start w-full">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-analytics">
@@ -493,48 +542,6 @@
                     >
                         Explore This Service &rarr;
                     </a>
-                </div>
-
-                <!-- Right Column: Carousel for Data Analytics details -->
-                <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-2">
-                    <div class="carousel-container">
-                        <div class="carousel-wrapper">
-                            <!-- Slide 1: All-in-one dashboard (Landscape Image Top, Text Below) -->
-                            <div class="carousel-slide layout-landscape-image-top data-analytics">
-                                <div class="image-area w-full flex justify-center mb-4">
-                                    <img src="https://placehold.co/500x300/d4b29c/36454F?text=Landscape+Dashboard+Top" alt="All-in-one dashboard" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
-                                </div>
-                                <div class="content-area w-full text-left flex flex-col items-center md:items-start">
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
-                                    <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
-                                    <a
-                                        href="data-kpis.html"
-                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                                    >
-                                        View Dashboard &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Slide 2: Business efficiency (Landscape Image Centered under text) -->
-                            <div class="carousel-slide layout-landscape-image-top data-analytics">
-                                <div class="content-area w-full text-left flex flex-col items-center">
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
-                                    <p class="text-stone-700 leading-relaxed">Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.</p>
-                                    <a
-                                        href="assessments.html"
-                                        class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4"
-                                    >
-                                        Boost Efficiency &rarr;
-                                    </a>
-                                </div>
-                                <div class="image-area w-full flex justify-center mt-4">
-                                    <img src="https://placehold.co/500x300/9cabb0/36454F?text=Landscape+Efficiency+Bottom" alt="Business efficiency" class="rounded-md object-cover max-w-[250px] max-h-[150px]">
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button prev">&#10094;</button>
-                        <button class="carousel-button next">&#10095;</button>
-                    </div>
                 </div>
             </div>
         </section>
