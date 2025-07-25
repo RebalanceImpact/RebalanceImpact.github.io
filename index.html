@@ -154,65 +154,86 @@
                 padding-right: 1rem;    /* Add right padding if needed */
             }
 
-            /* Landscape Image Top Layout (Image above text - for Data Analytics Slide 1) */
+            /* Landscape Image Top Layout (Image above text) */
             .carousel-slide.layout-landscape-image-top {
-                flex-direction: column; /* Stacks vertically */
-                text-align: left; /* Text aligns to the left */
-                align-items: flex-start; /* Align content to the top-left */
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
                 justify-content: flex-start;
             }
             .carousel-slide.layout-landscape-image-top .image-area {
-                order: 1; /* Image at the top */
-                width: 100%; /* Image takes full width of slide */
+                order: 1;
+                width: 100%;
                 display: flex;
-                justify-content: center; /* Center image horizontally */
-                margin-bottom: 1.5rem; /* Space below image */
+                justify-content: center;
+                margin-bottom: 1.5rem;
             }
             .carousel-slide.layout-landscape-image-top .image-area img {
-                height: auto; /* Maintain aspect ratio */
-                width: auto; /* Image takes natural width */
-                max-width: 250px; /* Limit max width for landscape image */
-                max-height: 150px; /* Limit max height for landscape image */
+                height: auto;
+                width: auto;
+                max-width: 300px;     /* 20% larger than 250px */
+                max-height: 180px;    /* 20% larger than 150px */
                 object-fit: contain;
             }
             .carousel-slide.layout-landscape-image-top .content-area {
-                order: 2; /* Text below image */
-                width: 100%; /* Content takes full width */
+                order: 2;
+                width: 100%;
                 flex-grow: 1;
-                text-align: left;
-                align-items: flex-start; /* Ensure text content aligns to start */
+                display: flex;
+                flex-direction: column;
+                align-items: center;         /* Center children (heading, paragraph, button) horizontally */
             }
             .carousel-slide.layout-landscape-image-top .content-area h4 {
-                text-align: center; /* Keep heading centered as requested */
+                text-align: center;
+            }
+            .carousel-slide.layout-landscape-image-top .content-area p {
+                text-align: justify;         /* Justify paragraph text */
+                max-width: 600px;            /* Optional: control width for a tidy paragraph block */
+                margin: 0 auto 1.2rem auto;  /* Center and add bottom margin */
+            }
+            /* Make sure other elements inside content-area are centered */
+            .carousel-slide.layout-landscape-image-top .content-area > *:not(h4):not(p) {
+                align-self: center;
             }
 
-            /* Landscape Image Bottom Layout (Image below text - for Sustainable Reporting Slide 2, Data Analytics Slide 2) */
+            /* Landscape Image Bottom Layout (Image below text) */
             .carousel-slide.layout-landscape-image-bottom {
-                flex-direction: column; /* Stacks vertically */
-                text-align: left; /* Text aligns to the left */
-                align-items: flex-start; /* Align content to the top-left */
-                justify-content: flex-start; /* Align content to the top */
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                justify-content: flex-start;
             }
             .carousel-slide.layout-landscape-image-bottom .content-area {
-                order: 1; /* Text at the top */
-                width: 100%; /* Content takes full width */
-                margin-bottom: 1.5rem; /* Space below text */
-            }
-            .carousel-slide.layout-landscape-image-bottom .image-area {
-                order: 2; /* Image at the bottom */
-                width: 100%; /* Image takes full width of slide */
+                order: 1;
+                width: 100%;
+                margin-bottom: 1.5rem;
                 display: flex;
-                justify-content: center; /* Center image horizontally */
-            }
-            .carousel-slide.layout-landscape-image-bottom .image-area img {
-                height: auto; /* Maintain aspect ratio */
-                width: auto; /* Image takes natural width */
-                max-width: 250px; /* Limit max width for landscape image */
-                max-height: 150px; /* Limit max height for landscape image */
-                object-fit: contain;
+                flex-direction: column;
+                align-items: center;
             }
             .carousel-slide.layout-landscape-image-bottom .content-area h4 {
-                text-align: center; /* Keep heading centered as requested */
+                text-align: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area p {
+                text-align: justify;
+                max-width: 600px;
+                margin: 0 auto 1.2rem auto;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area > *:not(h4):not(p) {
+                align-self: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .image-area {
+                order: 2;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .image-area img {
+                height: auto;
+                width: auto;
+                max-width: 300px;
+                max-height: 180px;
+                object-fit: contain;
             }
         }
 
@@ -477,7 +498,7 @@
                                 <p class="text-stone-700 leading-relaxed">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
                                 <a href="new-to-esg-reporting.html"
                                 class="inline-block bg-forest-green text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-4">
-                                Learn More &rarr;
+                                Start Your ESG Journey &rarr;
                                 </a>
                             </div>
                             </div>
