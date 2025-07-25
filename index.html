@@ -82,7 +82,7 @@
         }
 
         .carousel-slide {
-            width: 100%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
+            width: 80%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
             min-width: 50%; /* Ensure it doesn't shrink below this */
             box-sizing: border-box; /* Include padding and border in the element's total width and height */
             flex-shrink: 0; /* Prevent slides from shrinking */
@@ -128,7 +128,7 @@
             }
             .carousel-slide.layout-portrait-left .image-area,
             .carousel-slide.layout-portrait-left .content-area {
-                width: 48%;
+                width: 50%;
             }
             .carousel-slide.layout-portrait-left .image-area {
                 display: flex;
@@ -178,7 +178,7 @@
             }
             .carousel-slide.layout-landscape-image-top .content-area {
                 order: 2;
-                width: 50%;
+                width: 100%;
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
@@ -206,7 +206,7 @@
             }
             .carousel-slide.layout-landscape-image-bottom .content-area {
                 order: 1;
-                width: 50%;
+                width: 100%;
                 margin-bottom: 1.5rem;
                 display: flex;
                 flex-direction: column;
