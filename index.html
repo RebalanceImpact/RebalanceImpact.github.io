@@ -273,6 +273,7 @@
                 let currentSlide = 0;
                 let autoSlideInterval;
                 const slideIntervalTime = 5000; // 5 seconds
+                let isPaused = false; // NEW: Track paused state
 
                 // Function to show a specific slide
                 function showSlide(index) {
@@ -300,7 +301,9 @@
                 // Start automatic sliding
                 function startAutoSlide() {
                     stopAutoSlide(); // Clear any existing interval
-                    autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
+                    if (!isPaused) { // Only start if not paused
+                        autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
+                    }
                 }
 
                 // Stop automatic sliding
@@ -308,20 +311,30 @@
                     clearInterval(autoSlideInterval);
                 }
 
+                // Pause auto-slide (on hover or button)
+                function pauseAutoSlide() {
+                    isPaused = true;
+                    stopAutoSlide();
+                }
+
+                // Resume auto-slide (on mouse leave)
+                function resumeAutoSlide() {
+                    isPaused = false;
+                    startAutoSlide();
+                }
+
                 // Event listeners for navigation buttons
                 if (prevButton) {
                     prevButton.addEventListener('click', () => {
-                        stopAutoSlide();
+                        pauseAutoSlide();   // Pause when button used
                         prevSlide();
-                        startAutoSlide(); // Restart auto-slide after manual interaction
                     });
                 }
 
                 if (nextButton) {
                     nextButton.addEventListener('click', () => {
-                        stopAutoSlide();
+                        pauseAutoSlide();   // Pause when button used
                         nextSlide();
-                        startAutoSlide(); // Restart auto-slide after manual interaction
                     });
                 }
 
@@ -329,9 +342,10 @@
                 showSlide(0);
                 startAutoSlide();
 
-                // Pause auto-slide on hover for better user experience
-                carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-                carouselContainer.addEventListener('mouseleave', startAutoSlide);
+                // Pause auto-slide on hover
+                carouselContainer.addEventListener('mouseenter', pauseAutoSlide);
+                // Resume auto-slide after hover leaves
+                carouselContainer.addEventListener('mouseleave', resumeAutoSlide);
             }
 
             // Initialize carousels for both sections
