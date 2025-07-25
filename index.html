@@ -10,8 +10,10 @@
         /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
         :root {
             --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
-            --color-sandy-brown: rgba(107, 75, 32, 0.664);; /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+            --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+            --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
         }
+        
         /* Custom styles for the Inter font and general body styling to ensure consistent typography */
         body {
             font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
@@ -257,7 +259,7 @@
         }
 
         .carousel-button:hover {
-            background-color: rgba(160, 146, 121, 0.779);
+            background-color: rgba(180, 165, 139, 0.779);
         }
 
         .carousel-button.prev {
@@ -276,7 +278,8 @@
                 extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
                     colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
                         'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
-                        'sandy-brown': 'var(--color-sandy-brown)',   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
+                        'sandy-brown': 'var(--color-sandy-brown)',
+                        'sandy-brown-hover': 'var(--color-sandy-brown-hover)'   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
                     }
                 }
             }
@@ -500,7 +503,7 @@
                                 <h4 class="text-xl font-bold text-forest-green mb-2 text-center md:text-left">New to ESG reporting?</h4>
                                 <p class="text-stone-700 leading-relaxed">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
                                 <a href="new-to-esg-reporting.html"
-                                class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-[rgba(107,75,32,0.664)] transition duration-300 shadow-lg mt-4">
+                                class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-4">
                                 Start Your ESG Journey &rarr;
                                 </a>
                             </div>
