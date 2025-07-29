@@ -544,15 +544,15 @@
                             <div class="carousel-wrapper">
                             <!-- Slide 1: All-in-one dashboard -->
                             <div class="carousel-slide layout-landscape-image-top data-analytics">
-                                <div class="image-area w-full flex justify-center mb-4" style="position: relative; width: 370px; height: 180px;">
-                                    <!-- Bottom image, now much more right and slightly down -->
+                                <div 
+                                    class="image-area w-full flex justify-center mb-4" 
+                                    style="position: relative; width: 370px; height: 180px; margin-left: 90px;">
                                     <img
                                     src="https://placehold.co/250x150/92c396/36454F?text=Image+1-2"
                                     alt="All-in-one dashboard secondary"
                                     class="rounded-md object-cover"
                                     style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;"
                                     >
-                                    <!-- Top (overlapping) image -->
                                     <img
                                     src="https://placehold.co/250x150/9cabb0/36454F?text=Image+1-1"
                                     alt="All-in-one dashboard"
@@ -560,7 +560,9 @@
                                     style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;"
                                     >
                                 </div>
-                                <div class="content-area w-full text-left flex flex-col items-center md:items-start">
+                                <div 
+                                    class="content-area w-full text-left flex flex-col items-center md:items-start"
+                                    style="margin-top: 60px;"> <!-- Push content down to prevent overlaps -->
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
                                     <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
                                     <a
@@ -569,17 +571,16 @@
                                     View Dashboard &rarr;
                                     </a>
                                 </div>
-                                </div>
+                            </div>
                             <!-- Slide 2: Business efficiency -->
-                            <div class="carousel-slide layout-landscape-image-bottom data-analytics">
-                                <div class="content-area w-full text-left flex flex-col items-center">
+                            <div class="carousel-slide layout-landscape-image-bottom data-analytics" style="margin-top: -40px;">
+                                <div class="content-area w-full text-left flex flex-col items-center" style="margin-bottom: 0;">
                                     <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
                                     <p class="text-stone-700 leading-relaxed">
                                     Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.
                                     </p>
                                 </div>
-                                <!-- Adjust image overlap: more right, more visible -->
-                                <div class="image-area w-full flex flex-col items-center justify-center mt-4" style="position: relative; width: 370px; height: 180px;">
+                                <div class="image-area w-full flex flex-col items-center justify-center mt-4" style="position: relative; width: 370px; height: 180px; margin-left: 90px;">
                                     <img
                                     src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2"
                                     alt="Business efficiency secondary"
@@ -599,7 +600,7 @@
                                     Boost Efficiency &rarr;
                                     </a>
                                 </div>
-                                </div>
+                            </div>
                             </div>
                             <button class="carousel-button prev">&#10094;</button>
                             <button class="carousel-button next">&#10095;</button>
