@@ -540,73 +540,62 @@
             <div class="container mx-auto px-2 flex flex-col md:flex-row items-stretch justify-center gap-4">
                 <!-- Left Column: Carousel for Data Analytics details -->
                 <div id="data-analytics-carousel" class="w-full md:w-1/2 relative mt-8 md:mt-0 order-1 md:order-none">
-                    <div class="carousel-container pl-10 pr-4">
-                        <div class="carousel-container">
-                            <div class="carousel-wrapper">
-                            <!-- Slide 1: All-in-one dashboard -->
-                            <div class="carousel-slide layout-landscape-image-top data-analytics">
-                                <div 
-                                    class="image-area w-full flex justify-center mb-4" 
-                                    style="position: relative; width: 370px; height: 180px; margin-left: 60px;">
-                                    <img
-                                    src="https://placehold.co/250x150/92c396/36454F?text=Image+1-2"
-                                    alt="All-in-one dashboard secondary"
-                                    class="rounded-md object-cover"
-                                    style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;"
-                                    >
-                                    <img
-                                    src="https://placehold.co/250x150/9cabb0/36454F?text=Image+1-1"
-                                    alt="All-in-one dashboard"
-                                    class="rounded-md object-cover"
-                                    style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;"
-                                    >
-                                </div>
-                                <div 
-                                    class="content-area w-full text-left flex flex-col items-center md:items-start"
-                                    style="margin-top: 60px;"> <!-- Push content down to prevent overlaps -->
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">All-in-one dashboard</h4>
-                                    <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
-                                    <a
-                                    href="esg_dashboard.html"
-                                    class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-4">
-                                    View Dashboard &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Slide 2: Business efficiency -->
-                            <div class="carousel-slide layout-landscape-image-bottom data-analytics" style="margin-top: 0;">
-                                <div class="content-area w-full text-left flex flex-col items-center" style="margin-bottom: 0;">
-                                    <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
-                                    <p class="text-stone-700 leading-relaxed">
-                                    Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.
-                                    </p>
-                                </div>
-                                <div 
-                                    class="image-area w-full flex flex-col items-center justify-center relative"
-                                    style="width: 370px; height: 300px; margin-left: 60px;">
-                                    <img
-                                    src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2"
-                                    alt="Business efficiency secondary"
-                                    class="rounded-md object-cover"
-                                    style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
-                                    <img
-                                    src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1"
-                                    alt="Business efficiency"
-                                    class="rounded-md object-cover"
-                                    style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
-                                </div>
-                            
-                                <div class="w-full flex justify-center mt-6">
-                                    <a href="assessments.html"
-                                    class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg">
-                                    Efficiency dashboard &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <button class="carousel-button prev">&#10094;</button>
-                            <button class="carousel-button next">&#10095;</button>
+                <div class="carousel-container pl-10 pr-4">
+                    <!-- Removed duplicate nested carousel-container here -->
+
+                    <div class="carousel-wrapper">
+                    <!-- Slide 1: All-in-one dashboard -->
+                    <div class="carousel-slide layout-landscape-image-top data-analytics">
+                        <div class="image-area w-full flex justify-center mb-4" style="position: relative; width: 370px; height: 180px; margin-left: 60px;">
+                        <img src="https://placehold.co/250x150/92c396/36454F?text=Image+1-2"
+                            alt="All-in-one dashboard secondary"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
+                        <img src="https://placehold.co/250x150/9cabb0/36454F?text=Image+1-1"
+                            alt="All-in-one dashboard"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
+                        </div>
+                        <div class="content-area w-full text-left flex flex-col items-center md:items-start" style="margin-top: 60px;">
+                        <h4 class="text-xl font-bold text-forest-green mb-2 text-center md:text-left">All-in-one dashboard</h4>
+                        <p class="text-stone-700 leading-relaxed">Gain real-time insights with intuitive dashboards, offering a comprehensive view of your sustainability performance.</p>
+                        <a href="esg_dashboard.html"
+                            class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-4">
+                            View Dashboard &rarr;
+                        </a>
                         </div>
                     </div>
+
+                    <!-- Slide 2: Business efficiency -->
+                    <div class="carousel-slide layout-landscape-image-bottom data-analytics" style="margin-top: 0;">
+                        <div class="content-area w-full text-left flex flex-col items-center" style="margin-bottom: 0;">
+                        <h4 class="text-xl font-bold text-forest-green mb-2 text-center">Business efficiency</h4>
+                        <p class="text-stone-700 leading-relaxed">
+                            Identify gaps and unlock strategies to enhance operational efficiency, driving sustainable growth for your business.
+                        </p>
+                        </div>
+                        <div class="image-area w-full flex flex-col items-center justify-center relative" style="width: 370px; height: 300px; margin-left: 60px;">
+                        <img src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2"
+                            alt="Business efficiency secondary"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
+                        <img src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1"
+                            alt="Business efficiency"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
+                        </div>
+                        <!-- Button placed **after** images, inside the slide but outside the image-area -->
+                        <a href="assessments.html"
+                        class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-6 mx-auto"
+                        style="max-width: fit-content;">
+                        Efficiency dashboard &rarr;
+                        </a>
+                    </div>
+                    </div>
+
+                    <button class="carousel-button prev">&#10094;</button>
+                    <button class="carousel-button next">&#10095;</button>
+                </div>
                 </div>
 
                 <!-- Vertical Divider (centered and stretched between columns) -->
@@ -628,16 +617,11 @@
                 <h2 class="text-4xl font-bold mb-4 leading-tight text-forest-green">
                     <a href="data-analytics.html" class="text-forest-green hover:text-green-800 transition duration-300">Data Analytics</a>
                 </h2>
-                <h3 class="text-2xl text-stone-700 font-semibold mb-6">
-                    Insights from Data: Powering Your Performance
-                </h3>
+                <h3 class="text-2xl text-stone-700 font-semibold mb-6">Insights from Data: Powering Your Performance</h3>
                 <p class="text-lg text-stone-700 leading-relaxed max-w-3xl mb-12">
                     Leverage the power of reliable and consistent data to drive informed decision-making. Our data analytics expertise transforms raw data into actionable intelligence, providing real-time tracking and identifying opportunities for enhanced operational efficiency.
                 </p>
-                <a
-                    href="data-analytics.html"
-                    class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg"
-                >
+                <a href="data-analytics.html" class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">
                     Explore This Service &rarr;
                 </a>
                 </div>
