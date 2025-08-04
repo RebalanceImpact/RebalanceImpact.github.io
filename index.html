@@ -656,7 +656,7 @@
         <section id="contact-and-quote" class="py-16 md:py-20 mt-12 rounded-xl shadow-lg bg-white">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
-                <div class="bg-stone-50 p-8 rounded-xl shadow-inner max-h-[800px] overflow-y-auto">
+                <div class="bg-forest-green/20 p-8 rounded-xl shadow-inner max-h-[800px] overflow-y-auto">
                     <h2 class="text-3xl font-bold text-forest-green mb-6 text-center">Get a Price Estimate</h2>
                     <p class="text-lg text-stone-700 leading-relaxed mb-8 text-center">
                         Fill out this form to get a tailored price estimate for your business. The results will be automatically emailed to us.
@@ -753,81 +753,107 @@
                             <legend class="text-xl font-semibold text-stone-700 mb-4">What KPIs do you want support on?</legend>
                             <div class="space-y-4">
                                 <label class="block">
-                                    <input type="radio" name="KPIs_Support" value="Don't know where to start" class="form-radio h-5 w-5 text-forest-green" />
-                                    <span class="ml-2 text-stone-700">Don't know where to start? Submit the form and we will contact you to figure this out together tailored for your needs</span>
+                                    <div class="flex items-start">
+                                        <input type="radio" name="KPIs_Support" value="Don't know where to start" class="form-radio h-5 w-5 text-forest-green flex-shrink-0 mt-1" />
+                                        <span class="ml-2 text-stone-700">Don't know where to start? Submit the form and we will contact you to figure this out together tailored for your needs</span>
+                                    </div>
                                 </label>
                                 <hr class="my-4 border-gray-200" />
                                 <p class="text-md font-medium text-stone-700 mb-2">Or select from the list below:</p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Scope 1 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Scope 1 GHG Emissions</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Scope 2 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Scope 2 GHG Emissions</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Scope 3 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Scope 3 GHG Emissions</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Total energy consumption" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Total energy consumption (including Renewable)</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Renewable Energy" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Renewable Energy (excl. other energy)</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Total water withdrawn" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Total water withdrawn</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Total water discharged" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Total water discharged</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Total water recycled" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Total water recycled</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Total waste" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Total (hazardous+non-hazardous) waste</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Hours worked" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Hours worked (TRIFR, LTIFR etc.)</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Environmental incidents" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Environmental incidents</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Injury related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Injury related KPIs</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Health related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Health related KPIs</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="SED Spend" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Socio-Economic Development Spend (SED)</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Living wage" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Living wage</span>
-                                    </label>
-                                    <label class="inline-flex items-center">
-                                        <input type="checkbox" name="KPIs_Support[]" value="Gender related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                                        <span class="ml-2 text-stone-700">Gender related KPIs</span>
-                                    </label>
-                                    <div class="flex items-center col-span-1 md:col-span-2">
-                                        <label for="other-kpi" class="flex-shrink-0 text-stone-700">Other:</label>
-                                        <input type="text" id="other-kpi" name="KPIs_Support[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom KPIs" />
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E1: Climate Change</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 1 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 1 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 2 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 2 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 3 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 3 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total energy consumption" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total energy consumption (including Renewable)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Renewable Energy" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Renewable Energy (excl. other energy)</span>
+                                        </label>
                                     </div>
                                 </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E3: Water and Marine Resources</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water withdrawn" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water withdrawn</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water discharged" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water discharged</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water recycled" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water recycled</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E5: Resource Use and Circular Economy</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total waste" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total (hazardous+non-hazardous) waste</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS S1: Own Workforce</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Hours worked" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Hours worked (TRIFR, LTIFR etc.)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Environmental incidents" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Environmental incidents</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Injury related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Injury related KPIs</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Health related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Health related KPIs</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="SED Spend" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Socio-Economic Development Spend (SED)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Living wage" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Living wage</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Gender related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Gender related KPIs</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center col-span-1 md:col-span-2 mt-4">
+                                    <label for="other-kpi" class="flex-shrink-0 text-stone-700">Other:</label>
+                                    <input type="text" id="other-kpi" name="KPIs_Support[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom KPIs" />
+                                </div>
+
                             </div>
                         </fieldset>
 
@@ -844,7 +870,7 @@
                     </form>
                 </div>
 
-                <div class="bg-stone-50 p-8 rounded-xl shadow-inner">
+                <div class="bg-forest-green/20 p-8 rounded-xl shadow-inner">
                     <h2 class="text-3xl font-bold text-forest-green mb-6 text-center">Contact Us</h2>
                     <form action="#" method="POST" class="space-y-6">
                         <div>
