@@ -568,31 +568,39 @@
                     </div>
 
                     <!-- Slide 2: Business efficiency -->
-                    <div class="carousel-slide layout-landscape-image-bottom data-analytics flex flex-col" style="position: relative; width: 400px; height: 300px; margin-left: 30px;">
-                        <div class="content-area w-full text-left flex flex-col items-center" style="order:1; margin-bottom: 0; padding-bottom: 10px;">
+                    <div class="carousel-slide layout-landscape-image-bottom data-analytics flex flex-col">
+                        <div class="content-area w-full text-left flex flex-col items-center" style="order:1; margin-bottom: 0;">
                             <p class="text-stone-700 leading-relaxed">
                             Bring your brand's look to life with our customized dashboard.
                             </p>
                         </div>
 
-                        <!-- Set 1 (First 2 images) -->
-                        <div class="image-area set1" style="order:1; position: relative; width: 370px; height: 300px;">
-                            <img src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2" alt="Business efficiency secondary"
-                                class="rounded-md object-cover"
-                                style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
-                            <img src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1" alt="Business efficiency"
-                                class="rounded-md object-cover"
-                                style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
-                        </div>
+                        <div 
+                            class="image-area w-full flex flex-col items-center justify-center relative" 
+                            style="order:1; width: 370px; height: 300px; margin-left: 30px; position: relative;">
+                            <!-- Set 1 -->
+                            <img
+                            src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2"
+                            alt="Business efficiency secondary"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
+                            <img
+                            src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1"
+                            alt="Business efficiency"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
 
-                        <!-- Set 2 (Second 2 images, initially hidden) -->
-                        <div class="image-area set2" style="order:1; position: relative; width: 370px; height: 300px; display: none;">
-                            <img src="https://placehold.co/250x150/f2a54b/36454F?text=Image+2-4" alt="Business efficiency tertiary"
-                                class="rounded-md object-cover"
-                                style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
-                            <img src="https://placehold.co/250x150/8c7f94/36454F?text=Image+2-3" alt="Business efficiency quaternary"
-                                class="rounded-md object-cover"
-                                style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
+                            <!-- Set 2 (hidden initially) -->
+                            <img id="image3"
+                            src="https://placehold.co/250x150/f2a54b/36454F?text=Image+2-4"
+                            alt="Business efficiency tertiary"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 200px; top: 80px; max-width: 250px; max-height: 150px; display: none; z-index: 1;">
+                            <img id="image4"
+                            src="https://placehold.co/250x150/8c7f94/36454F?text=Image+2-3"
+                            alt="Business efficiency quaternary"
+                            class="rounded-md object-cover"
+                            style="position: absolute; left: 0; top: 0; max-width: 250px; max-height: 150px; display: none; z-index: 2;">
                         </div>
 
                         <a href="assessments.html"
@@ -603,20 +611,26 @@
                         </div>
 
                         <script>
-                        // Alternate between set1 and set2 every 3 seconds
-                        let showSet1 = true;
-                        const set1 = document.querySelector('.carousel-slide.layout-landscape-image-bottom .set1');
-                        const set2 = document.querySelector('.carousel-slide.layout-landscape-image-bottom .set2');
+                        // Alternate visibility between image sets every 3 seconds
+                        const image1 = document.querySelector('.image-area img[alt="Business efficiency secondary"]');
+                        const image2 = document.querySelector('.image-area img[alt="Business efficiency"]');
+                        const image3 = document.getElementById('image3');
+                        const image4 = document.getElementById('image4');
 
+                        let showFirstSet = true;
                         setInterval(() => {
-                            if (showSet1) {
-                            set1.style.display = 'none';
-                            set2.style.display = 'flex';
+                            if(showFirstSet) {
+                            image1.style.display = 'none';
+                            image2.style.display = 'none';
+                            image3.style.display = 'block';
+                            image4.style.display = 'block';
                             } else {
-                            set1.style.display = 'flex';
-                            set2.style.display = 'none';
+                            image1.style.display = 'block';
+                            image2.style.display = 'block';
+                            image3.style.display = 'none';
+                            image4.style.display = 'none';
                             }
-                            showSet1 = !showSet1;
+                            showFirstSet = !showFirstSet;
                         }, 3000);
                         </script>
                     </div>
