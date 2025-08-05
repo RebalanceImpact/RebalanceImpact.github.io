@@ -568,32 +568,57 @@
                     </div>
 
                     <!-- Slide 2: Business efficiency -->
-                    <div class="carousel-slide layout-landscape-image-bottom data-analytics flex flex-col">
-                        <div class="content-area w-full text-left flex flex-col items-center" style="order:1; margin-bottom: 0;">
-                        <p class="text-stone-700 leading-relaxed">
+                    <div class="carousel-slide layout-landscape-image-bottom data-analytics flex flex-col" style="position: relative; width: 400px; height: 300px; margin-left: 30px;">
+                        <div class="content-area w-full text-left flex flex-col items-center" style="order:1; margin-bottom: 0; padding-bottom: 10px;">
+                            <p class="text-stone-700 leading-relaxed">
                             Bring your brand's look to life with our customized dashboard.
-                        </p>
+                            </p>
                         </div>
-                        <div 
-                        class="image-area w-full flex flex-col items-center justify-center relative"
-                        style="order:1; width: 370px; height: 300px; margin-left: 30px;">
-                        <img
-                            src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2"
-                            alt="Business efficiency secondary"
-                            class="rounded-md object-cover"
-                            style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
-                        <img
-                            src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1"
-                            alt="Business efficiency"
-                            class="rounded-md object-cover"
-                            style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
+
+                        <!-- Set 1 (First 2 images) -->
+                        <div class="image-area set1" style="order:1; position: relative; width: 370px; height: 300px;">
+                            <img src="https://placehold.co/250x150/6fb1c5/36454F?text=Image+2-2" alt="Business efficiency secondary"
+                                class="rounded-md object-cover"
+                                style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
+                            <img src="https://placehold.co/250x150/d4b29c/36454F?text=Image+2-1" alt="Business efficiency"
+                                class="rounded-md object-cover"
+                                style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
                         </div>
+
+                        <!-- Set 2 (Second 2 images, initially hidden) -->
+                        <div class="image-area set2" style="order:1; position: relative; width: 370px; height: 300px; display: none;">
+                            <img src="https://placehold.co/250x150/f2a54b/36454F?text=Image+2-4" alt="Business efficiency tertiary"
+                                class="rounded-md object-cover"
+                                style="position: absolute; left: 200px; top: 80px; z-index: 1; max-width: 250px; max-height: 150px;">
+                            <img src="https://placehold.co/250x150/8c7f94/36454F?text=Image+2-3" alt="Business efficiency quaternary"
+                                class="rounded-md object-cover"
+                                style="position: absolute; left: 0; top: 0; z-index: 2; max-width: 250px; max-height: 150px;">
+                        </div>
+
                         <a href="assessments.html"
-                        class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-[-20px] mx-auto"
-                        style="order:2; display: block; max-width: fit-content;">
-                        Explore dashboard &rarr;
+                            class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-6 mx-auto"
+                            style="order:2; display: block; max-width: fit-content;">
+                            Explore dashboard &rarr;
                         </a>
-                    </div>
+                        </div>
+
+                        <script>
+                        // Alternate between set1 and set2 every 3 seconds
+                        let showSet1 = true;
+                        const set1 = document.querySelector('.carousel-slide.layout-landscape-image-bottom .set1');
+                        const set2 = document.querySelector('.carousel-slide.layout-landscape-image-bottom .set2');
+
+                        setInterval(() => {
+                            if (showSet1) {
+                            set1.style.display = 'none';
+                            set2.style.display = 'flex';
+                            } else {
+                            set1.style.display = 'flex';
+                            set2.style.display = 'none';
+                            }
+                            showSet1 = !showSet1;
+                        }, 3000);
+                        </script>
                     </div>
                     <button class="carousel-button prev">&#10094;</button>
                     <button class="carousel-button next">&#10095;</button>
