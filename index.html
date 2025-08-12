@@ -496,12 +496,17 @@
                         <div class="carousel-wrapper">
                             <!-- Slide 1: New to ESG Reporting -->
                             <div class="carousel-slide layout-portrait-left md:flex">
-                            <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0 pt-12 md:pt-[3rem]">
+                            <!-- Image first by default, but will move second on small screens -->
+                            <div class="image-area w-full md:w-1/2 flex justify-center md:justify-start mb-4 md:mb-0 pt-12 md:pt-[3rem] order-2 md:order-1">
                                 <img src="images/road_forest.jpg" alt="New to ESG Reporting" class="rounded-md object-cover">
                             </div>
-                            <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start pt-12 md:pt-[3rem]">
+
+                            <!-- Content second by default, but will move first on small screens -->
+                            <div class="content-area w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start pt-12 md:pt-[3rem] order-1 md:order-2">
                                 <h4 class="text-xl font-bold text-forest-green mb-2 text-center md:text-left">New to ESG reporting?</h4>
-                                <p class="text-stone-700 leading-relaxed">Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.</p>
+                                <p class="text-stone-700 leading-relaxed">
+                                Start your ESG journey with us as we guide you through every step, from initial gap assessments to assurance readiness for any reporting initiative, ensuring an effortless process tailored to your needs.
+                                </p>
                                 <a href="new-to-esg-reporting.html"
                                 class="inline-block bg-sandy-brown text-white px-6 py-2 rounded-full text-md font-semibold hover:bg-sandy-brown-hover transition duration-300 shadow-lg mt-4">
                                 Start Your ESG Journey &rarr;
