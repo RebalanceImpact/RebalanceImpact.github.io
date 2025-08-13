@@ -4,71 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data KPIs & Software - Rebalance Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
+        :root {
+            --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
+            --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+            --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
+        }
+        
+        /* Custom styles for the Inter font and general body styling to ensure consistent typography */
+        body {
+            font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
+            -webkit-font-smoothing: antialiased; /* Optimizes font rendering for smoother appearance on WebKit browsers (e.g., Chrome, Safari) */
+            -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
+        }
+        /* Ensures all images and SVG icons scale responsively within their parent containers */
+        img, svg {
+            max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
+            height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
+        }
+        /* Styles for the dropdown menu container (e.g., for "Services") */
+        .dropdown {
+            position: relative; /* Establishes a positioning context for absolutely positioned children (the dropdown content) */
+            display: inline-block; /* Allows the dropdown element to sit inline with other navigation items, while still respecting block-level properties like width/height */
+        }
+        /* Styles for the hidden dropdown content (the actual menu items that appear on hover) */
+        .dropdown-content {
+            display: none; /* Hides the dropdown content by default */
+            position: absolute; /* Positions the dropdown content relative to its nearest positioned ancestor (.dropdown) */
+            background-color: #f9f9f9; /* Sets a light, off-white background for the dropdown menu */
+            min-width: 180px; /* Defines a minimum width for the dropdown, ensuring readability */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Applies a subtle shadow for a lifted, professional appearance */
+            z-index: 1000; /* Ensures the dropdown appears on top of other elements on the page */
+            border-radius: 0.5rem; /* Adds rounded corners to the dropdown box for a softer look */
+            overflow: hidden; /* Ensures that any content extending beyond the rounded corners is clipped */
+            top: 100%; /* Positions the top edge of the dropdown content directly below the parent link */
+            left: 50%; /* Attempts to horizontally center the dropdown content relative to its parent link */
+            transform: translateX(-50%); /* Fine-tunes horizontal centering by offsetting by half its own width */
+            padding: 0.5rem 0; /* Adds vertical padding inside the dropdown, creating space above and below menu items */
+        }
+        /* Styles for individual links within the dropdown menu */
+        .dropdown-content a {
+            color: var(--color-forest-green); /* Sets the text color of dropdown links to the custom forest green */
+            padding: 12px 16px; /* Adds padding around each link for better clickability and spacing */
+            text-decoration: none; /* Removes the default underline from links */
+            display: block; /* Makes the entire area of the link (including padding) clickable */
+            text-align: left; /* Aligns the text of the dropdown links to the left */
+            transition: background-color 0.3s, color 0.3s; /* Applies a smooth transition effect when background or text color changes on hover */
+        }
+        /* Hover styles for individual links within the dropdown menu */
+        .dropdown-content a:hover {
+            background-color: #e2e8f0; /* Changes the background color to a light gray when a link is hovered */
+            color: #0A3623; /* Darkens the text color slightly on hover for visual feedback */
+        }
+        /* Shows the dropdown content when the main .dropdown parent element is hovered over */
+        .dropdown:hover .dropdown-content {
+            display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
+        }
+    </style>
     <script>
+        // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
+        // It must be placed after the Tailwind CDN script to ensure Tailwind is loaded and available for configuration.
         tailwind.config = {
             theme: {
-                extend: {
-                    colors: {
-                        'forest-green': 'var(--color-forest-green)',
+                extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
+                    colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
+                        'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
                         'sandy-brown': 'var(--color-sandy-brown)',
+                        'sandy-brown-hover': 'var(--color-sandy-brown-hover)'   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
                     }
                 }
             }
         };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        :root {
-            --color-forest-green: #334C33;
-            --color-sandy-brown: #CCB999;
-        }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #f9f9f9; min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; border-radius: 0.5rem;
-            overflow: hidden; top: 100%; left: 50%; transform: translateX(-50%); padding: 0.5rem 0;
-        }
-        .dropdown-content a {
-            color: var(--color-forest-green); padding: 12px 16px; text-decoration: none;
-            display: block; text-align: left; transition: background-color 0.3s, color 0.3s;
-        }
-        .dropdown-content a:hover { background-color: #e2e8f0; color: #0A3623; }
-        .dropdown:hover .dropdown-content { display: block; }
-    </style>
 </head>
-<body class="font-sans antialiased bg-sandy-brown/10 text-stone-800">
-    <header class="bg-white shadow-md p-4">
-        <div class="container mx-auto flex items-center space-x-2">
-            <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
-                <img src="small_transparent.png" alt="Small Logo" class="h-12 w-auto rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';">
-                <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
-            </a>
-            <nav class="ml-auto flex space-x-6 text-lg font-medium text-stone-700">
-                <a href="index.html" class="hover:text-forest-green transition duration-300">Home</a>
-                <div class="dropdown">
-                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Services</a>
-                    <div class="dropdown-content rounded-lg">
-                        <a href="sustainable-reporting.html">Sustainable Reporting</a>
-                        <a href="data-analytics.html">Data Analytics</a>
-                        <a href="knowledge-institute.html">Knowledge Capacity</a>
-                    </div>
-                </div>
-                <a href="#" class="hover:text-forest-green transition duration-300">Insights</a>
-                <a href="#" class="hover:text-forest-green transition duration-300">Contact</a>
+<body>
+    <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
+            <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
+            <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
+                <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
+                    <img
+                        src="small_transparent.png"
+                        alt="Small Logo"
+                        class="h-12 w-auto rounded-md"
+                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
+                    />
+                    <!-- Displays the company name with custom forest green color and bold text -->
+                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links - Top Right: Contains links to other main sections or pages of the website. -->
+            <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
+                <a href="esg-services.html" class="hover:text-forest-green transition duration-300">Core Services</a>
+                <a href="data-kpis.html" class="hover:text-forest-green transition duration-300">Data Solutions</a>
+                <a href="news-media.html" class="hover:text-forest-green transition duration-300">Industry Insights</a>
+                <a href="about-us.html" class="hover:text-forest-green transition duration-300">About Us</a>
             </nav>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-16 text-center">
         <h1 class="text-5xl font-bold text-forest-green mb-6">Data KPIs & Software</h1>
-        <p class="text-xl text-stone-700 max-w-3xl mx-auto">
-            This page covers our accounting services for non-financial data KPIs and our expertise in accounting software for sustainable data management.
+        
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            At Rebalance Impact, we offer comprehensive data-driven solutions to empower your ESG journey. Our approach begins with <strong>centralizing and collecting</strong> your sustainability data to create a single source of truth, eliminating silos and inconsistencies. This foundation enables confident tracking and reporting on your key ESG metrics.
         </p>
-        <div class="mt-12">
-            <a href="index.html" class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">Back to Homepage</a>
+        
+        <!-- Interactive Dashboard Image -->
+        <div class="max-w-4xl mx-auto mb-8">
+            <img 
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" 
+            alt="Interactive ESG data dashboard interface" 
+            class="rounded-lg shadow-lg w-full"
+            />
+            <p class="text-sm italic text-stone-500 mt-2">Placeholder: Interactive ESG Data Dashboard</p>
         </div>
-    </main>
+
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            Our software solutions facilitate <strong>tracking and monitoring</strong> of non-financial KPIs, enabling real-time visibility into environmental, social, and governance performance. By automating data capture and validation, we reduce manual errors and accelerate your reporting timelines.
+        </p>
+
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            Beyond tracking, we support <strong>data analysis and forecasting</strong>, helping you identify trends, set achievable reduction targets, and uncover operational hotspots with the highest sustainability impact. Our analytics tools allow scenario modeling, so you can evaluate the effectiveness and return on investment of different sustainability initiatives before implementation.
+        </p>
+
+        <!-- Target Setting / Hotspot Identification Image -->
+        <div class="max-w-4xl mx-auto mb-8">
+            <img 
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" 
+            alt="Data analysis and target setting in sustainability" 
+            class="rounded-lg shadow-lg w-full"
+            />
+            <p class="text-sm italic text-stone-500 mt-2">Placeholder: ESG Target Setting and Hotspot Identification</p>
+        </div>
+
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            With our solutions, you gain the power to establish <strong>high-integrity targets</strong> that are both ambitious and realistic, grounded in your detailed data insights. Accuracy and transparency in target-setting strengthen stakeholder trust and enable clear progress measurement.
+        </p>
+
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            Our platform also fosters <strong>collaborative data governance</strong>, engaging relevant teams and suppliers in shared data responsibilities to enhance data quality across your entire value chain. This collective accountability drives continuous improvement in ESG performance.
+        </p>
+
+        <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-8">
+            Ultimately, these capabilities support your compliance with evolving ESG regulations and voluntary frameworks, while transforming sustainability into a strategic business advantage. By embedding data-driven decision-making throughout your organization, Rebalance Impact helps you optimize operations, mitigate risks, and unlock new growth opportunities.
+        </p>
+
+        <div class="mt-12">
+            <a href="index.html" class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">
+            Back to Homepage
+            </a>
+        </div>
+        </main>
 
     <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center text-sm">
