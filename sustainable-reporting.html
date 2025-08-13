@@ -7,6 +7,62 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
+        :root {
+            --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
+            --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+            --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
+        }
+        
+        /* Custom styles for the Inter font and general body styling to ensure consistent typography */
+        body {
+            font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
+            -webkit-font-smoothing: antialiased; /* Optimizes font rendering for smoother appearance on WebKit browsers (e.g., Chrome, Safari) */
+            -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
+        }
+        /* Ensures all images and SVG icons scale responsively within their parent containers */
+        img, svg {
+            max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
+            height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
+        }
+        /* Styles for the dropdown menu container (e.g., for "Services") */
+        .dropdown {
+            position: relative; /* Establishes a positioning context for absolutely positioned children (the dropdown content) */
+            display: inline-block; /* Allows the dropdown element to sit inline with other navigation items, while still respecting block-level properties like width/height */
+        }
+        /* Styles for the hidden dropdown content (the actual menu items that appear on hover) */
+        .dropdown-content {
+            display: none; /* Hides the dropdown content by default */
+            position: absolute; /* Positions the dropdown content relative to its nearest positioned ancestor (.dropdown) */
+            background-color: #f9f9f9; /* Sets a light, off-white background for the dropdown menu */
+            min-width: 180px; /* Defines a minimum width for the dropdown, ensuring readability */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Applies a subtle shadow for a lifted, professional appearance */
+            z-index: 1000; /* Ensures the dropdown appears on top of other elements on the page */
+            border-radius: 0.5rem; /* Adds rounded corners to the dropdown box for a softer look */
+            overflow: hidden; /* Ensures that any content extending beyond the rounded corners is clipped */
+            top: 100%; /* Positions the top edge of the dropdown content directly below the parent link */
+            left: 50%; /* Attempts to horizontally center the dropdown content relative to its parent link */
+            transform: translateX(-50%); /* Fine-tunes horizontal centering by offsetting by half its own width */
+            padding: 0.5rem 0; /* Adds vertical padding inside the dropdown, creating space above and below menu items */
+        }
+        /* Styles for individual links within the dropdown menu */
+        .dropdown-content a {
+            color: var(--color-forest-green); /* Sets the text color of dropdown links to the custom forest green */
+            padding: 12px 16px; /* Adds padding around each link for better clickability and spacing */
+            text-decoration: none; /* Removes the default underline from links */
+            display: block; /* Makes the entire area of the link (including padding) clickable */
+            text-align: left; /* Aligns the text of the dropdown links to the left */
+            transition: background-color 0.3s, color 0.3s; /* Applies a smooth transition effect when background or text color changes on hover */
+        }
+        /* Hover styles for individual links within the dropdown menu */
+        .dropdown-content a:hover {
+            background-color: #e2e8f0; /* Changes the background color to a light gray when a link is hovered */
+            color: #0A3623; /* Darkens the text color slightly on hover for visual feedback */
+        }
+        /* Shows the dropdown content when the main .dropdown parent element is hovered over */
+        .dropdown:hover .dropdown-content {
+            display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-stone-50 text-stone-800">
