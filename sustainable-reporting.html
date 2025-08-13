@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sustainable Reporting - Rebalance Impact</title>
+    <!-- Tailwind CSS CDN: A utility-first CSS framework for rapid UI development by providing pre-defined classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
@@ -62,6 +63,212 @@
         .dropdown:hover .dropdown-content {
             display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
         }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 0.5rem;
+            min-height: 400px; /* Increased height for the carousel container to accommodate new layouts */
+            border: none; /* Removed border as requested */
+            background-color: transparent; /* Ensure no background color */
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
+            height: 100%; /* Ensure wrapper takes full height of container */
+            align-items: flex-start; /* Align items to the top within the wrapper */
+        }
+
+        .carousel-slide {
+            width: 100%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
+            min-width: 50%; /* Ensure it doesn't shrink below this */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            flex-shrink: 0; /* Prevent slides from shrinking */
+            display: flex; /* Use flexbox for content alignment within the slide */
+            align-items: center; /* Default: Center content horizontally */
+            justify-content: flex-start; /* Align content to the top */
+            padding: 1.5rem; /* Add padding inside the slide */
+            border-radius: 0.5rem; /* Match container border-radius */
+            height: 100%; /* Ensure slide takes full height of container */
+            text-align: center; /* Default text alignment for smaller screens */
+            word-wrap: break-word; /* Ensure long words break to fit container */
+            word-break: break-word; /* Ensure long words break to fit container */
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        /* --- Custom Layout Styles for Carousel Slides --- */
+
+        /* Layout for Portrait Images (Image Left/Right, Text Opposite) */
+        .carousel-slide.layout-portrait-left,
+        .carousel-slide.layout-portrait-right {
+            flex-direction: column; /* Default to column for small screens */
+            align-items: center; /* Center horizontally for column layout */
+            text-align: center; /* Center text for column layout */
+            justify-content: flex-start;
+        }
+
+        /* Base styles for landscape image layouts where image is above or below text */
+        .carousel-slide.layout-landscape-image-top,
+        .carousel-slide.layout-landscape-image-bottom {
+            flex-direction: column; /* Always column for these layouts */
+            align-items: center; /* Center horizontally for column layout */
+            text-align: center; /* Center text for column layout */
+            justify-content: flex-start;
+        }
+
+        /* Responsive adjustments for specific new layouts */
+        @media (min-width: 768px) {
+            .carousel-slide.layout-portrait-left {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start; /* Both children match height */
+                flex-wrap: nowrap;    /* Prevents wrapping unless truly necessary */
+            }
+            .carousel-slide.layout-portrait-left .image-area,
+            .carousel-slide.layout-portrait-left .content-area {
+                width: 50%;
+            }
+            .carousel-slide.layout-portrait-left .image-area {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 0.5rem;    /* Spacing from left edge */
+                padding-right: 1rem;     /* Spacing from image to text */
+                margin: 0;               /* Remove margin for predictable sizing */
+                height: auto;            /* Remove explicit heights */
+            }
+            .carousel-slide.layout-portrait-left .image-area img {
+                max-width: 100%;
+                max-height: 310px;      /* Or your preferred size */
+                width: auto;
+                height: auto;           /* Let aspect ratio rule */
+                object-fit: contain;
+            }
+            .carousel-slide.layout-portrait-left .content-area {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                text-align: left;
+                padding-left: 0;        /* Start flush against image area */
+                padding-right: 0.7rem;    /* Add right padding if needed */
+            }
+
+            /* Landscape Image Top Layout (Image above text) */
+            .carousel-slide.layout-landscape-image-top {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+            }
+            .carousel-slide.layout-landscape-image-top .image-area {
+                order: 1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+            }
+            .carousel-slide.layout-landscape-image-top .image-area img {
+                height: auto;
+                width: auto;
+                max-width: 100%;     /* 20% larger than 250px */
+                max-height: 240px;    /* 20% larger than 150px */
+                object-fit: contain;
+            }
+            .carousel-slide.layout-landscape-image-top .content-area {
+                order: 2;
+                width: 100%;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;         /* Center children (heading, paragraph, button) horizontally */
+            }
+            .carousel-slide.layout-landscape-image-top .content-area h4 {
+                text-align: center;
+            }
+            .carousel-slide.layout-landscape-image-top .content-area p {
+                text-align: justify;         /* Justify paragraph text */
+                max-width: 100%;            /* Optional: control width for a tidy paragraph block */
+                margin: 0 auto 1.2rem auto;  /* Center and add bottom margin */
+            }
+            /* Make sure other elements inside content-area are centered */
+            .carousel-slide.layout-landscape-image-top .content-area > *:not(h4):not(p) {
+                align-self: center;
+            }
+
+            /* Landscape Image Bottom Layout (Image below text) */
+            .carousel-slide.layout-landscape-image-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                justify-content: flex-start;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area {
+                order: 1;
+                width: 90%;
+                margin-bottom: 0.1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-left: 3rem;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area h4 {
+                text-align: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area p {
+                text-align: center;
+                max-width: 98%;
+                margin: 0 0 0.1rem 0;
+            }
+            .carousel-slide.layout-landscape-image-bottom .content-area > *:not(h4):not(p) {
+                align-self: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .image-area {
+                order: 2;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .carousel-slide.layout-landscape-image-bottom .image-area img {
+                height: auto;
+                width: auto;
+                max-width: 100%;
+                max-height: 180px;
+                object-fit: contain;
+            }
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(107, 75, 32, 0.664);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            border-radius: 9999px; /* Full rounded corners */
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(180, 165, 139, 0.779);
+        }
+
+        .carousel-button.prev {
+            left: 5px;
+        }
+
+        .carousel-button.next {
+            right: 5px;
+        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -77,9 +284,107 @@
                 }
             }
         };
+
+        // JavaScript for the carousel functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to initialize a carousel
+            function initializeCarousel(carouselId) {
+                const carouselContainer = document.getElementById(carouselId);
+                if (!carouselContainer) return; // Exit if container not found
+
+                const carouselWrapper = carouselContainer.querySelector('.carousel-wrapper');
+                const slides = carouselContainer.querySelectorAll('.carousel-slide');
+                const prevButton = carouselContainer.querySelector('.carousel-button.prev');
+                const nextButton = carouselContainer.querySelector('.carousel-button.next');
+
+                let currentSlide = 0;
+                let autoSlideInterval;
+                const slideIntervalTime = 5000; // 5 seconds
+                let isPaused = false; // NEW: Track paused state
+
+                // Function to show a specific slide
+                function showSlide(index) {
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+                    // The transform value is crucial: it moves the wrapper by the full width of one slide
+                    carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                // Function to move to the next slide
+                function nextSlide() {
+                    showSlide(currentSlide + 1);
+                }
+
+                // Function to move to the previous slide
+                function prevSlide() {
+                    showSlide(currentSlide - 1);
+                }
+
+                // Start automatic sliding
+                function startAutoSlide() {
+                    stopAutoSlide(); // Clear any existing interval
+                    if (!isPaused) { // Only start if not paused
+                        autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
+                    }
+                }
+
+                // Stop automatic sliding
+                function stopAutoSlide() {
+                    clearInterval(autoSlideInterval);
+                }
+
+                // Pause auto-slide (on hover or button)
+                function pauseAutoSlide() {
+                    isPaused = true;
+                    stopAutoSlide();
+                }
+
+                // Resume auto-slide (on mouse leave)
+                function resumeAutoSlide() {
+                    isPaused = false;
+                    startAutoSlide();
+                }
+
+                // Event listeners for navigation buttons
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        pauseAutoSlide();   // Pause when button used
+                        prevSlide();
+                    });
+                }
+
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        pauseAutoSlide();   // Pause when button used
+                        nextSlide();
+                    });
+                }
+
+                // Initialize the first slide and start auto-sliding
+                showSlide(0);
+                startAutoSlide();
+
+                // Pause auto-slide on hover
+                carouselContainer.addEventListener('mouseenter', pauseAutoSlide);
+                // Resume auto-slide after hover leaves
+                carouselContainer.addEventListener('mouseleave', resumeAutoSlide);
+            }
+
+            // Initialize carousels for both sections
+            initializeCarousel('reporting-carousel');
+            initializeCarousel('data-analytics-carousel');
+        });
+        
     </script>
 </head>
 <body>
+
+    <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
             <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
@@ -96,7 +401,6 @@
                 </a>
             </div>
 
-            <!-- Navigation Links - Top Right: Contains links to other main sections or pages of the website. -->
             <!-- Navigation -->
             <div class="relative order-3 md:order-3">
 
