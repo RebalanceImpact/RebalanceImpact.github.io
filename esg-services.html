@@ -4,71 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enhance Your ESG Journey - Rebalance Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
+        :root {
+            --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
+            --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
+            --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
+        }
+        
+        /* Custom styles for the Inter font and general body styling to ensure consistent typography */
+        body {
+            font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
+            -webkit-font-smoothing: antialiased; /* Optimizes font rendering for smoother appearance on WebKit browsers (e.g., Chrome, Safari) */
+            -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
+        }
+        /* Ensures all images and SVG icons scale responsively within their parent containers */
+        img, svg {
+            max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
+            height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
+        }
+        /* Styles for the dropdown menu container (e.g., for "Services") */
+        .dropdown {
+            position: relative; /* Establishes a positioning context for absolutely positioned children (the dropdown content) */
+            display: inline-block; /* Allows the dropdown element to sit inline with other navigation items, while still respecting block-level properties like width/height */
+        }
+        /* Styles for the hidden dropdown content (the actual menu items that appear on hover) */
+        .dropdown-content {
+            display: none; /* Hides the dropdown content by default */
+            position: absolute; /* Positions the dropdown content relative to its nearest positioned ancestor (.dropdown) */
+            background-color: #f9f9f9; /* Sets a light, off-white background for the dropdown menu */
+            min-width: 180px; /* Defines a minimum width for the dropdown, ensuring readability */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Applies a subtle shadow for a lifted, professional appearance */
+            z-index: 1000; /* Ensures the dropdown appears on top of other elements on the page */
+            border-radius: 0.5rem; /* Adds rounded corners to the dropdown box for a softer look */
+            overflow: hidden; /* Ensures that any content extending beyond the rounded corners is clipped */
+            top: 100%; /* Positions the top edge of the dropdown content directly below the parent link */
+            left: 50%; /* Attempts to horizontally center the dropdown content relative to its parent link */
+            transform: translateX(-50%); /* Fine-tunes horizontal centering by offsetting by half its own width */
+            padding: 0.5rem 0; /* Adds vertical padding inside the dropdown, creating space above and below menu items */
+        }
+        /* Styles for individual links within the dropdown menu */
+        .dropdown-content a {
+            color: var(--color-forest-green); /* Sets the text color of dropdown links to the custom forest green */
+            padding: 12px 16px; /* Adds padding around each link for better clickability and spacing */
+            text-decoration: none; /* Removes the default underline from links */
+            display: block; /* Makes the entire area of the link (including padding) clickable */
+            text-align: left; /* Aligns the text of the dropdown links to the left */
+            transition: background-color 0.3s, color 0.3s; /* Applies a smooth transition effect when background or text color changes on hover */
+        }
+        /* Hover styles for individual links within the dropdown menu */
+        .dropdown-content a:hover {
+            background-color: #e2e8f0; /* Changes the background color to a light gray when a link is hovered */
+            color: #0A3623; /* Darkens the text color slightly on hover for visual feedback */
+        }
+        /* Shows the dropdown content when the main .dropdown parent element is hovered over */
+        .dropdown:hover .dropdown-content {
+            display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
+        }
+    </style>
     <script>
+        // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
+        // It must be placed after the Tailwind CDN script to ensure Tailwind is loaded and available for configuration.
         tailwind.config = {
             theme: {
-                extend: {
-                    colors: {
-                        'forest-green': 'var(--color-forest-green)',
+                extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
+                    colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
+                        'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
                         'sandy-brown': 'var(--color-sandy-brown)',
+                        'sandy-brown-hover': 'var(--color-sandy-brown-hover)'   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
                     }
                 }
             }
         };
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        :root {
-            --color-forest-green: #334C33; /* CMYK 80,50,80,0 equivalent */
-            --color-sandy-brown: #CCB999; /* CMYK 20,15,30,0 equivalent */
-        }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: #f9f9f9; min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000; border-radius: 0.5rem;
-            overflow: hidden; top: 100%; left: 50%; transform: translateX(-50%); padding: 0.5rem 0;
-        }
-        .dropdown-content a {
-            color: var(--color-forest-green); padding: 12px 16px; text-decoration: none;
-            display: block; text-align: left; transition: background-color 0.3s, color 0.3s;
-        }
-        .dropdown-content a:hover { background-color: #e2e8f0; color: #0A3623; }
-        .dropdown:hover .dropdown-content { display: block; }
-    </style>
 </head>
-<body class="font-sans antialiased bg-sandy-brown/10 text-stone-800">
-    <header class="bg-white shadow-md p-4">
-        <div class="container mx-auto flex items-center space-x-2">
-            <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
-                <img src="small_transparent.png" alt="Small Logo" class="h-12 w-auto rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';">
-                <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
-            </a>
-            <nav class="ml-auto flex space-x-6 text-lg font-medium text-stone-700">
-                <a href="index.html" class="hover:text-forest-green transition duration-300">Home</a>
+<body>
+    <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
+            <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
+            <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
+                <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
+                    <img
+                        src="small_transparent.png"
+                        alt="Small Logo"
+                        class="h-12 w-auto rounded-md"
+                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
+                    />
+                    <!-- Displays the company name with custom forest green color and bold text -->
+                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links - Top Right: Contains links to other main sections or pages of the website. -->
+            <nav class="flex space-x-6 text-lg font-medium text-stone-700 mt-4 md:mt-0 order-3 md:order-3 w-full md:w-auto justify-center">
+                <!-- Reporting Solutions Dropdown -->
                 <div class="dropdown">
-                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Services</a>
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Reporting Solutions</a>
                     <div class="dropdown-content rounded-lg">
-                        <a href="sustainable-reporting.html">Sustainable Reporting</a>
-                        <a href="data-analytics.html">Data Analytics</a>
-                        <a href="knowledge-institute.html">Knowledge Capacity</a>
+                        <a href="new-to-esg-reporting.html">New to ESG?</a>
+                        <a href="assisting-reporting.html">Reporting Assistance</a>
                     </div>
                 </div>
-                <a href="#" class="hover:text-forest-green transition duration-300">Insights</a>
-                <a href="#" class="hover:text-forest-green transition duration-300">Contact</a>
+                <!-- Data Solutions Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Data Solutions</a>
+                    <div class="dropdown-content rounded-lg">
+                        <a href="data-kpis.html">Track Your KPIs & ESG Data</a>
+                        <a href="assessments.html">Assessments</a>
+                    </div>
+                </div>
+                <!-- Insights Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">Insights</a>
+                    <div class="dropdown-content rounded-lg">
+                        <a href="news-media.html">News & Media Coverage</a>
+                        <a href="mailing-list.html">Join Our Mailing List</a>
+                    </div>
+                </div>
+                <!-- About Us Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="hover:text-forest-green transition duration-300 cursor-pointer">About Us</a>
+                    <div class="dropdown-content rounded-lg">
+                        <a href="about-us.html">Why Us?</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-16 text-center">
-        <h1 class="text-5xl font-bold text-forest-green mb-6">Enhance Your ESG Journey</h1>
-        <p class="text-xl text-stone-700 max-w-3xl mx-auto">
-            For organizations that have already embarked on their ESG reporting journey, we offer specialized services to help you refine and expand your efforts. Whether you're looking to integrate new KPIs, adapt to evolving regulations, or explore specific initiatives, our tailored solutions are designed to elevate your sustainability performance and reporting.
-        </p>
-        <div class="mt-12">
-            <a href="index.html" class="inline-block bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg">Back to Homepage</a>
+    <main class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Navigation Pane -->
+            <aside class="md:col-span-1">
+            <div class="sticky top-24 bg-stone-100 rounded-lg shadow-md p-4">
+                <h2 class="text-xl font-bold text-forest-green mb-4">Our Services</h2>
+                <nav class="space-y-2">
+                <a href="#non-financial-accounting" class="block text-stone-700 hover:text-forest-green">Accounting for Non-Financial Data KPIs</a>
+                <a href="#accounting-software" class="block text-stone-700 hover:text-forest-green">Accounting Software</a>
+                <a href="#gap-assessment" class="block text-stone-700 hover:text-forest-green">GAP Assessments</a>
+                <a href="#dma-assessment" class="block text-stone-700 hover:text-forest-green">DMA Assessments</a>
+                <a href="#reporting-assistance" class="block text-stone-700 hover:text-forest-green">Assisting with Reporting</a>
+                <a href="#assurance-readiness" class="block text-stone-700 hover:text-forest-green">Assurance Readiness</a>
+                <a href="#iso-certifications" class="block text-stone-700 hover:text-forest-green">ISO Certifications</a>
+                <a href="#eu-reporting" class="block text-stone-700 hover:text-forest-green">EU Reporting Support</a>
+                </nav>
+            </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="md:col-span-3 space-y-16 text-center md:text-left">
+            <h1 class="text-5xl font-bold text-forest-green mb-6">Enhance Your ESG Journey</h1>
+            <p class="text-xl text-stone-700">
+                For organizations that have already embarked on their ESG reporting journey, Rebalance Impact offers specialized services to refine, expand, and future-proof your efforts. Whether you're adapting to evolving regulations, embedding new operational practices, or expanding your KPI scope, our solutions are designed to make ESG reporting accurate, efficient, and strategically impactful.
+            </p>
+
+            <!-- 1. Non-Financial Data Accounting -->
+            <section id="non-financial-accounting">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">Accounting for Non-Financial Data KPIs</h2>
+                <p class="text-lg text-stone-700">
+                We provide structured accounting services for **non-financial data KPIs** such as environmental, social, and governance metrics. Our process ensures consistency, traceability, and accuracy so your data can withstand audits and meet both voluntary and regulated disclosure requirements.
+                </p>
+            </section>
+
+            <!-- 2. Accounting Software -->
+            <section id="accounting-software">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">Accounting Software for Non-Financial Data</h2>
+                <p class="text-lg text-stone-700">
+                Our integrated **accounting software** solutions centralize and automate non-financial data management. Designed to work alongside your existing infrastructure, these tools enable efficient data collection, KPI tracking, and reporting without manual bottlenecks.
+                </p>
+            </section>
+
+            <!-- 3. GAP Assessments -->
+            <section id="gap-assessment">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">GAP Assessments</h2>
+                <p class="text-lg text-stone-700">
+                Our **GAP Assessments** benchmark your current ESG practices against best practices and compliance standards, identifying areas for improvement. This is the foundation for building a robust and effective ESG strategy.
+                </p>
+            </section>
+
+            <!-- 4. DMA Assessments -->
+            <section id="dma-assessment">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">Double Materiality Assessments (DMA)</h2>
+                <p class="text-lg text-stone-700">
+                Through **Double Materiality Assessments**, we help determine which ESG topics are most significant, both in terms of their impact on your business and the influence your operations have on the environment and society.
+                </p>
+            </section>
+
+            <!-- 5. Assisting with Reporting -->
+            <section id="reporting-assistance">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">Assisting with Reporting</h2>
+                <p class="text-lg text-stone-700">
+                We support you in preparing accurate, transparent, and standard-compliant ESG reports. Our assistance covers the entire reporting cycle—from data consolidation to crafting compelling narratives that communicate your sustainability performance to stakeholders.
+                </p>
+            </section>
+
+            <!-- 6. Assurance Readiness -->
+            <section id="assurance-readiness">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">Assurance Readiness Assessments</h2>
+                <p class="text-lg text-stone-700">
+                Our **Assurance Readiness** services ensure your ESG data and reporting processes meet the expectations of external auditors and assurance providers, minimizing the risk of post-reporting adjustments.
+                </p>
+            </section>
+
+            <!-- 7. ISO Certifications -->
+            <section id="iso-certifications">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">ISO Certifications</h2>
+                <p class="text-lg text-stone-700">
+                We guide you through the process of obtaining and maintaining **ISO certifications**, ensuring your systems and policies meet internationally recognized quality, environmental, and management standards.
+                </p>
+            </section>
+
+            <!-- 8. EU Reporting Support -->
+            <section id="eu-reporting">
+                <h2 class="text-2xl font-bold text-forest-green mb-3">EU Reporting Support</h2>
+                <p class="text-lg text-stone-700">
+                For international companies or those operating in Europe, we provide dedicated **EU reporting support**—helping you align with European Sustainability Reporting Standards (ESRS) and upcoming Corporate Sustainability Reporting Directive (CSRD) requirements.
+                </p>
+            </section>
+
+            <!-- Closing redirect paragraph -->
+            <div class="bg-stone-100 p-6 rounded-lg shadow-md">
+                <p class="text-lg text-stone-700">
+                Ready to explore how these services work together? Visit our <a href="esg-services.html" class="text-green-700 underline hover:text-green-900">ESG Services</a> page for our complete offering, our <a href="data-kpis.html" class="text-green-700 underline hover:text-green-900">Data Analytics & KPIs</a> section for advanced data strategies, and our <a href="assisting-reporting.html" class="text-green-700 underline hover:text-green-900">Reporting & Assurance</a> page to see how we ensure your ESG disclosures meet the highest standards.
+                </p>
+            </div>
+            </div>
         </div>
-    </main>
+        </main>
 
     <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center text-sm">
