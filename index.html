@@ -379,9 +379,7 @@
             initializeCarousel('reporting-carousel');
             initializeCarousel('data-analytics-carousel');
         });
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            document.getElementById('menu').classList.toggle('hidden');
-        });
+        
     </script>
 </head>
 <body>
@@ -425,6 +423,11 @@
             </div>
         </div>
     </header>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('hidden');
+        });
+    </script>
 
     <!-- Main Content Area: Contains the primary sections of the homepage, structured to highlight core services and value proposition. -->
     <main class="container mx-auto px-1 py-8">
