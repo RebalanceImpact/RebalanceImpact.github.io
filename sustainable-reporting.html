@@ -64,6 +64,21 @@
             display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
         }
     </style>
+    <script>
+        // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
+        // It must be placed after the Tailwind CDN script to ensure Tailwind is loaded and available for configuration.
+        tailwind.config = {
+            theme: {
+                extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
+                    colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
+                        'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
+                        'sandy-brown': 'var(--color-sandy-brown)',
+                        'sandy-brown-hover': 'var(--color-sandy-brown-hover)'   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
+                    }
+                }
+            }
+        };
+    </script>
 </head>
 <body class="font-sans antialiased bg-stone-50 text-stone-800">
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
