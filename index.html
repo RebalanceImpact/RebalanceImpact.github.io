@@ -995,5 +995,39 @@
         </div>
     </footer>
 
+    <!-- Contact Us Tab (fixed bottom-right) -->
+    <div class="fixed bottom-4 right-4 z-50 group">
+    <!-- Tab button -->
+    <button
+        class="bg-forest-green text-white px-4 py-2 rounded-tl-lg rounded-bl-lg cursor-pointer select-none">
+        Contact Us
+    </button>
+
+    <!-- Expanded contact form, initially hidden -->
+    <div
+        class="hidden group-hover:block bg-white shadow-lg rounded-lg p-6 w-80 max-w-xs border border-gray-300">
+        <form class="flex flex-col space-y-4" action="mailto:your@email.com" method="POST" enctype="text/plain">
+        <h3 class="text-lg font-semibold text-forest-green mb-2">Contact Us</h3>
+
+        <label class="block text-sm font-medium text-gray-700">Name</label>
+        <input type="text" name="name" required placeholder="Your name"
+            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
+
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" required placeholder="you@example.com"
+            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
+
+        <label class="block text-sm font-medium text-gray-700">Message</label>
+        <textarea name="message" rows="4" required placeholder="Your message"
+            class="w-full border border-gray-300 rounded px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-forest-green"></textarea>
+
+        <button type="submit"
+            class="bg-forest-green text-white rounded py-2 font-semibold hover:bg-green-900 transition duration-300">
+            Send
+        </button>
+        </form>
+    </div>
+    </div>
+
 </body>
 </html>
