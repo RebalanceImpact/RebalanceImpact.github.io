@@ -703,116 +703,209 @@
                 <div class="bg-forest-green/20 p-8 rounded-xl shadow-inner max-h-[800px] overflow-y-auto">
                 <h2 class="text-3xl font-bold text-forest-green mb-6 text-center">Get a Price Estimate</h2>
                 <p class="text-lg text-stone-700 leading-relaxed mb-8 text-center">
-                    Fill out this form to get a tailored price estimate for your business. The results will be automatically emailed to us.
+                    Fill out this form to get a price estimate for your business. We will get back to you within 24 hours
                 </p>
-                <form action="mailto:william@rebalanceimpact.com" method="POST" enctype="text/plain" class="space-y-8">
+                <form action="https://script.google.com/macros/s/AKfycbzHx0qTKeq58I01mJdVkn63omnaZeL1cjfCyZK066tn4-UP2nfCxlRv3eJpD77VjGo0/exec" method="POST" class="space-y-8">
                     <fieldset class="border-t border-gray-200 pt-6">
-                    <legend class="text-xl font-semibold text-stone-700 mb-4">Your Contact Details</legend>
-                    <div class="space-y-4">
-                        <div>
-                        <label for="contact-name" class="block text-lg font-medium text-stone-700 mb-2">Your Name</label>
-                        <input type="text" id="contact-name" name="Contact Name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Jane Doe" required />
-                        </div>
-                        <div>
-                        <label for="contact-email" class="block text-lg font-medium text-stone-700 mb-2">Email</label>
-                        <input type="email" id="contact-email" name="Contact Email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="your@example.com" required />
-                        </div>
-                        <div>
-                        <label for="contact-org" class="block text-lg font-medium text-stone-700 mb-2">Organization Name</label>
-                        <input type="text" id="contact-org" name="Organization Name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="Your Organization's Name" required />
-                        </div>
-                    </div>
-                    </fieldset>
-                    <fieldset class="border-t border-gray-200 pt-6">
-                    <legend class="text-xl font-semibold text-stone-700 mb-4">How far are you with your ESG journey?</legend>
-                    <div class="space-y-4">
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="No data captured" class="form-radio h-5 w-5 text-forest-green" required />
-                        <span class="ml-2 text-stone-700">Have not captured or reported on any ESG data</span>
-                        </label>
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="Capture basic limited data" class="form-radio h-5 w-5 text-forest-green" />
-                        <span class="ml-2 text-stone-700">Capture basic data on limited KPIs</span>
-                        </label>
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="Capture and report limited data" class="form-radio h-5 w-5 text-forest-green" />
-                        <span class="ml-2 text-stone-700">Capture basic data and report on limited KPIs</span>
-                        </label>
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="Capture and report all KPIs" class="form-radio h-5 w-5 text-forest-green" />
-                        <span class="ml-2 text-stone-700">Capture data and report on all our KPIs</span>
-                        </label>
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="Capture and report all KPIs with limited assurance" class="form-radio h-5 w-5 text-forest-green" />
-                        <span class="ml-2 text-stone-700">Capture data and report on all our KPIs with limited assurance</span>
-                        </label>
-                        <label class="block">
-                        <input type="radio" name="ESG_Journey" value="Industry leaders" class="form-radio h-5 w-5 text-forest-green" />
-                        <span class="ml-2 text-stone-700">We are industry leaders in ESG reporting</span>
-                        </label>
-                    </div>
-                    </fieldset>
-                    <fieldset class="border-t border-gray-200 pt-6">
-                    <legend class="text-xl font-semibold text-stone-700 mb-4">What services are you looking for?</legend>
-                    <div class="space-y-4">
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="GAP Assessment" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="Identifies gaps between your current state and desired sustainability goals.">GAP Assessment</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="Double Materiality Assessment (DMA)" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="Helps you identify which ESG issues are most relevant to your business and stakeholders.">Double Materiality Assessment (DMA)</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="Data capturing/processing (ESG Accounting)" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="We handle the collection and processing of your sustainability data.">Data capturing/processing (ESG Accounting)</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="Assurance Readiness" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="We prepare your business for independent verification of your ESG report.">Assurance Readiness</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="ISO Certification Readiness" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="Prepares your systems and processes for official ISO certification.">ISO Certification Readiness</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="Full CSRD package" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="A comprehensive service to ensure full compliance with the Corporate Sustainability Reporting Directive.">Full CSRD package</span>
-                        </label>
-                        <label class="block group relative">
-                        <input type="checkbox" name="Services_Required[]" value="Data analytics" class="form-checkbox h-5 w-5 text-forest-green rounded" />
-                        <span class="ml-2 text-stone-700 cursor-help" title="Transforms your raw ESG data into actionable insights for strategic decision-making.">Data analytics</span>
-                        </label>
-                        <div class="flex items-center">
-                        <label for="other-service" class="flex-shrink-0 text-stone-700">Other:</label>
-                        <input type="text" id="other-service" name="Services_Required[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom reporting solutions" />
-                        </div>
-                    </div>
-                    </fieldset>
-                    <fieldset class="border-t border-gray-200 pt-6">
-                    <legend class="text-xl font-semibold text-stone-700 mb-4">What KPIs do you want support on?</legend>
-                    <div class="space-y-4">
-                        <label class="block">
-                        <div class="flex items-start">
-                            <input type="radio" name="KPIs_Support" value="Don't know where to start" class="form-radio h-5 w-5 text-forest-green flex-shrink-0 mt-1" />
-                            <span class="ml-2 text-stone-700">Don't know where to start? Submit the form and we will contact you to figure this out together tailored for your needs</span>
-                        </div>
-                        </label>
-                        <hr class="my-4 border-gray-200" />
-                        <p class="text-md font-medium text-stone-700 mb-2">Or select from the list below:</p>
-                        <!-- ... (rest of KPIs grid/checkboxes, unchanged) ... -->
-                        <div class="flex items-center col-span-1 md:col-span-2 mt-4">
-                        <label for="other-kpi" class="flex-shrink-0 text-stone-700">Other:</label>
-                        <input type="text" id="other-kpi" name="KPIs_Support[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom KPIs" />
-                        </div>
-                    </div>
-                    </fieldset>
-                    <fieldset class="border-t border-gray-200 pt-6">
-                    <legend class="text-xl font-semibold text-stone-700 mb-4">How many sites (locations) is this work required for?</legend>
-                    <div>
-                        <input type="number" id="num-sites" name="Number of Sites" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" min="1" placeholder="e.g., 5" required />
-                    </div>
-                    </fieldset>
+                            <legend class="text-xl font-semibold text-stone-700 mb-4">Your Contact Details</legend>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="contact-name" class="block text-lg font-medium text-stone-700 mb-2">Your Name</label>
+                                    <input type="text" id="contact-name" name="Contact Name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Jane Doe" required />
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-lg font-medium text-stone-700 mb-2">Email</label>
+                                    <input type="email" id="contact-email" name="Contact Email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="your@example.com" required />
+                                </div>
+                                <div>
+                                    <label for="contact-org" class="block text-lg font-medium text-stone-700 mb-2">Organization Name</label>
+                                    <input type="text" id="contact-org" name="Organization Name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="Your Organization's Name" required />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="border-t border-gray-200 pt-6">
+                            <legend class="text-xl font-semibold text-stone-700 mb-4">How far are you with your ESG journey?</legend>
+                            <div class="space-y-4">
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="No data captured" class="form-radio h-5 w-5 text-forest-green" required />
+                                    <span class="ml-2 text-stone-700">Have not captured or reported on any ESG data</span>
+                                </label>
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="Capture basic limited data" class="form-radio h-5 w-5 text-forest-green" />
+                                    <span class="ml-2 text-stone-700">Capture basic data on limited KPIs</span>
+                                </label>
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="Capture and report limited data" class="form-radio h-5 w-5 text-forest-green" />
+                                    <span class="ml-2 text-stone-700">Capture basic data and report on limited KPIs</span>
+                                </label>
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="Capture and report all KPIs" class="form-radio h-5 w-5 text-forest-green" />
+                                    <span class="ml-2 text-stone-700">Capture data and report on all our KPIs</span>
+                                </label>
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="Capture and report all KPIs with limited assurance" class="form-radio h-5 w-5 text-forest-green" />
+                                    <span class="ml-2 text-stone-700">Capture data and report on all our KPIs with limited assurance</span>
+                                </label>
+                                <label class="block">
+                                    <input type="radio" name="ESG_Journey" value="Industry leaders" class="form-radio h-5 w-5 text-forest-green" />
+                                    <span class="ml-2 text-stone-700">We are industry leaders in ESG reporting</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="border-t border-gray-200 pt-6">
+                            <legend class="text-xl font-semibold text-stone-700 mb-4">What services are you looking for?</legend>
+                            <div class="space-y-4">
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="GAP Assessment" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="Identifies gaps between your current state and desired sustainability goals.">GAP Assessment</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="Double Materiality Assessment (DMA)" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="Helps you identify which ESG issues are most relevant to your business and stakeholders.">Double Materiality Assessment (DMA)</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="Data capturing/processing (ESG Accounting)" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="We handle the collection and processing of your sustainability data.">Data capturing/processing (ESG Accounting)</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="Assurance Readiness" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="We prepare your business for independent verification of your ESG report.">Assurance Readiness</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="ISO Certification Readiness" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="Prepares your systems and processes for official ISO certification.">ISO Certification Readiness</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="Full CSRD package" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="A comprehensive service to ensure full compliance with the Corporate Sustainability Reporting Directive.">Full CSRD package</span>
+                                </label>
+                                <label class="block group relative">
+                                    <input type="checkbox" name="Services_Required[]" value="Data analytics" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                    <span class="ml-2 text-stone-700 cursor-help" title="Transforms your raw ESG data into actionable insights for strategic decision-making.">Data analytics</span>
+                                </label>
+                                <div class="flex items-center">
+                                    <label for="other-service" class="flex-shrink-0 text-stone-700">Other:</label>
+                                    <input type="text" id="other-service" name="Services_Required[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom reporting solutions" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="border-t border-gray-200 pt-6">
+                            <legend class="text-xl font-semibold text-stone-700 mb-4">What KPIs do you want support on?</legend>
+                            <div class="space-y-4">
+                                <label class="block">
+                                    <div class="flex items-start">
+                                        <input type="radio" name="KPIs_Support" value="Don't know where to start" class="form-radio h-5 w-5 text-forest-green flex-shrink-0 mt-1" />
+                                        <span class="ml-2 text-stone-700">Don't know where to start? Submit the form and we will contact you to figure this out together tailored for your needs</span>
+                                    </div>
+                                </label>
+                                <hr class="my-4 border-gray-200" />
+                                <p class="text-md font-medium text-stone-700 mb-2">Or select from the list below:</p>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E1: Climate Change</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 1 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 1 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 2 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 2 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Scope 3 GHG Emissions" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Scope 3 GHG Emissions</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total energy consumption" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total energy consumption (including Renewable)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Renewable Energy" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Renewable Energy (excl. other energy)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E3: Water and Marine Resources</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water withdrawn" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water withdrawn</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water discharged" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water discharged</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total water recycled" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total water recycled</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS E5: Resource Use and Circular Economy</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Total waste" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Total (hazardous+non-hazardous) waste</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <p class="font-semibold text-stone-800">ESRS S1: Own Workforce</p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Hours worked" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Hours worked (TRIFR, LTIFR etc.)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Environmental incidents" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Environmental incidents</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Injury related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Injury related KPIs</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Health related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Health related KPIs</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="SED Spend" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Socio-Economic Development Spend (SED)</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Living wage" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Living wage</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" name="KPIs_Support[]" value="Gender related KPIs" class="form-checkbox h-5 w-5 text-forest-green rounded" />
+                                            <span class="ml-2 text-stone-700">Gender related KPIs</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center col-span-1 md:col-span-2 mt-4">
+                                    <label for="other-kpi" class="flex-shrink-0 text-stone-700">Other:</label>
+                                    <input type="text" id="other-kpi" name="KPIs_Support[]" class="ml-2 block flex-grow px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" placeholder="e.g., Custom KPIs" />
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="border-t border-gray-200 pt-6">
+                            <legend class="text-xl font-semibold text-stone-700 mb-4">How many sites (locations) is this work required for?</legend>
+                            <div>
+                                <input type="number" id="num-sites" name="Number of Sites" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-forest-green focus:border-forest-green sm:text-lg" min="1" placeholder="e.g., 5" required />
+                            </div>
+                        </fieldset>
                     <button type="submit" class="w-full bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-8">
                     Submit for Price Estimate
                     </button>
