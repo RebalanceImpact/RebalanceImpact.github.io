@@ -705,7 +705,7 @@
                 <p class="text-lg text-stone-700 leading-relaxed mb-8 text-center">
                     Fill out this form to get a price estimate for your business. We will get back to you within 24 hours
                 </p>
-                <form action="https://script.google.com/macros/s/AKfycbwpIqJRaw9xuW9UWFvKR8PSNlOiovPq7bA7yhrhSKSq26nS-7fe0vvzb2OQXEvPE81D/exec" method="POST" class="space-y-8">
+                <form id="priceEstimateForm" action="https://script.google.com/macros/s/AKfycbx5YIRdeHakiGmKSYDHKKnAluvw9Xzt3snGx-UnQTYqUIH1-i8H9cle64ISqL55ZDur/exec" method="POST" class="space-y-8">
                     <fieldset class="border-t border-gray-200 pt-6">
                             <legend class="text-xl font-semibold text-stone-700 mb-4">Your Contact Details</legend>
                             <div class="space-y-4">
@@ -952,6 +952,30 @@
                     Submit for Price Estimate
                     </button>
                 </form>
+                <div id="submissionMessage" style="display:none; color:green; font-weight:bold; margin-top:1rem;">
+                We have received your submission and will get back to you within 24 hours.
+                </div>
+                <script>
+                    document.getElementById("priceEstimateForm").addEventListener("submit", function(e){
+                    e.preventDefault();
+                    
+                    var formData = new FormData(this);
+                    
+                    fetch(this.action, {
+                        method: "POST",
+                        body: formData,
+                    }).then(function(response){
+                        if(response.ok) {
+                        document.getElementById("priceEstimateForm").style.display = "none";
+                        document.getElementById("submissionMessage").style.display = "block";
+                        } else {
+                        alert("There was an error submitting the form. Please try again.");
+                        }
+                    }).catch(function(){
+                        alert("Submission failed. Please check your internet connection and try again.");
+                    });
+                    });
+                    </script>
                 </div>
             </div>
         </section>
