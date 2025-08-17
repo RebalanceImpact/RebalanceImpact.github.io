@@ -1006,7 +1006,7 @@
     <!-- Expanded contact form, initially hidden -->
     <div
         class="hidden group-hover:block bg-white shadow-lg rounded-lg p-6 w-80 max-w-xs border border-gray-300">
-        <form class="flex flex-col space-y-4" action="mailto:your@email.com" method="POST" enctype="text/plain">
+        <form id="contactTabForm" class="flex flex-col space-y-4">
         <h3 class="text-lg font-semibold text-forest-green mb-2">Contact Us</h3>
 
         <label class="block text-sm font-medium text-gray-700">Name</label>
@@ -1027,6 +1027,25 @@
         </button>
         </form>
     </div>
+    <script>
+        document.getElementById("contactTabForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        fetch("https://script.google.com/macros/s/AKfycbzyj4jaZWCjlLAFNaYMHPiXHWSmj0qfhtFakAVimiO13u4JJWmvAL0BVR664acg-XoM7Q/exec", {
+            method: "POST",
+            body: formData
+        }).then(function(response){
+            if(response.ok) {
+            document.getElementById("contactTabForm").style.display = "none";
+            document.getElementById("contactTabThanks").style.display = "block";
+            } else {
+            alert("There was an error submitting your message. Please try again.");
+            }
+        }).catch(function(){
+            alert("Submission failed. Please check your connection and try again.");
+        });
+        });
+    </script>
     </div>
 
 </body>
