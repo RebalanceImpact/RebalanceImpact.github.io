@@ -272,6 +272,45 @@
         .carousel-button.next {
             right: 5px;
         }
+
+        /* Active container highlight */
+        .section-active {
+        background-color: rgba(51, 76, 51, 0.1); /* transparent forest green */
+        transition: background-color 1.2s ease;
+        }
+
+        /* More transparent nav highlight */
+        aside nav a.active {
+        background-color: rgba(51, 76, 51, 0.3); /* transparent forest green */
+        color: var(--color-forest-green);
+        border-radius: 0.25rem;
+        padding: 0.15rem 0.5rem;
+        transition: background-color 0.6s ease;
+        }
+
+        /* SVG container for veins */
+        #vein-svg-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        width: 100vw;
+        height: 100vh;
+        z-index: 5;
+        }
+
+        /* Vein path styles */
+        #vein-svg-container path {
+        fill: none;
+        stroke: var(--color-forest-green);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -386,7 +425,8 @@
     </script>
 </head>
 <body>
-
+    <!-- SVG Container for Decorative Vein Graphic -->
+    <svg id="vein-svg-container" xmlns="http://www.w3.org/2000/svg"></svg>
     <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
     <header class="bg-white shadow-md p-4 sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
@@ -448,31 +488,33 @@
             <div class="md:col-span-3 space-y-16 text-center md:text-left">
             <h1 class="text-5xl font-bold text-forest-green mb-6">Enhance Your ESG Journey</h1>
             <p class="text-xl text-stone-700">
-                For organizations that have already embarked on their ESG reporting journey, Rebalance Impact offers specialized services to refine, expand, and future-proof your efforts. Whether you're adapting to evolving regulations, embedding new operational practices, or expanding your KPI scope, our solutions are designed to make ESG reporting accurate, efficient, and strategically impactful.
+                For organizations that have already embarked on their ESG reporting journey, Rebalance Impact offers specialized services to refine, expand, and future-proof your efforts. 
+                Whether you're adapting to evolving regulations, embedding new operational practices, or expanding your KPI scope, our solutions are designed to make ESG reporting accurate, efficient, and strategically impactful.
+                You wouldn't let anyone other than a chartered accountant handle your financial data — so why should your ESG data be any different?
             </p>
 
             <!-- Non-Financial Data Accounting -->
             <section id="non-financial-accounting">
             <h2 class="text-2xl font-bold text-forest-green mb-3">Accounting for Non-Financial Data KPIs</h2>
             <p class="text-lg text-stone-700 mb-6">
-                We provide structured accounting services for <strong>non-financial data KPIs</strong> — covering environmental, social, and governance metrics. This includes setting up reliable data capture processes, defining clear measurement methodologies, validating accuracy, and implementing control mechanisms for audit readiness. With our approach, your ESG information is consistent, traceable, and defensible against both voluntary disclosure requirements and regulated reporting standards.
+                We provide structured accounting services for <span class="font-bold text-sandy-brown text-xl">non-financial data KPIs</span> — covering environmental, social, and governance metrics. This includes setting up reliable data capture processes, defining clear measurement methodologies, validating accuracy, and implementing control mechanisms for audit readiness. With our approach, your ESG information is consistent, traceable, and defensible against both voluntary disclosure requirements and regulated reporting standards.
             </p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
-                <strong>Establish Data Framework</strong><br>
-                Define principles, processes, and KPI boundaries in line with industry standards.
+                <strong>Data Capture & Validation</strong><br>
+                Automate data collection with robust checks to ensure accuracy and consistency
                 </div>
                 <div class="p-4 rounded-lg" style="background-color: rgba(107, 75, 32, 0.08);">
-                <strong>Data Capture & Validation</strong><br>
-                Implement standardized collection systems with built-in traceability.
+                <strong>Audit Trail Storage</strong><br>
+                Maintain comprehensive logs to enable transparency and support audits.
                 </div>
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
-                <strong>External Review Preparedness</strong><br>
-                Format data to be assurance-ready for audits and frameworks.
+                <strong>Data Analytics</strong><br>
+                Utilize data insights to drive decision-making and identify risks and opportunities.
                 </div>
                 <div class="p-4 rounded-lg" style="background-color: rgba(107, 75, 32, 0.08);">
                 <strong>Ongoing Monitoring</strong><br>
-                Continuously update methodologies as rules, operations, or risks change.
+                Refining methodologies for framework development alongside continuous assessment of operations and emerging risks.
                 </div>
             </div>
             </section>
@@ -481,7 +523,7 @@
             <section id="gap-assessment" class="mt-12">
             <h2 class="text-2xl font-bold text-forest-green mb-3">GAP Assessments</h2>
             <p class="text-lg text-stone-700 mb-6">
-                Our <strong>GAP Assessments</strong> identify how your current ESG practices compare to compliance requirements, industry benchmarks, and leading practices. This evaluation covers governance, data processes, policies, and performance indicators — pinpointing critical gaps. We turn this into a prioritized action plan so you can close compliance risks efficiently while setting a foundation for improved ESG performance over the short and long term.
+                Our <span class="font-bold text-sandy-brown text-xl">GAP Assessments</span> identify how your current ESG practices compare to compliance requirements, industry benchmarks, and leading practices. This evaluation covers governance, data processes, policies, and performance indicators — pinpointing critical gaps. We turn this into a prioritized action plan so you can close compliance risks efficiently while setting a foundation for improved ESG performance over the short and long term.
             </p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
@@ -507,7 +549,7 @@
             <section id="dma-assessment" class="mt-12">
             <h2 class="text-2xl font-bold text-forest-green mb-3">Double Materiality Assessments</h2>
             <p class="text-lg text-stone-700 mb-6">
-                Our <strong>Double Materiality Assessments (DMA)</strong> determine which ESG issues are most relevant to you — not only those impacting your business financially but also the impacts your operations have on the environment and society. By engaging stakeholders and analysing risks and opportunities, we help you define the ESG topics that should be prioritised, measured, and reported in your disclosures.
+                Our <span class="font-bold text-sandy-brown text-xl">Double Materiality Assessments (DMA)</span> determine which ESG issues are most relevant to you — not only those impacting your business financially but also the impacts your operations have on the environment and society. By engaging stakeholders and analysing risks and opportunities, we help you define the ESG topics that should be prioritised, measured, and reported in your disclosures.
             </p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
@@ -533,8 +575,8 @@
             <section id="reporting-assistance" class="mt-12">
             <h2 class="text-2xl font-bold text-forest-green mb-3">Assisting with Reporting</h2>
             <p class="text-lg text-stone-700 mb-6">
-                Our <strong>reporting expertise</strong> covers everything you need to produce professional, compliant, and impactful 
-                <strong>Sustainability reports</strong>. We consolidate and verify ESG data, map it to your chosen frameworks, craft the narrative, and ensure results are visually compelling and accessible to different stakeholder groups — including investors, boards, and regulators.
+                Our <span class="font-bold text-sandy-brown text-xl">reporting expertise</span> covers everything you need to produce professional, compliant, and impactful 
+                <span class="font-bold text-sandy-brown text-xl">Sustainability reports</span>. We consolidate and verify ESG data, map it to your chosen frameworks, craft the narrative, and ensure results are visually compelling and accessible to different stakeholder groups — including investors, boards, and regulators.
             </p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
@@ -615,7 +657,7 @@
             <section id="international-reporting-support" class="mt-12">
             <h2 class="text-2xl font-bold text-forest-green mb-3">International Reporting Support</h2>
             <p class="text-lg text-stone-700 mb-6">
-                Our <strong>International Reporting Support</strong> service helps companies worldwide navigate complex and evolving ESG reporting obligations across multiple jurisdictions. While designed to meet global sustainability standards, we specifically provide expertise on key frameworks such as the European Union’s <strong>Corporate Sustainability Reporting Directive (CSRD)</strong> and the associated <strong>European Sustainability Reporting Standards (ESRS)</strong> as primary examples. We assist with interpretation, data alignment, and submission processes to ensure your disclosures meet international legal requirements as well as stakeholder expectations.
+                Our <span class="font-bold text-sandy-brown text-xl">International Reporting Support</span> service helps companies worldwide navigate complex and evolving ESG reporting obligations across multiple jurisdictions. While designed to meet global sustainability standards, we specifically provide expertise on key frameworks such as the European Union’s <span class="font-bold text-sandy-brown text-xl">Corporate Sustainability Reporting Directive (CSRD)</span> and the associated <span class="font-bold text-sandy-brown text-xl">European Sustainability Reporting Standards (ESRS)</span> as primary examples. We assist with interpretation, data alignment, and submission processes to ensure your disclosures meet international legal requirements as well as stakeholder expectations.
             </p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="p-4 rounded-lg" style="background-color: rgb(51, 76, 51, 0.08);">
@@ -727,5 +769,137 @@
         });
     });
     </script>
+    <!-- Script for vein drawing -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = document.querySelectorAll('aside nav a');
+        const sections = Array.from(navLinks).map(link => {
+            const targetId = link.getAttribute('href').substring(1);
+            return document.getElementById(targetId);
+        });
+
+        const veinSvg = document.getElementById('vein-svg-container');
+        let activeIndex = -1;
+        let veinPath = null;
+
+        // Create or reuse the SVG path element for the vein
+        function createVeinPath() {
+            if (veinPath) return veinPath;
+            veinPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            veinPath.setAttribute('stroke', getComputedStyle(document.documentElement).getPropertyValue('--color-forest-green').trim() || '#334C33');
+            veinPath.setAttribute('stroke-width', 3);
+            veinPath.setAttribute('fill', 'none');
+            veinPath.setAttribute('stroke-linecap', 'round');
+            veinPath.setAttribute('stroke-linejoin', 'round');
+            veinPath.style.strokeDasharray = veinPath.getTotalLength ? veinPath.getTotalLength() : 300;
+            veinSvg.appendChild(veinPath);
+            return veinPath;
+        }
+
+        // Calculate cubic Bezier path string given start, end points
+        function calculatePath(startX, startY, endX, endY) {
+            const controlX1 = startX + (endX - startX) / 2;
+            const controlY1 = startY;
+            const controlX2 = endX - (endX - startX) / 2;
+            const controlY2 = endY;
+            return `M${startX} ${startY} C${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`;
+        }
+
+        // Smoothly interpolate between two paths by updating the "d" attribute
+        // Here we simply update with new path string each frame for smoothness
+        let animationFrameId;
+        function updateVeinPath(navElem, sectionElem) {
+            if (!navElem || !sectionElem || !veinPath) return;
+
+            const navRect = navElem.getBoundingClientRect();
+            const secRect = sectionElem.getBoundingClientRect();
+
+            const startX = navRect.right;
+            const startY = navRect.top + navRect.height / 2;
+            const endX = secRect.left;
+            const endY = secRect.top + secRect.height / 2;
+
+            const newPath = calculatePath(startX, startY, endX, endY);
+
+            veinPath.setAttribute('d', newPath);
+        }
+
+        function animateVein(navElem, sectionElem) {
+            cancelAnimationFrame(animationFrameId);
+
+            function animate() {
+            updateVeinPath(navElem, sectionElem);
+            animationFrameId = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        function clearActive() {
+            sections.forEach(sec => sec.classList.remove('section-active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (veinPath) {
+            veinSvg.removeChild(veinPath);
+            veinPath = null;
+            }
+            cancelAnimationFrame(animationFrameId);
+        }
+
+        function activateSection(index) {
+            if (index === activeIndex) return;
+
+            clearActive();
+
+            if (index < 0 || index >= sections.length) return;
+
+            activeIndex = index;
+            const sec = sections[index];
+            const nav = navLinks[index];
+
+            sec.classList.add('section-active');
+            nav.classList.add('active');
+
+            createVeinPath();
+            animateVein(nav, sec);
+        }
+
+        // IntersectionObserver to detect which section is in viewport
+        let observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px', // Focus around center viewport
+            threshold: 0,
+        };
+
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            const index = sections.indexOf(entry.target);
+            if (entry.isIntersecting) {
+                activateSection(index);
+            }
+            });
+        }, observerOptions);
+
+        sections.forEach(sec => { if (sec) observer.observe(sec); });
+
+        // Handle nav link clicks
+        navLinks.forEach((link, i) => {
+            link.addEventListener('click', e => {
+            e.preventDefault();
+            sections[i].scrollIntoView({ behavior: 'smooth' });
+            activateSection(i);
+            history.replaceState(null, '', link.getAttribute('href'));
+            });
+        });
+
+        // Recalculate on window resize
+        window.addEventListener('resize', () => {
+            if (activeIndex >= 0) {
+            updateVeinPath(navLinks[activeIndex], sections[activeIndex]);
+            }
+        });
+
+        // Initialize first active section on load
+        if (sections.length) activateSection(0);
+        });
+        </script>
 </body>
 </html>
