@@ -21,7 +21,7 @@
             -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
         }
         html {
-        scroll-padding-top: 5rem;
+        scroll-padding-top: 8rem;
         }
         /* Ensures all images and SVG icons scale responsively within their parent containers */
         img, svg {
@@ -471,18 +471,90 @@
             
             <!-- Navigation Pane -->
             <aside class="md:col-span-1">
-            <div class="sticky top-24 bg-stone-100 rounded-lg shadow-md p-4">
-                <h2 class="text-xl font-bold text-forest-green mb-4">Our Services</h2>
-                <nav class="space-y-2">
-                <a href="#non-financial-accounting" class="block text-stone-700 hover:text-forest-green">Accounting for Non-Financial KPIs</a>
-                <a href="#gap-assessment" class="block text-stone-700 hover:text-forest-green">GAP Assessments</a>
-                <a href="#dma-assessment" class="block text-stone-700 hover:text-forest-green">DMA Assessments</a>
-                <a href="#reporting-assistance" class="block text-stone-700 hover:text-forest-green">Assisting with Reporting</a>
-                <a href="#international-reporting-support" class="block text-stone-700 hover:text-forest-green">International Reporting Support</a>
-                <!--<a href="#assurance-readiness" class="block text-stone-700 hover:text-forest-green">Assurance Readiness</a> -->
-            </nav>
-            </div>
-            </aside>
+                <div class="sticky top-24 bg-stone-100 rounded-lg shadow-md p-4 relative">
+                    <h2 class="text-xl font-bold text-forest-green mb-4">Our Services</h2>
+                    <nav class="space-y-2 z-10 relative">
+                    <a href="#non-financial-accounting" class="block text-stone-700 hover:text-forest-green">Accounting for Non-Financial KPIs</a>
+                    <a href="#gap-assessment" class="block text-stone-700 hover:text-forest-green">GAP Assessments</a>
+                    <a href="#dma-assessment" class="block text-stone-700 hover:text-forest-green">DMA Assessments</a>
+                    <a href="#reporting-assistance" class="block text-stone-700 hover:text-forest-green">Assisting with Reporting</a>
+                    <a href="#international-reporting-support" class="block text-stone-700 hover:text-forest-green">International Reporting Support</a>
+                    </nav>
+
+                    <div id="animated-leaf-container" style="
+                    position: absolute;
+                    bottom: -250px;  
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 240px;    
+                    height: 195px;   
+                    pointer-events: none;
+                    z-index: 5;
+                    ">
+                    <svg id="animated-leaf" width="240" height="195" viewBox="0 0 240 195" xmlns="http://www.w3.org/2000/svg" >
+                        <!-- Base veins in lighter green, permanently visible -->
+                        <path id="stem-base" d="M138,108 L138,165" stroke="rgba(51,76,51,0.2)" stroke-width="5" fill="none" stroke-linecap="round" />
+                        <path id="vein-small-base" d="M138,108 Q120,95 100,78" stroke="rgba(51,76,51,0.2)" stroke-width="3.5" fill="none" />
+                        <path id="vein-large-top-base" d="M144,90 Q190,110 217,59" stroke="rgba(51,76,51,0.2)" stroke-width="3.5" fill="none" />
+                        <path id="vein-large-bottom-base" d="M144,90 Q155,85 168,141" stroke="rgba(51,76,51,0.2)" stroke-width="3.5" fill="none" />
+
+                        <!-- Leaf shapes kept as before -->
+                        <path id="leaf-shape-main" d="M144,90 Q177,57 225,60 Q222,108 168,141 Q135,132 144,90 Z" fill="rgba(51,76,51,0.09)" stroke="rgba(51,76,51,0.24)" stroke-width="5" />
+                        <path id="leaf-shape-small" d="M138,108 Q123,57 84,69 Q105,117 138,108 Z" fill="rgba(51,76,51,0.09)" stroke="rgba(51,76,51,0.22)" stroke-width="4" />
+
+                        <!-- Animated darker veins overlay -->
+                        <path id="stem" d="M138,108 L138,165" stroke="rgba(31,53,31,0.8)" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="57" stroke-dashoffset="57" />
+                        <path id="main-vein-small" d="M138,108 Q120,95 100,78" stroke="rgba(31,53,31,0.8)" stroke-width="3.5" fill="none" stroke-dasharray="70" stroke-dashoffset="70" />
+                        <path id="main-vein-large-top" d="M144,90 Q190,110 217,59" stroke="rgba(31,53,31,0.8)" stroke-width="3.5" fill="none" stroke-dasharray="95" stroke-dashoffset="95" />
+                        <path id="main-vein-large-bottom" d="M144,90 Q155,85 168,141" stroke="rgba(31,53,31,0.8)" stroke-width="3.5" fill="none" stroke-dasharray="60" stroke-dashoffset="60" />
+                    </svg>
+                    </div>
+                </div>
+                </aside>
+
+                <script>
+                const veins = [
+                    { id: 'stem', length: 57 },
+                    { id: 'main-vein-small', length: 70 },
+                    { id: 'main-vein-large-top', length: 95 },
+                    { id: 'main-vein-large-bottom', length: 60 }
+                ].map(v => {
+                    const el = document.getElementById(v.id);
+                    el.style.strokeDasharray = v.length;
+                    el.style.strokeDashoffset = v.length;
+                    return {
+                    el,
+                    length: v.length,
+                    dashOffset: v.length
+                    };
+                });
+
+                const speed = 0.22;
+                let currentIndex = 0;
+
+                function animateVeins() {
+                    const current = veins[currentIndex];
+                    current.dashOffset -= speed;
+                    if (current.dashOffset <= 0) {
+                    current.dashOffset = current.length;
+                    current.el.style.strokeDashoffset = current.dashOffset;
+                    currentIndex = (currentIndex + 1) % veins.length;
+                    } else {
+                    current.el.style.strokeDashoffset = current.dashOffset;
+                    }
+
+                    veins.forEach((v, idx) => {
+                    if (idx !== currentIndex) {
+                        v.el.style.strokeDashoffset = v.length;
+                    }
+                    });
+
+                    requestAnimationFrame(animateVeins);
+                }
+
+                animateVeins();
+                </script>
+            
 
             <!-- Main Content -->
             <div class="md:col-span-3 space-y-16 text-center md:text-left">
