@@ -122,51 +122,152 @@
             </div>
         </div>
     </header>
-
+    <main class="container mx-auto my-12 px-4">
     <section class="container mx-auto my-12 px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border rounded shadow-lg p-4 cursor-pointer" id="global-leaders">
-        <h3 class="text-xl font-semibold mb-4 text-forest-green">Global Industry Leaders</h3>
-        <div class="articles hidden text-sm space-y-4"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Flip Card Template -->
+            <div class="flip-card" id="global-leaders">
+            <div class="flip-card-inner">
+                <!-- Front: Stock Image -->
+                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400x300?text=Global+Leaders" alt="Global Industry Leaders" class="w-full h-64 object-cover">
+                <h3 class="text-xl font-semibold mt-4 text-forest-green text-center">Global Industry Leaders</h3>
+                </div>
+                <!-- Back: Articles -->
+                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+                <h3 class="text-xl font-semibold mb-4 text-forest-green">Global Industry Leaders</h3>
+                <div class="articles space-y-4 text-sm"></div>
+                </div>
+            </div>
+            </div>
+
+            <div class="flip-card" id="sa-leaders">
+            <div class="flip-card-inner">
+                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400x300?text=South+African+Leaders" alt="South African Leaders" class="w-full h-64 object-cover">
+                <h3 class="text-xl font-semibold mt-4 text-forest-green text-center">South African Leaders</h3>
+                </div>
+                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+                <h3 class="text-xl font-semibold mb-4 text-forest-green">South African Leaders</h3>
+                <div class="articles space-y-4 text-sm"></div>
+                </div>
+            </div>
+            </div>
+
+            <div class="flip-card" id="regulatory-updates">
+            <div class="flip-card-inner">
+                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden">
+                <img src="https://via.placeholder.com/400x300?text=Regulatory+Updates" alt="Regulatory Updates" class="w-full h-64 object-cover">
+                <h3 class="text-xl font-semibold mt-4 text-forest-green text-center">Regulatory Updates</h3>
+                </div>
+                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+                <h3 class="text-xl font-semibold mb-4 text-forest-green">Regulatory Updates</h3>
+                <div class="articles space-y-4 text-sm"></div>
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="border rounded shadow-lg p-4 cursor-pointer" id="sa-leaders">
-        <h3 class="text-xl font-semibold mb-4 text-forest-green">South African Leaders</h3>
-        <div class="articles hidden text-sm space-y-4"></div>
-        </div>
-        <div class="border rounded shadow-lg p-4 cursor-pointer" id="regulatory-updates">
-        <h3 class="text-xl font-semibold mb-4 text-forest-green">Regulatory Updates</h3>
-        <div class="articles hidden text-sm space-y-4"></div>
-        </div>
-    </div>
     </section>
 
-    <script type="module">
-    import { getESGArticles } from './esgArticles.js';
-
-    const data = getESGArticles();
-
-    function toggleArticles(sectionId, key) {
-        const container = document.getElementById(sectionId);
-        const articlesDiv = container.querySelector('.articles');
-        if (articlesDiv.classList.contains('hidden')) {
-        articlesDiv.innerHTML = '';
-        data[key].forEach(article => {
-            const articleEl = document.createElement('div');
-            articleEl.innerHTML = `<a href="${article.url}" target="_blank" class="text-sandy-brown hover:underline">${article.title}</a><p>${article.blurb}</p>`;
-            articlesDiv.appendChild(articleEl);
-        });
-        articlesDiv.classList.remove('hidden');
-        } else {
-        articlesDiv.classList.add('hidden');
-        articlesDiv.innerHTML = '';
+        <style>
+        html, body {
+        height: 100%;
+        margin: 0;
         }
-    }
 
-    document.getElementById('global-leaders').addEventListener('click', () => toggleArticles('global-leaders', 'Global Industry Leaders'));
-    document.getElementById('sa-leaders').addEventListener('click', () => toggleArticles('sa-leaders', 'South African Leaders'));
-    document.getElementById('regulatory-updates').addEventListener('click', () => toggleArticles('regulatory-updates', 'Regulatory Updates'));
-    </script>
+        body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        }
 
+        /* Ensure main content fills available space */
+        main {
+        flex: 1 0 auto;
+        }
+
+        /* Flip-card height increased */
+        .flip-card {
+        perspective: 1000px;
+        height: 32rem; /* increased height */
+        }
+        .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+        backface-visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        }
+        .flip-card-front {
+        z-index: 2;
+        transform: rotateY(0deg);
+        overflow: hidden;
+        }
+        .flip-card-back {
+        transform: rotateY(180deg);
+        overflow-y: auto;
+        background-color: white;
+        padding: 1.5rem;
+        font-size: 1.125rem; /* larger text (~18px) */
+        line-height: 1.6;
+        }
+
+        /* Footer fixed to bottom */
+        footer {
+        flex-shrink: 0;
+        background-color: var(--color-forest-green);
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+        }
+        </style>
+
+        <script type="module">
+        import { getESGArticles } from './esgArticles.js';
+
+        const data = getESGArticles();
+
+        const keyMap = {
+        'global-leaders': 'Global Industry Leaders',
+        'sa-leaders': 'South African Leaders',
+        'regulatory-updates': 'Regulatory Updates'
+        };
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const articlesDiv = card.querySelector('.articles');
+            if (!articlesDiv.hasChildNodes()) {
+            const key = keyMap[card.id];
+            data[key].forEach(article => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                <a href="${article.url}" target="_blank" class="text-sandy-brown hover:underline" style="font-size:1.25rem; font-weight:400;">${article.title}</a>
+                <p>${article.blurb}</p>
+                `;
+                articlesDiv.appendChild(div);
+            });
+            }
+        });
+        });
+        </script>
+    </main>
     <footer class="bg-forest-green text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center text-sm">
             <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
