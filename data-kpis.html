@@ -64,211 +64,14 @@
             display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
         }
 
-        /* Carousel specific styles */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            border-radius: 0.5rem;
-            min-height: 400px; /* Increased height for the carousel container to accommodate new layouts */
-            border: none; /* Removed border as requested */
-            background-color: transparent; /* Ensure no background color */
+        .border-terracotta {
+            border-color: #d95e48; /* Use actual sampled RGB/HEX from dashboard */
+            }
+        .text-salmon {
+            color: #d69056;
         }
-
-        .carousel-wrapper {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%; /* Crucial: Wrapper is twice the container width to hold two slides side-by-side */
-            height: 100%; /* Ensure wrapper takes full height of container */
-            align-items: flex-start; /* Align items to the top within the wrapper */
-        }
-
-        .carousel-slide {
-            width: 100%; /* Crucial: Each slide takes exactly half of the 200% wrapper, meaning 100% of the container */
-            min-width: 50%; /* Ensure it doesn't shrink below this */
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            flex-shrink: 0; /* Prevent slides from shrinking */
-            display: flex; /* Use flexbox for content alignment within the slide */
-            align-items: center; /* Default: Center content horizontally */
-            justify-content: flex-start; /* Align content to the top */
-            padding: 1.5rem; /* Add padding inside the slide */
-            border-radius: 0.5rem; /* Match container border-radius */
-            height: 100%; /* Ensure slide takes full height of container */
-            text-align: center; /* Default text alignment for smaller screens */
-            word-wrap: break-word; /* Ensure long words break to fit container */
-            word-break: break-word; /* Ensure long words break to fit container */
-            overflow: hidden; /* Hide overflow content */
-        }
-
-        /* --- Custom Layout Styles for Carousel Slides --- */
-
-        /* Layout for Portrait Images (Image Left/Right, Text Opposite) */
-        .carousel-slide.layout-portrait-left,
-        .carousel-slide.layout-portrait-right {
-            flex-direction: column; /* Default to column for small screens */
-            align-items: center; /* Center horizontally for column layout */
-            text-align: center; /* Center text for column layout */
-            justify-content: flex-start;
-        }
-
-        /* Base styles for landscape image layouts where image is above or below text */
-        .carousel-slide.layout-landscape-image-top,
-        .carousel-slide.layout-landscape-image-bottom {
-            flex-direction: column; /* Always column for these layouts */
-            align-items: center; /* Center horizontally for column layout */
-            text-align: center; /* Center text for column layout */
-            justify-content: flex-start;
-        }
-
-        /* Responsive adjustments for specific new layouts */
-        @media (min-width: 768px) {
-            .carousel-slide.layout-portrait-left {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start; /* Both children match height */
-                flex-wrap: nowrap;    /* Prevents wrapping unless truly necessary */
-            }
-            .carousel-slide.layout-portrait-left .image-area,
-            .carousel-slide.layout-portrait-left .content-area {
-                width: 50%;
-            }
-            .carousel-slide.layout-portrait-left .image-area {
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                padding-left: 0.5rem;    /* Spacing from left edge */
-                padding-right: 1rem;     /* Spacing from image to text */
-                margin: 0;               /* Remove margin for predictable sizing */
-                height: auto;            /* Remove explicit heights */
-            }
-            .carousel-slide.layout-portrait-left .image-area img {
-                max-width: 100%;
-                max-height: 310px;      /* Or your preferred size */
-                width: auto;
-                height: auto;           /* Let aspect ratio rule */
-                object-fit: contain;
-            }
-            .carousel-slide.layout-portrait-left .content-area {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                text-align: left;
-                padding-left: 0;        /* Start flush against image area */
-                padding-right: 0.7rem;    /* Add right padding if needed */
-            }
-
-            /* Landscape Image Top Layout (Image above text) */
-            .carousel-slide.layout-landscape-image-top {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-                justify-content: flex-start;
-                flex-wrap: nowrap;
-            }
-            .carousel-slide.layout-landscape-image-top .image-area {
-                order: 1;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                margin-bottom: 1.5rem;
-            }
-            .carousel-slide.layout-landscape-image-top .image-area img {
-                height: auto;
-                width: auto;
-                max-width: 100%;     /* 20% larger than 250px */
-                max-height: 240px;    /* 20% larger than 150px */
-                object-fit: contain;
-            }
-            .carousel-slide.layout-landscape-image-top .content-area {
-                order: 2;
-                width: 100%;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;         /* Center children (heading, paragraph, button) horizontally */
-            }
-            .carousel-slide.layout-landscape-image-top .content-area h4 {
-                text-align: center;
-            }
-            .carousel-slide.layout-landscape-image-top .content-area p {
-                text-align: justify;         /* Justify paragraph text */
-                max-width: 100%;            /* Optional: control width for a tidy paragraph block */
-                margin: 0 auto 1.2rem auto;  /* Center and add bottom margin */
-            }
-            /* Make sure other elements inside content-area are centered */
-            .carousel-slide.layout-landscape-image-top .content-area > *:not(h4):not(p) {
-                align-self: center;
-            }
-
-            /* Landscape Image Bottom Layout (Image below text) */
-            .carousel-slide.layout-landscape-image-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-                justify-content: flex-start;
-            }
-            .carousel-slide.layout-landscape-image-bottom .content-area {
-                order: 1;
-                width: 90%;
-                margin-bottom: 0.1rem;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-left: 3rem;
-            }
-            .carousel-slide.layout-landscape-image-bottom .content-area h4 {
-                text-align: center;
-            }
-            .carousel-slide.layout-landscape-image-bottom .content-area p {
-                text-align: center;
-                max-width: 98%;
-                margin: 0 0 0.1rem 0;
-            }
-            .carousel-slide.layout-landscape-image-bottom .content-area > *:not(h4):not(p) {
-                align-self: center;
-            }
-            .carousel-slide.layout-landscape-image-bottom .image-area {
-                order: 2;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-            .carousel-slide.layout-landscape-image-bottom .image-area img {
-                height: auto;
-                width: auto;
-                max-width: 100%;
-                max-height: 180px;
-                object-fit: contain;
-            }
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(107, 75, 32, 0.664);
-            color: white;
-            border: none;
-            padding: 0.5rem 0.75rem;
-            cursor: pointer;
-            border-radius: 9999px; /* Full rounded corners */
-            font-size: 1.5rem;
-            line-height: 1;
-            z-index: 10;
-            transition: background-color 0.3s ease;
-        }
-
-        .carousel-button:hover {
-            background-color: rgba(180, 165, 139, 0.779);
-        }
-
-        .carousel-button.prev {
-            left: 5px;
-        }
-
-        .carousel-button.next {
-            right: 5px;
-        }
+        
+        
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -425,7 +228,9 @@
 
     <main class="container mx-auto px-4 py-16">
         <h1 class="text-5xl font-bold text-forest-green mb-12 text-center">Data Solutions</h1>
-
+        <p class="max-w-3xl mx-auto text-center text-lg text-stone-700 mb-8">
+        See how your data is monitored and transformed with this interactive template. Built on trusted visualization platforms like Power BI, our dashboards showcase how dynamic insights can empower your decisions.
+        </p>
         <!-- Power BI Dashboard Embed Placeholder -->
         <section class="mb-16">
             <div id="powerbi-embed-container" class="relative mx-auto rounded-lg shadow-lg border border-gray-300" style="width: 100%; max-width: 960px; height: 520px;">
@@ -444,86 +249,105 @@
             </div>
         </section>
 
-        <!-- Bottom content with 4 terracotta boxes on left and explanation on right -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start max-w-7xl mx-auto">
+        <div class="flex flex-row max-w-7xl mx-auto gap-8">
+            <!-- Empty column for Power BI alignment, acts as left margin. Set width about equal to dashboard stat boxes -->
+            <div style="width:145px;">            
+            </div>
 
-            <!-- Left Column: 4 terracotta boxes stacked -->
-            <div class="space-y-6 md:col-span-1">
-            <!-- Box 1: Centralizing and Collecting Data -->
-            <div class="flex items-center border-2 border-terracotta rounded-lg p-4 gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <!-- SVG icon adapted from original block 1 -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <ellipse cx="12" cy="5" rx="9" ry="3" />
-                <path d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
-                <path d="M3 12a9 3 0 0018 0" />
+            <!-- Middle column: Terracotta boxes, vertically centered -->
+            <div class="flex flex-col justify-between items-center gap-10" style="width:220px; min-width:220px;">
+            <!-- Box 1 -->
+            <div class="flex flex-col items-center justify-center border-4 border-terracotta rounded-lg w-52 h-52 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
+                    <path d="M3 12a9 3 0 0018 0" />
                 </svg>
-                <h3 class="text-lg font-semibold text-terracotta">Centralizing &amp; Collecting Data</h3>
+                <h3 class="mt-4 text-lg font-semibold text-forest-green text-center">Centralizing &amp; Collecting Data</h3>
             </div>
-
-            <!-- Box 4: Target Setting & Stakeholder Trust -->
-            <div class="flex items-center border-2 border-terracotta rounded-lg p-4 gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <!-- SVG icon adapted from original block 4 -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
-                <path d="M12 2v4" />
-                <path d="M12 18v4" />
-                <path d="M2 12h4" />
-                <path d="M18 12h4" />
+            <!-- Box 2 -->
+            <div class="flex flex-col items-center justify-center border-4 border-terracotta rounded-lg w-52 h-52 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                    <path d="M12 2v4" />
+                    <path d="M12 18v4" />
+                    <path d="M2 12h4" />
+                    <path d="M18 12h4" />
                 </svg>
-                <h3 class="text-lg font-semibold text-terracotta">Target Setting &amp; Trust</h3>
+                <h3 class="mt-4 text-lg font-semibold text-forest-green text-center">Target Setting &amp; Trust</h3>
             </div>
-
-            <!-- Box 5: Modeling & Scenario Analysis -->
-            <div class="flex items-center border-2 border-terracotta rounded-lg p-4 gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <!-- SVG icon adapted from original block 5 -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16 L7 12 L12 14" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14 L16 10 L21 12" />
-                <path stroke-dasharray="1 3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M12 14 L16 6 L21 8" style="z-index: -1;" />
+            <!-- Box 3 -->
+            <div class="flex flex-col items-center justify-center border-4 border-terracotta rounded-lg w-52 h-52 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16 L7 12 L12 14" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14 L16 10 L21 12" />
+                    <path stroke-dasharray="1 3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" d="M12 14 L16 6 L21 8" style="z-index: -1;" />
                 </svg>
-                <h3 class="text-lg font-semibold text-terracotta">Modeling &amp; Scenario Analysis</h3>
+                <h3 class="mt-4 text-lg font-semibold text-forest-green text-center">Modeling &amp; Scenario Analysis</h3>
+            </div>
+            <!-- Box 4, Data Governance with triplicate SVGs -->
+            <div class="flex flex-col items-center justify-center border-4 border-terracotta rounded-lg w-52 h-52 shadow-sm">
+                <div class="flex flex-row gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+                        <path d="M2 21h20" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+                        <path d="M2 21h20" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-salmon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+                        <path d="M2 21h20" />
+                    </svg>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold text-forest-green text-center">Collaborative Data Governance</h3>
+            </div>
             </div>
 
-            <!-- Box 6: Collaborative Data Governance -->
-            <div class="flex items-center border-2 border-terracotta rounded-lg p-4 gap-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <!-- SVG icon from original block 6 -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="7" r="4" />
-                <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
-                <path d="M2 21h20" />
-                </svg>
-                <h3 class="text-lg font-semibold text-terracotta">Collaborative Data Governance</h3>
-            </div>
-            </div>
-
-            <!-- Right Column: Explanation Text -->
-            <div class="md:col-span-2 text-stone-700 space-y-8">
-            <section>
+            <!-- Right column: Aligned text, matching height to boxes via flex + min-h/py -->
+            <div class="flex flex-col gap-10 flex-1 ml-[2.5rem]">
+            <!-- Centralizing & Collecting Data -->
+            <div class="flex items-center min-h-[208px] py-4">
+                <section>
                 <h2 class="text-2xl font-bold text-forest-green mb-3">Centralizing and Collecting Data</h2>
                 <p class="text-lg leading-relaxed max-w-prose">
-                At Rebalance Impact, we begin by <strong>centralizing and collecting</strong> ESG and financial data into a unified platform. This consolidation eliminates silos, ensures data integrity, and provides a single source of truth to support accurate tracking and informed decision-making.
+                    At Rebalance Impact, we begin by <strong>centralizing and collecting</strong> ESG and financial data into a unified platform. This consolidation eliminates silos, ensures data integrity, and provides a single source of truth to support accurate tracking and informed decision-making.
                 </p>
-            </section>
-            <section>
+                </section>
+            </div>
+            <!-- Target Setting & Trust -->
+            <div class="flex items-center min-h-[208px] py-4">
+                <section>
                 <h2 class="text-2xl font-bold text-forest-green mb-3">Target Setting &amp; Stakeholder Trust</h2>
                 <p class="text-lg leading-relaxed max-w-prose">
-                Our platform helps you establish transparent, measurable <strong>target setting</strong> processes that build stakeholder trust and enable clear tracking of your ESG and financial performance progress.
+                    Our platform helps you establish transparent, measurable <strong>target setting</strong> processes that build stakeholder trust and enable clear tracking of your ESG and financial performance progress.
                 </p>
-            </section>
-            <section>
+                </section>
+            </div>
+            <!-- Modeling & Scenario Analysis -->
+            <div class="flex items-center min-h-[208px] py-4">
+                <section>
                 <h2 class="text-2xl font-bold text-forest-green mb-3">Modeling &amp; Scenario Analysis</h2>
                 <p class="text-lg leading-relaxed max-w-prose">
-                Model the impact of any changes or desired targets to analyze potential impacts on ESG and financial KPIs. Our scenario analysis tools provide insights into cost-effectiveness and help align sustainability goals with long-term business performance.
+                    Model the impact of any changes or desired targets to analyze potential impacts on ESG and financial KPIs. Our scenario analysis tools provide insights into cost-effectiveness and help align sustainability goals with long-term business performance.
                 </p>
-            </section>
-            <section>
+                </section>
+            </div>
+            <!-- Collaborative Data Governance -->
+            <div class="flex items-center min-h-[208px] py-4">
+                <section>
                 <h2 class="text-2xl font-bold text-forest-green mb-3">Collaborative Data Governance</h2>
                 <p class="text-lg leading-relaxed max-w-prose">
-                We promote <strong>collaborative data governance</strong> by aligning internal teams and suppliers around shared accountability for data quality, driving continuous improvements and strengthening ESG performance across your value chain.
+                    We promote <strong>collaborative data governance</strong> by aligning internal teams and suppliers around shared accountability for data quality, driving continuous improvements and strengthening ESG performance across your value chain.
                 </p>
-            </section>
+                </section>
+            </div>
             </div>
         </div>
         </main>
