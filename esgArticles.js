@@ -36,19 +36,19 @@ export function getESGArticles() {
         ],
         "Regulatory Updates": [
             {
-                title: "Recommendation on a voluntary sustainability reporting standard for SMEs",
-                url: "https://finance.ec.europa.eu/publications/questions-and-answers-recommendation-voluntary-sustainability-reporting-standard-small-and-medium_en",
-                blurb: "The EU Commission adopted the Omnibus I simplification package proposing voluntary standards for SMEs, easing reporting burdens."
+                title: "ISO and GHG Protocol Unify Emissions Accounting Standards",
+                url: "https://www.esgtoday.com/iso-ghg-protocol-unify-standards-for-measuring-and-reporting-emissions/",
+                blurb: "ISO and GHG Protocol formed a strategic partnership to harmonize ISO 1406X series with GHG Protocol Corporate and Scope standards into co-branded global benchmarks, simplifying reporting and aligning methodologies."
             },
             {
-                title: "CSRD: Sustainability reports mandatory for large companies",
-                url: "https://business.gov.nl/amendment/large-companies-must-report-sustainability/",
-                blurb: "The Corporate Sustainability Reporting Directive requires large companies to report environmental and social impacts starting 2026."
+                title: "China to Impose Absolute Emissions Caps from 2027",
+                url: "https://www.reuters.com/sustainability/climate-energy/chinas-carbon-market-introduce-absolute-emissions-caps-2027-2025-08-26/",
+                blurb: "China’s national ETS will replace intensity targets with fixed absolute caps for chemicals, petrochemicals, papermaking, and domestic aviation from 2027, expanding to cover most major polluters by 2030."
             },
             {
-                title: "Navigating the latest ESRS updates: key insights for your organisation",
-                url: "https://www.pwc.nl/en/topics/sustainability/esg/sustainability-regulations/the-esg-omnibus/navigating-the-latest-esrs-updates.html",
-                blurb: "Draft amendments to European Sustainability Reporting Standards propose significant reductions in mandatory disclosures, simplifying compliance."
+                title: "ISSB Standards Adopted by 20 Jurisdictions Covering 60% of Global GDP",
+                url: "https://www.iss-corporate.com/resources/blog/global-interest-in-issb-standards-rises-amid-eu-uncertainty/",
+                blurb: "Twenty countries integrating IFRS S1 & S2 into national regimes now represent over 60% of world GDP, establishing consistent baseline sustainability disclosures focused on financial materiality and connectivity."
             }
         ]
     };
