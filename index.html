@@ -268,6 +268,22 @@
         .carousel-button.next {
             right: 5px;
         }
+        @media (max-width: 767px) {
+        #menu-toggle {
+            display: none; /* Remove hamburger button on mobile */
+        }
+        #menu {
+            display: flex !important; /* Show navigation links on mobile */
+            position: static !important; /* Remove absolute positioning */
+            width: auto !important;
+            background: transparent !important; /* Remove white background */
+            box-shadow: none !important; /* Remove shadow */
+            padding: 0 !important;
+            margin-top: 0 !important;
+            flex-direction: row !important; /* Arrange links horizontally */
+            space-x-6: initial; /* Reset spacing if needed */
+        }
+        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
