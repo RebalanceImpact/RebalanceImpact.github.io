@@ -73,6 +73,28 @@
         .text-terra {
             color: #d95e48;
         }
+        @media (max-width: 767px) {
+        #menu-toggle {
+            display: none; /* Remove hamburger button on mobile */
+        }
+        #menu {
+            display: flex !important; /* Show navigation links on mobile */
+            position: static !important; /* Remove absolute positioning */
+            width: auto !important;
+            background: transparent !important; /* Remove white background */
+            box-shadow: none !important; /* Remove shadow */
+            padding: 0 !important;
+            margin-top: 0 !important;
+            flex-direction: row !important; /* Arrange links horizontally */
+        }
+        #menu a {
+        align-self: center; /* Vertically center all links */
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0 0.75rem; /* Uniform horizontal spacing */
+        line-height: normal; /* Prevent extra height issues */
+        }
+        }
         
         
         
