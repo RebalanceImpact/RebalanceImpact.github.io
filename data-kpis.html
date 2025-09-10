@@ -116,13 +116,17 @@
             display: none !important;
         }
         #powerbi-embed-container {
-            background: url('your-placeholder-image-or-video.jpg') center center/cover no-repeat !important;
+            background: url('images/generic_dashboard.png') center center/cover no-repeat !important;
             height: 300px !important; /* Adjust to suitable mobile height */
             max-width: 100% !important;
         }
 
         /* Hide the "Click on elements within the dashboard..." text on mobile */
         section.mb-16 > p.text-stone-700 {
+            display: none !important;
+        }
+        /* Hide Full Screen button on mobile */
+        #fullscreen-btn {
             display: none !important;
         }
         }
