@@ -289,46 +289,59 @@
         margin: 0 0.75rem; /* Uniform horizontal spacing */
         line-height: normal; /* Prevent extra height issues */
         }
+        
+        /* Squeeze "Tailored for you" container */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .content-area {
+            width: 85%;           /* Reduce width to prevent overlap */
+            margin: 0 auto 0 auto; /* Center horizontally with auto margins */
+            padding-left: 0;      /* Remove any left padding if present */
         }
-        @media (max-width: 767px) {
-            /* Squeeze "Tailored for you" container */
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .content-area {
-                width: 85%;           /* Reduce width to prevent overlap */
-                margin: 0 auto 0 auto; /* Center horizontally with auto margins */
-                padding-left: 0;      /* Remove any left padding if present */
-            }
 
-            /* Adjust image container to reduce width and margin for spacing */
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area {
-                width: 280px !important;  /* Slightly smaller width */
-                height: 230px !important; /* Slightly smaller height */
-                margin-left: 20px !important; /* Offset a bit more to the right */
-                margin-top: 10px !important;
-                position: relative !important; /* Ensure positioning remains relative */
-            }
+        /* Adjust image container to reduce width and margin for spacing */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area {
+            width: 280px !important;  /* Slightly smaller width */
+            height: 230px !important; /* Slightly smaller height */
+            margin-left: 20px !important; /* Offset a bit more to the right */
+            margin-top: 10px !important;
+            position: relative !important; /* Ensure positioning remains relative */
+        }
 
-            /* Make the images inside smaller and offset them */
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img {
-                max-width: 280px !important;  /* Smaller images */
-                max-height: 180px !important;
-            }
+        /* Make the images inside smaller and offset them */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img {
+            max-width: 280px !important;  /* Smaller images */
+            max-height: 180px !important;
+        }
 
-            /* Adjust absolute positioned images individually for offset */
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency secondary"],
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image3 {
-                top: 120px !important;  /* Move up slightly */
-                left: 15px !important;  /* Move right slightly */
-                max-width: 260px !important;
-                max-height: 160px !important;
-            }
+        /* Adjust absolute positioned images individually for offset */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency secondary"],
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image3 {
+            top: 120px !important;  /* Move up slightly */
+            left: 15px !important;  /* Move right slightly */
+            max-width: 260px !important;
+            max-height: 160px !important;
+        }
 
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency"],
-            #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image4 {
-                top: 0 !important;
-                left: 0 !important;
-                max-width: 260px !important;
-                max-height: 160px !important;
-            }
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency"],
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image4 {
+            top: 0 !important;
+            left: 0 !important;
+            max-width: 260px !important;
+            max-height: 160px !important;
+        }
+        /* Move the All-in-one dashboard slide slightly left */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-top {
+            margin-left: -10px; /* Shift left to center better between arrows */
+        }
+
+        /* Reduce vertical spacing between slides and paragraph above */
+        #data-analytics-carousel {
+            margin-top: 10px !important; /* Reduce top margin */
+        }
+
+        /* Also reduce margin-top inside content area of the All-in-one slide if needed */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-top .content-area {
+            margin-top: 15px !important; /* Less vertical space */
+        }
         }
     </style>
     <script>
