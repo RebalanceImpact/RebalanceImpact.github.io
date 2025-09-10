@@ -95,81 +95,35 @@
         line-height: normal; /* Prevent extra height issues */
         }
         
-        /* Replace Power BI embed container with image placeholder */
-        #powerbi-embed-container iframe {
-            display: none; /* Hide iframe on mobile */
-        }
-        #powerbi-embed-container {
-            background: url('images/generic_dashboard.png') center center/cover no-repeat;
-            height: 300px !important; /* Adjust height to a suitable mobile size */
-            max-width: 100% !important;
-        }
-
-        /* Hide the "Click on elements within the dashboard..." text on mobile */
-        section.mb-16 > p.text-stone-700 {
-            display: none;
-        }
-
-        /* Remove flex row layout on the boxes and text, stack vertically with flowing text */
-        .flex.flex-row.max-w-7xl.mx-auto.gap-8 {
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            max-width: 100% !important;
-        }
-
-        /* Hide the empty left margin column */
-        .flex.flex-row.max-w-7xl.mx-auto.gap-8 > div:first-child {
-            display: none;
-        }
-
-        /* Style the middle column boxes container: remove flex col spacing and borders */
+        /* Hide the middle column container completely on mobile */
         .flex.flex-col.justify-between.items-center.gap-10 {
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-            width: 100% !important;
-            min-width: auto !important;
-            align-items: flex-start !important;
-        }
-        .flex.flex-col.justify-between.items-center.gap-10 > div {
-            width: 100% !important;
-            min-height: auto !important;
-            border: none !important;
-            box-shadow: none !important;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-left: 0;
-            margin-bottom: 0.75rem;
-        }
-        /* Hide the SVG icons inside the original boxes - we’ll add new inline SVG next to headers */
-        .flex.flex-col.justify-between.items-center.gap-10 > div svg {
-            display: none;
+            display: none !important;
         }
 
-        /* Style the right column text container to full width and no margin */
+        /* Hide the empty left margin column on mobile */
+        .flex.flex-row.max-w-7xl.mx-auto.gap-8 > div:first-child {
+            display: none !important;
+        }
+
+        /* Allow the right column text container to use full width and no margin */
         .flex.flex-col.gap-10.flex-1.ml-\[2\.5rem\] {
             margin-left: 0 !important;
             width: 100% !important;
         }
 
-        /* Add SVG icons inline next to each header in the right column sections */
-        .flex.flex-col.gap-10.flex-1.ml-\[2\.5rem\] > div > section > h2 {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        /* Hide the Power BI iframe and replace container size with a placeholder height */
+        #powerbi-embed-container iframe {
+            display: none !important;
+        }
+        #powerbi-embed-container {
+            background: url('your-placeholder-image-or-video.jpg') center center/cover no-repeat !important;
+            height: 300px !important; /* Adjust to suitable mobile height */
+            max-width: 100% !important;
         }
 
-        /* Inline SVG icon styles */
-        .inline-svg-icon {
-            width: 2rem;    /* approx 32px */
-            height: 2rem;
-            flex-shrink: 0;
-            stroke: #d69056; /* match original salmon color */
-        }
-
-        /* Hide the text margin bottom from h2 */
-        .flex.flex-col.gap-10.flex-1.ml-\[2\.5rem\] > div > section > h2 {
-            margin-bottom: 0.5rem !important;
+        /* Hide the "Click on elements within the dashboard..." text on mobile */
+        section.mb-16 > p.text-stone-700 {
+            display: none !important;
         }
         }
         
