@@ -13,6 +13,9 @@
             --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
             --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
         }
+        .text-terra {
+            color: #d95e48;
+        }
         
         /* Custom styles for the Inter font and general body styling to ensure consistent typography */
         body {
@@ -164,7 +167,7 @@
         <section class="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-16">
             <h2 class="text-3xl font-bold text-forest-green mb-8 text-center">Our Experience</h2>
             <p class="text-lg text-stone-700 mb-12 text-center max-w-4xl mx-auto">
-                Our team of Chartered Accountants and Environmental Scientists blends climate research, financial expertise and environmental data to 
+                Our team led by Chartered Accountants and Environmental Scientists blends climate research, financial expertise and environmental data to 
                 deliver practical sustainable solutions that connect
                 technical insights with strategic business goals across industries.
             </p>
@@ -172,99 +175,53 @@
             <!-- Triangular Venn-style Layout -->
             <div class="relative max-w-6xl mx-auto py-16">
                 <!-- Industry Experience (Top Center) -->
-                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-72 z-10">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-4 border-forest-green h-72 flex flex-col justify-center">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
+                    <div class="bg-white rounded-full p-3 shadow-lg border-4 border-forest-green h-96 flex flex-col justify-center w-96">
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-forest-green mb-3">Industry Experience</h3>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                We have worked with industry leads across a variety of sectors, including mining, energy, finance, and property.
-                                Our scope extends <strong class="text-sandy-brown">beyond JSE listed</strong> companies and beyond South African focused reporting. 
-                                Exposure to <strong class="text-sandy-brown">SOX controls</strong> in an ESG environment, and working directly with UN and the Dutch National Government for 
-                                data analytics and visualization.
+                            <p class="text-stone-700 text leading-relaxed">
+                                We have partnered with industry leaders across diverse sectors including mining, energy, finance, and property. 
+                                Our expertise encompasses both 
+                                <strong class="text-forest-green">South African and international reporting</strong>,
+                                working with JSE-Listed companies and regulatory frameworks including 
+                                SOX, NYSE, AEX, and ASX controls within ESG environments.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Environmental Data & Analytics (Bottom Left) -->
-                <div class="absolute top-32 left-8 w-72 z-10">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-4 border-sandy-brown h-72 flex flex-col justify-center">
+                <div class="absolute left-48 z-10" style="top: 21rem;">
+                    <div class="bg-white rounded-full p-3 shadow-lg border-4 border-sandy-brown h-96 w-96 flex flex-col justify-center">
                         <div class="text-center">
-                            <h3 class="text-lg font-bold text-sandy-brown mb-3">Environmental Data & Analytics</h3>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                Demonstrated expertise in tracking, processing, and analyzing climate commitments from over 
-                                <strong class="text-forest-green">10,000 companies worldwide</strong>, providing valuable insight into diverse climate strategies and pathways.
-                                Expertise in developing, managing, and visualizing large-scale datasets, covering areas such as energy use, biodiversity, 
-                                water withdrawals, and social development indicators. 
-                                Responsible for data management and visualizations in two upcoming chapters of the 
-                                <strong class="text-forest-green">UN Global Environmental Outlook report</strong>.
+                            <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Data & Analytics</h3>
+                            <p class="text-stone-700 text leading-relaxed">
+                                Expertise in developing, managing, and visualizing large-scale corporate datasets of over <strong class="text-forest-green">10,000 companies</strong>, 
+                                covering areas such as energy use, biodiversity, water withdrawals, and social development indicators, 
+                                providing valuable insight into 
+                                <strong class="text-forest-green">diverse climate strategies and pathways</strong>.
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- ESG Assurance & Advisory (Bottom Right) -->
-                <div class="absolute top-32 right-8 w-72 z-10">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-4 border-sandy-brown h-72 flex flex-col justify-center">
+                <div class="absolute right-48 z-10" style="top: 21rem;">
+                    <div class="bg-white rounded-full p-3 shadow-lg border-4 border-sandy-brown h-96 w-96 flex flex-col justify-center">
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Assurance & Advisory</h3>
-                            <p class="text-gray-700 text-xs leading-relaxed">
-                                Extensive experience in ESG assurance for industry leaders, advisory work for <strong class="text-forest-green">first-time CSRD reporters</strong>, and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, and CSRD. With water management experts, we also offer full, independent <strong class="text-forest-green">water balance assessments</strong>.
+                            <p class="text-stone-700 text leading-relaxed">
+                                Extensive experience in ESG assurance for industry leaders, advisory work for 
+                                <strong class="text-forest-green">first-time CSRD reporters</strong>, 
+                                and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, and CSRD. 
+                                With water management experts, we also offer full, independent <strong class="text-forest-green">water balance assessments</strong>.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mobile Layout (Stacked for smaller screens) -->
-                <div class="lg:hidden space-y-8">
-                    <!-- Industry Experience -->
-                    <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-forest-green">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-forest-green rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-handshake text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-forest-green">Industry Experience</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            We have worked with industry leads across a variety of sectors, including mining, energy, finance, and property.
-                            Our scope extends <strong class="text-sandy-brown">beyond JSE listed</strong> companies and beyond South African focused reporting. Exposure to <strong class="text-sandy-brown">SOX controls</strong> in an ESG environment, and working directly with UN and the Dutch National Government for data analytics and visualization.
-                        </p>
-                    </div>
-
-                    <!-- Environmental Data & Analytics -->
-                    <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-sandy-brown">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-sandy-brown rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-database text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-sandy-brown">Environmental Data & Analytics</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            Demonstrated expertise in tracking, processing, and analyzing climate commitments from over 
-                            <strong class="text-forest-green">10,000 companies worldwide</strong>, providing valuable insight into diverse climate strategies and pathways.
-                            Expertise in developing, managing, and visualizing large-scale datasets, covering areas such as energy use, biodiversity, 
-                            water withdrawals, and social development indicators. 
-                            Responsible for data management and visualizations in two upcoming chapters of the 
-                            <strong class="text-forest-green">UN Global Environmental Outlook report</strong>.
-                        </p>
-                    </div>
-
-                    <!-- ESG Assurance & Advisory -->
-                    <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-sandy-brown">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-sandy-brown rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-shield-alt text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-sandy-brown">ESG Assurance & Advisory</h3>
-                        </div>
-                        <p class="text-gray-700">
-                            Extensive experience in ESG assurance for industry leaders, advisory work for <strong class="text-forest-green">first-time CSRD reporters</strong>, and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, and CSRD. With water management experts, we also offer full, independent <strong class="text-forest-green">water balance assessments</strong>.
-                        </p>
-                    </div>
-                </div>
-
                 <!-- Set container height for absolute positioning -->
-                <div class="hidden lg:block h-80"></div>
+                <div class="hidden lg:block" style="height: 38rem;"></div>
             </div>
         </section>
 
@@ -284,10 +241,6 @@
                 <p>
                     At Rebalance Impact, we recognized this gap and were driven by our passion for sustainability while understanding the critical importance of business growth and competitiveness. We believe that sustainable business practices and financial success are not mutually exclusive – they can and should work hand in hand.
                 </p>
-                
-                <p class="font-semibold text-sandy-brown">
-                    Our mission is to make ESG reporting accessible, affordable, and strategic for businesses of all sizes, ensuring that South African companies can thrive in an increasingly sustainability-focused global marketplace while contributing meaningfully to environmental and social progress.
-                </p>
             </div>
         </section>
 
@@ -295,19 +248,24 @@
         <section class="bg-white rounded-xl shadow-lg p-8 md:p-12">
             <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Why Us?</h2>
             
-            <div class="max-w-4xl mx-auto space-y-6 text-lg text-stone-700 leading-relaxed">
+            <div class="max-w-4xl mx-auto space-y-6 text-lg text-stone-700 text-center leading-relaxed">
                 <p>
                     We are an intimate, dedicated firm committed to understanding the unique life of your business. This deep understanding allows us to offer personalized, unparalleled flexibility, crafting tailor-made solutions and fostering truly collaborative relationships.
                 </p>
                 
                 <p>
-                    Our distinctive expertise blends both accounting rigor and environmental sciences. With years of experience in financial and non-financial accounting and environmental policy development, we are perfectly positioned to navigate and lead the evolution of non-financial (ESG) reporting, ensuring your business is not just compliant, but thriving sustainably to optimize an ever-evolving future.
+                 Our mission is to make ESG reporting 
+                <span class="font-bold text-sandy-brown text-xl">accessible, affordable, and strategic</span>, for businesses of all sizes 
+                    ensuring that South African companies, and SMEs globally can 
+                    <span class="font-bold text-sandy-brown text-xl">thrive and prosper</span> 
+                    in an increasingly sustainability-focused marketplace while 
+                    contributing meaningfully to environmental and social progress. 
                 </p>
             </div>
 
             <!-- Call to Action -->
             <div class="text-center mt-12">
-                <p class="text-gray-600 mb-6">Ready to start your sustainable reporting journey?</p>
+                <p class="text-stone-700 mb-6 text-lg">Ready to start your ESG journey?</p>
                 <a href="index.html#contact-and-quote" class="inline-block bg-forest-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition duration-300">
                     Get a Price Estimate Today
                 </a>
