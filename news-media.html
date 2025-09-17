@@ -112,77 +112,82 @@
 
   /* Mobile Header layout: logo left, hamburger right in one line */
 @media (max-width: 767px) {
-  /* Header: flex row with logo left and hamburger right on same line */
+  /* Header flex row: logo+text left, hamburger right on same line */
   header > div.container {
     display: flex !important;
     justify-content: space-between;
     align-items: center;
     padding-left: 1rem;
     padding-right: 1rem;
+    flex-wrap: nowrap;
   }
-  /* Logo and company name grouped and aligned left */
+
   header > div.container > div.flex.items-center {
+    order: 1 !important;
+    margin-bottom: 0 !important;
     display: flex;
     align-items: center;
-    margin-bottom: 0 !important;
-    order: 1 !important;
+    flex-shrink: 0;
   }
   header > div.container > div.flex.items-center > a {
     display: flex;
     align-items: center;
-  }
-  /* Hamburger menu aligned right */
-  header > div.container > div.relative {
-    order: 2 !important;
+    white-space: nowrap; /* prevent wrapping */
   }
 
-  /* Navigation menu dropdown on mobile: full width white box with shadow below header */
+  header > div.container > div.relative {
+    order: 2 !important;
+    flex-shrink: 0;
+  }
+
+  /* Navigation dropdown: wide white box below header */
   #menu {
     position: absolute !important;
-    top: 100%; /* directly below header */
+    top: 100%; /* below header */
     left: 0;
     right: 0;
     background-color: white !important;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 90vw !important;
+    max-width: 400px !important;
     margin-top: 0.25rem !important;
-    width: 100%;
-    max-width: none;
     z-index: 1000;
+    overflow: visible;
+    box-sizing: border-box;
   }
 
   /* Small arrow left of each nav link */
   #menu a::before {
-    content: '▶'; /* small right-pointing arrow */
+    content: '▶';
     display: inline-block;
     margin-right: 0.5rem;
     color: var(--color-forest-green);
     font-size: 0.75rem;
     vertical-align: middle;
   }
-  
-  /* Larger font size and vertical padding for links */
+
+  /* Mobile nav link styling */
   #menu a {
     font-size: 1.125rem;
     padding: 0.75rem 0;
     display: block;
+    word-break: break-word;
   }
 
-  /* Contact Us button placement near footer but not fixed */
+  /* Contact Us button fixed bottom-left, above footer */
   #contactWrapper {
-    position: relative !important;
-    bottom: auto !important;
-    right: auto !important;
-    width: 100% !important;
+    position: fixed !important;
+    bottom: 5.5rem !important; /* approx footer height + spacing */
+    left: 1rem !important;
     max-width: 20rem;
-    margin: 0 auto 1rem auto;
-    display: flex !important;
-    justify-content: flex-end;
-    padding-right: 1rem;
+    margin: 0 !important;
+    display: block !important;
+    z-index: 1100;
   }
 
-  /* Footer is no longer sticky on mobile */
+  /* Footer no longer sticky on mobile */
   footer {
     position: static !important;
     box-shadow: none !important;
