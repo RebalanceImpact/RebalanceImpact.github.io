@@ -134,7 +134,18 @@
     align-items: center;
     white-space: nowrap; /* prevent wrapping */
   }
+  /* Smaller logo image */
+  header > div.container > div.flex.items-center > a > img {
+    height: 2rem !important; /* h-8 */
+    width: auto !important;
+  }
 
+  /* Smaller text */
+  header > div.container > div.flex.items-center > a > span {
+    font-size: 1.125rem !important; /* text-lg */
+    font-weight: 700 !important;
+  }
+  /* Hamburger far right */
   header > div.container > div.relative {
     order: 2 !important;
     flex-shrink: 0;
@@ -179,7 +190,7 @@
   /* Contact Us button fixed bottom-left, above footer */
   #contactWrapper {
     position: fixed !important;
-    bottom: 4.5rem !important; /* approx footer height + spacing */
+    bottom: 2.5rem !important; /* approx footer height + spacing */
     right: 1rem !important;
     max-width: 20rem;
     margin: 0 !important;
