@@ -109,6 +109,61 @@
     z-index: 100;
     box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
   }
+
+  /* Mobile Header layout: logo left, hamburger right in one line */
+@media (max-width: 767px) {
+  header > div.container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header > div.container > div.flex.items-center {
+    order: 1 !important;
+    margin-bottom: 0 !important;
+  }
+  header > div.container > div.relative {
+    order: 2 !important;
+  }
+
+  /* Navigation menu dropdown on mobile: white background + box */
+  #menu {
+    position: absolute !important;
+    top: 100%;  /* below header */
+    left: 0;
+    right: 0;
+    background-color: white !important;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    margin-top: 0.25rem !important;
+    width: 100%;
+    max-width: none;
+    z-index: 1000;
+  }
+
+  /* Add small arrow left of each nav link */
+  #menu a::before {
+    content: '▶'; /* small right pointing arrow */
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: var(--color-forest-green);
+    font-size: 0.75rem;
+    vertical-align: middle;
+  }
+  
+  /* Larger font and spacing for mobile menu links */
+  #menu a {
+    font-size: 1.125rem;
+    padding: 0.75rem 0;
+    display: block;
+  }
+
+  /* Footer: remove sticky on mobile so it shows only when scrolled to bottom */
+  footer {
+    position: static !important;
+    box-shadow: none !important;
+  }
+}
 </style>
 <script>
   // Extend Tailwind config with custom colors
