@@ -210,6 +210,17 @@
       }
     }
   };
+  document.addEventListener('click', function(event) {
+  const menu = document.getElementById('menu');
+  const toggle = document.getElementById('menu-toggle');
+
+  // If menu is visible and click is outside menu and toggle button, close menu
+  if (!menu.classList.contains('hidden')) {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+      menu.classList.add('hidden');
+    }
+  }
+});
 </script>
 </head>
 <body class="flex flex-col min-h-screen">
