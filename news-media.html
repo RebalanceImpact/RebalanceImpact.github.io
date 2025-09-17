@@ -221,6 +221,15 @@
     }
   }
 });
+// Also close dropdown on scroll outside
+window.addEventListener('scroll', function() {
+const menu = document.getElementById('menu');
+if (window.innerWidth > 767) return; // Only on mobile
+
+if (!menu.classList.contains('hidden')) {
+    menu.classList.add('hidden');
+}
+});
 </script>
 </head>
 <body class="flex flex-col min-h-screen">
