@@ -112,41 +112,32 @@
 
   /* Mobile Header layout: logo left, hamburger right in one line */
 @media (max-width: 767px) {
-  /* Header flex row: logo+text left, hamburger right on same line */
+/* Header flex row: logo+text left, hamburger right on same line */
   header > div.container {
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
-  header > div.container > div.flex.items-center {
-    order: 1 !important;
-    margin-bottom: 0 !important;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+  /* Logo container */
+  header > div.container > div:first-child {
+    order: 1;
+    margin-bottom: 0;
   }
-  header > div.container > div.flex.items-center > a {
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* prevent wrapping */
+
+  /* Hamburger container */
+  header > div.container > div:last-child {
+    order: 2;
   }
+
   /* Smaller logo image */
-  header > div.container > div.flex.items-center > a > img {
-    height: 2rem !important; /* h-8 */
-    width: auto !important;
+  header > div.container > div:first-child > a > img {
+    height: 2.5rem; /* h-10 */
   }
 
   /* Smaller text */
-  header > div.container > div.flex.items-center > a > span {
-    font-size: 1.125rem !important; /* text-lg */
-    font-weight: 700 !important;
-  }
-  /* Hamburger far right */
-  header > div.container > div.relative {
-    order: 2 !important;
-    flex-shrink: 0;
+  header > div.container > div:first-child > a > span {
+    font-size: 1.25rem; /* text-xl */
   }
 
   /* Navigation dropdown: wide white box below header */
@@ -227,7 +218,7 @@
 <header class="bg-white shadow-md p-4 sticky top-0 z-50">
   <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
     <!-- Logo -->
-    <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0 md:order-1">
       <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
         <img src="small_transparent.png" alt="Small Logo" class="h-12 w-auto rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';" />
         <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
