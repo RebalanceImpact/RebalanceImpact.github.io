@@ -1,360 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industry News and Updates - Rebalance Impact</title>
-    <!-- Tailwind CSS CDN: A utility-first CSS framework for rapid UI development by providing pre-defined classes -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom Tailwind CSS Configuration Variables: Defining custom color variables using CSS custom properties (variables) for consistent branding */
-        :root {
-            --color-forest-green: #334C33; /* Represents a deep forest green color, derived from CMYK 80,50,80,0 */
-            --color-sandy-brown: rgba(107, 75, 32, 0.664); /* Represents a warm sandy brown color, derived from CMYK 20,15,30,0 */
-            --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Industry News and Updates - Rebalance Impact</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --color-forest-green: #334C33;
+    --color-sandy-brown: rgba(107, 75, 32, 0.664);
+    --color-sandy-brown-hover: rgba(180, 165, 139, 0.779);
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  img, svg {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Dropdown styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown-content a {
+    color: var(--color-forest-green);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .dropdown-content a:hover {
+    background-color: #e2e8f0;
+    color: #0A3623;
+  }
+  /* Flip card styles */
+  .flip-card {
+    perspective: 1000px;
+    height: 32rem;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front,
+  .flip-card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .flip-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    overflow: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    background-color: white;
+    padding: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  /* Custom styles for Inter font */
+  /* Footer styles */
+  footer {
+    flex-shrink: 0;
+    background-color: var(--color-forest-green);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  }
+</style>
+<script>
+  // Extend Tailwind config with custom colors
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'forest-green': 'var(--color-forest-green)',
+          'sandy-brown': 'var(--color-sandy-brown)',
+          'sandy-brown-hover': 'var(--color-sandy-brown-hover)',
         }
-        
-        /* Custom styles for the Inter font and general body styling to ensure consistent typography */
-        body {
-            font-family: 'Inter', sans-serif; /* Sets "Inter" as the primary font, with a fallback to generic sans-serif */
-            -webkit-font-smoothing: antialiased; /* Optimizes font rendering for smoother appearance on WebKit browsers (e.g., Chrome, Safari) */
-            -moz-osx-font-smoothing: grayscale; /* Optimizes font rendering for better grayscale appearance on Mozilla browsers (e.g., Firefox) */
-        }
-        html {
-        scroll-padding-top: 5rem;
-        }
-        /* Ensures all images and SVG icons scale responsively within their parent containers */
-        img, svg {
-            max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
-            height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
-        }
-        /* Styles for the dropdown menu container (e.g., for "Services") */
-        .dropdown {
-            position: relative; /* Establishes a positioning context for absolutely positioned children (the dropdown content) */
-            display: inline-block; /* Allows the dropdown element to sit inline with other navigation items, while still respecting block-level properties like width/height */
-        }
-        /* Styles for the hidden dropdown content (the actual menu items that appear on hover) */
-        .dropdown-content {
-            display: none; /* Hides the dropdown content by default */
-            position: absolute; /* Positions the dropdown content relative to its nearest positioned ancestor (.dropdown) */
-            background-color: #f9f9f9; /* Sets a light, off-white background for the dropdown menu */
-            min-width: 180px; /* Defines a minimum width for the dropdown, ensuring readability */
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Applies a subtle shadow for a lifted, professional appearance */
-            z-index: 1000; /* Ensures the dropdown appears on top of other elements on the page */
-            border-radius: 0.5rem; /* Adds rounded corners to the dropdown box for a softer look */
-            overflow: hidden; /* Ensures that any content extending beyond the rounded corners is clipped */
-            top: 100%; /* Positions the top edge of the dropdown content directly below the parent link */
-            left: 50%; /* Attempts to horizontally center the dropdown content relative to its parent link */
-            transform: translateX(-50%); /* Fine-tunes horizontal centering by offsetting by half its own width */
-            padding: 0.5rem 0; /* Adds vertical padding inside the dropdown, creating space above and below menu items */
-        }
-        /* Styles for individual links within the dropdown menu */
-        .dropdown-content a {
-            color: var(--color-forest-green); /* Sets the text color of dropdown links to the custom forest green */
-            padding: 12px 16px; /* Adds padding around each link for better clickability and spacing */
-            text-decoration: none; /* Removes the default underline from links */
-            display: block; /* Makes the entire area of the link (including padding) clickable */
-            text-align: left; /* Aligns the text of the dropdown links to the left */
-            transition: background-color 0.3s, color 0.3s; /* Applies a smooth transition effect when background or text color changes on hover */
-        }
-        /* Hover styles for individual links within the dropdown menu */
-        .dropdown-content a:hover {
-            background-color: #e2e8f0; /* Changes the background color to a light gray when a link is hovered */
-            color: #0A3623; /* Darkens the text color slightly on hover for visual feedback */
-        }
-        /* Shows the dropdown content when the main .dropdown parent element is hovered over */
-        .dropdown:hover .dropdown-content {
-            display: block; /* Changes the display property from 'none' to 'block', making the dropdown visible */
-        }
-    </style>
-    <script>
-        // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
-        // It must be placed after the Tailwind CDN script to ensure Tailwind is loaded and available for configuration.
-        tailwind.config = {
-            theme: {
-                extend: { /* The 'extend' property allows adding to (rather than overwriting) Tailwind's default theme */
-                    colors: { /* Defines custom color names that can be used as Tailwind CSS classes */
-                        'forest-green': 'var(--color-forest-green)', /* Maps the 'forest-green' Tailwind class to the CSS variable */
-                        'sandy-brown': 'var(--color-sandy-brown)',
-                        'sandy-brown-hover': 'var(--color-sandy-brown-hover)'   /* Maps the 'sandy-brown' Tailwind class to the CSS variable */
-                    }
-                }
-            }
-        };
-    </script>
+      }
+    }
+  };
+</script>
 </head>
-<body>
-    <!-- Header Section: This section contains the top navigation bar of the website, including logos and primary navigation links. -->
-    <header class="bg-white shadow-md p-4 sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
-            <!-- Small Logo and Company Name - Top Left: A clickable logo and text that links back to the homepage. -->
-            <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
-                <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
-                    <img
-                        src="small_transparent.png"
-                        alt="Small Logo"
-                        class="h-12 w-auto rounded-md"
-                        onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';"
-                    />
-                    <!-- Displays the company name with custom forest green color and bold text -->
-                    <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
-                </a>
-            </div>
+<body class="flex flex-col min-h-screen">
 
-            <!-- Navigation -->
-            <div class="relative order-3 md:order-3">
-
-            <!-- Hamburger Button (visible only on small screens) -->
-            <button id="menu-toggle" class="md:hidden flex flex-col space-y-1 focus:outline-none">
-                <span class="block w-6 h-0.5 bg-forest-green"></span>
-                <span class="block w-6 h-0.5 bg-forest-green"></span>
-                <span class="block w-6 h-0.5 bg-forest-green"></span>
-            </button>
-
-            <!-- Menu Links -->
-            <nav id="menu"
-                class="hidden flex-col space-y-4 text-lg font-medium text-stone-700 mt-4 md:mt-0 md:flex md:flex-row md:space-x-6 md:space-y-0 md:static absolute top-10 left-0 w-full bg-white rounded-lg shadow-lg md:bg-transparent md:shadow-none z-50 p-4 md:p-0">
-                <a href="new-to-esg-reporting.html" class="hover:text-forest-green transition duration-300">New to ESG</a>
-                <a href="esg-services.html" class="hover:text-forest-green transition duration-300">Core Services</a>
-                <a href="data-kpis.html" class="hover:text-forest-green transition duration-300">Data Solutions</a>
-                <a href="news-media.html" class="hover:text-forest-green transition duration-300">Industry Insights</a>
-                <a href="about-us.html" class="hover:text-forest-green transition duration-300">About Us</a>
-                <a href="index.html#contact-and-quote" class="hover:text-forest-green transition duration-300">Get a Quote</a>
-            </nav>
-            </div>
-        </div>
-    </header>
-    <main class="container mx-auto my-12 px-4">
-    <section class="container mx-auto my-12 px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Flip Card Template -->
-            <div class="flip-card" id="global-leaders">
-            <div class="flip-card-inner">
-                <!-- Front: Stock Image -->
-                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden relative h-full">
-                <img src="images/industry_leaders.jpg" alt="Global Industry Leaders" class="w-full h-full object-cover">
-                <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
-                    <h3 class="text-xl font-semibold text-forest-green text-center">Global Industry Leaders</h3>
-                </div>
-                </div>
-                <!-- Back: Articles -->
-                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
-                <h3 class="text-xl font-semibold mb-4 text-forest-green">Global Industry Leaders</h3>
-                <div class="articles space-y-4 text-sm"></div>
-                </div>
-            </div>
-            </div>
-
-            <div class="flip-card" id="sa-leaders">
-            <div class="flip-card-inner">
-                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden relative h-full">
-                <img src="images/protea.jpg" alt="South African Leaders" class="w-full h-full object-cover">
-                <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
-                    <h3 class="text-xl font-semibold text-forest-green text-center">South African Leaders</h3>
-                </div>
-                </div>
-                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
-                <h3 class="text-xl font-semibold mb-4 text-forest-green">South African Leaders</h3>
-                <div class="articles space-y-4 text-sm"></div>
-                </div>
-            </div>
-            </div>
-
-            <div class="flip-card" id="regulatory-updates">
-            <div class="flip-card-inner">
-                <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden">
-                <img src="images/newspapers.jpg" alt="Regulatory Updates" class="w-full h-full object-cover">
-                <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
-                    <h3 class="text-xl font-semibold text-forest-green text-center">Regulatory Updates</h3>
-                </div>
-                </div>
-                <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
-                <h3 class="text-xl font-semibold mb-4 text-forest-green">Regulatory Updates</h3>
-                <div class="articles space-y-4 text-sm"></div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-        <style>
-        html, body {
-        height: 100%;
-        margin: 0;
-        }
-
-        body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        }
-
-        /* Ensure main content fills available space */
-        main {
-        flex: 1 0 auto;
-        }
-
-        /* Flip-card height increased */
-        .flip-card {
-        perspective: 1000px;
-        height: 32rem; /* increased height */
-        }
-        .flip-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.6s;
-        transform-style: preserve-3d;
-        }
-        .flip-card:hover .flip-card-inner {
-        transform: rotateY(180deg);
-        }
-        .flip-card-front,
-        .flip-card-back {
-        backface-visibility: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        }
-        .flip-card-front {
-        z-index: 2;
-        transform: rotateY(0deg);
-        overflow: hidden;
-        }
-        .flip-card-back {
-        transform: rotateY(180deg);
-        overflow-y: auto;
-        background-color: white;
-        padding: 1.5rem;
-        font-size: 1.125rem; /* larger text (~18px) */
-        line-height: 1.6;
-        }
-
-        /* Footer fixed to bottom */
-        footer {
-        flex-shrink: 0;
-        background-color: var(--color-forest-green);
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-        position: sticky;
-        bottom: 0;
-        width: 100%;
-        z-index: 100;
-        box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
-        }
-        </style>
-
-        <script type="module">
-        import { getESGArticles } from './esgArticles.js';
-
-        const data = getESGArticles();
-
-        const keyMap = {
-        'global-leaders': 'Global Industry Leaders',
-        'sa-leaders': 'South African Leaders',
-        'regulatory-updates': 'Regulatory Updates'
-        };
-
-        document.querySelectorAll('.flip-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const articlesDiv = card.querySelector('.articles');
-            if (!articlesDiv.hasChildNodes()) {
-            const key = keyMap[card.id];
-            data[key].forEach(article => {
-                const div = document.createElement('div');
-                div.innerHTML = `
-                <a href="${article.url}" target="_blank" class="text-sandy-brown hover:underline" style="font-size:1.25rem; font-weight:400;">${article.title}</a>
-                <p>${article.blurb}</p>
-                `;
-                articlesDiv.appendChild(div);
-            });
-            }
-        });
-        });
-        </script>
-    </main>
-    <footer class="bg-forest-green text-white py-4 mt-12">
-        <div class="container mx-auto px-4 text-center text-sm z-10">
-            <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Contact Us Tab (fixed bottom-right) -->
-    <div class="fixed bottom-4 right-4 z-50">
-        <!-- Toggle Button -->
-        <button id="contactTabToggle"
-            class="bg-forest-green text-white px-4 py-2 rounded-tl-lg rounded-bl-lg cursor-pointer select-none">
-            Contact Us
-        </button>
-    
-        <!-- Contact Form Panel (hidden by default) -->
-        <div id="contactTabPanel" class="hidden bg-white shadow-lg rounded-lg p-6 w-80 max-w-xs border border-gray-300 mt-2">
-            <form id="contactTabForm" class="flex flex-col space-y-4">
-            
-            <h3 class="text-lg font-semibold text-forest-green mb-2">Contact Us</h3>
-    
-            <!-- Name -->
-            <label class="block text-sm font-medium text-gray-700" for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your name"
-                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
-    
-            <!-- Email -->
-            <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com"
-                class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
-    
-            <!-- Message -->
-            <label class="block text-sm font-medium text-gray-700" for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Your message"
-                class="w-full border border-gray-300 rounded px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-forest-green"></textarea>
-    
-            <button type="submit"
-                class="bg-forest-green text-white rounded py-2 font-semibold hover:bg-green-900 transition duration-300">
-                Send
-            </button>
-            </form>
-    
-            <!-- Thank You Message -->
-            <div id="contactTabThanks" style="display:none;" class="text-green-700 font-bold mt-4 text-center">
-            Thank you for reaching out! We will get back to you soon.
-            </div>
-        </div>
+<!-- Header -->
+<header class="bg-white shadow-md p-4 sticky top-0 z-50">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center flex-wrap">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2 mb-4 md:mb-0 order-2 md:order-1">
+      <a href="index.html" class="flex items-center space-x-2 hover:opacity-75 transition-opacity duration-300">
+        <img src="small_transparent.png" alt="Small Logo" class="h-12 w-auto rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/48x48/CCCCCC/FFFFFF?text=R';" />
+        <span class="text-2xl font-bold text-forest-green">Rebalance Impact</span>
+      </a>
     </div>
+    <!-- Navigation -->
+    <div class="relative order-3 md:order-3">
+      <!-- Hamburger Button (small screens) -->
+      <button id="menu-toggle" class="md:hidden flex flex-col space-y-1 focus:outline-none">
+        <span class="block w-6 h-0.5 bg-forest-green"></span>
+        <span class="block w-6 h-0.5 bg-forest-green"></span>
+        <span class="block w-6 h-0.5 bg-forest-green"></span>
+      </button>
+      <!-- Menu Links (original positions restored, visible on md and up) -->
+      <nav id="menu"
+        class="hidden flex-col space-y-4 text-lg font-medium text-stone-700 mt-4 md:mt-0 md:flex md:flex-row md:space-x-6 md:space-y-0 md:static absolute top-10 left-0 w-full bg-white rounded-lg shadow-lg md:bg-transparent md:shadow-none z-50 p-4 md:p-0">
+        <a href="new-to-esg-reporting.html" class="hover:text-forest-green transition duration-300">New to ESG</a>
+        <a href="esg-services.html" class="hover:text-forest-green transition duration-300">Core Services</a>
+        <a href="data-kpis.html" class="hover:text-forest-green transition duration-300">Data Solutions</a>
+        <a href="news-media.html" class="hover:text-forest-green transition duration-300">Industry Insights</a>
+        <a href="about-us.html" class="hover:text-forest-green transition duration-300">About Us</a>
+        <a href="index.html#contact-and-quote" class="hover:text-forest-green transition duration-300">Get a Quote</a>
+      </nav>
+    </div>
+  </div>
+</header>
 
-    <script>
-    // Toggle form panel on button click
-    document.getElementById("contactTabToggle").addEventListener("click", function() {
-        var panel = document.getElementById("contactTabPanel");
-        panel.classList.toggle("hidden");
-    });
+<!-- Main Content -->
+<main class="flex-1 container mx-auto my-12 px-4">
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Global Leaders Card -->
+    <div class="flip-card" id="global-leaders">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden relative h-full">
+          <img src="images/industry_leaders.jpg" alt="Global Industry Leaders" class="w-full h-full object-cover" />
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
+            <h3 class="text-xl font-semibold text-forest-green text-center">Global Industry Leaders</h3>
+          </div>
+        </div>
+        <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+          <h3 class="text-xl font-semibold mb-4 text-forest-green">Global Industry Leaders</h3>
+          <div class="articles space-y-4 text-sm"></div>
+        </div>
+      </div>
+    </div>
+    <!-- South African Leaders Card -->
+    <div class="flip-card" id="sa-leaders">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden relative h-full">
+          <img src="images/protea.jpg" alt="South African Leaders" class="w-full h-full object-cover" />
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
+            <h3 class="text-xl font-semibold text-forest-green text-center">South African Leaders</h3>
+          </div>
+        </div>
+        <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+          <h3 class="text-xl font-semibold mb-4 text-forest-green">South African Leaders</h3>
+          <div class="articles space-y-4 text-sm"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Regulatory Updates Card -->
+    <div class="flip-card" id="regulatory-updates">
+      <div class="flip-card-inner">
+        <div class="flip-card-front bg-gray-100 rounded shadow-lg overflow-hidden">
+          <img src="images/newspapers.jpg" alt="Regulatory Updates" class="w-full h-full object-cover" />
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 px-6 py-3 rounded shadow-md">
+            <h3 class="text-xl font-semibold text-forest-green text-center">Regulatory Updates</h3>
+          </div>
+        </div>
+        <div class="flip-card-back border rounded shadow-lg p-4 bg-white overflow-auto">
+          <h3 class="text-xl font-semibold mb-4 text-forest-green">Regulatory Updates</h3>
+          <div class="articles space-y-4 text-sm"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-    // Handle form submission using fetch to Google Apps Script Web App
-    document.getElementById("contactTabForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        var formData = new FormData(this);
 
-        // REPLACE with your actual Google Apps Script Web App URL (must end with /exec)
-        var googleScriptUrl = "https://script.google.com/macros/s/AKfycbzyj4jaZWCjlLAFNaYMHPiXHWSmj0qfhtFakAVimiO13u4JJWmvAL0BVR664acg-XoM7Q/exec";
+<!-- Contact Us Button and Form Wrapper -->
+<div id="contactWrapper" class="fixed bottom-16 right-4 z-50 flex flex-col items-end space-y-2 max-w-xs">
 
-        fetch(googleScriptUrl, {
-        method: "POST",
-        body: formData,
-        }).then(function(response) {
-        if (response.ok) {
-            // Hide form, show thank-you message
-            document.getElementById("contactTabForm").style.display = "none";
-            document.getElementById("contactTabThanks").style.display = "block";
-        } else {
-            alert("There was an error submitting your message. Please try again.");
-        }
-        }).catch(function() {
-        alert("Submission failed. Please check your connection and try again.");
+  <!-- Contact Form Panel (Hidden initially) -->
+  <div id="contactTabPanel" class="hidden bg-white shadow-lg rounded-lg p-6 w-80 border border-gray-300"
+    style="box-shadow: 0 0 10px rgba(0,0,0,0.15);">
+    <form id="contactTabForm" class="flex flex-col space-y-4">
+      <h3 class="text-lg font-semibold text-forest-green mb-2">Contact Us</h3>
+      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
+      <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com"
+        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest-green" />
+      <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Your message"
+        class="w-full border border-gray-300 rounded px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-forest-green"></textarea>
+      <button type="submit"
+        class="bg-forest-green text-white rounded py-2 font-semibold hover:bg-green-900 transition duration-300">
+        Send
+      </button>
+    </form>
+    <div id="contactTabThanks" style="display:none;" class="text-green-700 font-bold mt-4 text-center">
+      Thank you for reaching out! We will get back to you soon.
+    </div>
+  </div>
+
+  <!-- Contact Us Button -->
+  <button id="contactTabToggle"
+    class="bg-forest-green text-white px-4 py-2 rounded-tl-lg rounded-bl-lg cursor-pointer focus:outline-none">
+    Contact Us
+  </button>
+
+</div>
+
+<!-- Footer -->
+<footer class="bg-forest-green text-white py-4 mt-12">
+  <div class="container mx-auto px-4 text-center text-sm">
+    <p>&copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { getESGArticles } from './esgArticles.js';
+  const data = getESGArticles();
+  const keyMap = {
+    'global-leaders': 'Global Industry Leaders',
+    'sa-leaders': 'South African Leaders',
+    'regulatory-updates': 'Regulatory Updates'
+  };
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const articlesDiv = card.querySelector('.articles');
+      if (!articlesDiv.hasChildNodes()) {
+        const key = keyMap[card.id];
+        data[key].forEach(article => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <a href="${article.url}" target="_blank" class="text-sandy-brown hover:underline" style="font-size:1.25rem; font-weight:400;">${article.title}</a>
+            <p>${article.blurb}</p>
+          `;
+          articlesDiv.appendChild(div);
         });
+      }
     });
-    </script>
+  });
+</script>
 
+<script>
+  // Toggle menu for mobile
+  document.getElementById("menu-toggle").addEventListener("click", function () {
+    document.getElementById("menu").classList.toggle("hidden");
+  });
+
+  const contactToggle = document.getElementById('contactTabToggle');
+  const contactPanel = document.getElementById('contactTabPanel');
+  const contactForm = document.getElementById('contactTabForm');
+  const contactThanks = document.getElementById('contactTabThanks');
+
+  contactToggle.addEventListener('click', () => {
+    const isVisible = !contactPanel.classList.contains('hidden');
+
+    if (isVisible) {
+      // Hide form and reset
+      contactPanel.classList.add('hidden');
+      contactForm.style.display = "";
+      contactThanks.style.display = "none";
+      contactForm.reset();
+    } else {
+      // Show form
+      contactPanel.classList.remove('hidden');
+    }
+  });
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzyj4jaZWCjlLAFNaYMHPiXHWSmj0qfhtFakAVimiO13u4JJWmvAL0BVR664acg-XoM7Q/exec";
+
+    fetch(googleScriptUrl, {
+      method: "POST",
+      body: formData,
+    }).then(response => {
+      if (response.ok) {
+        contactForm.style.display = "none";
+        contactThanks.style.display = "block";
+      } else {
+        alert("There was an error submitting your message. Please try again.");
+      }
+    }).catch(() => {
+      alert("Submission failed. Please check your connection and try again.");
+    });
+  });
+</script>
 </body>
 </html>
