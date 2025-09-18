@@ -180,27 +180,6 @@
                 }
             }
         };
-
-        document.addEventListener('click', function(event) {
-        const menu = document.getElementById('menu');
-        const toggle = document.getElementById('menu-toggle');
-
-        // If menu is visible and click is outside menu and toggle button, close menu
-        if (!menu.classList.contains('hidden')) {
-            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-            menu.classList.add('hidden');
-            }
-        }
-        });
-        // Also close dropdown on scroll outside
-        window.addEventListener('scroll', function() {
-        const menu = document.getElementById('menu');
-        if (window.innerWidth > 767) return; // Only on mobile
-
-        if (!menu.classList.contains('hidden')) {
-            menu.classList.add('hidden');
-        }
-        });
     </script>
 </head>
 <body>
@@ -504,6 +483,27 @@
         }).catch(function() {
         alert("Submission failed. Please check your connection and try again.");
         });
+    });
+    
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu');
+    const toggle = document.getElementById('menu-toggle');
+
+    // If menu is visible and click is outside menu and toggle button, close menu
+    if (!menu.classList.contains('hidden')) {
+        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.add('hidden');
+        }
+    }
+    });
+    // Also close dropdown on scroll outside
+    window.addEventListener('scroll', function() {
+    const menu = document.getElementById('menu');
+    if (window.innerWidth > 767) return; // Only on mobile
+
+    if (!menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+    }
     });
     </script>
 </body>
