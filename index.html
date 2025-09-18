@@ -335,12 +335,12 @@
             }
         };
 
-        // JavaScript for the carousel functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            // Function to initialize a carousel
+        // JavaScript for the carousel functionality and hamburger menu (mobile navigation)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carousel initialization
             function initializeCarousel(carouselId) {
                 const carouselContainer = document.getElementById(carouselId);
-                if (!carouselContainer) return; // Exit if container not found
+                if (!carouselContainer) return;
 
                 const carouselWrapper = carouselContainer.querySelector('.carousel-wrapper');
                 const slides = carouselContainer.querySelectorAll('.carousel-slide');
@@ -349,10 +349,9 @@
 
                 let currentSlide = 0;
                 let autoSlideInterval;
-                const slideIntervalTime = 5000; // 5 seconds
-                let isPaused = false; // NEW: Track paused state
+                const slideIntervalTime = 5000;
+                let isPaused = false;
 
-                // Function to show a specific slide
                 function showSlide(index) {
                     if (index >= slides.length) {
                         currentSlide = 0;
@@ -361,79 +360,67 @@
                     } else {
                         currentSlide = index;
                     }
-                    // The transform value is crucial: it moves the wrapper by the full width of one slide
                     carouselWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
                 }
 
-                // Function to move to the next slide
                 function nextSlide() {
                     showSlide(currentSlide + 1);
                 }
 
-                // Function to move to the previous slide
                 function prevSlide() {
                     showSlide(currentSlide - 1);
                 }
 
-                // Start automatic sliding
                 function startAutoSlide() {
-                    stopAutoSlide(); // Clear any existing interval
-                    if (!isPaused) { // Only start if not paused
+                    stopAutoSlide();
+                    if (!isPaused) {
                         autoSlideInterval = setInterval(nextSlide, slideIntervalTime);
                     }
                 }
 
-                // Stop automatic sliding
                 function stopAutoSlide() {
                     clearInterval(autoSlideInterval);
                 }
 
-                // Pause auto-slide (on hover or button)
                 function pauseAutoSlide() {
                     isPaused = true;
                     stopAutoSlide();
                 }
 
-                // Resume auto-slide (on mouse leave)
                 function resumeAutoSlide() {
                     isPaused = false;
                     startAutoSlide();
                 }
 
-                // Event listeners for navigation buttons
                 if (prevButton) {
                     prevButton.addEventListener('click', () => {
-                        pauseAutoSlide();   // Pause when button used
+                        pauseAutoSlide();
                         prevSlide();
                     });
                 }
 
                 if (nextButton) {
                     nextButton.addEventListener('click', () => {
-                        pauseAutoSlide();   // Pause when button used
+                        pauseAutoSlide();
                         nextSlide();
                     });
                 }
 
-                // Initialize the first slide and start auto-sliding
                 showSlide(0);
                 startAutoSlide();
 
-                // Pause auto-slide on hover
                 carouselContainer.addEventListener('mouseenter', pauseAutoSlide);
-                // Resume auto-slide after hover leaves
                 carouselContainer.addEventListener('mouseleave', resumeAutoSlide);
             }
 
-            // Initialize carousels for both sections
+            // Initialize carousels
             initializeCarousel('reporting-carousel');
             initializeCarousel('data-analytics-carousel');
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
+
+            // Navigation menu logic
             const toggle = document.getElementById('menu-toggle');
             const menu = document.getElementById('menu');
-            
+
             if (toggle && menu) {
                 toggle.addEventListener('click', function(event) {
                     event.stopPropagation();
