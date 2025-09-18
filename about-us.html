@@ -193,31 +193,25 @@
             }
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
-            
-            if (toggle && menu) {
-                toggle.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    menu.classList.toggle('hidden');
-                });
+        document.addEventListener('click', function(event) {
+        const menu = document.getElementById('menu');
+        const toggle = document.getElementById('menu-toggle');
 
-                document.addEventListener('click', function(event) {
-                    if (!menu.classList.contains('hidden')) {
-                        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-                            menu.classList.add('hidden');
-                        }
-                    }
-                });
-
-                window.addEventListener('scroll', function() {
-                    if (window.innerWidth > 767) return;
-                    if (!menu.classList.contains('hidden')) {
-                        menu.classList.add('hidden');
-                    }
-                });
+        // If menu is visible and click is outside menu and toggle button, close menu
+        if (!menu.classList.contains('hidden')) {
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+            menu.classList.add('hidden');
             }
+        }
+        });
+        // Also close dropdown on scroll outside
+        window.addEventListener('scroll', function() {
+        const menu = document.getElementById('menu');
+        if (window.innerWidth > 767) return; // Only on mobile
+
+        if (!menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+        }
         });
         
     </script>
