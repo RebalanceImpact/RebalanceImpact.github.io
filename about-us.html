@@ -28,56 +28,42 @@
             max-width: 100%; /* Prevents images/SVGs from exceeding the width of their containing element */
             height: auto;    /* Maintains the original aspect ratio of the image/SVG when scaling, preventing distortion */
         }
+        /* Base circle style */
+        .venn-circle {
+        flex-shrink: 0;
+        /* Adjust height/width as needed or use responsive units */
+        height: 16rem; /* 256px */
+        width: 16rem;
+        position: relative;
+        box-sizing: border-box;
+        }
 
+        /* Position bottom-left circle */
+        .venn-bottom-left {
+        transform: translate(-50%, 50%);
+        margin-top: 4rem; /* push down to form triangle base */
+        }
+
+        /* Position bottom-right circle */
+        .venn-bottom-right {
+        transform: translate(50%, 50%);
+        margin-top: 4rem; /* same vertical offset */
+        }
+
+        /* On small screen - stack vertically, no transforms */
         @media (max-width: 767px) {
-        /* Stack the Venn items vertically */
-        section.bg-white.relative.max-w-6xl > div.absolute {
-            position: relative !important;   /* cancel absolute positioning */
-            width: 100% !important;          /* full width of container */
-            height: auto !important;         /* natural height */
-            margin: 1rem 0 !important;       /* vertical spacing */
-            left: auto !important;
-            top: auto !important;
+        .venn-bottom-left,
+        .venn-bottom-right,
+        .venn-circle {
             transform: none !important;
-            z-index: auto !important;
+            margin: 1rem auto !important;
+            width: 80vw !important; /* almost full width on mobile */
+            height: auto !important; /* height adjusts with content */
         }
-
-        /* Make inner content boxes full width squares with padding to maintain aspect ratio */
-        section.bg-white.relative.max-w-6xl > div.absolute > div {
-            width: 100% !important;
-            height: auto !important;
-            padding: 1.5rem !important;
-            border-radius: 0.75rem !important; /* soften corner radius */
-            border: none !important;           /* remove thick borders */
-            box-shadow: none !important;       /* remove shadows for simplicity */
-            display: block !important;
-            background-color: transparent !important;
+        .venn-circle > div {
+            padding: 1rem !important;
         }
-
-        /* Apply sandy brown and forest green backgrounds in original order */
-        section.bg-white.relative.max-w-6xl > div.absolute:nth-child(2) > div {
-            background-color: var(--color-sandy-brown) !important;
-            color: white !important;
         }
-        section.bg-white.relative.max-w-6xl > div.absolute:nth-child(3) > div {
-            background-color: var(--color-forest-green) !important;
-            color: white !important;
-        }
-        section.bg-white.relative.max-w-6xl > div.absolute:nth-child(4) > div {
-            background-color: var(--color-sandy-brown) !important;
-            color: white !important;
-        }
-
-        /* Text adjustments for better readability on colored blocks */
-        section.bg-white.relative.max-w-6xl > div.absolute > div h3 {
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        section.bg-white.relative.max-w-6xl > div.absolute > div p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-    }
 
     </style>
     <script>
@@ -162,55 +148,47 @@
             </p>
 
             <!-- Triangular Venn-style Layout -->
-            <div class="relative max-w-6xl mx-auto py-16">
+            <div class="relative max-w-6xl mx-auto py-16 flex justify-center items-center flex-wrap sm:flex-nowrap sm:justify-center" style="gap: 1rem;">
+                
                 <!-- Industry Experience (Top Center) -->
-                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-8 border-forest-green h-96 flex flex-col justify-center w-96">
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold text-forest-green mb-3">Industry Experience</h3>
-                            <p class="text-stone-700 text leading-relaxed">
-                                We have partnered with industry leaders across diverse sectors including mining, energy, finance, and property. 
-                                Our expertise encompasses both 
-                                <strong class="text-forest-green">South African and international reporting</strong>,
-                                working with JSE-Listed companies and regulatory frameworks including 
-                                SOX, NYSE, AEX, and ASX controls within ESG environments.
-                            </p>
-                        </div>
+                <div class="venn-circle bg-white rounded-full p-6 shadow-lg border-8 border-forest-green h-64 w-64 flex items-center justify-center">
+                    <div class="text-center px-4">
+                        <h3 class="text-lg font-bold text-forest-green mb-3">Industry Experience</h3>
+                        <p class="text-stone-700 text leading-relaxed">
+                            We have partnered with industry leaders across diverse sectors including mining, energy, finance, and property. 
+                            Our expertise encompasses both 
+                            <strong class="text-forest-green">South African and international reporting</strong>,
+                            working with JSE-Listed companies and regulatory frameworks including 
+                            SOX, NYSE, AEX, and ASX controls within ESG environments.
+                        </p>
                     </div>
                 </div>
 
                 <!-- Environmental Data & Analytics (Bottom Left) -->
-                <div class="absolute left-48 z-10" style="top: 21rem;">
-                    <div class="bg-white rounded-full p-8 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Data & Analytics</h3>
-                            <p class="text-stone-700 text leading-relaxed">
-                                Expertise in developing, managing, and visualizing large-scale corporate datasets of over <strong class="text-forest-green">10,000 companies</strong>, 
-                                covering areas such as energy use, biodiversity, water withdrawals, and social development indicators, 
-                                providing valuable insight into 
-                                <strong class="text-forest-green">diverse climate strategies and pathways</strong>.
-                            </p>
-                        </div>
+                <div class="venn-circle venn-bottom-left bg-white rounded-full p-8 shadow-lg border-8 border-sandy-brown h-64 w-64 flex items-center justify-center" >
+                    <div class="text-center px-4">
+                        <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Data & Analytics</h3>
+                        <p class="text-stone-700 text leading-relaxed">
+                            Expertise in developing, managing, and visualizing large-scale corporate datasets of over <strong class="text-forest-green">10,000 companies</strong>, 
+                            covering areas such as energy use, biodiversity, water withdrawals, and social development indicators, 
+                            providing valuable insight into 
+                            <strong class="text-forest-green">diverse climate strategies and pathways</strong>.
+                        </p>
                     </div>
                 </div>
 
                 <!-- ESG Assurance & Advisory (Bottom Right) -->
-                <div class="absolute right-48 z-10" style="top: 21rem;">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
-                        <div class="text-center">
-                            <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Assurance & Advisory</h3>
-                            <p class="text-stone-700 text leading-relaxed">
-                                Extensive experience in ESG assurance for industry leaders, advisory work for 
-                                <strong class="text-forest-green">first-time CSRD reporters</strong>, 
-                                and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, and CSRD. 
-                                With water management experts, we also offer full, independent <strong class="text-forest-green">water balance assessments</strong>.
-                            </p>
-                        </div>
+                <div class="venn-circle venn-bottom-right bg-white rounded-full p-6 shadow-lg border-8 border-sandy-brown h-64 w-64 flex items-center justify-center">
+                    <div class="text-center px-4">
+                        <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Assurance & Advisory</h3>
+                        <p class="text-stone-700 text leading-relaxed">
+                            Extensive experience in ESG assurance for industry leaders, advisory work for 
+                            <strong class="text-forest-green">first-time CSRD reporters</strong>, 
+                            and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, and CSRD. 
+                            With water management experts, we also offer full, independent <strong class="text-forest-green">water balance assessments</strong>.
+                        </p>
                     </div>
                 </div>
-
-                <!-- Set container height for absolute positioning -->
-                <div class="hidden lg:block" style="height: 38rem;"></div>
             </div>
         </section>
 
