@@ -89,7 +89,49 @@
         line-height: normal; /* Prevent extra height issues */
         }
         
+        /* Stack Venn items vertically instead of absolute positioned circles */
+        section .relative.max-w-6xl > div.absolute {
+            position: relative !important; /* cancel absolute positioning */
+            width: 100% !important;        /* full width */
+            height: auto !important;       /* let height adjust */
+            margin: 1rem 0 !important;     /* spacing between boxes */
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            z-index: auto !important;
         }
+
+        /* Make inner boxes full width with fixed aspect ratio square using padding trick */
+        section .relative.max-w-6xl > div.absolute > div {
+            width: 100% !important;
+            height: 0 !important;
+            padding-bottom: 100% !important; /* square placeholder */
+            border-radius: 0 !important;     /* remove round corners for squares */
+            border: none !important;          /* remove colored borders */
+            box-shadow: none !important;      /* remove shadows or reduce */
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Adjust headings and texts inside squares */
+        section .relative.max-w-6xl > div.absolute > div > div.text-center {
+            padding: 1rem !important;
+        }
+
+        /* Set background colors according to the order: brown -> green -> brown */
+        section .relative.max-w-6xl > div.absolute:nth-child(2) > div { background-color: #d95e48 !important; } /* Brown - first */
+        section .relative.max-w-6xl > div.absolute:nth-child(3) > div { background-color: #334c33 !important; } /* Green - second */
+        section .relative.max-w-6xl > div.absolute:nth-child(4) > div { background-color: #d95e48 !important; } /* Brown - third */
+
+        /* Adjust text colors for contrast */
+        section .relative.max-w-6xl > div.absolute > div h3,
+        section .relative.max-w-6xl > div.absolute > div p {
+            color: white !important;
+        }
+    }
+
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
