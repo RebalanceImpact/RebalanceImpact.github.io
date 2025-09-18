@@ -292,7 +292,7 @@
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency secondary"],
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image3 {
             position: relative !important;
-            left: 2%;       /* slight right shift */
+            left: -2%;       /* slight right shift */
             top: 10px;      /* move down 10px to avoid vertical overlap */
             margin-left: 0 !important;
         }
@@ -301,15 +301,19 @@
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency"],
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image4 {
             position: relative !important;
-            left: -2%;      /* slight left shift */
+            left: 2%;      /* slight left shift */
             margin-left: 0 !important;
             top: 0;         /* reset vertical position if set elsewhere */
         }
 
         /* Move the All-in-one dashboard slide slightly left and add bottom margin */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-top {
-            margin-left: -1rem !important; /* shift left ~32px */
-            margin-bottom: 2rem !important; /* spacing below */
+            margin-left: -0.5rem !important; 
+        }
+
+        /* Move the slide slightly right and add bottom margin */
+        #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom {
+            margin-right: 0.5rem !important; 
         }
         
         }
