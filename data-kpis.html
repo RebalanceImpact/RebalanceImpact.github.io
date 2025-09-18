@@ -28,130 +28,143 @@
 
         .border-terracotta {
             border-color: #d95e48; /* Use actual sampled RGB/HEX from dashboard */
-            }
+        }
         .text-salmon {
             color: #d69056;
         }
         .text-terra {
             color: #d95e48;
         }
+
         @media (max-width: 767px) {
-        /* Header flex row: logo+text left, hamburger right on same line */
-        header > div.container {
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
+            /* Header flex row: logo+text left, hamburger right on same line */
+            header > div.container {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+
+            /* Logo container */
+            header > div.container > div:first-child {
+                order: 1;
+                margin-bottom: 0;
+            }
+
+            /* Hamburger container */
+            header > div.container > div:last-child {
+                order: 2;
+            }
+
+            /* Smaller logo image */
+            header > div.container > div:first-child > a > img {
+                height: 2.5rem; /* h-10 */
+            }
+
+            /* Smaller text */
+            header > div.container > div:first-child > a > span {
+                font-size: 1.25rem; /* text-xl */
+            }
+
+            /* Navigation dropdown: wide white box below header */
+            #menu {
+                position: absolute !important;
+                top: 105%; /* below header */
+                left: auto;
+                right: 0;
+                background-color: white !important;
+                padding: 1rem 1.5rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                width: 50vw !important;
+                max-width: 400px !important;
+                margin-top: 0.25rem !important;
+                z-index: 1000;
+                overflow: visible;
+                box-sizing: border-box;
+            }
+
+            /* Small arrow left of each nav link */
+            #menu a::before {
+                content: '▶';
+                display: inline-block;
+                margin-right: 0.5rem;
+                color: var(--color-forest-green);
+                font-size: 0.75rem;
+                vertical-align: middle;
+            }
+
+            /* Mobile nav link styling */
+            #menu a {
+                font-size: 1.125rem;
+                padding: 0.75rem 0;
+                display: block;
+                word-break: break-word;
+            }
+
+            /* Contact Us button fixed bottom-left, above footer */
+            #contactWrapper {
+                position: fixed !important;
+                bottom: 3.5rem !important; /* approx footer height + spacing */
+                right: 1rem !important;
+                max-width: 20rem;
+                margin: 0 !important;
+                display: block !important;
+                z-index: 1100;
+            }
+            #contactTabToggle {
+                transform: none !important;
+            }
+            
+            /* Hide the middle column container completely on mobile */
+            .flex.flex-col.justify-between.items-center.gap-10 {
+                display: none !important;
+            }
+
+            /* Hide the empty left margin column on mobile */
+            .flex.flex-row.max-w-7xl.mx-auto.gap-8 > div:first-child {
+                display: none !important;
+            }
+
+            /* Allow the right column text container to use full width and no margin */
+            .flex.flex-col.gap-10.flex-1.ml-\[2\.5rem\] {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+            /* Hide the Power BI iframe and replace container size with a placeholder height */
+            #powerbi-embed-container iframe {
+                display: none !important;
+            }
+            #powerbi-embed-container {
+                background: url('images/generic_dashboard.png') center center/contain no-repeat !important;
+                height: 200px !important; /* Adjust to suitable mobile height */
+                max-width: 100% !important;
+            }
+
+            /* Hide the "Click on elements within the dashboard..." text on mobile */
+            section.mb-16 > p.text-stone-700 {
+                display: none !important;
+            }
+            /* Hide Full Screen button on mobile */
+            #fullscreen-btn {
+                display: none !important;
+            }
         }
 
-        /* Logo container */
-        header > div.container > div:first-child {
-            order: 1;
-            margin-bottom: 0;
+        .bg-dashboard-green {
+            background: #e9f6ec;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* Hamburger container */
-        header > div.container > div:last-child {
-            order: 2;
+        .waves {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            z-index: 0;
         }
-
-        /* Smaller logo image */
-        header > div.container > div:first-child > a > img {
-            height: 2.5rem; /* h-10 */
+        .main-content {
+            position: relative;
+            z-index: 1;
         }
-
-        /* Smaller text */
-        header > div.container > div:first-child > a > span {
-            font-size: 1.25rem; /* text-xl */
-        }
-
-        /* Navigation dropdown: wide white box below header */
-        #menu {
-            position: absolute !important;
-            top: 105%; /* below header */
-            left: auto;
-            right: 0;
-            background-color: white !important;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            width: 50vw !important;
-            max-width: 400px !important;
-            margin-top: 0.25rem !important;
-            z-index: 1000;
-            overflow: visible;
-            box-sizing: border-box;
-        }
-
-        /* Small arrow left of each nav link */
-        #menu a::before {
-            content: '▶';
-            display: inline-block;
-            margin-right: 0.5rem;
-            color: var(--color-forest-green);
-            font-size: 0.75rem;
-            vertical-align: middle;
-        }
-
-        /* Mobile nav link styling */
-        #menu a {
-            font-size: 1.125rem;
-            padding: 0.75rem 0;
-            display: block;
-            word-break: break-word;
-        }
-
-        /* Contact Us button fixed bottom-left, above footer */
-        #contactWrapper {
-            position: fixed !important;
-            bottom: 3.5rem !important; /* approx footer height + spacing */
-            right: 1rem !important;
-            max-width: 20rem;
-            margin: 0 !important;
-            display: block !important;
-            z-index: 1100;
-        }
-        #contactTabToggle {
-            transform: none !important;
-        }
-        
-        /* Hide the middle column container completely on mobile */
-        .flex.flex-col.justify-between.items-center.gap-10 {
-            display: none !important;
-        }
-
-        /* Hide the empty left margin column on mobile */
-        .flex.flex-row.max-w-7xl.mx-auto.gap-8 > div:first-child {
-            display: none !important;
-        }
-
-        /* Allow the right column text container to use full width and no margin */
-        .flex.flex-col.gap-10.flex-1.ml-\[2\.5rem\] {
-            margin-left: 0 !important;
-            width: 100% !important;
-        }
-
-        /* Hide the Power BI iframe and replace container size with a placeholder height */
-        #powerbi-embed-container iframe {
-            display: none !important;
-        }
-        #powerbi-embed-container {
-            background: url('images/generic_dashboard.png') center center/contain no-repeat !important;
-            height: 200px !important; /* Adjust to suitable mobile height */
-            max-width: 100% !important;
-        }
-
-        /* Hide the "Click on elements within the dashboard..." text on mobile */
-        section.mb-16 > p.text-stone-700 {
-            display: none !important;
-        }
-        /* Hide Full Screen button on mobile */
-        #fullscreen-btn {
-            display: none !important;
-        }
-        }
-        
-        
-        
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
