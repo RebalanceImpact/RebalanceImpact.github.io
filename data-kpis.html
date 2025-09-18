@@ -36,6 +36,21 @@
             color: #d95e48;
         }
 
+        .bg-dashboard-green {
+            background: #e9f6ec;
+            position: relative;
+            overflow: hidden;
+        }
+        .waves {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            z-index: 0;
+        }
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
         @media (max-width: 767px) {
             /* Header flex row: logo+text left, hamburger right on same line */
             header > div.container {
@@ -150,21 +165,6 @@
                 display: none !important;
             }
         }
-
-        .bg-dashboard-green {
-            background: #e9f6ec;
-            position: relative;
-            overflow: hidden;
-        }
-        .waves {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
-            z-index: 0;
-        }
-        .main-content {
-            position: relative;
-            z-index: 1;
-        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -180,6 +180,26 @@
                 }
             }
         };
+        document.addEventListener('click', function(event) {
+        const menu = document.getElementById('menu');
+        const toggle = document.getElementById('menu-toggle');
+
+        // If menu is visible and click is outside menu and toggle button, close menu
+        if (!menu.classList.contains('hidden')) {
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+            menu.classList.add('hidden');
+            }
+        }
+        });
+        // Also close dropdown on scroll outside
+        window.addEventListener('scroll', function() {
+        const menu = document.getElementById('menu');
+        if (window.innerWidth > 767) return; // Only on mobile
+
+        if (!menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+        }
+        });
     </script>
 </head>
 <body>
@@ -483,27 +503,6 @@
         }).catch(function() {
         alert("Submission failed. Please check your connection and try again.");
         });
-    });
-    
-    document.addEventListener('click', function(event) {
-    const menu = document.getElementById('menu');
-    const toggle = document.getElementById('menu-toggle');
-
-    // If menu is visible and click is outside menu and toggle button, close menu
-    if (!menu.classList.contains('hidden')) {
-        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-        menu.classList.add('hidden');
-        }
-    }
-    });
-    // Also close dropdown on scroll outside
-    window.addEventListener('scroll', function() {
-    const menu = document.getElementById('menu');
-    if (window.innerWidth > 767) return; // Only on mobile
-
-    if (!menu.classList.contains('hidden')) {
-        menu.classList.add('hidden');
-    }
     });
     </script>
 </body>
