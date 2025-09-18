@@ -286,7 +286,9 @@
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img {
             max-width: 100% !important;  /* scale to container width */
             height: auto !important;     /* maintain aspect ratio */
-            max-height: clamp(140px, 15vh, 180px) !important; /* responsive max height */
+            max-height: none !important; /* Remove max-height limit */
+            object-fit: contain !important; /* Ensure entire image fits */
+            display: block; /* Avoid inline spacing issues */
         }
 
         /* Adjust absolute positioned images with relative positioning offsets */
