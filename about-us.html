@@ -90,6 +90,23 @@
         }
         
         }
+        /* On mobile - reset absolute positioning and stack vertically */
+        @media (max-width: 1024px) { /* lg breakpoint */
+        .venn-child {
+            position: relative !important; /* override absolute */
+            width: 100% !important;
+            margin: 0 auto 2rem auto;
+            top: auto !important;
+            left: auto !important;
+            transform: none !important;
+        }
+        }
+        @media (min-width: 1024px) {
+        .venn-child {
+            position: absolute;
+            /* your existing left/top values */
+        }
+        }
     </style>
     <script>
         // Custom Tailwind CSS Configuration: This script extends Tailwind's default theme to include custom colors defined in CSS variables.
@@ -173,10 +190,10 @@
             </p>
 
             <!-- Triangular Venn-style Layout -->
-            <div class="relative max-w-6xl mx-auto py-16">
+            <div class="relative max-w-6xl mx-auto py-16 flex flex-col lg:flex-row lg:justify-center lg:items-start">
                 <!-- Industry Experience (Top Center) -->
                 <div class="absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-8 border-forest-green h-96 flex flex-col justify-center w-96">
+                    <div class="venn-child bg-white rounded-full p-6 shadow-lg border-8 border-forest-green h-96 w-96 flex flex-col justify-center mx-auto mb-8 lg:mb-0">
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-forest-green mb-3">Industry Experience</h3>
                             <p class="text-stone-700 text leading-relaxed">
@@ -192,7 +209,7 @@
 
                 <!-- Environmental Data & Analytics (Bottom Left) -->
                 <div class="absolute left-48 z-10" style="top: 21rem;">
-                    <div class="bg-white rounded-full p-8 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
+                    <div class="venn-child bg-white rounded-full p-8 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Data & Analytics</h3>
                             <p class="text-stone-700 text leading-relaxed">
@@ -207,7 +224,7 @@
 
                 <!-- ESG Assurance & Advisory (Bottom Right) -->
                 <div class="absolute right-48 z-10" style="top: 21rem;">
-                    <div class="bg-white rounded-full p-6 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
+                    <div class="venn-child bg-white rounded-full p-6 shadow-lg border-8 border-sandy-brown h-96 w-96 flex flex-col justify-center">
                         <div class="text-center">
                             <h3 class="text-lg font-bold text-sandy-brown mb-3">ESG Assurance & Advisory</h3>
                             <p class="text-stone-700 text leading-relaxed">
