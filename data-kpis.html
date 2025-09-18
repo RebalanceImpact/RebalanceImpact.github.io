@@ -180,6 +180,12 @@
                 }
             }
         };
+        document.getElementById('menu-toggle').addEventListener('click', function(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+        
         document.addEventListener('click', function(event) {
         const menu = document.getElementById('menu');
         const toggle = document.getElementById('menu-toggle');
