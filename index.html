@@ -266,57 +266,59 @@
             transform: none !important;
         }
         
-        /* Squeeze "Tailored for you" container */
+        /* Squeeze "Tailored for you" container with dynamic width */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .content-area {
-            width: 85%;           /* Reduce width to prevent overlap */
-            margin: 0 auto 0 auto; /* Center horizontally with auto margins */
-            padding-left: 0;      /* Remove any left padding if present */
+            width: clamp(70%, 85%, 90%); /* Responsive width between 70% and 90% */
+            margin: 0 auto;
+            padding-left: 0;
         }
 
-        /* Adjust image container to reduce width and margin for spacing */
+        /* Adjust image container with relative width and margin */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area {
-            width: 280px !important;  /* Slightly smaller width */
-            height: 230px !important; /* Slightly smaller height */
-            margin-left: 20px !important; /* Offset a bit more to the right */
+            width: clamp(200px, 30vw, 280px) !important;   /* fluid width min 200px max 280px */
+            height: auto !important;  /* allow height to scale naturally */
+            margin-left: clamp(8px, 5vw, 20px) !important; /* responsive margin */
             margin-top: 10px !important;
-            position: relative !important; /* Ensure positioning remains relative */
+            position: relative !important;
         }
 
-        /* Make the images inside smaller and offset them */
+        /* Smaller images scaled responsively */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img {
-            max-width: 280px !important;  /* Smaller images */
-            max-height: 180px !important;
+            max-width: 100% !important;  /* scale to container width */
+            height: auto !important;     /* maintain aspect ratio */
+            max-height: clamp(140px, 15vh, 180px) !important; /* responsive max height */
         }
 
-        /* Adjust absolute positioned images individually for offset */
+        /* Adjust absolute positioned images with relative positioning offsets */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency secondary"],
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image3 {
-            top: 120px !important;  /* Move up slightly */
-            left: 15px !important;  /* Move right slightly */
-            max-width: 260px !important;
-            max-height: 160px !important;
+            top: clamp(90px, 10vh, 120px) !important;  /* responsive top offset */
+            left: clamp(10px, 3vw, 15px) !important;   /* responsive left offset */
+            max-width: clamp(220px, 25vw, 260px) !important;
+            max-height: clamp(130px, 14vh, 160px) !important;
         }
 
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img[alt="Business efficiency"],
         #data-analytics-carousel .carousel-slide.layout-landscape-image-bottom .image-area img#image4 {
             top: 0 !important;
             left: 0 !important;
-            max-width: 260px !important;
-            max-height: 160px !important;
+            max-width: clamp(220px, 25vw, 260px) !important;
+            max-height: clamp(130px, 14vh, 160px) !important;
         }
-        /* Move the All-in-one dashboard slide slightly left */
+
+        /* Move the All-in-one dashboard slide with relative margin */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-top {
-            margin-left: -10px; /* Shift left to center better between arrows */
+            margin-left: clamp(-15px, -2vw, -10px); /* responsive negative margin */
         }
 
         /* Reduce vertical spacing between slides and paragraph above */
         #data-analytics-carousel {
-            margin-top: 10px !important; /* Reduce top margin */
+            margin-top: 10px !important;
         }
 
-        /* Also reduce margin-top inside content area of the All-in-one slide if needed */
+        /* Reduce margin-top inside content area of the All-in-one slide */
         #data-analytics-carousel .carousel-slide.layout-landscape-image-top .content-area {
-            margin-top: 15px !important; /* Less vertical space */
+            margin-top: 15px !important;
         }
         }
     </style>
