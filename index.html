@@ -1085,18 +1085,12 @@
     </main>
 
     <footer class="bg-forest-green text-white py-8 mt-12">
-    <div class="container mx-auto px-4 text-sm flex flex-col items-center relative md:flex-row md:items-center md:justify-center md:text-base">
-
-        <p class="text-center flex-grow text-xs md:text-base">
-        &copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.
-        </p>
-
-        <!-- Icon and email flex container for mobile and medium+ -->
-        <div class="flex items-center space-x-2 mt-2 md:mt-0 absolute left-0 md:flex-col md:absolute md:left-0 md:space-x-0 md:space-y-3">
-
-        <!-- LinkedIn icon -->
+    <div class="container mx-auto px-4 text-sm flex flex-col md:flex-row md:items-center md:justify-center md:text-base items-center space-y-2 md:space-y-0 md:space-x-6">
+        <!-- LinkedIn icon and email - always visible, flex row with spacing -->
+        <div class="flex items-center space-x-3">
         <a href="https://www.linkedin.com/company/rebalance-impact" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-            class="bg-white text-forest-green hover:bg-sandy-brown-hover hover:text-white rounded px-2 py-1 flex items-center justify-center transition-colors ml-2">
+            class="bg-white text-forest-green hover:bg-sandy-brown-hover hover:text-white rounded px-2 py-1 flex items-center justify-center transition-colors">
+            <!-- svg omitted for brevity -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 7 24 20" width="20" height="20" fill="none">
             <rect width="5" height="7" rx="6" fill="#fff" />
             <path d="M8 12h4v12H8z" fill="#34523D" />
@@ -1104,11 +1098,12 @@
             <path d="M14.7 12h3.8v1.6h.1c.53-1 1.85-1.83 3.5-1.83 3.75 0 4.4 2.47 4.4 5.68V24h-4v-5.37c0-1.28-.02-2.93-1.78-2.93-1.78 0-2.06 1.4-2.06 2.84V24h-4V12z" fill="#34523D" />
             </svg>
         </a>
-
-        <!-- Email text -->
-        <p class="text-xs md:text-base">info@rebalanceimpact.com</p>
+        <p class="text-base">info@rebalanceimpact.com</p>
         </div>
-        
+
+        <p class="text-center flex-grow text-xs md:text-base">
+        &copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.
+        </p>
     </div>
     </footer>
 
