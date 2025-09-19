@@ -253,10 +253,10 @@
             word-break: break-word;
         }
 
-        /* Contact Us button fixed bottom-left, above footer */
+        /* Contact Us button fixed bottom-right, above footer */
         #contactWrapper {
             position: fixed !important;
-            bottom: 3.5rem !important; /* approx footer height + spacing */
+            bottom: 7rem !important; /* approx footer height + spacing */
             right: 1rem !important;
             max-width: 20rem;
             margin: 0 !important;
@@ -1085,22 +1085,26 @@
     </main>
 
     <footer class="bg-forest-green text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-sm flex items-center justify-center relative flex-col md:flex-row md:text-base">
-            <p class="flex-grow text-center text-xs md:text-base">
-                &copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.
-            </p>
-            <div class="absolute left-0 flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-3 mt-2 md:mt-0">
-                <a href="https://www.linkedin.com/company/rebalance-impact" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                class="bg-white text-forest-green hover:bg-sandy-brown-hover hover:text-white rounded px-2 py-1 flex items-center justify-center transition-colors ml-0 md:ml-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 7 24 20" width="20" height="20" fill="none" class="ml-1 md:ml-0">
-                        <rect width="5" height="7" rx="6" fill="#fff"/>
-                        <path d="M8 12h4v12H8z" fill="#34523D"/>
-                        <circle cx="10" cy="9" r="2" fill="#34523D"/>
-                        <path d="M14.7 12h3.8v1.6h.1c.53-1 1.85-1.83 3.5-1.83 3.75 0 4.4 2.47 4.4 5.68V24h-4v-5.37c0-1.28-.02-2.93-1.78-2.93-1.78 0-2.06 1.4-2.06 2.84V24h-4V12z" fill="#34523D"/>
-                    </svg>
-                </a>
-                <p class="text-xs md:text-base ml-0 md:ml-0">info@rebalanceimpact.com</p>
+        <div class="container mx-auto px-4 text-sm flex flex-col md:flex-row items-center justify-center relative md:text-base">
+            <div class="text-center flex flex-col items-center space-y-2">
+                <p class="text-xs md:text-base">
+                    &copy; <script>document.write(new Date().getFullYear());</script> Rebalance Impact. All rights reserved.
+                </p>
+                <!-- Email is hidden on md+ here -->
+                <p class="text-xs md:hidden mt-1">info@rebalanceimpact.com</p>
             </div>
+            <a href="https://www.linkedin.com/company/rebalance-impact" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                class="bg-white text-forest-green hover:bg-sandy-brown-hover hover:text-white rounded px-2 py-1 flex items-center justify-center transition-colors mt-4 md:mt-0 md:ml-4 ml-4 md:ml-0 md:self-auto self-start"
+                style="margin-left: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 7 24 20" width="20" height="20" fill="none" class="">
+                    <rect width="5" height="7" rx="6" fill="#fff"/>
+                    <path d="M8 12h4v12H8z" fill="#34523D"/>
+                    <circle cx="10" cy="9" r="2" fill="#34523D"/>
+                    <path d="M14.7 12h3.8v1.6h.1c.53-1 1.85-1.83 3.5-1.83 3.75 0 4.4 2.47 4.4 5.68V24h-4v-5.37c0-1.28-.02-2.93-1.78-2.93-1.78 0-2.06 1.4-2.06 2.84V24h-4V12z" fill="#34523D"/>
+                </svg>
+            </a>
+            <!-- Email visible from md+ and hidden on mobile -->
+            <p class="hidden md:block text-base ml-6">info@rebalanceimpact.com</p>
         </div>
     </footer>
 
