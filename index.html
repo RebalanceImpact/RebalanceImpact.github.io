@@ -816,7 +816,8 @@
                 <p class="text-lg text-stone-700 leading-relaxed mb-8 text-center">
                     Fill out this form to get a price estimate for your business and hear back from us within 24hrs!
                 </p>
-                <form id="priceEstimateForm" action="https://script.google.com/macros/s/AKfycbzEA6GZwILKBnHV2rnXr0AyMPQaUY-H3AWSvSskcwrpnVYhI1m_DAjidRKRMpnEBHvp/exec" method="POST" class="space-y-8">
+                <form id="priceEstimateForm" action="https://script.google.com/macros/s/AKfycbwJD_T6nUigZ49VBHX0nFMEXLGxQmllEgN7tsEPqRsu7JUIZSGi5uSEe38gXmkHeak/exec" method="POST" class="space-y-8">
+                    
                     <fieldset class="border-t border-gray-200 pt-6">
                             <legend class="text-xl font-semibold text-stone-700 mb-4">Your Contact Details</legend>
                             <div class="space-y-4">
@@ -1053,6 +1054,22 @@
 
                             </div>
                         </fieldset>
+                        <!-- Add honeypot fields (invisible to users, visible to bots) -->
+                        <div class="honeypot-container" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                            <label for="hp-name">Leave this field blank</label>
+                            <input type="text" id="hp-name" name="hp_name" autocomplete="off" tabindex="-1">
+                            
+                            <label for="hp-email">Don't fill this out</label>
+                            <input type="email" id="hp-email" name="hp_email" autocomplete="off" tabindex="-1">
+                            
+                            <label for="hp-website">Website</label>
+                            <input type="url" id="hp-website" name="hp_website" autocomplete="off" tabindex="-1">
+                        </div>
+                        <!-- Time-based validation -->
+                        <input type="hidden" name="form_start_time" id="form_start_time" value="">
+                        <!-- JavaScript challenge -->
+                        <input type="hidden" name="js_challenge" id="js_challenge" value="failed">
+
                     <button type="submit" class="w-full bg-forest-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-900 transition duration-300 shadow-lg mt-8">
                     Submit for Price Estimate
                     </button>
@@ -1062,8 +1079,36 @@
   We have received your submission and will get back to you within 24 hours.
                 </div>
                 <script>
-                    document.getElementById("priceEstimateForm").addEventListener("submit", function(e){
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Set form start time
+                    document.getElementById('form_start_time').value = Date.now();
+                    
+                    // Set JavaScript challenge
+                    var challenge = 15 + 27;
+                    document.getElementById('js_challenge').value = challenge.toString();
+                });
+
+                document.getElementById("priceEstimateForm").addEventListener("submit", function(e){
                     e.preventDefault();
+                    
+                    // Client-side bot detection
+                    var startTime = parseInt(document.getElementById('form_start_time').value);
+                    var submissionTime = Date.now();
+                    var timeDiff = (submissionTime - startTime) / 1000;
+                    
+                    // Check if form was filled too quickly (less than 3 seconds)
+                    if (timeDiff < 3) {
+                        alert("Please take your time to fill out the form properly.");
+                        return;
+                    }
+                    
+                    // Check if honeypot fields are filled (basic client-side check)
+                    if (document.getElementById('hp-name').value || 
+                        document.getElementById('hp-email').value || 
+                        document.getElementById('hp-website').value) {
+                        alert("Automated submission detected.");
+                        return;
+                    }
                     
                     var formData = new FormData(this);
                     
@@ -1072,23 +1117,23 @@
                         body: formData,
                     }).then(function(response){
                         if(response.ok) {
-                        // Hide the form
-                        document.getElementById("priceEstimateForm").style.display = "none";
-                        // Hide the paragraph above the form
-                        var infoParagraph = document.querySelector("#priceEstimateForm").previousElementSibling;
-                        if (infoParagraph && infoParagraph.tagName.toLowerCase() === "p") {
-                            infoParagraph.style.display = "none";
-                        }
-                        // Show submission message
-                        document.getElementById("submissionMessage").style.display = "block";
+                            // Hide the form
+                            document.getElementById("priceEstimateForm").style.display = "none";
+                            // Hide the paragraph above the form
+                            var infoParagraph = document.querySelector("#priceEstimateForm").previousElementSibling;
+                            if (infoParagraph && infoParagraph.tagName.toLowerCase() === "p") {
+                                infoParagraph.style.display = "none";
+                            }
+                            // Show submission message
+                            document.getElementById("submissionMessage").style.display = "block";
                         } else {
-                        alert("There was an error submitting the form. Please try again.");
+                            alert("There was an error submitting the form. Please try again.");
                         }
                     }).catch(function(){
                         alert("Submission failed. Please check your internet connection and try again.");
                     });
-                    });
-                    </script>
+                });
+                </script>
             </div>
         </section>
 
