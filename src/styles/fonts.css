@@ -1,0 +1,9 @@
+/* Font imports using @fontsource for self-hosted fonts */
+/* DM Serif Display - Display/Editorial font for H1-H2 */
+@import '@fontsource/dm-serif-display/400.css';
+
+/* Plus Jakarta Sans - Modern geometric sans-serif */
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
