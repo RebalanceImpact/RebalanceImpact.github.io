@@ -12,15 +12,17 @@
   "dependencies": {
     "@fontsource/dm-serif-display": "^5.2.8",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
-    "@rollup/rollup-win32-x64-msvc": "^4.57.1",
-    "@tailwindcss/oxide-win32-x64-msvc": "^4.1.18",
     "framer-motion": "^12.33.0",
-    "lightningcss-win32-x64-msvc": "^1.31.1",
     "lucide-react": "^0.563.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.13.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.57.1",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.1.18",
+    "lightningcss-win32-x64-msvc": "^1.31.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
