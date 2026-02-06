@@ -2,10 +2,24 @@ import { motion } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card } from '../components/ui';
 import { HeroSection, CTABanner } from '../components/shared';
+import SchemaMarkup, { organizationSchema, generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import VennDiagram from '../components/page-specific/about/VennDiagram';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { teamExperience } from '../data/team';
+
+// About page schemas
+const aboutBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'About Us', url: 'https://www.rebalanceimpact.com/about-us' }
+]);
+
+const aboutPageSchema = generateWebPageSchema({
+  name: 'About Rebalance Impact | ESG Consulting Experts',
+  description: 'Learn about Rebalance Impact - where financial expertise meets environmental science. Our team of Chartered Accountants and Environmental Scientists deliver practical ESG solutions.',
+  url: 'https://www.rebalanceimpact.com/about-us',
+  breadcrumb: aboutBreadcrumb
+});
 
 const AboutPage = () => {
   return (
@@ -15,6 +29,7 @@ const AboutPage = () => {
         description={pageMetadata.about.description}
         canonicalPath="/about-us"
       />
+      <SchemaMarkup schemas={[organizationSchema, aboutPageSchema]} />
 
       {/* Hero Section */}
       <HeroSection

@@ -3,8 +3,39 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading } from '../components/ui';
 import { HeroSection, ArticleCard } from '../components/shared';
+import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
 import { articleCategories, getArticlesByCategory, getAllArticles } from '../data/esgArticles';
+
+// News & Media page schemas
+const newsMediaBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'News & Media', url: 'https://www.rebalanceimpact.com/news-media' }
+]);
+
+const newsMediaPageSchema = generateWebPageSchema({
+  name: 'ESG News & Industry Insights | Rebalance Impact',
+  description: 'Stay informed with the latest ESG news, regulatory updates, and success stories from global and South African sustainability leaders.',
+  url: 'https://www.rebalanceimpact.com/news-media',
+  breadcrumb: newsMediaBreadcrumb
+});
+
+// CollectionPage schema for the articles listing
+const articlesCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "ESG Industry Insights",
+  "description": "Curated collection of ESG news, regulatory updates, and industry analysis.",
+  "url": "https://www.rebalanceimpact.com/news-media",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Rebalance Impact"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Environmental, Social, and Governance (ESG)"
+  }
+};
 
 // Category Filter Component
 const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
@@ -70,6 +101,7 @@ const NewsMediaPage = () => {
         description={pageMetadata.newsMedia.description}
         canonicalPath="/news-media"
       />
+      <SchemaMarkup schemas={[newsMediaPageSchema, articlesCollectionSchema]} />
 
       {/* Hero Section */}
       <HeroSection

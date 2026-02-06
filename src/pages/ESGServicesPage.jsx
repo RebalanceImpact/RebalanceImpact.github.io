@@ -3,9 +3,23 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';
 import { HeroSection, CTABanner } from '../components/shared';
+import SchemaMarkup, { esgServicesSchema, professionalServiceSchema, generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { coreServices } from '../data/services';
+
+// ESG Services page schemas
+const servicesBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'ESG Services', url: 'https://www.rebalanceimpact.com/esg-services' }
+]);
+
+const servicesPageSchema = generateWebPageSchema({
+  name: 'ESG Consulting Services | Rebalance Impact',
+  description: 'Comprehensive ESG consulting services including sustainability reporting, climate risk assessment, ESG data analytics, and stakeholder engagement.',
+  url: 'https://www.rebalanceimpact.com/esg-services',
+  breadcrumb: servicesBreadcrumb
+});
 
 const ESGServicesPage = () => {
   return (
@@ -15,6 +29,7 @@ const ESGServicesPage = () => {
         description={pageMetadata.esgServices.description}
         canonicalPath="/esg-services"
       />
+      <SchemaMarkup schemas={[esgServicesSchema, professionalServiceSchema, servicesPageSchema]} />
 
       {/* Hero Section */}
       <HeroSection

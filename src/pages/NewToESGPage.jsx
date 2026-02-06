@@ -4,8 +4,22 @@ import { useState } from 'react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';
 import { HeroSection, CTABanner } from '../components/shared';
+import SchemaMarkup, { newToESGFaqSchema, generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
+
+// New to ESG page schemas
+const newToESGBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'New to ESG', url: 'https://www.rebalanceimpact.com/new-to-esg-reporting' }
+]);
+
+const newToESGPageSchema = generateWebPageSchema({
+  name: 'New to ESG Reporting? | Beginner Guide | Rebalance Impact',
+  description: 'Learn the fundamentals of ESG reporting. Understand Environmental, Social, and Governance factors and why they matter for your business.',
+  url: 'https://www.rebalanceimpact.com/new-to-esg-reporting',
+  breadcrumb: newToESGBreadcrumb
+});
 
 // Accordion component for FAQ
 const Accordion = ({ items }) => {
@@ -130,6 +144,7 @@ const NewToESGPage = () => {
         description={pageMetadata.newToEsg.description}
         canonicalPath="/new-to-esg-reporting"
       />
+      <SchemaMarkup schemas={[newToESGFaqSchema, newToESGPageSchema]} />
 
       {/* Hero Section */}
       <HeroSection

@@ -3,8 +3,62 @@ import { FileCheck, Shield, Globe, TrendingUp, BookOpen, CheckCircle } from 'luc
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';
 import { HeroSection, CTABanner } from '../components/shared';
+import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
+
+// Sustainable Reporting page schemas
+const sustainableReportingBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'Sustainable Reporting', url: 'https://www.rebalanceimpact.com/sustainable-reporting' }
+]);
+
+const sustainableReportingPageSchema = generateWebPageSchema({
+  name: 'Sustainable Reporting Services | GRI, SASB, TCFD | Rebalance Impact',
+  description: 'Expert guidance on sustainability reporting frameworks including GRI, SASB, TCFD, ISSB, and CDP. Create impactful ESG reports that meet compliance requirements.',
+  url: 'https://www.rebalanceimpact.com/sustainable-reporting',
+  breadcrumb: sustainableReportingBreadcrumb
+});
+
+// HowTo schema for sustainability reporting
+const sustainabilityReportingHowToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Create a Sustainability Report",
+  "description": "A structured approach to developing comprehensive sustainability reports that meet stakeholder expectations and regulatory requirements.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Framework Selection",
+      "text": "Choose the appropriate reporting frameworks (GRI, SASB, TCFD, etc.) based on your industry, stakeholders, and regulatory requirements."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Materiality Assessment",
+      "text": "Identify the ESG topics most relevant to your organization and stakeholders through a structured materiality assessment."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Data Collection",
+      "text": "Gather quantitative and qualitative data across environmental, social, and governance dimensions with quality assurance measures."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Report Development",
+      "text": "Structure and write the report content, ensuring compliance with chosen frameworks while telling a compelling sustainability story."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Stakeholder Review",
+      "text": "Engage key stakeholders in reviewing the report for accuracy, completeness, and alignment with expectations."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Assurance & Publication",
+      "text": "Obtain third-party assurance if required and publish the report through appropriate channels."
+    }
+  ]
+};
 
 const SustainableReportingPage = () => {
   const frameworks = [
@@ -70,6 +124,7 @@ const SustainableReportingPage = () => {
         description={pageMetadata.sustainableReporting.description}
         canonicalPath="/sustainable-reporting"
       />
+      <SchemaMarkup schemas={[sustainableReportingPageSchema, sustainabilityReportingHowToSchema]} />
 
       {/* Hero Section */}
       <HeroSection

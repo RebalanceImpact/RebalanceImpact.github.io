@@ -3,10 +3,43 @@ import { Database, Target, LineChart, Users } from 'lucide-react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card } from '../components/ui';
 import { HeroSection, StatCounter, CTABanner } from '../components/shared';
+import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import PowerBIEmbed from '../components/page-specific/data-kpis/PowerBIEmbed';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { dataProcess, powerBIConfig } from '../data/kpis';
+
+// Data KPIs page schemas
+const dataKPIsBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
+  { name: 'Data & KPIs', url: 'https://www.rebalanceimpact.com/data-kpis' }
+]);
+
+const dataKPIsPageSchema = generateWebPageSchema({
+  name: 'ESG Data Solutions & KPI Dashboards | Rebalance Impact',
+  description: 'Transform your ESG data into actionable insights with our comprehensive data management, analytics, and interactive Power BI dashboards.',
+  url: 'https://www.rebalanceimpact.com/data-kpis',
+  breadcrumb: dataKPIsBreadcrumb
+});
+
+// Software Application schema for the dashboard
+const dashboardSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Rebalance Impact ESG Dashboard",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web Browser",
+  "description": "Interactive ESG performance dashboard built on Power BI for monitoring and visualizing sustainability metrics.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Rebalance Impact"
+  }
+};
 
 const DataKPIsPage = () => {
   const processIcons = [Database, Target, LineChart, Users];
@@ -18,6 +51,7 @@ const DataKPIsPage = () => {
         description={pageMetadata.dataKpis.description}
         canonicalPath="/data-kpis"
       />
+      <SchemaMarkup schemas={[dataKPIsPageSchema, dashboardSchema]} />
 
       {/* Hero Section */}
       <HeroSection

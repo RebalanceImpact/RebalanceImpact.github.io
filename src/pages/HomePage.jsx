@@ -6,11 +6,24 @@ import { Link } from 'react-router-dom';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, Button, SectionHeading, Card } from '../components/ui';
 import { ContactForm, StatCounter, ServiceCard, CTABanner } from '../components/shared';
+import SchemaMarkup, { organizationSchema, websiteSchema, generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { heroSlides } from '../data/heroSlides';
 import { services } from '../data/services';
 import { stats } from '../data/kpis';
+
+// Home page schemas
+const homePageBreadcrumb = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.rebalanceimpact.com' }
+]);
+
+const homePageSchema = generateWebPageSchema({
+  name: 'Rebalance Impact | ESG Consulting & Sustainable Solutions',
+  description: 'Expert ESG consulting services combining climate research, financial expertise, and environmental data to deliver practical sustainable solutions for businesses.',
+  url: 'https://www.rebalanceimpact.com',
+  breadcrumb: homePageBreadcrumb
+});
 
 // Hero Carousel Component
 const HeroCarousel = () => {
@@ -316,6 +329,7 @@ const HomePage = () => {
         description={pageMetadata.home.description}
         canonicalPath="/"
       />
+      <SchemaMarkup schemas={[organizationSchema, websiteSchema, homePageSchema]} />
       <HeroCarousel />
       <ValueProps />
       <ServicesPreview />
