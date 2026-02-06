@@ -1,9 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom CSS Properties for design tokens */
-:root {
+/* Tailwind v4 Theme Configuration */
+@theme {
+  /* Colors */
   --color-forest-deep: #1B3A1B;
   --color-forest: #334C33;
   --color-forest-light: #4A6B4A;
@@ -15,12 +14,28 @@
   --color-charcoal-light: #5A5A5A;
   --color-accent: #C8956C;
   --color-accent-hover: #B07D55;
-  --color-white: #FFFFFF;
 
-  /* Typography */
+  /* Fonts */
   --font-display: 'DM Serif Display', serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
 
+  /* Animations */
+  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/* Custom CSS Properties */
+:root {
   /* Transitions */
   --transition-default: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -35,22 +50,26 @@
   }
 
   body {
-    @apply bg-cream text-charcoal font-sans antialiased;
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2 {
-    @apply font-display;
+    font-family: var(--font-display);
   }
 
   h3, h4, h5, h6 {
-    @apply font-sans font-semibold;
+    font-family: var(--font-sans);
+    font-weight: 600;
   }
 
   /* Ensure images scale responsively */
   img, svg {
-    @apply max-w-full h-auto;
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -72,12 +91,10 @@
 
   /* Text gradient effect */
   .text-gradient {
-    @apply bg-gradient-to-r from-forest to-forest-light bg-clip-text text-transparent;
-  }
-
-  /* Focus ring */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream;
+    background-image: linear-gradient(to right, var(--color-forest), var(--color-forest-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
