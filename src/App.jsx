@@ -17,11 +17,23 @@ import SustainableReportingPage from './pages/SustainableReportingPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // If there's a hash, scroll to that element
+    if (hash) {
+      // Small delay to ensure the element is rendered
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // No hash, scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return null;
 }

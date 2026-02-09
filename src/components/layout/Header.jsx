@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { mainNavLinks, ctaLink } from '../../config/navigation';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
@@ -10,7 +10,9 @@ import MobileNav from './MobileNav';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
+  const dropdownRef = useRef(null);
 
   // Handle scroll detection for header style changes
   useEffect(() => {
@@ -25,7 +27,20 @@ const Header = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
   }, [location.pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -44,6 +59,10 @@ const Header = () => {
     return location.pathname.startsWith(href);
   };
 
+  const handleDropdownToggle = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+
   return (
     <>
       <motion.header
@@ -55,8 +74,8 @@ const Header = () => {
           transition-all duration-300
           ${
             isScrolled
-              ? 'bg-white/95 backdrop-blur-md shadow-md'
-              : 'bg-transparent'
+              ? 'bg-forest-deep shadow-lg'
+              : 'bg-white shadow-sm'
           }
         `}
       >
@@ -68,19 +87,21 @@ const Header = () => {
               className="flex items-center gap-3 group"
             >
               <img
-                src="/assets/images/small_transparent.png"
+                src={isScrolled ? "/assets/images/small_white.png" : "/assets/images/small_transparent.png"}
                 alt="Rebalance Impact"
                 className="h-10 w-auto rounded-md transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://placehold.co/40x40/334C33/FFFFFF?text=R';
+                  e.target.src = isScrolled
+                    ? 'https://placehold.co/40x40/FFFFFF/334C33?text=R'
+                    : 'https://placehold.co/40x40/334C33/FFFFFF?text=R';
                 }}
               />
               <span
                 className={`
                   text-xl md:text-2xl font-display font-normal
                   transition-colors duration-300
-                  ${isScrolled ? 'text-forest-deep' : 'text-forest-deep'}
+                  ${isScrolled ? 'text-white' : 'text-forest-deep'}
                 `}
               >
                 Rebalance Impact
@@ -88,33 +109,97 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8" ref={dropdownRef}>
               {mainNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`
-                    relative font-sans font-medium text-base
-                    transition-colors duration-300
-                    hover:text-forest
-                    ${
-                      isActive(link.href)
-                        ? 'text-forest'
-                        : isScrolled
-                        ? 'text-charcoal'
-                        : 'text-charcoal'
-                    }
-                  `}
-                >
-                  {link.label}
-                  {/* Active indicator */}
-                  {isActive(link.href) && (
-                    <motion.span
-                      layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
-                    />
+                <div key={link.href} className="relative">
+                  {link.children ? (
+                    // Dropdown menu item
+                    <>
+                      <button
+                        onClick={() => handleDropdownToggle(link.label)}
+                        className={`
+                          relative font-sans font-medium text-base
+                          transition-colors duration-300 flex items-center gap-1
+                          ${isScrolled ? 'hover:text-sand-light' : 'hover:text-forest'}
+                          ${
+                            isActive(link.href) || link.children.some(child => isActive(child.href))
+                              ? isScrolled ? 'text-sand-light' : 'text-forest'
+                              : isScrolled ? 'text-white/90' : 'text-charcoal'
+                          }
+                        `}
+                      >
+                        {link.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {openDropdown === link.label && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-sage/20 overflow-hidden"
+                          >
+                            <Link
+                              to={link.href}
+                              onClick={() => setOpenDropdown(null)}
+                              className={`
+                                block px-4 py-3 text-sm font-medium transition-colors
+                                ${isActive(link.href) ? 'bg-forest/10 text-forest' : 'text-charcoal hover:bg-sand-light'}
+                              `}
+                            >
+                              {link.label} Overview
+                            </Link>
+                            {link.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                to={child.href}
+                                onClick={() => setOpenDropdown(null)}
+                                className={`
+                                  block px-4 py-3 text-sm font-medium transition-colors
+                                  ${isActive(child.href) ? 'bg-forest/10 text-forest' : 'text-charcoal hover:bg-sand-light'}
+                                `}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                      {/* Active indicator */}
+                      {(isActive(link.href) || link.children.some(child => isActive(child.href))) && (
+                        <motion.span
+                          layoutId="activeNav"
+                          className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${isScrolled ? 'bg-sand-light' : 'bg-accent'}`}
+                        />
+                      )}
+                    </>
+                  ) : (
+                    // Regular menu item
+                    <Link
+                      to={link.href}
+                      className={`
+                        relative font-sans font-medium text-base
+                        transition-colors duration-300
+                        ${isScrolled ? 'hover:text-sand-light' : 'hover:text-forest'}
+                        ${
+                          isActive(link.href)
+                            ? isScrolled ? 'text-sand-light' : 'text-forest'
+                            : isScrolled ? 'text-white/90' : 'text-charcoal'
+                        }
+                      `}
+                    >
+                      {link.label}
+                      {/* Active indicator */}
+                      {isActive(link.href) && (
+                        <motion.span
+                          layoutId="activeNav"
+                          className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full ${isScrolled ? 'bg-sand-light' : 'bg-accent'}`}
+                        />
+                      )}
+                    </Link>
                   )}
-                </Link>
+                </div>
               ))}
               <Button
                 href={ctaLink.href}
@@ -128,7 +213,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 -mr-2 text-forest-deep hover:text-forest transition-colors"
+              className={`lg:hidden p-2 -mr-2 transition-colors ${isScrolled ? 'text-white hover:text-sand-light' : 'text-forest-deep hover:text-forest'}`}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? (

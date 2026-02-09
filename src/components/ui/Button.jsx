@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 /**
@@ -17,8 +17,34 @@ const Button = forwardRef(({
   className = '',
   icon: Icon,
   iconPosition = 'right',
+  onClick,
   ...props
 }, ref) => {
+  const navigate = useNavigate();
+
+  // Handle click for hash links with smooth scrolling
+  const handleHashClick = (e) => {
+    if (onClick) onClick(e);
+
+    if (href && href.includes('#')) {
+      e.preventDefault();
+      const [path, hash] = href.split('#');
+      const targetPath = path || '/';
+      const currentPath = window.location.pathname;
+
+      // If we're already on the target path, just scroll to the element
+      if (currentPath === targetPath) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        // Navigate to the path first, then scroll will happen via ScrollToTop
+        navigate(`${targetPath}#${hash}`);
+      }
+    }
+  };
+
   const baseStyles = `
     inline-flex items-center justify-center gap-2
     font-sans font-semibold
@@ -122,7 +148,24 @@ const Button = forwardRef(({
     );
   }
 
-  // Internal link
+  // Internal link with hash - use click handler for smooth scrolling
+  if (href && href.includes('#')) {
+    return (
+      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+        <Link
+          ref={ref}
+          to={href}
+          className={combinedClassName}
+          onClick={handleHashClick}
+          {...props}
+        >
+          {content}
+        </Link>
+      </motion.div>
+    );
+  }
+
+  // Internal link without hash
   if (href) {
     return (
       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -130,6 +173,7 @@ const Button = forwardRef(({
           ref={ref}
           to={href}
           className={combinedClassName}
+          onClick={onClick}
           {...props}
         >
           {content}

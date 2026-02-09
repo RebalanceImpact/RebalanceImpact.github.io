@@ -78,6 +78,21 @@ const SustainableReportingPage = () => {
       description: 'Framework for climate-related financial risk disclosures.',
     },
     {
+      name: 'CSRD',
+      fullName: 'Corporate Sustainability Reporting Directive',
+      description: 'EU directive requiring comprehensive sustainability reporting from companies.',
+    },
+    {
+      name: 'CS3D',
+      fullName: 'Corporate Sustainability Due Diligence Directive',
+      description: 'EU directive on environmental and human rights due diligence.',
+    },
+    {
+      name: 'OECD',
+      fullName: 'OECD Guidelines for Multinational Enterprises',
+      description: 'International standards for responsible business conduct.',
+    },
+    {
       name: 'ISSB',
       fullName: 'International Sustainability Standards Board',
       description: 'New global baseline for sustainability disclosures.',

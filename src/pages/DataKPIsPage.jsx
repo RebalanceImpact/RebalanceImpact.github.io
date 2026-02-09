@@ -144,7 +144,7 @@ const DataKPIsPage = () => {
         </Container>
       </section>
 
-      {/* KPI Metrics Section */}
+      {/* KPI Metrics Section - Hidden per client request, kept for future use
       <section className="py-20 md:py-28 bg-forest-deep relative overflow-hidden">
         <div className="absolute inset-0 noise-overlay" />
         <Container className="relative z-10">
@@ -162,6 +162,7 @@ const DataKPIsPage = () => {
           </div>
         </Container>
       </section>
+      */}
 
       {/* Features Section */}
       <section className="py-20 md:py-28 bg-sand-light">
@@ -182,8 +183,8 @@ const DataKPIsPage = () => {
                 description: 'Tailored visualizations that highlight the metrics most important to your stakeholders.',
               },
               {
-                title: 'Automated Reporting',
-                description: 'Generate reports aligned with major frameworks with minimal manual effort.',
+                title: '24/7 Access',
+                description: 'Access your ESG dashboards and data anytime, anywhere, from any device.',
               },
               {
                 title: 'Target Tracking',

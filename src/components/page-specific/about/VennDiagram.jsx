@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../../../hooks';
 import { vennDiagramData } from '../../../data/team';
 
 const VennDiagram = () => {
   const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
+  const [hoveredCircle, setHoveredCircle] = useState(null);
 
   const circleVariants = {
     hidden: { scale: 0, opacity: 0 },
@@ -23,106 +25,97 @@ const VennDiagram = () => {
     }),
   };
 
+  // Circle configurations with updated colors
+  const circles = [
+    {
+      id: 'top',
+      data: vennDiagramData.topCircle,
+      position: 'absolute top-0 left-1/2 -translate-x-1/2',
+      borderColor: 'border-forest-deep',
+      bgColor: 'bg-forest-deep/5',
+      hoverBgColor: 'bg-forest-deep/15',
+      delay: 0,
+    },
+    {
+      id: 'bottomLeft',
+      data: vennDiagramData.bottomLeftCircle,
+      position: 'absolute bottom-0 left-[10%]',
+      borderColor: 'border-accent',
+      bgColor: 'bg-accent/5',
+      hoverBgColor: 'bg-accent/15',
+      delay: 0.2,
+    },
+    {
+      id: 'bottomRight',
+      data: vennDiagramData.bottomRightCircle,
+      position: 'absolute bottom-0 right-[10%]',
+      borderColor: 'border-sage',
+      bgColor: 'bg-sage/20',
+      hoverBgColor: 'bg-sage/40',
+      delay: 0.4,
+    },
+  ];
+
   return (
     <div ref={ref} className="relative w-full max-w-3xl mx-auto py-8">
       {/* Desktop Venn Layout */}
       <div className="hidden md:block relative" style={{ height: '500px' }}>
-        {/* Top Circle - Industry Experience */}
-        <motion.div
-          custom={0}
-          variants={circleVariants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full border-8 border-forest bg-white/90 shadow-lg flex flex-col items-center justify-center p-6 z-10"
-        >
+        {circles.map((circle) => (
           <motion.div
-            custom={0}
-            variants={textVariants}
+            key={circle.id}
+            custom={circle.delay}
+            variants={circleVariants}
             initial="hidden"
             animate={isVisible ? 'visible' : 'hidden'}
-            className="text-center"
+            onMouseEnter={() => setHoveredCircle(circle.id)}
+            onMouseLeave={() => setHoveredCircle(null)}
+            className={`
+              ${circle.position}
+              w-72 h-72 rounded-full border-8 ${circle.borderColor}
+              ${hoveredCircle === circle.id ? circle.hoverBgColor : circle.bgColor}
+              bg-white shadow-lg flex flex-col items-center justify-center p-6
+              cursor-pointer transition-all duration-300 ease-out
+            `}
+            style={{
+              zIndex: hoveredCircle === circle.id ? 30 : 10,
+              transform: hoveredCircle === circle.id
+                ? `${circle.id === 'top' ? 'translateX(-50%)' : ''} scale(1.15)`
+                : `${circle.id === 'top' ? 'translateX(-50%)' : ''} scale(1)`,
+            }}
+            whileHover={{
+              scale: 1.15,
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
-            <h4 className="font-sans font-bold text-lg text-forest-deep mb-3">
-              {vennDiagramData.topCircle.title}
-            </h4>
-            <ul className="text-sm text-charcoal-light space-y-1">
-              {vennDiagramData.topCircle.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
+            <motion.div
+              custom={circle.delay}
+              variants={textVariants}
+              initial="hidden"
+              animate={isVisible ? 'visible' : 'hidden'}
+              className="text-center"
+            >
+              <h4 className="font-sans font-bold text-lg text-forest-deep mb-3">
+                {circle.data.title}
+              </h4>
+              <ul className="text-sm text-charcoal-light space-y-1">
+                {circle.data.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        ))}
 
-        {/* Bottom Left Circle - Financial Expertise */}
-        <motion.div
-          custom={0.2}
-          variants={circleVariants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="absolute bottom-0 left-[10%] w-72 h-72 rounded-full border-8 border-accent bg-white/90 shadow-lg flex flex-col items-center justify-center p-6 z-10"
-        >
-          <motion.div
-            custom={0.2}
-            variants={textVariants}
-            initial="hidden"
-            animate={isVisible ? 'visible' : 'hidden'}
-            className="text-center"
-          >
-            <h4 className="font-sans font-bold text-lg text-forest-deep mb-3">
-              {vennDiagramData.bottomLeftCircle.title}
-            </h4>
-            <ul className="text-sm text-charcoal-light space-y-1">
-              {vennDiagramData.bottomLeftCircle.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Bottom Right Circle - Environmental Science */}
-        <motion.div
-          custom={0.4}
-          variants={circleVariants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="absolute bottom-0 right-[10%] w-72 h-72 rounded-full border-8 border-sage bg-white/90 shadow-lg flex flex-col items-center justify-center p-6 z-10"
-        >
-          <motion.div
-            custom={0.4}
-            variants={textVariants}
-            initial="hidden"
-            animate={isVisible ? 'visible' : 'hidden'}
-            className="text-center"
-          >
-            <h4 className="font-sans font-bold text-lg text-forest-deep mb-3">
-              {vennDiagramData.bottomRightCircle.title}
-            </h4>
-            <ul className="text-sm text-charcoal-light space-y-1">
-              {vennDiagramData.bottomRightCircle.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Center Intersection Label */}
-        <motion.div
-          custom={0.8}
-          variants={textVariants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-forest text-white px-6 py-4 rounded-xl shadow-xl z-20 max-w-[200px] text-center"
-        >
-          <p className="font-semibold text-sm">{vennDiagramData.intersection.title}</p>
-        </motion.div>
+        {/* Center Intersection Label - Removed per client request */}
       </div>
 
       {/* Mobile Layout - Stacked Cards */}
       <div className="md:hidden space-y-6">
         {[
-          { data: vennDiagramData.topCircle, borderColor: 'border-forest' },
-          { data: vennDiagramData.bottomLeftCircle, borderColor: 'border-accent' },
-          { data: vennDiagramData.bottomRightCircle, borderColor: 'border-sage' },
+          { data: vennDiagramData.topCircle, borderColor: 'border-forest-deep', bgColor: 'bg-forest-deep/5' },
+          { data: vennDiagramData.bottomLeftCircle, borderColor: 'border-accent', bgColor: 'bg-accent/5' },
+          { data: vennDiagramData.bottomRightCircle, borderColor: 'border-sage', bgColor: 'bg-sage/10' },
         ].map((circle, index) => (
           <motion.div
             key={index}
@@ -143,19 +136,7 @@ const VennDiagram = () => {
           </motion.div>
         ))}
 
-        {/* Intersection Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="p-6 rounded-xl bg-forest text-white text-center"
-        >
-          <p className="font-semibold">{vennDiagramData.intersection.title}</p>
-          <p className="text-sm text-sand-light/80 mt-2">
-            {vennDiagramData.intersection.description}
-          </p>
-        </motion.div>
+        {/* Mobile Intersection Card - Removed per client request */}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Lightbulb, TrendingUp, Shield, Users, ChevronDown } from 'lucide-react';
+import { Globe, TrendingUp, Shield, Users, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';
@@ -73,7 +73,7 @@ const NewToESGPage = () => {
   const esgPillars = [
     {
       title: 'Environmental',
-      icon: Lightbulb,
+      icon: Globe,
       description: 'Climate impact, resource use, pollution, waste management, and biodiversity.',
       examples: ['Carbon emissions', 'Energy efficiency', 'Water usage', 'Waste reduction'],
     },

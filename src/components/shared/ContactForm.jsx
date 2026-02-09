@@ -65,13 +65,31 @@ const ContactForm = ({ className = '' }) => {
 
     setStatus('loading');
 
-    // Simulate form submission - replace with actual endpoint
+    // Send form data to Formsubmit.co service
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStatus('success');
-      setFormData({ name: '', email: '', company: '', message: '' });
-      setTouched({});
-    } catch (error) {
+      const response = await fetch('https://formsubmit.co/ajax/william@rebalanceimpact.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || 'Not provided',
+          message: formData.message,
+          _subject: `New Contact from ${formData.name} - Rebalance Impact Website`,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setTouched({});
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch {
       setStatus('error');
     }
   };

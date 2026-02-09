@@ -1,8 +1,8 @@
 export const stats = [
   { value: 10, suffix: '+', label: 'Years Experience' },
-  { value: 50, suffix: '+', label: 'Projects Delivered' },
+  { value: 10, suffix: '+', label: 'Industry Sectors' },
   { value: 100, suffix: '%', label: 'Client Satisfaction' },
-  { value: 20, suffix: '+', label: 'Industry Sectors' },
+  { value: 20, suffix: '+', label: 'Countries' },
 ];
 
 export const dataProcess = [

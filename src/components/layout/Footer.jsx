@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { footerLinks, contactInfo } from '../../config/navigation';
+import { footerLinks, contactInfo, socialLinks } from '../../config/navigation';
 import Container from '../ui/Container';
 
 const Footer = () => {
@@ -126,7 +126,9 @@ const Footer = () => {
               <h4 className="font-sans font-semibold text-lg mb-4">Follow Us</h4>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href={socialLinks.find(s => s.label === 'LinkedIn')?.href || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                 >

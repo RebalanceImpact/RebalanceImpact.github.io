@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 import { mainNavLinks, ctaLink } from '../../config/navigation';
 import Button from '../ui/Button';
 
-const MobileNav = ({ isOpen, onClose }) => {
+const MobileNav = ({ onClose }) => {
   const location = useLocation();
+  const [expandedMenu, setExpandedMenu] = useState(null);
 
   const isActive = (href) => {
     if (href === '/') return location.pathname === '/';
@@ -37,6 +39,13 @@ const MobileNav = ({ isOpen, onClose }) => {
     }),
   };
 
+  const toggleExpand = (label) => {
+    setExpandedMenu(expandedMenu === label ? null : label);
+  };
+
+  // Flatten links for index calculation
+  let linkIndex = 0;
+
   return (
     <>
       {/* Backdrop */}
@@ -61,35 +70,114 @@ const MobileNav = ({ isOpen, onClose }) => {
       >
         <div className="flex flex-col h-full pt-24 pb-8 px-6">
           {/* Navigation Links */}
-          <div className="flex-1 space-y-2">
-            {mainNavLinks.map((link, index) => (
-              <motion.div
-                key={link.href}
-                custom={index}
-                variants={linkVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <Link
-                  to={link.href}
-                  onClick={onClose}
-                  className={`
-                    flex items-center justify-between
-                    py-4 px-4 rounded-lg
-                    font-sans font-medium text-lg
-                    transition-all duration-200
-                    ${
-                      isActive(link.href)
-                        ? 'bg-forest text-white'
-                        : 'text-charcoal hover:bg-sand-light'
-                    }
-                  `}
+          <div className="flex-1 space-y-2 overflow-y-auto">
+            {mainNavLinks.map((link) => {
+              const currentIndex = linkIndex++;
+              const hasChildren = link.children && link.children.length > 0;
+              const isExpanded = expandedMenu === link.label;
+
+              return (
+                <motion.div
+                  key={link.href}
+                  custom={currentIndex}
+                  variants={linkVariants}
+                  initial="hidden"
+                  animate="visible"
                 >
-                  <span>{link.label}</span>
-                  <ChevronRight className="w-5 h-5 opacity-50" />
-                </Link>
-              </motion.div>
-            ))}
+                  {hasChildren ? (
+                    // Menu item with dropdown
+                    <div>
+                      <button
+                        onClick={() => toggleExpand(link.label)}
+                        className={`
+                          w-full flex items-center justify-between
+                          py-4 px-4 rounded-lg
+                          font-sans font-medium text-lg
+                          transition-all duration-200
+                          ${
+                            isActive(link.href) || link.children.some(child => isActive(child.href))
+                              ? 'bg-forest/10 text-forest'
+                              : 'text-charcoal hover:bg-sand-light'
+                          }
+                        `}
+                      >
+                        <span>{link.label}</span>
+                        <ChevronDown className={`w-5 h-5 opacity-50 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 space-y-1 mt-1">
+                              <Link
+                                to={link.href}
+                                onClick={onClose}
+                                className={`
+                                  block py-3 px-4 rounded-lg
+                                  font-sans font-medium text-base
+                                  transition-all duration-200
+                                  ${
+                                    isActive(link.href) && !link.children.some(child => isActive(child.href))
+                                      ? 'bg-forest text-white'
+                                      : 'text-charcoal-light hover:bg-sand-light'
+                                  }
+                                `}
+                              >
+                                {link.label} Overview
+                              </Link>
+                              {link.children.map((child) => (
+                                <Link
+                                  key={child.href}
+                                  to={child.href}
+                                  onClick={onClose}
+                                  className={`
+                                    block py-3 px-4 rounded-lg
+                                    font-sans font-medium text-base
+                                    transition-all duration-200
+                                    ${
+                                      isActive(child.href)
+                                        ? 'bg-forest text-white'
+                                        : 'text-charcoal-light hover:bg-sand-light'
+                                    }
+                                  `}
+                                >
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    // Regular menu item
+                    <Link
+                      to={link.href}
+                      onClick={onClose}
+                      className={`
+                        flex items-center justify-between
+                        py-4 px-4 rounded-lg
+                        font-sans font-medium text-lg
+                        transition-all duration-200
+                        ${
+                          isActive(link.href)
+                            ? 'bg-forest text-white'
+                            : 'text-charcoal hover:bg-sand-light'
+                        }
+                      `}
+                    >
+                      <span>{link.label}</span>
+                      <ChevronRight className="w-5 h-5 opacity-50" />
+                    </Link>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
