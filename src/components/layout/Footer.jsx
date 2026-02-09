@@ -146,7 +146,15 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sand-light/60">
             <p>© {currentYear} Rebalance Impact. All rights reserved.</p>
             <p>
-              Designed with purpose for sustainable impact.
+              Digital Wizardry by{' '}
+              <a
+                href="https://www.4whatdigital.com/"
+                target="_blank"
+                rel="noopener"
+                className="hover:text-white transition-colors"
+              >
+                4What Digital
+              </a>
             </p>
           </div>
         </Container>
