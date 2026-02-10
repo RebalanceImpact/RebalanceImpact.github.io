@@ -80,19 +80,23 @@ const ESGServicesPage = () => {
                     ))}
                   </ul>
                 </div>
-                <Card
-                  variant={index % 2 === 0 ? 'filled' : 'default'}
-                  padding="large"
-                  className={`h-64 md:h-80 flex items-center justify-center ${
+                {/* Replace the old <Card> block with this: */}
+                <motion.div 
+                  className={`relative h-64 md:h-[400px] overflow-hidden rounded-2xl bg-sage/10 ${
                     index % 2 !== 0 ? 'lg:order-1' : ''
                   }`}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  <div className="text-center">
-                    <span className="font-display text-8xl text-forest/10">
-                      0{service.id}
-                    </span>
-                  </div>
-                </Card>
+                  <img 
+                    src={service.image} 
+                    alt={`${service.title} - Rebalance Impact ESG Services`}
+                    className="w-full h-full object-cover shadow-xl"
+                    loading="lazy"
+                  />
+                  {/* A subtle overlay to ensure the brand's 'forest' tones feel integrated */}
+                  <div className="absolute inset-0 bg-forest-deep/5 mix-blend-multiply pointer-events-none" />
+                </motion.div>
               </motion.div>
             ))}
           </div>

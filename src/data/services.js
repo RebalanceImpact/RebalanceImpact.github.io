@@ -49,6 +49,7 @@ export const coreServices = [
   {
     id: 1,
     title: "Reporting & Disclosure",
+    image: "../assests/library.jpg",
     description: "We help organizations prepare comprehensive ESG reports that meet regulatory requirements and stakeholder expectations. Our team ensures accurate data collection, materiality assessment, and clear communication of sustainability performance.",
     features: [
       "Framework alignment (GRI, SASB, TCFD, ISSB)",
@@ -60,6 +61,7 @@ export const coreServices = [
   {
     id: 2,
     title: "Data Management & Analytics",
+    image: "../assests/compass.jpg",
     description: "Transform scattered ESG data into centralized, actionable insights. We implement robust data governance practices and build custom dashboards that make complex information accessible and meaningful.",
     features: [
       "Data centralization",
@@ -71,6 +73,7 @@ export const coreServices = [
   {
     id: 3,
     title: "Strategic Advisory",
+    image: "../assests/forest_path.jpg",
     description: "Integrate sustainability into your core business strategy. We help identify opportunities, mitigate risks, and develop roadmaps that align ESG goals with long-term business success.",
     features: [
       "ESG strategy development",
