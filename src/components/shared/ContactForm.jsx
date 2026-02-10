@@ -67,7 +67,7 @@ const ContactForm = ({ className = '' }) => {
 
     // Send form data to Formsubmit.co service
     try {
-      const response = await fetch('https://formsubmit.co/ajax/william@rebalanceimpact.com', {
+      const response = await fetch('https://formsubmit.co/ajax/0d3a0a7f6866475395389d423d659fdb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
