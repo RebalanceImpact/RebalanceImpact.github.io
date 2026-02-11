@@ -61,7 +61,7 @@ export const coreServices = [
   {
     id: 2,
     title: "Data Management & Analytics",
-    image: "/assets/images/compass.jpg",
+    image: "/assets/images/FA_dash.png",
     description: "Transform scattered ESG data into centralized, actionable insights. We implement robust data governance practices and build custom dashboards that make complex information accessible and meaningful.",
     features: [
       "Data centralization",
