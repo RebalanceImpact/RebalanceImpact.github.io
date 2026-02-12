@@ -83,7 +83,7 @@ const SustainableReportingPage = () => {
       description: 'EU directive requiring comprehensive sustainability reporting from companies.',
     },
     {
-      name: 'CS3D',
+      name: 'CSDDD',
       fullName: 'Corporate Sustainability Due Diligence Directive',
       description: 'EU directive on environmental and human rights due diligence.',
     },
