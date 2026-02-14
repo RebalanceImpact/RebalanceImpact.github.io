@@ -33,7 +33,7 @@ export const dataProcess = [
 ];
 
 export const powerBIConfig = {
-  embedUrl: "https://app.powerbi.com/view?r=eyJrIjoiYmRjZjg3MTQtZGNhNS00ZDUxLWE3M2ItZDhlM2JlZmE1OWQzIiwidCI6IjYzOGRlYjljLTEwZDQtNGZiYi1hMjc2LWY0NWM1Y2ZkYWE5MiJ9",
+  embedUrl: "https://app.powerbi.com/view?r=eyJrIjoiZmJkNjlhY2ItMWY0ZS00MTU0LWIwYWQtMDJlMmQyMDQ0MGI1IiwidCI6IjYzOGRlYjljLTEwZDQtNGZiYi1hMjc2LWY0NWM1Y2ZkYWE5MiJ9",
   title: "ESG Performance Dashboard",
   description: "See how your data is monitored and transformed with this interactive template. Built on trusted visualization platforms like Power BI, our dashboards showcase how dynamic insights can empower your decisions.",
 };
