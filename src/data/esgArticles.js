@@ -52,6 +52,15 @@ export const esgArticles = {
   ],
 };
 
+// Rebalance Impact's Proprietary Insights
+export const rebalanceOriginalArticles = [
+  {
+    title: "Navigating Scope 3 Emissions: A Practical Guide for South African SMEs",
+    url: "/insights/navigating-scope-3-emissions", // Replace with your actual routing
+    blurb: "Demystifying the complexities of supply chain carbon accounting to help local enterprises align with global GRI and GHG Protocol standards.",
+  },
+];
+
 export const articleCategories = Object.keys(esgArticles);
 
 export function getArticlesByCategory(category) {
@@ -62,6 +71,14 @@ export function getAllArticles() {
   return Object.entries(esgArticles).flatMap(([category, articles]) =>
     articles.map((article) => ({ ...article, category }))
   );
+}
+
+// Function to fetch Rebalance Impact proprietary articles
+export function getRebalanceArticles() {
+  return rebalanceOriginalArticles.map((article) => ({
+    ...article,
+    category: "Original Insight"
+  }));
 }
 
 export default esgArticles;

@@ -5,7 +5,7 @@ import { Container, SectionHeading } from '../components/ui';
 import { HeroSection, ArticleCard } from '../components/shared';
 import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
-import { articleCategories, getArticlesByCategory, getAllArticles } from '../data/esgArticles';
+import { articleCategories, getArticlesByCategory, getAllArticles, getRebalanceArticles } from '../data/esgArticles';
 
 // News & Media page schemas
 const newsMediaBreadcrumb = generateBreadcrumbSchema([
@@ -93,6 +93,7 @@ const NewsMediaPage = () => {
   };
 
   const filteredArticles = getFilteredArticles();
+  const rebalanceArticles = getRebalanceArticles();
 
   return (
     <PageWrapper>
@@ -110,6 +111,33 @@ const NewsMediaPage = () => {
         subtitle="Stay informed with the latest ESG news, regulatory updates, and success stories from global and South African leaders."
         breadcrumb={[{ label: 'Industry Insights' }]}
       />
+
+      {/* Rebalance Impact Original Insights Section */}
+      {rebalanceArticles && rebalanceArticles.length > 0 && (
+        <section className="py-16 bg-white border-b border-sage/20">
+          <Container>
+            <SectionHeading
+              label="Our Perspective"
+              title="Insights by Rebalance Impact"
+              subtitle="Proprietary research, thought leadership, and strategic analysis from our team of ESG experts."
+              className="mb-10"
+            />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {rebalanceArticles.map((article, index) => (
+                <ArticleCard
+                  key={`rebalance-${article.title}`}
+                  title={article.title}
+                  url={article.url}
+                  blurb={article.blurb}
+                  category="Original Insight"
+                  index={index}
+                  // Consider passing a special prop like `isFeatured={true}` to style these cards distinctly (e.g., a subtle border or different background)
+                />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Articles Section */}
       <section className="py-20 md:py-28 bg-cream">
