@@ -152,6 +152,7 @@ With standards such as ESRS and ISSB becoming mandatory, the amount of available
 
 **The GHG Protocol** has recently wrapped up a major public consultation on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of hourly matching and geographic deliverability.
 
+---
 ## Why the Change? Closing the “Greenwashing” Loopholes
 
 Under the 2015 rules, many companies could claim "100% renewable" status by purchasing unbundled Renewable Energy Certificates (RECs) from, for example, a wind farm in a different region - or even a different continent - to offset fossil-fuel power used at midnight in a local office. While this helped seed early renewable markets, it didn't reflect the physical reality of the grid.
