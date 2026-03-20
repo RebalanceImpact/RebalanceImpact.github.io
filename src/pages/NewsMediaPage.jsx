@@ -112,33 +112,6 @@ const NewsMediaPage = () => {
         breadcrumb={[{ label: 'Industry Insights' }]}
       />
 
-      {/* Rebalance Impact Original Insights Section */}
-      {rebalanceArticles && rebalanceArticles.length > 0 && (
-        <section className="py-16 bg-white border-b border-sage/20">
-          <Container>
-            <SectionHeading
-              label="Our Perspective"
-              title="Insights by Rebalance Impact"
-              subtitle="Proprietary research, thought leadership, and strategic analysis from our team of ESG experts."
-              className="mb-10"
-            />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {rebalanceArticles.map((article, index) => (
-                <ArticleCard
-                  key={`rebalance-${article.title}`}
-                  title={article.title}
-                  url={article.url}
-                  blurb={article.blurb}
-                  category="Original Insight"
-                  index={index}
-                  // Consider passing a special prop like `isFeatured={true}` to style these cards distinctly (e.g., a subtle border or different background)
-                />
-              ))}
-            </div>
-          </Container>
-        </section>
-      )}
-
       {/* Articles Section */}
       <section className="py-20 md:py-28 bg-cream">
         <Container>
@@ -185,6 +158,33 @@ const NewsMediaPage = () => {
           )}
         </Container>
       </section>
+
+      {/* Rebalance Impact Original Insights Section */}
+      {rebalanceArticles && rebalanceArticles.length > 0 && (
+        <section className="py-16 bg-white border-b border-sage/20">
+          <Container>
+            <SectionHeading
+              label="Our Perspective"
+              title="Insights by Rebalance Impact"
+              subtitle="Proprietary research, thought leadership, and strategic analysis from our team of ESG experts."
+              className="mb-10"
+            />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {rebalanceArticles.map((article, index) => (
+                <ArticleCard
+                  key={`rebalance-${article.title}`}
+                  title={article.title}
+                  url={article.url}
+                  blurb={article.blurb}
+                  category="Original Insight"
+                  index={index}
+                  // Consider passing a special prop like `isFeatured={true}` to style these cards distinctly (e.g., a subtle border or different background)
+                />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Subscribe Section */}
       <section className="py-16 md:py-20 bg-sand-light">
