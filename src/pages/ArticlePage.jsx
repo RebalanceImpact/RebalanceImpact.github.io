@@ -60,17 +60,14 @@ const ArticlePage = () => {
           {/* The prose class triggers Tailwind Typography to style the markdown */}
           <div className="
             prose prose-lg max-w-none mb-20
-            /* Targeting Subheadings explicitly */
             prose-headings:font-display 
             prose-h2:text-sandstone 
             prose-h3:text-sandstone
-            /* Forcing Link Visibility */
             prose-a:text-forest 
             prose-a:font-bold 
             prose-a:underline 
             prose-a:decoration-accent
             hover:prose-a:text-accent
-            /* Blockquote styling */
             prose-blockquote:border-l-accent 
             prose-blockquote:bg-white 
             prose-blockquote:p-4 
