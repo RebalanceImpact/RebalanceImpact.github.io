@@ -15,6 +15,7 @@ import DataKPIsPage from './pages/DataKPIsPage';
 import NewsMediaPage from './pages/NewsMediaPage';
 import SustainableReportingPage from './pages/SustainableReportingPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ArticlePage from './pages/ArticlePage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -59,6 +60,7 @@ function App() {
             <Route path="/new-to-esg-reporting" element={<NewToESGPage />} />
             <Route path="/data-kpis" element={<DataKPIsPage />} />
             <Route path="/news-media" element={<NewsMediaPage />} />
+            <Route path="/insights/:slug" element={<ArticlePage />} />
             <Route path="/sustainable-reporting" element={<SustainableReportingPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
