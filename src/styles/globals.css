@@ -32,7 +32,10 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  @layer components {
+  
+}
+
+@layer components {
   .prose h2 {
     @apply text-sandstone font-display text-2xl my-8 leading-tight;
   }
@@ -51,8 +54,6 @@
   .prose blockquote {
     @apply border-l-accent border-l-4 bg-white p-6 rounded-r-lg my-6;
   }
-}
-  
 }
 
 /* Custom CSS Properties */
