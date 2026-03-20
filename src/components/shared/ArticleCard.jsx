@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion';
-// Added ArrowRight for internal links
-import { ExternalLink, ArrowRight } from 'lucide-react'; 
-// Added Link for internal SPA routing
-import { Link } from 'react-router-dom'; 
+import { ExternalLink } from 'lucide-react';
 import Card from '../ui/Card';
 import Badge from '../ui/Badge';
 
@@ -16,15 +13,10 @@ const ArticleCard = ({
   category,
   index = 0,
 }) => {
-  // Check if the URL is an internal insight or an external news piece
-  const isInternal = url.startsWith('/');
-
   const categoryColors = {
     'Global Industry Leaders': 'accent',
     'South African Leaders': 'primary',
     'Regulatory Updates': 'neutral',
-    // NEW: Added a specific color badge for your proprietary content
-    'Original Insight': 'accent', 
   };
 
   return (
@@ -56,26 +48,16 @@ const ArticleCard = ({
           {blurb}
         </p>
 
-        {/* SMART ROUTING LOGIC */}
-        {isInternal ? (
-          <Link
-            to={url}
-            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-semibold text-sm transition-colors group/link mt-auto"
-          >
-            Read Insight
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-          </Link>
-        ) : (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-forest hover:text-forest-deep font-semibold text-sm transition-colors group/link mt-auto"
-          >
-            Read Article
-            <ExternalLink className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-          </a>
-        )}
+        {/* Link */}
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-semibold text-sm transition-colors group/link"
+        >
+          Read Article
+          <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+        </a>
       </Card>
     </motion.div>
   );
