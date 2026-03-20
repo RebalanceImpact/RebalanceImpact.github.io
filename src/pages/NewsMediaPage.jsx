@@ -5,7 +5,9 @@ import { Container, SectionHeading } from '../components/ui';
 import { HeroSection, ArticleCard } from '../components/shared';
 import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
 import { pageMetadata } from '../config/siteMetadata';
-import { articleCategories, getArticlesByCategory, getAllArticles, getRebalanceArticles } from '../data/esgArticles';
+import { articleCategories, getArticlesByCategory, getAllArticles } from '../data/esgArticles';
+// Pull the original articles directly from Markdown data store
+import { getRebalanceArticlesList } from '../data/articleContent';
 
 // News & Media page schemas
 const newsMediaBreadcrumb = generateBreadcrumbSchema([
@@ -93,7 +95,7 @@ const NewsMediaPage = () => {
   };
 
   const filteredArticles = getFilteredArticles();
-  const rebalanceArticles = getRebalanceArticles();
+  const rebalanceArticles = getRebalanceArticlesList();
 
   return (
     <PageWrapper>

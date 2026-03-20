@@ -52,15 +52,6 @@ export const esgArticles = {
   ],
 };
 
-// Rebalance Impact's Proprietary Insights
-export const rebalanceOriginalArticles = [
-  {
-    title: "From 'Check-the-Box' to Real-World Reality: Navigating the New Scope 2 Guidance",
-    url: "/insights/navigating-new-scope-2-guidance",
-    blurb: "Discover how the GHG Protocol's shift to hourly matching and geographic deliverability closes greenwashing loopholes, and learn how to future-proof your corporate energy strategy.",
-  },
-];
-
 export const articleCategories = Object.keys(esgArticles);
 
 export function getArticlesByCategory(category) {
@@ -71,14 +62,6 @@ export function getAllArticles() {
   return Object.entries(esgArticles).flatMap(([category, articles]) =>
     articles.map((article) => ({ ...article, category }))
   );
-}
-
-// Function to fetch Rebalance Impact proprietary articles
-export function getRebalanceArticles() {
-  return rebalanceOriginalArticles.map((article) => ({
-    ...article,
-    category: "Original Insight"
-  }));
 }
 
 export default esgArticles;

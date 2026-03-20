@@ -81,3 +81,13 @@ While the complexity of these updates has increased, so has the strategic reward
 export const getArticleBySlug = (slug) => {
   return articles.find(article => article.slug === slug);
 };
+
+export const getRebalanceArticlesList = () => {
+  return articles.map(article => ({
+    title: article.title,
+    // Dynamically build the URL from the slug
+    url: `/insights/${article.slug}`,
+    blurb: article.blurb,
+    category: article.category
+  }));
+};
