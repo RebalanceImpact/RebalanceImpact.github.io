@@ -58,7 +58,7 @@ const ArticlePage = () => {
       <section className="py-16 bg-cream text-charcoal font-sans leading-relaxed">
         <Container size="narrow">
           {/* The prose class triggers Tailwind Typography to style the markdown */}
-          <div className="prose prose-lg prose-headings:font-display prose-headings:text-forest-deep prose-a:text-accent hover:prose-a:text-accent-hover prose-blockquote:border-l-accent prose-blockquote:bg-white prose-blockquote:p-4 prose-blockquote:rounded-r max-w-none">
+          <div className="prose prose-lg prose-headings:font-display prose-headings:text-sandstone prose-a:text-accent hover:prose-a:text-accent-hover prose-blockquote:border-l-accent prose-blockquote:bg-white prose-blockquote:p-4 prose-blockquote:rounded-r max-w-none mb-20">
             <ReactMarkdown>{article.content}</ReactMarkdown>
           </div>
         </Container>
