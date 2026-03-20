@@ -61,17 +61,23 @@ const ArticlePage = () => {
           <div className="
             prose prose-lg max-w-none mb-20
             prose-headings:font-display 
-            prose-h2:text-sandstone 
-            prose-h3:text-sandstone
+            prose-h2:text-sandstone !important
+            prose-h3:text-sandstone !important
             prose-a:text-forest 
             prose-a:font-bold 
             prose-a:underline 
             prose-a:decoration-accent
             hover:prose-a:text-accent
+            prose-p:my-6 prose-p:leading-relaxed
+            prose-p:mb-8 first:prose-p:mt-0
             prose-blockquote:border-l-accent 
             prose-blockquote:bg-white 
             prose-blockquote:p-4 
             prose-blockquote:rounded-r
+            prose-strong:font-semibold
+            prose-em:italic
+            prose-ol:pl-6 prose-ul:pl-6
+            prose-li:marker:text-accent
           ">
             <ReactMarkdown>{article.content}</ReactMarkdown>
           </div>
