@@ -12,10 +12,10 @@ export const articles = [
     content: `
 The [GHG Protocol’s Scope 2 Guidance](https://ghgprotocol.org/scope-2-guidance) has been the bedrock for how companies account for the electricity powering their operations. But as our grids have evolved and become more complex, and the demand for transparency hits an all-time high, the rulebook is getting a significant facelift. This is the first update in over a decade, which in the context of how rapidly the reporting space evolves - is a lifetime.
 
-
 With standards such as ESRS and ISSB becoming mandatory, the amount of available data has exploded globally, bringing with it more insights on how different companies and industries actually approach decarbonisation. These insights have shown that the current Scope 2 guidance does not present a real-world picture of the energy grids that keep our economies running. This has led to companies taking advantage of the system - either deliberately, or unknowingly due to unclear and ambiguous guidance.
 
-The GHG Protocol has recently wrapped up a major public consultation on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of hourly matching and geographic deliverability.
+
+**The GHG Protocol** has recently wrapped up a major public consultation on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of hourly matching and geographic deliverability.
 
 ## Why the Change? Closing the “Greenwashing” Loopholes
 
