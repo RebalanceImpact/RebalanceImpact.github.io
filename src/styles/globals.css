@@ -32,6 +32,16 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
+  @layer base {
+  h2 { @apply text-sandstone font-display text-2xl my-8; }
+  h3 { @apply text-sandstone text-xl my-6; }
+  p { @apply my-6 leading-relaxed first:mt-0; }
+  a { 
+    @apply text-forest font-bold underline decoration-accent underline-offset-4 no-underline;
+  }
+  a:hover { @apply text-accent; }
+}
+  
 }
 
 /* Custom CSS Properties */
