@@ -3,7 +3,7 @@
 export const articles = [
   {
     slug: 'navigating-new-scope-2-guidance',
-    title: 'From "Check-the-Box" to Real-World Reality: Navigating the New Scope 2 Guidance',
+    title: 'Navigating the New Scope 2 Guidance',
     category: 'Original Insight',
     datePublished: '2026-03-20',
     author: 'Rebalance Impact',
