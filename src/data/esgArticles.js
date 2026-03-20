@@ -55,9 +55,9 @@ export const esgArticles = {
 // Rebalance Impact's Proprietary Insights
 export const rebalanceOriginalArticles = [
   {
-    title: "Navigating Scope 3 Emissions: A Practical Guide for South African SMEs",
-    url: "/insights/navigating-scope-3-emissions", // Replace with your actual routing
-    blurb: "Demystifying the complexities of supply chain carbon accounting to help local enterprises align with global GRI and GHG Protocol standards.",
+    title: "From 'Check-the-Box' to Real-World Reality: Navigating the New Scope 2 Guidance",
+    url: "/insights/navigating-new-scope-2-guidance",
+    blurb: "Discover how the GHG Protocol's shift to hourly matching and geographic deliverability closes greenwashing loopholes, and learn how to future-proof your corporate energy strategy.",
   },
 ];
 
