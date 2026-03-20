@@ -10,7 +10,8 @@ export const articles = [
     blurb: 'Discover how the GHG Protocol\'s shift to hourly matching and geographic deliverability closes greenwashing loopholes, and learn how to future-proof your corporate energy strategy.',
     // We use backticks (`) to allow for multi-line markdown text
     content: `
-The GHG Protocol’s Scope 2 Guidance has been the bedrock for how companies account for the electricity powering their operations. But as our grids have evolved and become more complex, and the demand for transparency hits an all-time high, the rulebook is getting a significant facelift. This is the first update in over a decade, which in the context of how rapidly the reporting space evolves - is a lifetime.
+The [GHG Protocol’s Scope 2 Guidance](https://ghgprotocol.org/scope-2-guidance) has been the bedrock for how companies account for the electricity powering their operations. But as our grids have evolved and become more complex, and the demand for transparency hits an all-time high, the rulebook is getting a significant facelift. This is the first update in over a decade, which in the context of how rapidly the reporting space evolves - is a lifetime.  
+
 
 With standards such as ESRS and ISSB becoming mandatory, the amount of available data has exploded globally, bringing with it more insights on how different companies and industries actually approach decarbonisation. These insights have shown that the current Scope 2 guidance does not present a real-world picture of the energy grids that keep our economies running. This has led to companies taking advantage of the system - either deliberately, or unknowingly due to unclear and ambiguous guidance.
 
