@@ -14,12 +14,11 @@ The [GHG Protocol’s Scope 2 Guidance](https://ghgprotocol.org/scope-2-guidance
 
 With standards such as [ESRS](https://www.efrag.org/en/draft-simplified-esrs) and [ISSB](https://www.ifrs.org/sustainability/knowledge-hub/introduction-to-issb-and-ifrs-sustainability-disclosure-standards/) becoming mandatory, the amount of available data has exploded globally, bringing with it more insights on how different companies and industries actually approach decarbonisation. These insights have shown that the current Scope 2 guidance does not present a real-world picture of the energy grids that keep our economies running. This has led to companies taking advantage of the system - either deliberately, or unknowingly due to unclear and ambiguous guidance.
 
-The GHG Protocol has recently wrapped up a major public consultation on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of **hourly matching and geographic deliverability.**
+The GHG Protocol has recently wrapped up a **major public consultation** on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of **hourly matching and geographic deliverability.**
 
-## Why the Change? Closing the “Greenwashing” Loopholes
+## Why the Change? Closing the ***“Greenwashing”*** Loopholes
 
-Under the 2015 rules, many companies could claim "100% renewable" status by purchasing unbundled Renewable Energy Certificates (RECs) from, for example, a wind farm in a different region - or even a different continent - to offset fossil-fuel power used at midnight in a local office. While this helped seed early renewable markets, it didn't reflect the physical reality of the grid.
-
+Under the 2015 rules, many companies could claim ***"100% renewable"*** status by purchasing unbundled **Renewable Energy Certificates (RECs)** from, for example, a wind farm in a different region - or even a different continent - to offset fossil-fuel power used at midnight in a local office. While this helped seed early renewable markets, it didn't reflect the physical reality of the grid.
 The new guidance finally addresses these two major “loopholes”:
 
 * **The Temporal Gap:** Solar power generated at high noon doesn’t actually offset the coal-based grid power you use at 2:00AM.
