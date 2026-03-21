@@ -15,6 +15,7 @@ The [GHG Protocol’s Scope 2 Guidance](https://ghgprotocol.org/scope-2-guidance
 With standards such as [ESRS](https://www.efrag.org/en/draft-simplified-esrs) and [ISSB](https://www.ifrs.org/sustainability/knowledge-hub/introduction-to-issb-and-ifrs-sustainability-disclosure-standards/) becoming mandatory, the amount of available data has exploded globally, bringing with it more insights on how different companies and industries actually approach decarbonisation. These insights have shown that the current Scope 2 guidance does not present a real-world picture of the energy grids that keep our economies running. This has led to companies taking advantage of the system - either deliberately, or unknowingly due to unclear and ambiguous guidance.
 
 The GHG Protocol has recently wrapped up a **major public consultation** on proposed updates that aim to tighten the link between corporate reporting and physical reality. We’re now moving away from broad annual averages and toward a world of **hourly matching and geographic deliverability.**
+
 ---
 ## Why the Change? Closing the ***“Greenwashing”*** Loopholes
 
@@ -48,7 +49,7 @@ The proposed adjustments allow for an additional reporting metric: Marginal Emis
 
 ## What This Means for Your Business Strategy
 
-For many businesses the immediate reaction to the updated guidance is: ***“How do I manage with the infrastructure I currently have?”*** *
+For many businesses the immediate reaction to the updated guidance is: ***“How do I manage with the infrastructure I currently have?”***
 
 ### The PPA Puzzle: “What if I already have a contract?”
 
@@ -69,9 +70,9 @@ Day-time peaking is one of three primary profiles identified by the Protocol:
 2. **Day-time Peaking:** Typical for retail or office spaces where energy spikes during business hours and drops off significantly at night.
 3. **Variable:** Common in mixed-use facilities (offices + warehouses + processing). This is the most complex profile and often requires more robust assumptions or eventual hardware upgrades.
 ---
-### The Silver Lining: A Strategic Pivot for Long-Term Business Longevity
+## The Silver Lining: A Strategic Pivot for Long-Term Business Longevity
 
-While the complexity of these updates has increased, so has the strategic reward. By transitioning to a more granular, local, and 24/7 carbon-free energy model, you are fundamentally ***de-risking your future business model.*** *
+While the complexity of these updates has increased, so has the strategic reward. By transitioning to a more granular, local, and 24/7 carbon-free energy model, you are fundamentally ***de-risking your future business model.***
 
 ### Precision Forecasting and Operational Resilience: 
 Moving toward hourly data tracking forces operational visibility. This allows your finance and operations teams to identify precisely where energy waste occurs and predict future costs with a degree of accuracy that monthly utility bills simply cannot provide. In an era of volatile energy markets, knowing when you use power is just as valuable as ***knowing how much you use.***
