@@ -19,7 +19,7 @@ const homePageBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const homePageSchema = generateWebPageSchema({
-  name: 'Rebalance Impact | Sustainability Consulting & ESG Solutions',
+  name: 'Rebalance Impact | Sustainability Consulting & Integrated Solutions',
   description: 'Expert consulting services combining financial expertise, climate research, and ESG data to deliver practical integrated solutions for businesses.',
   url: 'https://www.rebalanceimpact.com',
   breadcrumb: homePageBreadcrumb
