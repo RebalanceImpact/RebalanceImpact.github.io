@@ -19,8 +19,8 @@ const homePageBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const homePageSchema = generateWebPageSchema({
-  name: 'Rebalance Impact | ESG Consulting & Sustainable Solutions',
-  description: 'Expert ESG consulting services combining climate research, financial expertise, and environmental data to deliver practical sustainable solutions for businesses.',
+  name: 'Rebalance Impact | Sustainability Consulting & ESG Solutions',
+  description: 'Expert consulting services combining financial expertise, climate research, and ESG data to deliver practical integrated solutions for businesses.',
   url: 'https://www.rebalanceimpact.com',
   breadcrumb: homePageBreadcrumb
 });
@@ -159,12 +159,12 @@ const ValueProps = () => {
     {
       number: '02',
       title: 'Practical Solutions',
-      description: 'We bridge technical insights with strategic business goals to deliver actionable ESG strategies.',
+      description: 'We bridge technical insights with strategic business goals to deliver actionable integrated strategies.',
     },
     {
       number: '03',
       title: 'Data-Driven',
-      description: 'Transform your ESG data into compelling insights with our analytics and visualization capabilities.',
+      description: 'Transform your financial and non-financial data into compelling insights with our analytics and visualization capabilities.',
     },
   ];
 
@@ -212,7 +212,7 @@ const ServicesPreview = () => {
         <SectionHeading
           label="What We Do"
           title="Our Services"
-          subtitle="Comprehensive ESG consulting services tailored to your business needs."
+          subtitle="Comprehensive integrated consulting services tailored to your business needs."
           className="mb-16"
         />
         <div className="grid md:grid-cols-3 gap-8">
@@ -276,7 +276,7 @@ const ContactSection = () => {
             <SectionHeading
               label="Get in Touch"
               title="Start Your ESG Journey"
-              subtitle="Ready to transform your sustainability approach? Let's discuss how we can help your organization achieve its ESG goals."
+              subtitle="Ready to transform your business approach? Let's discuss how we can help your organization leverage its financial and non-financial data for a robust integrated strategy."
               align="left"
               animate={false}
             />
@@ -336,7 +336,7 @@ const HomePage = () => {
       <StatsSection />
       <CTABanner
         title="Ready to make an impact?"
-        subtitle="Partner with us to build sustainable business practices that drive real results."
+        subtitle="Partner with us to build integrated business practices that drive real results."
         ctaText="Get Started"
         ctaHref="/#contact-and-quote"
       />
