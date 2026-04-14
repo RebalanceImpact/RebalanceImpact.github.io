@@ -15,10 +15,10 @@ export const heroSlides = [
   },
   {
     id: 3,
-    title: "Navigate ESG and Integrated Reporting with Confidence",
+    title: "Navigate Sustainability and Integrated Reporting with Confidence",
     subtitle: "From understanding the fundamentals to implementing comprehensive reporting frameworks, we guide you every step of the way.",
     ctaText: "Learn More",
-    ctaHref: "/new-to-esg-reporting",
+    ctaHref: "/new-to-reporting",
   },
 ];
 
