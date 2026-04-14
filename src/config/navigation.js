@@ -1,5 +1,5 @@
 export const mainNavLinks = [
-  { label: 'New to ESG', href: '/new-to-esg-reporting' },
+  { label: 'New to ESG?', href: '/new-to-esg-reporting' },
   { label: 'Core Services', href: '/esg-services' },
   { label: 'Sustainability Reporting', href: '/sustainable-reporting' },
   { label: 'Data Solutions', href: '/data-kpis' },
@@ -14,12 +14,12 @@ export const ctaLink = {
 
 export const footerLinks = {
   services: [
-    { label: 'ESG Services', href: '/esg-services' },
+    { label: 'Core Services', href: '/esg-services' },
     { label: 'Data Solutions', href: '/data-kpis' },
     { label: 'Sustainable Reporting', href: '/sustainable-reporting' },
   ],
   resources: [
-    { label: 'New to ESG', href: '/new-to-esg-reporting' },
+    { label: 'New to ESG?', href: '/new-to-esg-reporting' },
     { label: 'Industry Insights', href: '/news-media' },
   ],
   company: [

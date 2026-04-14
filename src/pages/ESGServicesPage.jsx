@@ -11,12 +11,12 @@ import { coreServices } from '../data/services';
 // ESG Services page schemas
 const servicesBreadcrumb = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'ESG Services', url: 'https://www.rebalanceimpact.com/esg-services' }
+  { name: 'Core Services', url: 'https://www.rebalanceimpact.com/esg-services' }
 ]);
 
 const servicesPageSchema = generateWebPageSchema({
-  name: 'ESG Consulting Services | Rebalance Impact',
-  description: 'Comprehensive ESG consulting services including sustainability reporting, climate risk assessment, ESG data analytics, and stakeholder engagement.',
+  name: 'Sustainability Consulting Services | Rebalance Impact',
+  description: 'Comprehensive consulting services including sustainability reporting, climate risk assessment, data analytics, and stakeholder engagement.',
   url: 'https://www.rebalanceimpact.com/esg-services',
   breadcrumb: servicesBreadcrumb
 });
@@ -34,7 +34,7 @@ const ESGServicesPage = () => {
       {/* Hero Section */}
       <HeroSection
         variant="inner"
-        title="Enhance Your ESG Journey"
+        title="Enhance Your Business Journey"
         subtitle="Comprehensive consulting services that transform sustainability challenges into business opportunities."
         breadcrumb={[{ label: 'Core Services' }]}
       />
@@ -45,7 +45,7 @@ const ESGServicesPage = () => {
           <SectionHeading
             label="Our Services"
             title="What We Offer"
-            subtitle="Expert guidance across all aspects of ESG strategy, reporting, and implementation."
+            subtitle="Expert guidance across all aspects of integrated strategy, reporting, and implementation."
             className="mb-16"
           />
 
@@ -90,7 +90,7 @@ const ESGServicesPage = () => {
                 >
                   <img 
                     src={service.image} 
-                    alt={`${service.title} - Rebalance Impact ESG Services`}
+                    alt={`${service.title} - Rebalance Impact Core Services`}
                     className="w-full h-full object-cover shadow-xl"
                     loading="lazy"
                   />
@@ -109,7 +109,7 @@ const ESGServicesPage = () => {
           <SectionHeading
             label="Our Process"
             title="How We Work"
-            subtitle="A structured approach to delivering measurable ESG outcomes."
+            subtitle="A structured approach to delivering measurable outcomes."
             className="mb-16"
           />
 
@@ -119,7 +119,7 @@ const ESGServicesPage = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { step: 1, title: 'Discovery', description: 'Understanding your business, challenges, and ESG goals.' },
+                { step: 1, title: 'Discovery', description: 'Understanding your business, challenges, and goals.' },
                 { step: 2, title: 'Assessment', description: 'Analyzing current state and identifying opportunities.' },
                 { step: 3, title: 'Strategy', description: 'Developing tailored roadmaps aligned with your objectives.' },
                 { step: 4, title: 'Implementation', description: 'Executing plans with ongoing support and monitoring.' },

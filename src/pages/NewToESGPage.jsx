@@ -11,12 +11,12 @@ import { variants, transitions } from '../config/motion';
 // New to ESG page schemas
 const newToESGBreadcrumb = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'New to ESG', url: 'https://www.rebalanceimpact.com/new-to-esg-reporting' }
+  { name: 'New to ESG?', url: 'https://www.rebalanceimpact.com/new-to-esg-reporting' }
 ]);
 
 const newToESGPageSchema = generateWebPageSchema({
   name: 'New to ESG Reporting? | Beginner Guide | Rebalance Impact',
-  description: 'Learn the fundamentals of ESG reporting. Understand Environmental, Social, and Governance factors and why they matter for your business.',
+  description: 'Learn the fundamentals of ESG and integrated reporting. Understand Environmental, Social, and Governance factors and why they matter for your business.',
   url: 'https://www.rebalanceimpact.com/new-to-esg-reporting',
   breadcrumb: newToESGBreadcrumb
 });
@@ -94,7 +94,7 @@ const NewToESGPage = () => {
   const benefits = [
     {
       title: 'Investor Attraction',
-      description: 'ESG-focused funds represent over $40 trillion in assets globally. Strong ESG performance opens doors to capital.',
+      description: 'ESG-focused funds represent over $40 trillion in assets globally. Strong ESG and sustainability performance opens doors to capital.',
     },
     {
       title: 'Risk Management',
@@ -120,20 +120,20 @@ const NewToESGPage = () => {
 
   const faqItems = [
     {
-      question: 'How do I know if my company needs ESG reporting?',
-      answer: 'If you have stakeholders asking about sustainability, are seeking investment, operate in regulated industries, or want to future-proof your business, ESG reporting is likely beneficial. Many jurisdictions are also introducing mandatory disclosure requirements.',
+      question: 'How do I know if my company needs integrated reporting?',
+      answer: 'If you have stakeholders asking about sustainability, are seeking investment, operate in regulated industries, or want to future-proof your business, integrated reporting is likely beneficial. Many jurisdictions are also introducing mandatory disclosure requirements.',
     },
     {
       question: 'What frameworks should we use?',
       answer: 'Common frameworks include GRI (Global Reporting Initiative), SASB (Sustainability Accounting Standards Board), TCFD (Task Force on Climate-related Financial Disclosures), and the new ISSB standards. The right choice depends on your industry, stakeholders, and regulatory environment.',
     },
     {
-      question: 'How long does it take to implement ESG reporting?',
+      question: 'How long does it take to implement integrated reporting?',
       answer: 'Initial implementation typically takes 6-12 months, depending on your current data maturity and the scope of reporting. We help streamline this process by focusing on what matters most to your stakeholders.',
     },
     {
       question: 'Is ESG only for large corporations?',
-      answer: 'No. While large companies often lead, SMEs are increasingly adopting ESG practices. Many find that even simple sustainability initiatives improve efficiency and attract customers who value responsible business practices.',
+      answer: 'No. While large companies often lead, SMEs are increasingly adopting ESG and sustainability practices. Many find that even simple sustainability initiatives improve efficiency and attract customers who value responsible business practices.',
     },
   ];
 
@@ -151,7 +151,7 @@ const NewToESGPage = () => {
         variant="inner"
         title="New to ESG Reporting?"
         subtitle="Understanding ESG doesn't have to be complicated. We'll guide you through the fundamentals."
-        breadcrumb={[{ label: 'New to ESG' }]}
+        breadcrumb={[{ label: 'New to ESG?' }]}
         backgroundClass="bg-gradient-to-br from-forest-deep via-forest to-sage"
       />
 
@@ -172,7 +172,7 @@ const NewToESGPage = () => {
               className="mb-12"
             />
             <p className="text-charcoal-light text-lg leading-relaxed">
-              ESG reporting has evolved from a &ldquo;nice-to-have&rdquo; to a business imperative.
+              ESG and integrated reporting has evolved from a &ldquo;nice-to-have&rdquo; to a business imperative.
               Investors, customers, employees, and regulators increasingly demand transparency
               on how companies manage their environmental footprint, treat their people, and
               govern themselves ethically.

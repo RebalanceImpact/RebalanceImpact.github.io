@@ -16,8 +16,8 @@ const dataKPIsBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const dataKPIsPageSchema = generateWebPageSchema({
-  name: 'ESG Data Solutions & KPI Dashboards | Rebalance Impact',
-  description: 'Transform your ESG data into actionable insights with our comprehensive data management, analytics, and interactive Power BI dashboards.',
+  name: 'Data Solutions | Rebalance Impact',
+  description: 'Transform your data into actionable insights with our comprehensive data management, analytics, and interactive Power BI dashboards.',
   url: 'https://www.rebalanceimpact.com/data-kpis',
   breadcrumb: dataKPIsBreadcrumb
 });
@@ -26,10 +26,10 @@ const dataKPIsPageSchema = generateWebPageSchema({
 const dashboardSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Rebalance Impact ESG Dashboard",
+  "name": "Rebalance Impact Dashboard",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web Browser",
-  "description": "Interactive ESG performance dashboard built on Power BI for monitoring and visualizing sustainability metrics.",
+  "description": "Interactive performance dashboard built on Power BI for monitoring and visualizing sustainability metrics.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -57,7 +57,7 @@ const DataKPIsPage = () => {
       <HeroSection
         variant="inner"
         title="Data Solutions"
-        subtitle="Transform your ESG data into actionable insights with our comprehensive data management and analytics capabilities."
+        subtitle="Transform your data into actionable insights with our comprehensive data management and analytics capabilities."
         breadcrumb={[{ label: 'Data Solutions' }]}
       />
 
@@ -75,7 +75,7 @@ const DataKPIsPage = () => {
             <p className="text-lg md:text-xl text-charcoal leading-relaxed">
               {powerBIConfig.description}{' '}
               <span className="font-bold text-accent">
-                Dynamic insights can empower your decisions.
+                Dynamic insights can empower decisions.
               </span>
             </p>
           </motion.div>
@@ -103,7 +103,7 @@ const DataKPIsPage = () => {
           <SectionHeading
             label="Our Methodology"
             title="How We Handle Your Data"
-            subtitle="A structured approach to ESG data management that ensures accuracy, transparency, and actionable outcomes."
+            subtitle="A structured approach to data management that ensures accuracy, transparency, and actionable outcomes."
             className="mb-16"
           />
 
@@ -176,7 +176,7 @@ const DataKPIsPage = () => {
             {[
               {
                 title: 'Centralized Data Hub',
-                description: 'Consolidate ESG data from multiple sources into a single, reliable platform.',
+                description: 'Consolidate data from multiple sources into a single, reliable platform.',
               },
               {
                 title: 'Custom Dashboards',
@@ -184,15 +184,15 @@ const DataKPIsPage = () => {
               },
               {
                 title: '24/7 Access',
-                description: 'Access your ESG dashboards and data anytime, anywhere, from any device.',
+                description: 'Access your dashboards and data anytime, anywhere, from any device.',
               },
               {
                 title: 'Target Tracking',
-                description: 'Set, monitor, and report on ESG targets with real-time progress updates.',
+                description: 'Set, monitor, and report on financial and non-financial targets with real-time progress updates.',
               },
               {
                 title: 'Scenario Modeling',
-                description: 'Model the impact of strategic decisions on your ESG and financial KPIs.',
+                description: 'Model the impact of strategic decisions on your Sustainability and financial KPIs.',
               },
               {
                 title: 'Audit Trail',
@@ -223,7 +223,7 @@ const DataKPIsPage = () => {
       {/* CTA Banner */}
       <CTABanner
         title="See what your data can tell you"
-        subtitle="Let us show you how our data solutions can transform your ESG reporting."
+        subtitle="Let us show you how our data solutions can transform your reporting."
         ctaText="Request a Demo"
         ctaHref="/#contact-and-quote"
       />

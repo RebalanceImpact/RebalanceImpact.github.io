@@ -275,7 +275,7 @@ const ContactSection = () => {
           >
             <SectionHeading
               label="Get in Touch"
-              title="Start Your ESG Journey"
+              title="Start Your Integrated Journey"
               subtitle="Ready to transform your business approach? Let's discuss how we can help your organization leverage its financial and non-financial data for a robust integrated strategy."
               align="left"
               animate={false}
@@ -336,7 +336,7 @@ const HomePage = () => {
       <StatsSection />
       <CTABanner
         title="Ready to make an impact?"
-        subtitle="Partner with us to build integrated business practices that drive real results."
+        subtitle="Partner with us to build business practices that drive real results."
         ctaText="Get Started"
         ctaHref="/#contact-and-quote"
       />

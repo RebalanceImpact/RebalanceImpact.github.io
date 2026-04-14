@@ -5,19 +5,19 @@ export const teamExperience = {
     {
       id: 1,
       title: "Industry Experience",
-      description: "Deep expertise across mining, manufacturing, financial services, retail, and technology sectors. We understand the unique ESG challenges each industry faces.",
+      description: "Deep expertise across mining, manufacturing, financial services, retail, and technology sectors. We understand the unique challenges each industry faces.",
       color: "forest",
     },
     {
       id: 2,
       title: "Financial Expertise",
-      description: "Chartered Accountants bringing rigorous financial analysis, reporting standards knowledge, and investor communication skills to ESG initiatives.",
+      description: "Chartered Accountants bringing rigorous financial analysis, reporting standards knowledge, and investor communication skills to sustainability initiatives.",
       color: "accent",
     },
     {
       id: 3,
       title: "Environmental Science",
-      description: "Environmental scientists providing technical depth in climate risk assessment, emissions measurement, and sustainability impact analysis.",
+      description: "Environmental scientists providing technical depth in climate modeling, climate risk assessment, emissions measurement, and sustainability impact analysis.",
       color: "sage",
     },
   ],
@@ -49,7 +49,7 @@ export const vennDiagramData = {
     items: [
       "Climate Research",
       "Emissions Accounting",
-      "Impact Assessment",
+      "Climate Modeling",
       "Sustainability Metrics",
       "Data Analysis",
     ],
