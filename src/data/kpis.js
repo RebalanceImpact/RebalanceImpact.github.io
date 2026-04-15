@@ -9,26 +9,26 @@ export const dataProcess = [
   {
     id: 1,
     title: "Data Collection",
-    description: "At Rebalance Impact, we begin by centralizing and collecting ESG and financial data into a unified platform. This consolidation eliminates silos and ensures data integrity to support accurate tracking and informed decision-making.",
-    highlight: "accurate tracking and informed decision-making",
+    description: "At Rebalance Impact, we begin by centralizing and collecting non-financial and financial data into a unified platform. This consolidation eliminates silos and ensures data integrity to support accurate tracking and informed, integrated decision-making.",
+    highlight: "accurate tracking and informed, integrated decision-making",
   },
   {
     id: 2,
     title: "Target Setting",
-    description: "Our platform helps you establish transparent, measurable target setting processes that build stakeholder trust and enable clear tracking of your ESG and financial performance progress.",
+    description: "We help you establish transparent, measurable target setting processes that build stakeholder trust and enable clear tracking of your financial and non-financial performance progress.",
     highlight: "build stakeholder trust",
   },
   {
     id: 3,
     title: "Forecasting",
-    description: "Model the impact of any operational changes or desired targets to analyze potential impacts on ESG and financial KPIs. Our scenario analysis tools provide insights into cost-effectiveness and help align sustainability goals with long-term business performance.",
-    highlight: "align sustainability goals with long-term business performance",
+    description: "Model the impact of any operational changes or desired targets to analyze potential impacts on financial and non-financial KPIs. Our scenario analysis provides insights into cost-effectiveness and helps align sustainability goals for long-term business performance.",
+    highlight: "align sustainability goals for long-term business performance",
   },
   {
     id: 4,
     title: "Shared Accountability",
-    description: "We promote collaborative data governance by aligning internal teams and suppliers around shared accountability for data quality, driving continuous improvements and strengthening ESG performance across your value chain.",
-    highlight: "strengthening ESG performance across your value chain",
+    description: "We promote collaborative data governance by aligning internal teams and suppliers around shared accountability for data quality, driving continuous improvements and strengthening financial and sustainable performance across your entire value chain.",
+    highlight: "strengthening financial and sustainable performance across your entire value chain",
   },
 ];
 

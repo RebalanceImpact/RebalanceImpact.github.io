@@ -15,8 +15,8 @@ const aboutBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const aboutPageSchema = generateWebPageSchema({
-  name: 'About Rebalance Impact | ESG Consulting Experts',
-  description: 'Learn about Rebalance Impact - where financial expertise meets environmental science. Our team of Chartered Accountants and Environmental Scientists deliver practical ESG solutions.',
+  name: 'About Rebalance Impact | Sustainability Consulting Experts',
+  description: 'Learn about Rebalance Impact - where financial expertise meets environmental science. Our team of Chartered Accountants and Environmental Scientists deliver practical integrated solutions.',
   url: 'https://www.rebalanceimpact.com/about-us',
   breadcrumb: aboutBreadcrumb
 });
@@ -106,7 +106,7 @@ const AboutPage = () => {
           <SectionHeading
             label="Our Approach"
             title="Built on Strong Foundations"
-            subtitle="Our unique combination of skills ensures comprehensive, practical, and financially sound ESG solutions."
+            subtitle="Our unique combination of skills ensures comprehensive, practical, sustainable and financially sound solutions."
             className="mb-16"
           />
 
@@ -114,11 +114,11 @@ const AboutPage = () => {
             {[
               {
                 title: 'Chartered Accountants',
-                description: 'Bringing financial rigor, reporting expertise, and investor communication skills to ESG initiatives.',
+                description: 'Bringing financial rigor, reporting expertise, and investor communication skills to sustainability initiatives.',
               },
               {
                 title: 'Environmental Scientists',
-                description: 'Providing technical depth in climate research, emissions accounting, and sustainability impact analysis.',
+                description: 'Providing technical depth in climate research, climate modeling, emissions accounting, and sustainability impact analysis.',
               },
               {
                 title: 'Industry Specialists',
@@ -126,11 +126,11 @@ const AboutPage = () => {
               },
               {
                 title: 'Data Analysts',
-                description: 'Transforming complex ESG data into clear, actionable insights through advanced analytics.',
+                description: 'Transforming complex data into clear, actionable insights through advanced analytics.',
               },
               {
                 title: 'Strategy Consultants',
-                description: 'Aligning ESG initiatives with business strategy for sustainable competitive advantage.',
+                description: 'Aligning sustainability initiatives with business strategy for sustainable competitive advantage.',
               },
               {
                 title: 'Compliance Experts',
@@ -167,7 +167,7 @@ const AboutPage = () => {
       {/* CTA Banner */}
       <CTABanner
         title="Let's work together"
-        subtitle="Partner with our expert team to achieve your sustainability goals."
+        subtitle="Partner with our expert team to achieve your sustainability and financial goals."
         ctaText="Get in Touch"
         ctaHref="/#contact-and-quote"
         variant="forest"

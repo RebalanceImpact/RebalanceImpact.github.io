@@ -49,7 +49,7 @@ const Footer = () => {
               <span className="text-xl font-display">Rebalance Impact</span>
             </Link>
             <p className="text-sand-light/80 text-sm leading-relaxed">
-              Expert ESG consulting combining climate research, financial expertise,
+              Expert integrated consulting combining climate research, financial expertise,
               and environmental data to deliver practical sustainable solutions.
             </p>
           </motion.div>

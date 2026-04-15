@@ -14,8 +14,8 @@ const sustainableReportingBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const sustainableReportingPageSchema = generateWebPageSchema({
-  name: 'Sustainable Reporting Services | GRI, SASB, TCFD | Rebalance Impact',
-  description: 'Expert guidance on sustainability reporting frameworks including GRI, SASB, TCFD, ISSB, and CDP. Create impactful ESG reports that meet compliance requirements.',
+  name: 'Sustainable Reporting Services | Rebalance Impact',
+  description: 'Expert guidance on sustainability reporting frameworks including GRI, SASB, TCFD, ISSB, and CDP. Create impactful integrated reports that meet compliance requirements.',
   url: 'https://www.rebalanceimpact.com/sustainable-reporting',
   breadcrumb: sustainableReportingBreadcrumb
 });
@@ -25,17 +25,17 @@ const sustainabilityReportingHowToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Create a Sustainability Report",
-  "description": "A structured approach to developing comprehensive sustainability reports that meet stakeholder expectations and regulatory requirements.",
+  "description": "A structured approach to developing comprehensive integrated reports that meet stakeholder expectations and regulatory requirements.",
   "step": [
     {
       "@type": "HowToStep",
       "name": "Framework Selection",
-      "text": "Choose the appropriate reporting frameworks (GRI, SASB, TCFD, etc.) based on your industry, stakeholders, and regulatory requirements."
+      "text": "Choose the appropriate reporting frameworks (GRI, SASB, ISSB, etc.) based on your industry, stakeholders, and regulatory requirements."
     },
     {
       "@type": "HowToStep",
       "name": "Materiality Assessment",
-      "text": "Identify the ESG topics most relevant to your organization and stakeholders through a structured materiality assessment."
+      "text": "Identify the topics most relevant to your organization and stakeholders through a structured materiality assessment."
     },
     {
       "@type": "HowToStep",
@@ -68,6 +68,11 @@ const SustainableReportingPage = () => {
       description: 'The most widely used sustainability reporting standards globally.',
     },
     {
+      name: 'ISSB',
+      fullName: 'International Sustainability Standards Board',
+      description: 'IFRS S1 and S2 - New global baseline for sustainability disclosures.',
+    },
+    {
       name: 'SASB',
       fullName: 'Sustainability Accounting Standards Board',
       description: 'Industry-specific standards focused on financial materiality.',
@@ -93,11 +98,6 @@ const SustainableReportingPage = () => {
       description: 'International standards for responsible business conduct.',
     },
     {
-      name: 'ISSB',
-      fullName: 'International Sustainability Standards Board',
-      description: 'New global baseline for sustainability disclosures.',
-    },
-    {
       name: 'CDP',
       fullName: 'Carbon Disclosure Project',
       description: 'Environmental disclosure system for companies and cities.',
@@ -118,7 +118,7 @@ const SustainableReportingPage = () => {
     {
       icon: Shield,
       title: 'Risk Mitigation',
-      description: 'Identify and address ESG risks before they impact your business.',
+      description: 'Identify and address risks before they impact your business.',
     },
     {
       icon: Globe,

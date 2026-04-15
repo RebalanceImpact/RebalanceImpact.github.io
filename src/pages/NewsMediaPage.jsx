@@ -16,8 +16,8 @@ const newsMediaBreadcrumb = generateBreadcrumbSchema([
 ]);
 
 const newsMediaPageSchema = generateWebPageSchema({
-  name: 'ESG News & Industry Insights | Rebalance Impact',
-  description: 'Stay informed with the latest ESG news, regulatory updates, and success stories from global and South African sustainability leaders.',
+  name: 'News & Industry Insights | Rebalance Impact',
+  description: 'Stay informed with the latest sustainability news, regulatory updates, and success stories from global and South African leaders.',
   url: 'https://www.rebalanceimpact.com/news-media',
   breadcrumb: newsMediaBreadcrumb
 });
@@ -26,8 +26,8 @@ const newsMediaPageSchema = generateWebPageSchema({
 const articlesCollectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "ESG Industry Insights",
-  "description": "Curated collection of ESG news, regulatory updates, and industry analysis.",
+  "name": "Industry Insights",
+  "description": "Curated collection of sustainability news, regulatory updates, and industry analysis.",
   "url": "https://www.rebalanceimpact.com/news-media",
   "isPartOf": {
     "@type": "WebSite",
@@ -110,7 +110,7 @@ const NewsMediaPage = () => {
       <HeroSection
         variant="inner"
         title="Industry Insights"
-        subtitle="Stay informed with the latest ESG news, regulatory updates, and success stories from global and South African leaders."
+        subtitle="Stay informed with the latest news, regulatory updates, and success stories from global and South African leaders."
         breadcrumb={[{ label: 'Industry Insights' }]}
       />
 
@@ -119,7 +119,7 @@ const NewsMediaPage = () => {
         <Container>
           <SectionHeading
             label="Latest Updates"
-            title="ESG News & Articles"
+            title="Sustainability News & Articles"
             subtitle="Curated insights from industry leaders and regulatory bodies."
             className="mb-12"
           />
@@ -168,7 +168,7 @@ const NewsMediaPage = () => {
             <SectionHeading
               label="Our Perspective"
               title="Insights by Rebalance Impact"
-              subtitle="Proprietary research, thought leadership, and strategic analysis from our team of ESG experts."
+              subtitle="Proprietary research, thought leadership, and strategic analysis from our team of experts."
               className="mb-10"
             />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -196,7 +196,7 @@ const NewsMediaPage = () => {
               Stay Updated
             </h3>
             <p className="text-charcoal-light mb-8">
-              Want to receive the latest ESG insights directly? Get in touch to
+              Want to receive the latest insights directly? Get in touch to
               discuss how we can keep you informed.
             </p>
             <motion.a
