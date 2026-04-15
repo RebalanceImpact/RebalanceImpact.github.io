@@ -109,12 +109,12 @@ longevity and fundability of your enterprise. Today, companies that constitute *
 
 ---
 ## The Public Interest Score (PIS)
-In South Africa, the line between a "private" company and a company that has a significant impact on the "public interest" is drawn by the **Public Interest Score (PIS)**. 
-Every year, a company must calculate its PIS based on its number of employees, turnover, third-party liabilities, and shareholders.  
-**PIS of 350+:** Triggers a mandatory statutory audit and the submission of digital financials via the CIPC’s iXBRL system.  
-**PIS of 500+ (In any two of the last five years):** Triggers the legal requirement to maintain a Social and Ethics Committee (S&E Committee), as mandated by the Companies Act.
+The Public Interest Score (PIS) is a simple but powerful metric that essentially measures your **impact on society**.  
 
-The PIS is a simple but powerful metric that essentially measures your **impact on society**.
+In South Africa, the line between a "private" company and a company that has a significant impact on the "public interest" is drawn by the **PIS**. 
+Every year, a company must calculate its PIS based on its number of employees, turnover, third-party liabilities, and shareholders.  
+* **PIS of 350+:** Triggers a mandatory statutory audit and the submission of digital financials via the CIPC’s iXBRL system.  
+* **PIS of 500+ (In any two of the last five years):** Triggers the legal requirement to maintain a Social and Ethics Committee (S&E Committee).
 
 ---
 ## How We Got Here: A Brief History of South African Governance
@@ -130,21 +130,16 @@ To understand the current pressure, we have to look at the foundations laid over
 Two major pieces of legislation signed in 2024 have changed the stakes for long-term resilience and planning for Public Interest Entities and put the wheels in motion for a new King update.
 
 1. [The Companies Amendment Act 16 of 2024](https://www.gov.za/documents/acts/companies-amendment-act-16-2024-english-afrikaans-30-jul-2024)
-
-This Amendment significantly bolsters the power and transparency of the S&E Committee. 
+>> This Amendment significantly bolsters the power and transparency of the S&E Committee. 
 High-PIS companies must now prepare a formal S&E Committee report to be presented at their AGM. 
 More provocatively, it introduces **remuneration transparency**. While currently focused on public and state-owned entities, the governance expectation is that 
 large private companies with high PIS must begin disclosing, for example, pay ratios (the gap between the top 5% and bottom 5% of earners) to address South Africa’s social inequality.
-
 2. [The Climate Change Act 22 of 2024](https://www.gov.za/sites/default/files/gcis_document/202407/50966climatechangeact222024.pdf)
-
-This Act formalizes South Africa’s transition to a low-carbon economy. 
+>>This Act formalizes South Africa’s transition to a low-carbon economy. 
 It allows the government to set **carbon budgets** for specific sectors. 
 If your private company (be it in manufacturing, mining, or large-scale agriculture) exceeds its allocated carbon budget, you face severe financial penalties and a significantly higher carbon tax rate.
-
 3. [The King V Update](https://www.iodsa.co.za/page/king-v)
-
-Effective since 1 January 2026, King V shifts the focus of the previous iterations toward the concept of **Double Materiality** (financial risks AND the organization's impact on society and the environment), 
+>>Effective since 1 January 2026, King V shifts the focus of the previous iterations toward the concept of **Double Materiality** (financial risks AND the organization's impact on society and the environment), 
 as well as replacing the more flexible narrative-driven reporting of King IV with a structured framework to eliminate vague or generic disclosures.
 
 ---
@@ -182,11 +177,10 @@ You are required to financially quantify:
 As of early 2026, over 37 jurisdictions - representing roughly **60% of global GDP** - have already adopted or are actively implementing the ISSB standards. 
 This has effectively established IFRS S1 and S2 as the **universal language of business**. 
 South Africa has moved aggressively to ensure it isn't left behind. 
-The JSE has already updated its Sustainability Disclosure Guidance to **reflect the IFRS principles**, and with King V now in effect, the governance bar has never been higher. 
-The most significant signal for private companies however, comes directly from the **Companies and Intellectual Property Commission (CIPC)**.
+The JSE has already updated its Sustainability Disclosure Guidance to **reflect the IFRS principles**, and with King V now in effect, the governance bar has never been higher. The most significant signal for private companies however, comes directly from the **Companies and Intellectual Property Commission (CIPC)**.
 
 The CIPC, in collaboration with the **Department of Trade, Industry and Competition (DTIC)**, is currently concluding a [Regulatory Impact Assessment (RIA)](https://www.cipc.co.za/wp-content/uploads/2025/02/Customer-Notice-06-of-2025-Sustainability-Reporting-Survey.pdf) - launched via Notice 06 of 2025 - specifically to determine the roadmap for mandatory sustainability reporting. 
-But the "smoking gun" that mandates are imminent is found in the tech: the CIPC has already updated its **digital iXBRL filing taxonomy** to include a dedicated **Sustainability Disclosure Module**. 
+The "smoking gun" that mandates are imminent is found in the tech: the CIPC has already updated its **digital iXBRL filing taxonomy** to include a dedicated **Sustainability Disclosure Module**. 
 While currently open for voluntary early adopters, this digital infrastructure is built specifically to ingest IFRS S1 and S2 data. For high-PIS entities, the message is clear: 
 the CIPC has laid the groundwork, signaling that the move from voluntary to mandatory disclosure of sustainability data is imminent.
 
@@ -204,8 +198,9 @@ Most commercial agribusinesses hitting the PIS threshold are already "audit-read
 However, the ISSB standards and the Climate Change Act introduce a new layer of complexity: **financial quantification**.
 
 > **A large berry exporter in the Western Cape** recently navigated this transition.   
-By producing a verified report on carbon sequestration and **climate-risk stress testing** (proving their water-security strategy for the next decade), they did more than just protect their market share with a major UK retailer and future-proof their crops aginst droughts.  
-They used that data to qualify for a **Sustainability-Linked Loan (SLL)** from a local bank. This reduced their interest rate by 50 basis points because they met their water-reduction targets and the bank recognized their proactive management of long-term environmental risks.
+By producing a verified report on carbon sequestration and **climate-risk stress testing** (proving their water-security strategy for the next decade), they did more than just protect their market share with a major UK retailer and future-proof their crops aginst droughts. 
+>
+>They used that data to qualify for a **Sustainability-Linked Loan (SLL)** from a local bank. This reduced their interest rate by 50 basis points because they met their water-reduction targets and the bank recognized their proactive management of long-term environmental risks.
 
 ### Private Education: Unlocking Alternative Funding
 Large private schools and educational NPCs are often high-PIS entities, operating with massive turnovers and hundreds of staff members. 
@@ -213,20 +208,20 @@ As entities of "Public Interest," they are now expected to use their S&E Committ
 as parents and donors increasingly demand ethical governance. This transparency is becoming a **reputational requirement** that also opens doors to alternative funding.
 
 > **A prominent private school group** oversees a solar-conversion project to avoid higher electricity bills as a result of the grid facing **carbon tax hikes**, and a water-harvesting project to prepare for likely water restrictions as a result of **increased drought frequencies** and maintenance on water utility networks.  
-By providing audited data on their projected carbon reduction, they secured a **SLL** at a significantly lower interest rate than standard commercial debt.  
-The monthly savings on their municipal bills effectively covered the loan repayments, allowing the school to future-proof its campus without aggressively hiking tuition fees or fundraising efforts.
+>
+>By providing audited data on their projected carbon reduction, they secured a **SLL** at a significantly lower interest rate than standard commercial debt. The monthly savings on their municipal bills effectively covered the loan repayments, allowing the school to future-proof its campus without aggressively hiking tuition fees or fundraising efforts.
 
 ---
 ## Why Act Now? The Strategic Value of Early Adoption
 Even if your company sits just below the mandatory threshold, or the CIPC’s RIA comes back and does not immediately mandate these developments, the **market is moving faster than the law**.
 
-**1. Access to Capital:** Banks like Standard Bank and Nedbank are now using the **National Treasury’s Green Finance Taxonomy**. 
-If you can’t prove you are a low-risk entity, your cost of borrowing will inevitably rise.
+**Access to Capital:** Banks like Standard Bank and Nedbank are now using the National Treasury’s Green Finance Taxonomy. 
+If you can’t prove you are a low-risk entity, your **cost of borrowing will inevitably rise**.
 
-**2. Supply Chain Survival:** If you are a supplier to a listed company, they need your data to complete their own ISSB-aligned reports. 
+**Supply Chain Survival:** If you are a supplier to a listed company, they need your data to complete their own ISSB-aligned reports. 
 If you can’t provide it, you are a liability in their supply chain, reducing your **ability to stay competitive**.
 
-**3. Risk Identification:** Identifying sustainability risks early is essentially a **financial shield** for your balance sheet. 
+**Risk Identification:** Identifying sustainability risks early is essentially a **financial shield** for your balance sheet. 
 By quantifying your exposure to physical and transition risks today, you can proactively "harden" your assets, ensuring you remain insurable at competitive rates and avoiding the devastating 
 "sticker shock" of emergency capital outlays or stranded assets down the line.
 
@@ -234,24 +229,19 @@ By quantifying your exposure to physical and transition risks today, you can pro
 ## The Bottom Line
 The era of flying under the radar is officially over. 
 Whether you are running a school, a commercial farm, or a private enterprise, the combination of the **Companies Amendment Act**, the **Climate Change Act**, and the rapid adoption of **ISSB standards** 
-means that transparency is your new license to operate and build a resilient business model.
+means that transparency is your new license to operate and **build a resilient business model**.
 
 ---
 ## FAQ
-**Will this be expensive?**
-> Initial setup (investing in data systems or consulting) does carry a cost.  
-However, it’s helpful to view this as a **preventative investment**.  
-The "cost of inaction" is often much higher, manifesting in spiked insurance premiums, carbon tax penalties, and higher interest rates, as well as a last minute scramble to find consultants and systems before facing penalties for non-compliance when these standards become mandatory.  
-Many businesses find that the operational efficiencies discovered through the journey of aligning with these standards (like energy and water savings) eventually pay for the reporting process itself.  
-Often partnering with the right company can save you on costs as a result of trial and error.
-
 **Where do I start?**
-> Start with two steps: Calculate your Public Interest Score (PIS) to understand your (future) legal standing. Conduct a **Materiality Assessment** to determine what data you will need to start collecting.  
-You don’t need to report on everything at once; focus on the metrics that most significantly impact your specific industry and your financial bottom line.
+> Start with two steps: Calculate your Public Interest Score (PIS) to understand your (future) legal standing. Conduct a **Materiality Assessment** to determine what data you will need to start collecting. You don’t need to report on everything at once; focus on the metrics that most significantly impact your specific industry and your financial bottom line.
 
 **Do I need an external third party?** 
-> While you can track data internally, using a third party for the initial strategy, framework setup, climate forecasting, and scenario analysis quantification is highly recommended.  
-Sustainability reporting is technical, and external experts can ensure your disclosures meet the rigorous requirements of IFRS S1 and S2, **preventing future rework**.
+> While you can track data internally, using a third party for the initial strategy, framework setup, climate forecasting, and scenario analysis quantification is highly recommended. Sustainability reporting is technical, and external experts can ensure your disclosures meet the rigorous requirements of IFRS S1 and S2, **preventing future rework**.
+
+**Will this be expensive?**
+> Initial setup (investing in data systems or consulting) does carry a cost. However, it’s helpful to view this as a **preventative investment**. The "cost of inaction" is often much higher, manifesting in spiked insurance premiums, carbon tax penalties, and higher interest rates, as well as a last minute scramble to find consultants and systems before facing penalties for non-compliance when these standards become mandatory. 
+Many businesses find that the operational efficiencies discovered through the journey of aligning with these standards (like energy and water savings) eventually pay for the reporting process itself. Often partnering with the right company can save you on costs as a result of trial and error.
 
 **Will this data be audited?** 
 > Yes. If you have a PIS of 350 or more, your financials must be audited. As the CIPC moves toward mandatory sustainability disclosures, your non-financial data will likely be submitted via the iXBRL system alongside your financials, making it subject to **independent assurance and regulatory scrutiny**.  

@@ -52,16 +52,35 @@
     @apply text-sandstone underline;
   }
   .prose blockquote {
-    @apply border-l-accent border-l-4 bg-white p-6 rounded-r-lg my-6 italic;
+    @apply border-l-forest border-l-4 bg-white p-6 rounded-r-lg my-6 italic;
+  }
+  .prose blockquote p {
+    @apply mb-0 text-charcoal leading-relaxed;
+  }
+  /* 1. Make the OUTER wrapper invisible and remove margins */
+  .prose blockquote:has(blockquote) {
+    @apply border-none bg-transparent p-0 my-0 not-italic;
+    box-shadow: none;
+  }
+
+  /* 2. Style the INNER blockquote and remove its vertical margins */
+  .prose blockquote blockquote {
+    @apply pl-8 my-0 text-charcoal border-none bg-transparent;
+    font-style: normal;
+  }
+
+  /* 3. Strip the top margin from the paragraph inside, keep bottom margin normal */
+  .prose blockquote blockquote p {
+    @apply mt-0 mb-0 leading-relaxed text-charcoal; 
   }
   .prose ul {
     @apply list-disc list-outside ml-6 my-6 marker:text-forest-deep;
   }
   .prose ol {
-    @apply list-decimal list-outside ml-6 my-6 marker:text-charcoal;
+    @apply list-decimal list-outside ml-5 my-6 mb-0 marker:text-charcoal;
   }
   .prose li {
-    @apply pl-2 my-3 leading-relaxed text-charcoal;
+    @apply pl-2 my-0 leading-relaxed text-charcoal;
   }
   .prose li > p {
     @apply my-0 inline; /* Prevents awkward spacing if your markdown parser wraps items in paragraphs */
