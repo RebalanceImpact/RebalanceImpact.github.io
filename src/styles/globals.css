@@ -52,7 +52,19 @@
     @apply text-sandstone underline;
   }
   .prose blockquote {
-    @apply border-l-accent border-l-4 bg-white p-6 rounded-r-lg my-6;
+    @apply border-l-accent border-l-4 bg-white p-6 rounded-r-lg my-6 italic;
+  }
+  .prose ul {
+    @apply list-disc list-outside ml-6 my-6 marker:text-forest-deep;
+  }
+  .prose ol {
+    @apply list-decimal list-outside ml-6 my-6 marker:text-charcoal;
+  }
+  .prose li {
+    @apply pl-2 my-3 leading-relaxed text-charcoal;
+  }
+  .prose li > p {
+    @apply my-0 inline; /* Prevents awkward spacing if your markdown parser wraps items in paragraphs */
   }
 }
 
