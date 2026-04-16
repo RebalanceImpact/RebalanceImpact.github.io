@@ -12,7 +12,7 @@ import { variants, transitions } from '../config/motion';
 import { heroSlides } from '../data/heroSlides';
 import { services } from '../data/services';
 import { stats } from '../data/kpis';
-
+import { articles } from '../data/articleContent';
 // Home page schemas
 const homePageBreadcrumb = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.rebalanceimpact.com' }
@@ -144,6 +144,65 @@ const HeroCarousel = () => {
           />
         ))}
       </div>
+    </section>
+  );
+};
+
+// NEW: Featured Insight Section
+const FeaturedInsightSection = () => {
+  // Sort articles by date (newest first) and grab the very first one
+  const latestArticle = [...articles].sort(
+    (a, b) => new Date(b.datePublished) - new Date(a.datePublished)
+  )[0];
+
+  if (!latestArticle) return null;
+
+  return (
+    <section className="py-12 bg-cream border-b border-forest/10">
+      <Container>
+        <motion.div
+          variants={variants.fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-forest/10 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8"
+        >
+          {/* Decorative left accent */}
+          <div className="absolute top-0 left-0 w-2 h-full bg-forest" />
+          
+          <div className="flex-1">
+            <div className="flex items-center gap-4 mb-4">
+              <span className="px-3 py-1 bg-forest/10 text-forest font-semibold text-xs rounded-full tracking-wider uppercase">
+                Latest Insight
+              </span>
+              <span className="text-charcoal-light text-sm font-medium">
+                {new Date(latestArticle.datePublished).toLocaleDateString('en-US', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric'
+                })}
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-display text-forest-deep mb-3 leading-tight">
+              {latestArticle.title}
+            </h2>
+            <p className="text-charcoal-light leading-relaxed max-w-3xl">
+              {latestArticle.blurb}
+            </p>
+          </div>
+          
+          <div className="shrink-0 lg:mt-0 mt-4">
+            {/* Using your custom Button component mapped to the article slug */}
+            <Button
+              href={`/insights/${latestArticle.slug}`}
+              variant="primary"
+              icon={ArrowRight}
+            >
+              Read Article
+            </Button>
+          </div>
+        </motion.div>
+      </Container>
     </section>
   );
 };
