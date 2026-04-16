@@ -3,15 +3,15 @@ import { BarChart3, FileText, Target, Users, Database, LineChart } from 'lucide-
 export const services = [
   {
     id: 1,
-    title: "Integrated Strategy & Advisory",
+    title: "Strategy & Advisory",
     description: "Develop comprehensive strategies aligned with your business goals and stakeholder expectations.",
     icon: Target,
     href: "/esg-services",
   },
   {
     id: 2,
-    title: "Sustainability and Integrated Reporting",
-    description: "Expert guidance on sustainability reporting frameworks, compliance requirements, and best practices.",
+    title: "Annual Reporting",
+    description: "Expert guidance on integrated and sustainability reporting frameworks, compliance requirements, and best practices.",
     icon: FileText,
     href: "/sustainable-reporting",
   },

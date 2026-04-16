@@ -159,7 +159,7 @@ const ValueProps = () => {
     {
       number: '02',
       title: 'Practical Solutions',
-      description: 'We bridge technical insights with strategic business goals to deliver actionable integrated strategies.',
+      description: 'We bridge technical insights with strategic business goals to deliver actionable, sustainable strategies.',
     },
     {
       number: '03',
@@ -275,8 +275,8 @@ const ContactSection = () => {
           >
             <SectionHeading
               label="Get in Touch"
-              title="Start Your Integrated Journey"
-              subtitle="Ready to transform your business approach? Let's discuss how we can help your organization leverage its financial and non-financial data for a robust integrated strategy."
+              title="Start Your Journey"
+              subtitle="Ready to transform your business approach? Let's discuss how we can help your organization leverage its financial and non-financial data for a robust long-term strategy."
               align="left"
               animate={false}
             />
@@ -335,7 +335,11 @@ const HomePage = () => {
       <ServicesPreview />
       <StatsSection />
       <CTABanner
-        title="Ready to make an impact?"
+        title={
+          <>
+            Ready to make an <span className="text-forest">Impact?</span>
+          </>
+        }
         subtitle="Partner with us to build business practices that drive real results."
         ctaText="Get Started"
         ctaHref="/#contact-and-quote"

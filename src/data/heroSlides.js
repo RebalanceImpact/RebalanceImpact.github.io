@@ -15,7 +15,7 @@ export const heroSlides = [
   },
   {
     id: 3,
-    title: "Navigate Sustainability and Integrated Reporting with Confidence",
+    title: "Navigate Annual Reporting with Confidence",
     subtitle: "From understanding the fundamentals to implementing comprehensive reporting frameworks, we guide you every step of the way.",
     ctaText: "Learn More",
     ctaHref: "/new-to-reporting",
