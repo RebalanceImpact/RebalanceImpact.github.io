@@ -11,6 +11,13 @@
     </script>
 
     <meta charset="UTF-8" />
+    <script>
+      if (!Object.hasOwn) {
+        Object.hasOwn = function (obj, prop) {
+          return Object.prototype.hasOwnProperty.call(obj, prop);
+        };
+      }
+    </script>
     <link rel="icon" type="image/png" href="/assets/images/small_transparent.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

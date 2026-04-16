@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
@@ -12,10 +12,22 @@ import './styles/globals.css';
 import { initGTM } from './config/analytics';
 initGTM();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+
+// We package your app into a variable to keep the logic below clean
+const appContent = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// If react-snap has already generated the HTML (Production/SEO)
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, appContent);
+} else {
+  // Otherwise, render normally (Local Development)
+  const root = createRoot(rootElement);
+  root.render(appContent);
+}
