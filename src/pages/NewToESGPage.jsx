@@ -121,19 +121,19 @@ const NewToESGPage = () => {
   const faqItems = [
     {
       question: 'How do I know if my company needs integrated reporting?',
-      answer: 'If you have stakeholders asking about sustainability, are seeking investment, operate in regulated industries, or want to future-proof your business, integrated reporting is likely beneficial. Many jurisdictions are also introducing mandatory disclosure requirements.',
+      answer: 'Integrated reporting is necessary if you face mandatory disclosures based on your jurisdictional requirements, or if major clients require non-financial data to satisfy their own Scope 3 supply chain obligations. It is also vital for securing better capital terms, as lenders and insurers increasingly use integrated metrics to assess your resilience to environmental and systemic shocks.',
     },
     {
       question: 'What frameworks should we use?',
-      answer: 'Common frameworks include GRI (Global Reporting Initiative), SASB (Sustainability Accounting Standards Board), TCFD (Task Force on Climate-related Financial Disclosures), and the new ISSB standards. The right choice depends on your industry, stakeholders, and regulatory environment.',
-    },
-    {
-      question: 'How long does it take to implement integrated reporting?',
-      answer: 'Initial implementation typically takes 6-12 months, depending on your current data maturity and the scope of reporting. We help streamline this process by focusing on what matters most to your stakeholders.',
+      answer: 'Common frameworks include the new ISSB (IFRS S1&S2) standards being adopted globally, the GRI (Global Reporting Initiative), and SASB (Sustainability Accounting Standards Board). Often a combination of frameworks is used to meet different stakeholder needs. We offer a complimentary, no-obligation consultation to help identify the most relevant ones for your industry and reporting goals.',
     },
     {
       question: 'Is ESG only for large corporations?',
-      answer: 'No. While large companies often lead, SMEs are increasingly adopting ESG and sustainability practices. Many find that even simple sustainability initiatives improve efficiency and attract customers who value responsible business practices.',
+      answer: 'No. While large companies often lead, SMEs are increasingly adopting sustainability practices. Many find that even simple sustainability initiatives improve efficiency and attract customers who value responsible business practices.',
+    },
+    {
+      question: 'Where do I start?',
+      answer: 'Start with two steps: Understand your (future) legal standing and conduct a Materiality Assessment to determine what data you will need to start collecting. You don’t need to report on everything at once; focus on the metrics that most significantly impact your specific industry and your financial bottom line.',
     },
   ];
 
@@ -168,14 +168,23 @@ const NewToESGPage = () => {
           >
             <SectionHeading
               title="What is ESG?"
-              subtitle="ESG stands for Environmental, Social, and Governance — three central pillars used to measure the sustainability and ethical impact of an investment or business."
+              subtitle={ 
+              <>
+              Environmental, Social, and Governance
+              <br />
+              A strategic framework for tracking non-financial metrics to evaluate an organization's ethical and sustainability impact, while ensuring long-term resilience against systemic and environmental shocks."
+              </>
+              }
               className="mb-12"
             />
-            <p className="text-charcoal-light text-lg leading-relaxed">
-              ESG and integrated reporting has evolved from a &ldquo;nice-to-have&rdquo; to a business imperative.
-              Investors, customers, employees, and regulators increasingly demand transparency
-              on how companies manage their environmental footprint, treat their people, and
-              govern themselves ethically.
+            <p className="text-charcoal-light text-lg leading-relaxed text-center">
+              Regulatory nets are widening globally and alignment with financial reporting is becoming the baseline through frameworks like the ISSB standards.
+              Identifying sustainability risks and opportunities is now a core part of strategic planning and is an essential financial shield for your balance sheet.
+              <br />
+              <br />
+              By quantifying physical and transition risks, you proactively harden your assets, unlocking alternative financing, attractive insurance premiums as well as lower interest rates
+              and avoiding emergency capital outlays or stranded assets down the line. 
+              ESG is no longer just about doing good — it’s about doing well by doing good. 
             </p>
           </motion.div>
         </Container>

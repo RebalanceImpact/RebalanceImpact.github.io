@@ -80,7 +80,7 @@ const SustainableReportingPage = () => {
     {
       name: 'TCFD',
       fullName: 'Task Force on Climate-related Financial Disclosures',
-      description: 'Framework for climate-related financial risk disclosures.',
+      description: 'Climate-related financial risk disclosures. Now integrated into ISSB standards.',
     },
     {
       name: 'CSRD',

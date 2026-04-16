@@ -45,7 +45,7 @@ const ESGServicesPage = () => {
           <SectionHeading
             label="Our Services"
             title="What We Offer"
-            subtitle="Expert guidance across all aspects of integrated strategy, reporting, and implementation."
+            subtitle="Expert guidance across all aspects of strategy, reporting, and implementation."
             className="mb-16"
           />
 

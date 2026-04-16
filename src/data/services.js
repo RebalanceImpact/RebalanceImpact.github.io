@@ -50,9 +50,9 @@ export const coreServices = [
     id: 1,
     title: "Reporting & Disclosure",
     image: "/assets/images/library.jpg",
-    description: "We help organizations prepare comprehensive integrated reports that meet regulatory requirements and stakeholder expectations. Our team ensures accurate data collection, materiality assessments, and clear communication of financial and sustainability performance.",
+    description: "We help organizations prepare comprehensive annual reports that meet regulatory requirements and stakeholder expectations. Our team ensures accurate data collection, materiality assessments, and clear communication of financial and sustainability performance.",
     features: [
-      "Framework alignment (ISSB - IFRS S1 & S2, GRI, SASB, TCFD)",
+      "Framework alignment (ISSB - IFRS S1 & S2, GRI, SASB)",
       "Materiality assessment",
       "Data quality assurance",
       "Report preparation and review",
@@ -77,8 +77,8 @@ export const coreServices = [
     description: "Integrate sustainability into your core business strategy. We help identify opportunities, mitigate risks, and develop roadmaps that align financial and sustainability goals with long-term business success.",
     features: [
       "Integrated strategy development",
-      "Risk assessment",
-      "Opportunity identification",
+      "Development of Standard Operating Procedures (SOPs)",
+      "Risk assessment & Opportunity identification",
       "Implementation roadmaps",
     ],
   },
