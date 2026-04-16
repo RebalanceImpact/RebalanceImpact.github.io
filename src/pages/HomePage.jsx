@@ -390,6 +390,7 @@ const HomePage = () => {
       />
       <SchemaMarkup schemas={[organizationSchema, websiteSchema, homePageSchema]} />
       <HeroCarousel />
+      <FeaturedInsightSection />
       <ValueProps />
       <ServicesPreview />
       <StatsSection />
