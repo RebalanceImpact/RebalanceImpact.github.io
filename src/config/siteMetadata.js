@@ -33,7 +33,7 @@ export const pageMetadata = {
     description: 'Stay updated with the latest sustainability news, regulatory updates, and industry insights from global and South African leaders.',
   },
   sustainableReporting: {
-    title: 'Sustainable Reporting | Rebalance Impact',
+    title: 'Sustainability Reporting | Rebalance Impact',
     description: 'Expert guidance on sustainable reporting practices, frameworks, and compliance requirements for your organization.',
   },
 };

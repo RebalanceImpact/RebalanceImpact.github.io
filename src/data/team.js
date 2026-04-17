@@ -5,7 +5,7 @@ export const teamExperience = {
     {
       id: 1,
       title: "Industry Experience",
-      description: "Deep expertise across mining, manufacturing, financial services, retail, and technology sectors. We understand the unique challenges each industry faces.",
+      description: "Deep expertise across mining, manufacturing, financial services, agriculture, retail, and technology sectors. We understand the unique challenges each industry faces.",
       color: "forest",
     },
     {
@@ -29,6 +29,7 @@ export const vennDiagramData = {
     items: [
       "Mining & Resources",
       "Financial Services",
+      "Agriculture & Food",
       "Manufacturing",
       "Retail & Consumer",
       "Technology",
@@ -40,7 +41,7 @@ export const vennDiagramData = {
       "Chartered Accountants",
       "Financial Reporting",
       "Investor Relations",
-      "Risk Management",
+      "Risk Quantification",
       "Audit & Assurance",
     ],
   },

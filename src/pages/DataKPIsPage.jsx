@@ -103,7 +103,7 @@ const DataKPIsPage = () => {
           <SectionHeading
             label="Our Methodology"
             title="How We Handle Your Data"
-            subtitle="A structured approach to data management that ensures accuracy, transparency, and actionable outcomes."
+            subtitle="A structured approach to data management and analysis that ensures accuracy, transparency, and actionable outcomes from our insights."
             className="mb-16"
           />
 

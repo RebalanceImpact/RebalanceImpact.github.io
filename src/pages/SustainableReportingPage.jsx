@@ -78,9 +78,9 @@ const SustainableReportingPage = () => {
       description: 'Industry-specific standards focused on financial materiality.',
     },
     {
-      name: 'TCFD',
-      fullName: 'Task Force on Climate-related Financial Disclosures',
-      description: 'Climate-related financial risk disclosures. Now integrated into ISSB standards.',
+      name: 'TNFD',
+      fullName: 'Task Force on Nature-related Financial Disclosures',
+      description: 'Framework for reporting on nature-related dependencies, impacts, risks and opportunities.',
     },
     {
       name: 'CSRD',
@@ -144,9 +144,9 @@ const SustainableReportingPage = () => {
       {/* Hero Section */}
       <HeroSection
         variant="inner"
-        title="Sustainable Reporting"
-        subtitle="Expert guidance on sustainability reporting practices, frameworks, and compliance requirements."
-        breadcrumb={[{ label: 'Sustainable Reporting' }]}
+        title="Sustainability Reporting"
+        subtitle="Expert guidance on sustainability reporting practices, frameworks, compliance requirements, and communicating resilience."
+        breadcrumb={[{ label: 'Sustainability Reporting' }]}
       />
 
       {/* Introduction Section */}
@@ -167,7 +167,7 @@ const SustainableReportingPage = () => {
 
             <div className="prose prose-lg max-w-none text-charcoal-light">
               <p>
-                Effective sustainability reporting goes beyond ticking boxes. It requires understanding
+                Effective sustainability reporting goes beyond ticking boxes. It requires an understanding of
                 which frameworks apply to your organization, what information your stakeholders need,
                 and how to present complex data in a meaningful way.
               </p>
@@ -266,8 +266,11 @@ const SustainableReportingPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               {[
+                'Gap Assessment',
                 'Framework selection and materiality assessment',
+                'Climate modeling and scenario analysis',
                 'Data collection and quality assurance',
+                'Risk and opportunity quantification',
                 'Report structure and content development',
                 'Stakeholder engagement and communication',
                 'Third-party assurance preparation',
