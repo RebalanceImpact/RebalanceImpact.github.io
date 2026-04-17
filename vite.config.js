@@ -6,16 +6,16 @@ import { articles } from './src/data/articleContent.js';
 
 
 // 1. Map through your data file to get all the article slugs
-const articleRoutes = articles.map(article => `/insights/${article.slug}`);
+const articleRoutes = articles.map(article => `/insights/${article.slug}/`);
 
 const coreRoutes = [
   '/',
-  '/about-us',
-  '/esg-services',
-  '/sustainable-reporting',
-  '/data-kpis',
-  '/news-media',
-  '/new-to-esg-reporting'
+  '/about-us/',
+  '/esg-services/',
+  '/sustainable-reporting/',
+  '/data-kpis/',
+  '/news-media/',
+  '/new-to-esg-reporting/',
 ];
 
 // https://vite.dev/config/
