@@ -148,14 +148,24 @@ const HeroCarousel = () => {
   );
 };
 
-// NEW: Featured Insight Section
-const FeaturedInsightSection = () => {
-  // Sort articles by date (newest first) and grab the very first one
+// Updated: FeaturedInsightSection
+// Added `articles` and `featuredSlug` as props to allow manual overrides.
+const FeaturedInsightSection = ({ articles = [], featuredSlug = null }) => {
+  // 1. Check for a manually featured article first
+  const manuallyFeatured = featuredSlug 
+    ? articles.find((a) => a.slug === featuredSlug) 
+    : null;
+
+  // 2. Sort articles by date (newest first) for the fallback
   const latestArticle = [...articles].sort(
     (a, b) => new Date(b.datePublished) - new Date(a.datePublished)
   )[0];
 
-  if (!latestArticle) return null;
+  // 3. Determine which article to display
+  const displayArticle = manuallyFeatured || latestArticle;
+
+  // Render nothing if no articles exist
+  if (!displayArticle) return null;
 
   return (
     <section className="py-12 bg-cream border-b border-forest/10">
@@ -173,10 +183,10 @@ const FeaturedInsightSection = () => {
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-4">
               <span className="px-3 py-1 bg-forest/10 text-forest font-semibold text-xs rounded-full tracking-wider uppercase">
-                Latest Insight
+                {manuallyFeatured ? 'Featured Insight' : 'Latest Insight'}
               </span>
               <span className="text-charcoal-light text-sm font-medium">
-                {new Date(latestArticle.datePublished).toLocaleDateString('en-US', {
+                {new Date(displayArticle.datePublished).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
                   year: 'numeric'
@@ -184,17 +194,16 @@ const FeaturedInsightSection = () => {
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-display text-forest-deep mb-3 leading-tight">
-              {latestArticle.title}
+              {displayArticle.title}
             </h2>
             <p className="text-charcoal-light leading-relaxed max-w-3xl">
-              {latestArticle.blurb}
+              {displayArticle.blurb}
             </p>
           </div>
           
           <div className="shrink-0 lg:mt-0 mt-4">
-            {/* Using your custom Button component mapped to the article slug */}
             <Button
-              href={`/insights/${latestArticle.slug}`}
+              href={`/insights/${displayArticle.slug}`}
               variant="primary"
               icon={ArrowRight}
             >
@@ -390,7 +399,7 @@ const HomePage = () => {
       />
       <SchemaMarkup schemas={[organizationSchema, websiteSchema, homePageSchema]} />
       <HeroCarousel />
-      <FeaturedInsightSection />
+      <FeaturedInsightSection articles={articles} featuredSlug="private-non-listed-companies-and-ISSB" />
       <ValueProps />
       <ServicesPreview />
       <StatsSection />

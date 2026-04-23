@@ -80,10 +80,21 @@
     @apply list-decimal list-outside ml-5 my-6 mb-0 marker:text-charcoal;
   }
   .prose li {
-    @apply pl-2 my-0 leading-relaxed text-charcoal;
+    @apply pl-2 my-3 leading-relaxed text-charcoal;
   }
   .prose li > p {
     @apply my-0 inline; /* Prevents awkward spacing if your markdown parser wraps items in paragraphs */
+  }
+
+  /* NEW: Nested List Styling (Unordered list inside an Ordered/Unordered list) */
+  .prose li ul {
+    /* Changes bullet to a circle, adds left margin for the indent, and controls vertical spacing */
+    @apply list-[circle] list-outside ml-6 mt-2 mb-1 marker:text-forest-light;
+  }
+  
+  /* Adds a slight breathing room between the nested items for better readability */
+  .prose li ul li {
+    @apply my-1 text-sm md:text-base; 
   }
 }
 
