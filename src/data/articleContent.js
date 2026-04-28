@@ -304,7 +304,7 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   },
 {
     slug: 'issb-compliance-private-schools-south-africa',
-    title: 'Is Your School Compliant with ISSB? A Guide for Private Education Institutions',
+    title: 'Is Your School Compliant with ISSB? Sustainability Reporting for Private Education Institutions',
     category: 'Original Insight',
     datePublished: '2026-04-28',
     author: 'Rebalance Impact',
@@ -440,7 +440,9 @@ Adopting these standards now, while it is still a choice, allows your school to 
 
 *To explore more on the specific details of why and how these standards affect private and non-listed entities (including education), 
 and the first steps you should take, read the full insight and **FAQs** at 
-[Private Companies and ISSB](https://www.rebalanceimpact.com/insights/private-non-listed-companies-and-ISSB/)*
+[Private Companies and ISSB](https://www.rebalanceimpact.com/insights/private-non-listed-companies-and-ISSB/)*.  
+  
+Click [here](/#contact-and-quote) to reach out to our team for any questions and to see how we can help your school.
 
 `
   },
