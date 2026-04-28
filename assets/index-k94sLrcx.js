@@ -446,7 +446,8 @@ Sustainability reporting is currently on that exact same trajectory.
 Regulators across Southern Africa are increasingly aligning with global ESG (Environmental, Social, and Governance) frameworks.  
   
 Currently, the **Companies Intellectual Property Commission (CIPC)** and **Department of Trade, Industry and Competition (DTIC)** are concluding a 
-*Regulatory Impact Assessment*, specifically to determine the roadmap for mandatory sustainability reporting.  
+*Regulatory Impact Assessment*, specifically to determine the roadmap for mandatory sustainability reporting. The current expectation is that
+companies that meet the PIS score to be audited (350+), will likely be required to record their sustainability data alongside their financials.  
 
 *By the time these standards become mandatory for private schools, the gap between those who are prepared and those who aren't will be vast.*
 --- 
@@ -456,10 +457,10 @@ Being proactive now isn't just about compliance; it's about **future-proofing yo
 ## The Financial ROI of Sustainability Reporting in Education
 
 In our specific context - navigating energy instability, water scarcity, and the ongoing need for social transformation - ISSB standards offer a practical framework for management.
-1. **Access to Finance and "Green" Interest Rates**  
-Most ISASA schools have capital projects on the horizon. Southern African banks are now prioritising **"Sustainable Finance"**. 
+1. **Access to Green Finance and Sustainability Linked Loans**  
+Most ISASA schools have capital projects on the horizon. Southern African banks are now prioritising **"Green Finance"**. 
 If your school can demonstrate ISSB-aligned data on, for example, energy efficiency (like solar installations to combat load shedding), 
-you may qualify for lower interest rates or specialized **"Green Loans"** that are unavailable to non-compliant peers.  
+you may qualify for lower interest rates or specialized **"Sustainability Linked Loans"** that are unavailable to non-compliant peers.  
 
 2. **Potential Cost Savings and Risk Identification**  
 By adopting a formal integrated reporting framework, schools can uncover significant annual cost savings through data-driven operational oversight and resource management. 
