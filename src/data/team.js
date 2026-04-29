@@ -5,19 +5,19 @@ export const teamExperience = {
     {
       id: 1,
       title: "Industry Experience",
-      description: "Deep expertise across mining, manufacturing, financial services, agriculture, retail, and technology sectors. We understand the unique challenges each industry faces.",
+      description: "Global sector experience (mining, agriculture, energy, financial), covering international listings. Expertise covers managing SOX controls, committee membership, and high-level advisory with national governments and the UN.",
       color: "forest",
     },
     {
       id: 2,
       title: "Financial Expertise",
-      description: "Chartered Accountants bringing rigorous financial analysis, reporting standards knowledge, and investor communication skills to sustainability initiatives.",
+      description: "Extensive experience in sustainability and financial assurance for industry leaders, advisory work for first-time CSRD reporters, and assurance readiness engagements, across regulatory frameworks like GRI, Responsible Sourcing, ISSB and CSRD.",
       color: "accent",
     },
     {
       id: 3,
       title: "Environmental Science",
-      description: "Environmental scientists providing technical depth in climate modeling, climate risk assessment, emissions measurement, and sustainability impact analysis.",
+      description: "Experience with global energy systems, scenario development, global climate models, and corporate climate action analysis. Demonstrated expertise in tracking, processing, and analyzing climate commitments from over 10,000 companies worldwide, providing valuable insights into diverse climate strategies and pathways.",
       color: "sage",
     },
   ],
