@@ -55,13 +55,13 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about-us" element={<AboutPage />} />
-            <Route path="/esg-services" element={<ESGServicesPage />} />
-            <Route path="/new-to-esg-reporting" element={<NewToESGPage />} />
-            <Route path="/data-kpis" element={<DataKPIsPage />} />
-            <Route path="/news-media" element={<NewsMediaPage />} />
-            <Route path="/insights/:slug" element={<ArticlePage />} />
-            <Route path="/sustainable-reporting" element={<SustainableReportingPage />} />
+            <Route path="/about-us/" element={<AboutPage />} />
+            <Route path="/esg-services/" element={<ESGServicesPage />} />
+            <Route path="/new-to-esg-reporting/" element={<NewToESGPage />} />
+            <Route path="/data-kpis/" element={<DataKPIsPage />} />
+            <Route path="/news-media/" element={<NewsMediaPage />} />
+            <Route path="/insights/:slug/" element={<ArticlePage />} />
+            <Route path="/sustainable-reporting/" element={<SustainableReportingPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AnimatePresence>

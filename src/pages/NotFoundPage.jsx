@@ -66,19 +66,19 @@ const NotFoundPage = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  to="/esg-services"
+                  to="/esg-services/"
                   className="text-forest hover:text-accent transition-colors text-sm"
                 >
                   Our Services
                 </Link>
                 <Link
-                  to="/about-us"
+                  to="/about-us/"
                   className="text-forest hover:text-accent transition-colors text-sm"
                 >
                   About Us
                 </Link>
                 <Link
-                  to="/news-media"
+                  to="/news-media/"
                   className="text-forest hover:text-accent transition-colors text-sm"
                 >
                   Industry Insights

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Database, Target, LineChart, Users } from 'lucide-react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card } from '../components/ui';
@@ -11,14 +10,14 @@ import { dataProcess, powerBIConfig } from '../data/kpis';
 
 // Data KPIs page schemas
 const dataKPIsBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'Data & KPIs', url: 'https://www.rebalanceimpact.com/data-kpis' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' },
+  { name: 'Data & KPIs', url: 'https://www.rebalanceimpact.com/data-kpis/' }
 ]);
 
 const dataKPIsPageSchema = generateWebPageSchema({
   name: 'Data Solutions | Rebalance Impact',
   description: 'Transform your data into actionable insights with our comprehensive data management, analytics, and interactive Power BI dashboards.',
-  url: 'https://www.rebalanceimpact.com/data-kpis',
+  url: 'https://www.rebalanceimpact.com/data-kpis/',
   breadcrumb: dataKPIsBreadcrumb
 });
 
@@ -49,7 +48,7 @@ const DataKPIsPage = () => {
       <SEOHead
         title={pageMetadata.dataKpis.title}
         description={pageMetadata.dataKpis.description}
-        canonicalPath="/data-kpis"
+        canonicalPath="/data-kpis/"
       />
       <SchemaMarkup schemas={[dataKPIsPageSchema, dashboardSchema]} />
 

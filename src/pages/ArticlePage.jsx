@@ -26,7 +26,7 @@ const ArticlePage = () => {
     "description": article.blurb,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://www.rebalanceimpact.com/insights/${slug}`
+      "@id": `https://www.rebalanceimpact.com/insights/${slug}/`
     }
   };
 
@@ -35,7 +35,7 @@ const ArticlePage = () => {
       <SEOHead
         title={`${article.title} | Rebalance Impact`}
         description={article.blurb}
-        canonicalPath={`/insights/${slug}`}
+        canonicalPath={`/insights/${slug}/`}
       />
       <SchemaMarkup schemas={[articleSchema]} />
 

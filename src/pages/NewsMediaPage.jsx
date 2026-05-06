@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading } from '../components/ui';
 import { HeroSection, ArticleCard } from '../components/shared';
@@ -11,14 +10,14 @@ import { getRebalanceArticlesList } from '../data/articleContent';
 
 // News & Media page schemas
 const newsMediaBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'News & Media', url: 'https://www.rebalanceimpact.com/news-media' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' },
+  { name: 'News & Media', url: 'https://www.rebalanceimpact.com/news-media/' }
 ]);
 
 const newsMediaPageSchema = generateWebPageSchema({
   name: 'News & Industry Insights | Rebalance Impact',
   description: 'Stay informed with the latest sustainability news, regulatory updates, and success stories from global and South African leaders.',
-  url: 'https://www.rebalanceimpact.com/news-media',
+  url: 'https://www.rebalanceimpact.com/news-media/',
   breadcrumb: newsMediaBreadcrumb
 });
 
@@ -28,7 +27,7 @@ const articlesCollectionSchema = {
   "@type": "CollectionPage",
   "name": "Industry Insights",
   "description": "Curated collection of sustainability news, regulatory updates, and industry analysis.",
-  "url": "https://www.rebalanceimpact.com/news-media",
+  "url": "https://www.rebalanceimpact.com/news-media/",
   "isPartOf": {
     "@type": "WebSite",
     "name": "Rebalance Impact"
@@ -102,7 +101,7 @@ const NewsMediaPage = () => {
       <SEOHead
         title={pageMetadata.newsMedia.title}
         description={pageMetadata.newsMedia.description}
-        canonicalPath="/news-media"
+        canonicalPath="/news-media/"
       />
       <SchemaMarkup schemas={[newsMediaPageSchema, articlesCollectionSchema]} />
 

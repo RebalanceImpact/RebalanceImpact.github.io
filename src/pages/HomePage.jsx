@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -15,13 +15,13 @@ import { stats } from '../data/kpis';
 import { articles } from '../data/articleContent';
 // Home page schemas
 const homePageBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' }
 ]);
 
 const homePageSchema = generateWebPageSchema({
   name: 'Rebalance Impact | Sustainability Consulting & Integrated Solutions',
   description: 'Expert consulting services combining financial expertise, climate research, and ESG data to deliver practical integrated solutions for businesses.',
-  url: 'https://www.rebalanceimpact.com',
+  url: 'https://www.rebalanceimpact.com/',
   breadcrumb: homePageBreadcrumb
 });
 

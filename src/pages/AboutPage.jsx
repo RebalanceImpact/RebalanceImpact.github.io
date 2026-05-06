@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card } from '../components/ui';
 import { HeroSection, CTABanner } from '../components/shared';
@@ -11,13 +10,13 @@ import { teamExperience } from '../data/team';
 // About page schemas
 const aboutBreadcrumb = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'About Us', url: 'https://www.rebalanceimpact.com/about-us' }
+  { name: 'About Us', url: 'https://www.rebalanceimpact.com/about-us/' }
 ]);
 
 const aboutPageSchema = generateWebPageSchema({
   name: 'About Rebalance Impact | Sustainability Consulting Experts',
   description: 'Learn about Rebalance Impact - where financial expertise meets environmental science. Our team of Chartered Accountants and Environmental Scientists deliver practical integrated solutions.',
-  url: 'https://www.rebalanceimpact.com/about-us',
+  url: 'https://www.rebalanceimpact.com/about-us/',
   breadcrumb: aboutBreadcrumb
 });
 
@@ -27,7 +26,7 @@ const AboutPage = () => {
       <SEOHead
         title={pageMetadata.about.title}
         description={pageMetadata.about.description}
-        canonicalPath="/about-us"
+        canonicalPath="/about-us/"
       />
       <SchemaMarkup schemas={[organizationSchema, aboutPageSchema]} />
 

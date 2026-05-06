@@ -9,14 +9,14 @@ import { variants, transitions } from '../config/motion';
 
 // Sustainable Reporting page schemas
 const sustainableReportingBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'Sustainable Reporting', url: 'https://www.rebalanceimpact.com/sustainable-reporting' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' },
+  { name: 'Sustainable Reporting', url: 'https://www.rebalanceimpact.com/sustainable-reporting/' }
 ]);
 
 const sustainableReportingPageSchema = generateWebPageSchema({
   name: 'Sustainable Reporting Services | Rebalance Impact',
   description: 'Expert guidance on sustainability reporting frameworks including GRI, SASB, TCFD, ISSB, and CDP. Create impactful integrated reports that meet compliance requirements.',
-  url: 'https://www.rebalanceimpact.com/sustainable-reporting',
+  url: 'https://www.rebalanceimpact.com/sustainable-reporting/',
   breadcrumb: sustainableReportingBreadcrumb
 });
 
@@ -137,7 +137,7 @@ const SustainableReportingPage = () => {
       <SEOHead
         title={pageMetadata.sustainableReporting.title}
         description={pageMetadata.sustainableReporting.description}
-        canonicalPath="/sustainable-reporting"
+        canonicalPath="/sustainable-reporting/"
       />
       <SchemaMarkup schemas={[sustainableReportingPageSchema, sustainabilityReportingHowToSchema]} />
 

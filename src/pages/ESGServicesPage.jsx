@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';
@@ -10,14 +9,14 @@ import { coreServices } from '../data/services';
 
 // ESG Services page schemas
 const servicesBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'Core Services', url: 'https://www.rebalanceimpact.com/esg-services' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' },
+  { name: 'Core Services', url: 'https://www.rebalanceimpact.com/esg-services/' }
 ]);
 
 const servicesPageSchema = generateWebPageSchema({
   name: 'Sustainability Consulting Services | Rebalance Impact',
   description: 'Comprehensive consulting services including sustainability reporting, climate risk assessment, data analytics, and stakeholder engagement.',
-  url: 'https://www.rebalanceimpact.com/esg-services',
+  url: 'https://www.rebalanceimpact.com/esg-services/',
   breadcrumb: servicesBreadcrumb
 });
 
@@ -27,7 +26,7 @@ const ESGServicesPage = () => {
       <SEOHead
         title={pageMetadata.esgServices.title}
         description={pageMetadata.esgServices.description}
-        canonicalPath="/esg-services"
+        canonicalPath="/esg-services/"
       />
       <SchemaMarkup schemas={[esgServicesSchema, professionalServiceSchema, servicesPageSchema]} />
 

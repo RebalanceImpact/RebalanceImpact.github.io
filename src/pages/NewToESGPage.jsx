@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Globe, TrendingUp, Shield, Users, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { PageWrapper, SEOHead } from '../components/layout';
@@ -10,14 +9,14 @@ import { variants, transitions } from '../config/motion';
 
 // New to ESG page schemas
 const newToESGBreadcrumb = generateBreadcrumbSchema([
-  { name: 'Home', url: 'https://www.rebalanceimpact.com' },
-  { name: 'New to ESG?', url: 'https://www.rebalanceimpact.com/new-to-esg-reporting' }
+  { name: 'Home', url: 'https://www.rebalanceimpact.com/' },
+  { name: 'New to ESG?', url: 'https://www.rebalanceimpact.com/new-to-esg-reporting/' }
 ]);
 
 const newToESGPageSchema = generateWebPageSchema({
   name: 'New to ESG Reporting? | Beginner Guide | Rebalance Impact',
   description: 'Learn the fundamentals of ESG and integrated reporting. Understand Environmental, Social, and Governance factors and why they matter for your business.',
-  url: 'https://www.rebalanceimpact.com/new-to-esg-reporting',
+  url: 'https://www.rebalanceimpact.com/new-to-esg-reporting/',
   breadcrumb: newToESGBreadcrumb
 });
 
