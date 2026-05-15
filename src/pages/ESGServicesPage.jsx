@@ -6,6 +6,7 @@ import SchemaMarkup, { esgServicesSchema, professionalServiceSchema, generateWeb
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { coreServices } from '../data/services';
+import { motion } from 'framer-motion';
 
 // ESG Services page schemas
 const servicesBreadcrumb = generateBreadcrumbSchema([

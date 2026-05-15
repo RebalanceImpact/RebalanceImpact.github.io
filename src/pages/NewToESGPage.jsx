@@ -1,4 +1,5 @@
 import { Globe, TrendingUp, Shield, Users, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card, Button } from '../components/ui';

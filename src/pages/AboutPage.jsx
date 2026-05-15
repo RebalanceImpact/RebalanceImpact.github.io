@@ -6,6 +6,7 @@ import VennDiagram from '../components/page-specific/about/VennDiagram';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { teamExperience } from '../data/team';
+import { motion } from 'framer-motion';
 
 // About page schemas
 const aboutBreadcrumb = generateBreadcrumbSchema([

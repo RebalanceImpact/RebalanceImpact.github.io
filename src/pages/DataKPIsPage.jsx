@@ -7,6 +7,7 @@ import PowerBIEmbed from '../components/page-specific/data-kpis/PowerBIEmbed';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
 import { dataProcess, powerBIConfig } from '../data/kpis';
+import { motion } from 'framer-motion';
 
 // Data KPIs page schemas
 const dataKPIsBreadcrumb = generateBreadcrumbSchema([

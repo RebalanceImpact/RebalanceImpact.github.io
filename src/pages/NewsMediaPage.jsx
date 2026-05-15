@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading } from '../components/ui';
 import { HeroSection, ArticleCard } from '../components/shared';

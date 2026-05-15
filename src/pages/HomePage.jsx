@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, Button, SectionHeading, Card } from '../components/ui';
 import { ContactForm, StatCounter, ServiceCard, CTABanner } from '../components/shared';

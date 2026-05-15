@@ -4,6 +4,7 @@ import { PageWrapper, SEOHead } from '../components/layout';
 import { Container } from '../components/ui';
 import SchemaMarkup from '../components/SchemaMarkup';
 import { getArticleBySlug } from '../data/articleContent';
+import { motion } from 'framer-motion';
 
 const ArticlePage = () => {
   const { slug } = useParams();

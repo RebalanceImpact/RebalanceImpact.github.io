@@ -40,10 +40,10 @@
     @apply text-forest font-display text-2xl my-8 leading-tight;
   }
   .prose h3 {
-    @apply text-forest-light text-xl my-6 font-display;
+    @apply text-forest-light text-xl mt-4 my-8 font-display;
   }
   .prose p {
-    @apply my-6 leading-relaxed first:mt-0;
+    @apply my-2 leading-relaxed first:mt-0;
   }
   .prose a {
     @apply text-accent font-bold underline decoration-accent underline-offset-4;
@@ -74,27 +74,37 @@
     @apply mt-0 mb-0 leading-relaxed text-charcoal; 
   }
   .prose ul {
-    @apply list-disc list-outside ml-6 my-6 marker:text-forest-deep;
+    @apply list-disc list-outside ml-6 my-0 marker:text-forest-deep block;
   }
   .prose ol {
-    @apply list-decimal list-outside ml-5 my-6 mb-0 marker:text-charcoal;
-  }
-  .prose li {
-    @apply pl-2 my-3 leading-relaxed text-charcoal;
-  }
-  .prose li > p {
-    @apply my-0 inline; /* Prevents awkward spacing if your markdown parser wraps items in paragraphs */
-  }
-
-  /* NEW: Nested List Styling (Unordered list inside an Ordered/Unordered list) */
-  .prose li ul {
-    /* Changes bullet to a circle, adds left margin for the indent, and controls vertical spacing */
-    @apply list-[circle] list-outside ml-6 mt-2 mb-1 marker:text-forest-light;
+    @apply list-decimal list-outside ml-6 my-0 marker:text-forest-deep block;
   }
   
-  /* Adds a slight breathing room between the nested items for better readability */
-  .prose li ul li {
-    @apply my-1 text-sm md:text-base; 
+  /* 2. Standard List Items */
+  .prose li {
+    @apply pl-2 my-3 leading-relaxed text-charcoal list-item;
+  }
+  
+  /* 3. Handle Markdown Paragraphs Safely */
+  .prose li > p {
+    /* Using inline-block prevents the paragraph from forcing the next nested list into an awkward flow */
+    @apply my-0 inline w-full; 
+  }
+
+  /* 4. NEW: Robust Nested Unordered Lists */
+  .prose li ul {
+    @apply list-[circle] list-outside ml-6 mt-2 mb-2 block marker:text-forest-light;
+  }
+  
+  /* 5. NEW: Robust Nested Ordered Lists */
+  .prose li ol {
+    @apply list-[lower-alpha] list-outside ml-6 mt-2 mb-2 block marker:text-forest-light;
+  }
+
+  /* 6. Spacing for Nested List Items */
+  .prose li ul li,
+  .prose li ol li {
+    @apply my-1 text-sm md:text-base leading-normal; 
   }
 }
 
@@ -235,4 +245,88 @@
 
 .insight-button:hover {
   background-color: #004a5a;
+}
+
+.prose p:not(:has(span, a, br)):has(> strong:only-child > em:only-child),
+.prose p:not(:has(span, a, br)):has(> em:only-child > strong:only-child) {
+  display: block !important;
+  font-size: 1.1rem !important;
+  color: #B07D55 !important; 
+  font-style: italic !important;
+  font-weight: 900 !important; 
+  line-height: 1.6 !important;
+  margin-top: 0rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+
+
+@media (min-width: 768px) {
+  /* 1. Establish the grid on the parent container */
+  :has(> blockquote) {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  /* 2. Standard elements (H2, P, etc.) always span full width */
+  :has(> blockquote) > *:not(blockquote) {
+    grid-column: 1 / -1 !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  /* 3. The "Lone Wolf" Fix: 
+     If a blockquote is not next to another blockquote, span full width. */
+  :has(> blockquote) > blockquote {
+    grid-column: span 1; /* Default for pairs */
+  }
+
+  /* Target blockquotes that are alone (no blockquote before or after them) */
+  :has(> blockquote) > blockquote:not(blockquote + blockquote):not(:has(+ blockquote)) {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* Styling the Blockquote as a Case Study Card */
+blockquote {
+  background-color: #f1f0ef !important; /* Subtle, eco-friendly background */
+  border: none !important;
+  border-top: 5px solid #2c5530 !important; /* Brand-aligned ESG green */
+  border-bottom: 5px solid #2c5530 !important; /* Adds visual weight and balance */
+  padding: 1.5rem !important;
+  margin: 0 0 1.5rem 0 !important; /* Adds bottom margin for mobile stacking */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-style: normal !important;
+  color: #37474f !important;
+}
+
+blockquote h3 {
+  margin-top: 0 !important;
+  color: #4A6B4A !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Targeting the Markdown Lists */
+blockquote ul {
+  padding-left: 0;
+  list-style-type: none; /* Removes default bullets for a cleaner corporate UI */
+  margin: 0;
+}
+
+blockquote li {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+blockquote li strong {
+  color: #B07D55;
+  display: block; 
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
 }
