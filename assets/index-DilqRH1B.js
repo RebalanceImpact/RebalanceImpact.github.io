@@ -560,7 +560,7 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
     
   Click [here](/#contact-and-quote) to reach out to our team for any questions and to see how we can help your school.
 
-  `},{slug:"ghg-protocol-2026-scope-3-updates-guide",title:"Navigating the GHG Protocol 2026 Scope 3 Updates",category:"Original Insight",datePublished:"2026-05-06",author:"Rebalance Impact",blurb:'The GHG Protocol is moving from "best-effort" estimates to a financial-grade, auditable system. This guide breaks down the four fundamental 2026 shifts—including the new Category 16 and Stock-Based Accounting—to help your firm turn compliance into a competitive advantage.',content:`
+  `},{slug:"ghg-protocol-2026-scope-3-updates-guide",title:"Navigating the GHG Protocol 2026 Scope 3 Updates",category:"Original Insight",datePublished:"2026-05-15",author:"Rebalance Impact",blurb:'The GHG Protocol is moving from "best-effort" estimates to a financial-grade, auditable system. This guide breaks down the four fundamental 2026 shifts—including the new Category 16 and Stock-Based Accounting—to help your firm turn compliance into a competitive advantage.',content:`
   **The GHG Protocol Guidance for Scope 3 emissions** is moving decisively away from "best-effort" estimates toward a financial-grade, 
   auditable system designed to align with global standards like the **ISSB** and **CSRD**. This evolution marks the end of selective disclosure where companies 
   could claim conformance while excluding significant portions of their total value chain’s footprint.
