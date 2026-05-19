@@ -547,14 +547,6 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   
   ![Hierarchy of Scope 3 Data Accuracy: Primary vs Secondary Data](/assets/images/scope-3-reporting-guidance.png "Visualizing Data Hierarchy in 2026")
   *Data type hierarchy - Source: ICMM Scope 3 Emissions Accounting and Reporting Guidance.*
-  
-  Scope 3 reporting has a **hierarchy of data sources**. Unlike Scope 2 where you have a meter that you can read your electricity usage off 
-  or receive an invoice from your service provider detailing the exact energy consumption for the month, Scope 3 data is 
-  outside of your own company’s direct control and the data is often difficult to obtain.
-
-  When primary data is not able to be obtained, emissions are estimated from the general ledger information. 
-  This is **Spend-Based Data** which entails a complicated process of categorising transactions in the general ledger based on their purpose 
-  (fuel and diesel supply, energy and power supply, auditing services etc.). From here, you are able to *assign an emission factor to each category*.
 
   The issue with this approach is that the accuracy is very low (*lowest level of accuracy in the above figure*). 
   The emissions are based on averages which means that if you are receiving services from a supplier that makes use of renewable energy and 
