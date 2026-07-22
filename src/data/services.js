@@ -52,10 +52,10 @@ export const coreServices = [
     image: "/assets/images/library.jpg",
     description: "We help organizations prepare comprehensive annual reports that meet regulatory requirements and stakeholder expectations. Our team ensures accurate data collection, materiality assessments, and clear communication of financial and sustainability performance.",
     features: [
-      "Framework alignment (ISSB - IFRS S1 & S2, GRI, SASB)",
-      "Materiality assessment",
-      "Data quality assurance",
-      "Report preparation and review",
+      "Framework alignment and GAP Assessments (ISSB, IFRS S1 & S2, GRI, SASB etc.)",
+      "Double Materiality & Assurance Readiness Assessments",
+      "Climate forecasting and financial quantification (ISSB and CSRD)",
+      "Sustainability Report Compilation & Review",
     ],
   },
   {
@@ -64,10 +64,10 @@ export const coreServices = [
     image: "/assets/images/generic_dashboard.png",
     description: "Transform scattered data into centralized, actionable insights. We implement robust data governance practices and build custom dashboards that make complex information accessible and meaningful.",
     features: [
-      "Data centralization",
-      "Custom dashboard development",
-      "Target setting and tracking",
-      "Scenario modeling",
+      "Data Capture, Digitisation & Centralisation",
+      "Customised Dashboards & Data Analytics",
+      "Target Setting & Performance Tracking",
+      "Data-Driven Scenario Modeling",
     ],
   },
   {
@@ -77,9 +77,9 @@ export const coreServices = [
     description: "Integrate sustainability into your core business strategy. We help identify opportunities, mitigate risks, and develop roadmaps that align financial and sustainability goals with long-term business success.",
     features: [
       "Integrated strategy development",
-      "Development of Standard Operating Procedures (SOPs)",
+      "Control Environment Design & Review",
       "Risk assessment & Opportunity identification",
-      "Implementation roadmaps",
+      "Development of Standard Operating Procedures (SOPs)",
     ],
   },
 ];

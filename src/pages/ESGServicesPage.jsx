@@ -35,7 +35,7 @@ const ESGServicesPage = () => {
       <HeroSection
         variant="inner"
         title="Enhance Your Business Journey"
-        subtitle="Comprehensive consulting services that transform sustainability challenges into business opportunities."
+        subtitle="Comprehensive consulting services that transform compliance and data challenges into business opportunities."
         breadcrumb={[{ label: 'Core Services' }]}
       />
 
@@ -45,7 +45,7 @@ const ESGServicesPage = () => {
           <SectionHeading
             label="Our Services"
             title="What We Offer"
-            subtitle="Expert guidance across all aspects of strategy, reporting, and implementation."
+            subtitle="Expert guidance across all aspects of strategy, data, reporting, and implementation."
             className="mb-16"
           />
 

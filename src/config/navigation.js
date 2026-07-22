@@ -1,8 +1,8 @@
 export const mainNavLinks = [
-  { label: 'New to ESG?', href: '/new-to-esg-reporting/' },
   { label: 'Core Services', href: '/esg-services/' },
-  { label: 'Sustainability Reporting', href: '/sustainable-reporting/' },
   { label: 'Data Solutions', href: '/data-kpis/' },
+  { label: 'Sustainability Reporting', href: '/sustainable-reporting/' },
+  { label: 'New to ESG?', href: '/new-to-esg-reporting/' },
   { label: 'Industry Insights', href: '/news-media/' },
   { label: 'About Us', href: '/about-us/' },
 ];
