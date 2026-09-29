@@ -4,6 +4,7 @@ import { PageWrapper, SEOHead } from '../components/layout';
 import { Container } from '../components/ui';
 import SchemaMarkup from '../components/SchemaMarkup';
 import { getArticleBySlug } from '../data/articleContent';
+import MarkdownLink from '../components/MarkdownLink';
 import { motion } from 'framer-motion';
 
 const ArticlePage = () => {
@@ -80,7 +81,9 @@ const ArticlePage = () => {
             prose-ol:pl-6 prose-ul:pl-6
             prose-li:marker:text-accent
           ">
-            <ReactMarkdown>{article.content}</ReactMarkdown>
+            <ReactMarkdown components={{ a: MarkdownLink }}>
+              {article.content}
+            </ReactMarkdown>
           </div>
         </Container>
       </section>

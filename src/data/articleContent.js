@@ -256,7 +256,7 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   > “Value” is about more than just this month’s profit; it’s about business resiliency. Without verifiable sustainability data, your business becomes a black box of hidden risks to banks, insurers, and large corporate clients. Reporting is how you prove **your business is a safe, long-term bet** in a volatile world.
 
   `,
-  schema: `
+    schema: `
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -307,15 +307,16 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   </script>
   `
   },
+
   {
-      slug: 'issb-compliance-private-schools-south-africa',
-      title: 'Is Your School Compliant with ISSB? Sustainability Reporting for Private Education Institutions',
-      category: 'Original Insight',
-      datePublished: '2026-04-28',
-      author: 'Rebalance Impact',
-      blurb: 'Discover how ISSB standards (IFRS S1 & S2) impact private schools in South Africa. Learn how ESG reporting can secure green finance, lower insurance premiums, and drive institutional stakeholder trust.',
-      // We use backticks (`) to allow for multi-line markdown text
-      content: `
+    slug: 'issb-compliance-private-schools-south-africa',
+    title: 'Is Your School Compliant with ISSB? Sustainability Reporting for Private Education Institutions',
+    category: 'Original Insight',
+    datePublished: '2026-04-28',
+    author: 'Rebalance Impact',
+    blurb: 'Discover how ISSB standards (IFRS S1 & S2) impact private schools in South Africa. Learn how ESG reporting can secure green finance, lower insurance premiums, and drive institutional stakeholder trust.',
+    // We use backticks (`) to allow for multi-line markdown text
+    content: `
   With the arrival of the [International Sustainability Standards Board (ISSB)](https://www.ifrs.org/sustainability/knowledge-hub/introduction-to-issb-and-ifrs-sustainability-disclosure-standards/), 
   the definition of **"compliance"** for private, non-listed institutions is shifting. While you might be tempted to look for a simple "yes" or "no" to answer 
   *“Is my school compliant?”* The reality is that compliance is no longer a blanket approach, but rather a 
@@ -457,14 +458,14 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   },
 
   {
-      slug: 'ghg-protocol-2026-scope-3-updates-guide',
-      title: 'Navigating the GHG Protocol 2026 Scope 3 Updates',
-      category: 'Original Insight',
-      datePublished: '2026-05-15',
-      author: 'Rebalance Impact',
-      blurb: 'The GHG Protocol is moving from "best-effort" estimates to a financial-grade, auditable system. This guide breaks down the four fundamental 2026 shifts—including the new Category 16 and Stock-Based Accounting—to help your firm turn compliance into a competitive advantage.',
-      // We use backticks (`) to allow for multi-line markdown text
-      content: `
+    slug: 'ghg-protocol-2026-scope-3-updates-guide',
+    title: 'Navigating the GHG Protocol 2026 Scope 3 Updates',
+    category: 'Original Insight',
+    datePublished: '2026-05-15',
+    author: 'Rebalance Impact',
+    blurb: 'The GHG Protocol is moving from "best-effort" estimates to a financial-grade, auditable system. This guide breaks down the four fundamental 2026 shifts—including the new Category 16 and Stock-Based Accounting—to help your firm turn compliance into a competitive advantage.',
+    // We use backticks (`) to allow for multi-line markdown text
+    content: `
   **The GHG Protocol Guidance for Scope 3 emissions** is moving decisively away from "best-effort" estimates toward a financial-grade, 
   auditable system designed to align with global standards like the **ISSB** and **CSRD**. This evolution marks the end of selective disclosure where companies 
   could claim conformance while excluding significant portions of their total value chain’s footprint.
@@ -633,6 +634,231 @@ The Greenhouse Gas Protocol aims to finalize these standards by 2027 with the ea
   Click [here](/#contact-and-quote) to reach out to our strategy team to discuss your Scope 3 roadmap 
   and see how we can transform your impact reporting into a powerful narrative for stakeholders.
 
+  `
+  },
+
+  {
+    slug: 'it-systems-sustainability-assurance-issa-5000',
+    title: 'IT Systems & Sustainability Assurance: Getting Audit-Ready for ISSA 5000',
+    category: 'Original Insight',
+    datePublished: '2026-09-29',
+    author: 'Rebalance Impact',
+    blurb: 'Discover why a calibrated meter is no longer enough evidence for your sustainability assurance provider under ISSA 5000, and the practical steps to make your automated ESG data systems audit-ready before the first December 2027 year-ends.',
+    // We use backticks (`) to allow for multi-line markdown text
+    content: `
+Across South Africa, companies are digitising and centralising their non-financial (ESG) data at pace. Water meters feed telemetry systems, clocking terminals build safety statistics, fuel pumps drive carbon calculators, and all of it lands in a sustainability software that stores the numbers for your annual report. Logically, it makes sense. Automated systems are quicker, more consistent and far less prone to the errors of manual spreadsheets. Therefore, more reliable for audits right? Unfortunately this is not always the case.
+ 
+But why would your assurance provider have a problem with it?
+ 
+Because the question is no longer *"Is the meter working?".* It is ***"Can you prove that your system has been reading the meter correctly - ALL year?"*** 
+
+With the International Standard on Sustainability Assurance (ISSA) 5000 now adopted in South Africa and its effective date approaching, many automated data flows that sailed through previous assurance cycles are about to be tested in a very different way.
+ 
+**Automation doesn't remove the need for evidence - it changes what that evidence has to look like.**
+ 
+---
+ 
+## The Day a Calibration Certificate Stopped Being Enough
+IT systems are an uncomfortable topic for most sustainability and finance teams. The acronyms (ITGCs, SCADA, APIs, SOC 2, etc.) are overwhelming, and what should be a simple explanation quickly becomes a highly technical answer. The natural response is to turn to the IT team and say: *"You've got this, right?"*
+ 
+Historically, this approach has been sufficient, with ISAE 3000 indicating that an understanding of the IT systems and control environments was required, and where necessary, to perform testing over these controls and systems. The standard did not go into detail as to what the testing should look like and it wasn't clear as to what would necessitate further testing. Under the new ISSA 5000 standard, the approach is significantly clearer as to what needs to be tested, and how it is to be tested.
+ 
+But why has this been added into the new standard? The meter has a valid calibration certificate, so it is measuring the data correctly, right? Well this is unfortunately not necessarily the case. We need to be able to answer the question of why we can rely on the **system** - this is different to relying on the meter itself.
+ 
+> #### The Problem: 
+> A calibration certificate proves that the **meter** is measuring the data correctly. It doesn't say whether the **system** that reads the meter, transmits the data, stores it and aggregates it into your reported figure has done so correctly for the full year.
+ 
+> #### The Shift: 
+> Assurance providers now need evidence over the **whole chain** - from the physical instrument to the number in your report - and over the **whole reporting period**, not just a single point in time.
+ 
+---
+ 
+## Why the Bar Has Moved in 2026
+This is not one auditor being difficult. Four developments are landing at the same time:
+ 
+1. **ISSA 5000 Raises the Standard:** [Adopted by the IRBA](https://www.irba.co.za/upload/Staff%20Practice%20Alert%2012%20-%20New%20FAQ%20-%20Sustainability%20Assurance%20Engagements.pdf), ISSA 5000 applies to periods beginning on or after **15 December 2026** - effectively **December 2027 year-ends** onwards - and replaces ISAE 3410 for GHG statements. With *212 requirements, more than double ISAE 3000*, it requires your assurer to evaluate the **reliability** of the information used as evidence and to understand your internal controls, even in limited assurance engagements.
+2. **King V Puts Data and Assurance on the Board Agenda:** Effective for financial years beginning on or after 1 January 2026, [King V](https://www.iodsa.co.za/page/king-v) requires boards to govern data, information and technology (Principle 10) and to ensure that assurance safeguards the **integrity of external reports** (Principle 12).
+3. **Data Is Becoming More Granular and Automated:** The GHG Protocol's proposed Scope 2 revisions would introduce **hourly matching**, with the final standard expected in 2027 (see our [Scope 2 insight](https://www.rebalanceimpact.com/insights/navigating-new-scope-2-guidance)). Locally, the DFFE's [draft carbon budget regulations](https://www.dffe.gov.za/george_draftnationalgreenhousegas) propose independent verification of facility-level emissions. Neither is final yet, but both point to system-generated data.
+4. **The Market Is Moving Faster Than the Law:** Sustainability assurance is still voluntary in South Africa, yet [73% of large G20 companies](https://www.ifac.org/news-events/2025-05/more-global-companies-seek-assurance-sustainability-reporting-study-ifac-aicpa-cima-shows) obtained it in 2023. Lenders, bond investors and multinational customers increasingly expect it.
+ 
+---
+ 
+## The Meter Isn't the Problem - The System Is
+To understand why your auditor is asking harder questions, it helps to picture the journey a single data point takes:
+ 
+1. **The Instrument:** The meter physically measures the flow of water, electricity or fuel.
+2. **The Capture:** A data logger, pulse output, telemetry unit or SCADA system reads the meter.
+3. **The Transfer:** The data moves through an interface, API or file upload into a database or ESG platform.
+4. **The Transformation:** The system applies conversion factors, emission factors and calculations, then aggregates the results.
+5. **The Report:** The figure lands in your integrated or sustainability report.
+ 
+A calibration certificate only covers **step 1**. Every handoff after that is a point where data can be lost, duplicated, mis-scaled (for example, a pulse value set to 10 litres instead of 100), overwritten or manually "corrected". The meter may be running perfectly, but if the system does not read and process that data correctly, the result is not **sufficient, appropriate evidence**.
+ 
+### The Totaliser Test: A Simple, Powerful Reconciliation
+ 
+Luckily, the solution for metered data is often quite straightforward. Most industrial meters have a **totaliser** - a cumulative, non-resettable register of the total volume the meter has measured since installation.
+ 
+1. **Confirm the totaliser exists** and that its reading is captured on the calibration certificate (this should already be standard practice).
+2. **Record dated totaliser readings** at the start and end of your reporting period - a timestamped photograph is often enough.
+3. **Compare the movement** on the totaliser to the total recorded by your system for the same period.
+ 
+If the two agree within a reasonable tolerance, you have strong evidence that the system has captured the meter correctly **across the whole period**, not just today. If they are different, you have a difficult conversation ahead with your assurance provider - and you can safely expect some overruns.
+ 
+> Consider a mine's process-water meter. At the start of the financial year the totaliser reads 1,248,300 kL; at year-end it reads 1,612,800 kL - a movement of **364,500 kL**. The telemetry platform, however, reports **351,200 kL** for the same period. The gap of **13,300 kL (about 3.6%)** is traced to a two-week data-logger outage after a summer lightning strike. Nobody noticed, because the dashboard displayed "no reading" as zero. Without the totaliser, neither the company nor its assurer would have known - and reported water withdrawals would have been understated.
+ 
+*This scenario is illustrative, but the failure mode is a common one.*
+ 
+### "What If My Meter Doesn't Have a Totaliser?"
+ 
+This is usually the next question: *"Can I not just show that the system is reading the same value as the calibrated meter?"*
+ 
+Sadly, on its own, **unlikely**. A side-by-side check proves the system is reading correctly **now**. Your assurance provider observes it at a single point in time, and there is no physical evidence that yesterday, last week or six months ago the system was reading the meter correctly. Without that, they cannot rely on the information for the full reporting period.
+ 
+In that case, you have three routes:
+ 
+- ***Upgrade the instrument:*** Fit a totaliser or replace the meter on your most material data points.
+- ***Reconcile to an independent source:*** Compare system totals to bulk water accounts, Eskom or municipal invoices, or fuel supplier delivery notes.
+- ***Prove the environment:*** Demonstrate that the IT environment itself is controlled and has operated effectively throughout the period (see below).
+ 
+***Pro Tip:*** *Start with your most material metrics. You don't need a totaliser on every meter on day one - you need one on the meters that drive the numbers your stakeholders actually rely on.*
+ 
+---
+ 
+## What an Auditable IT Environment Actually Looks Like
+Where a simple reconciliation isn't available, you have to prove that your system **is and has been** running correctly, that there is no risk of manipulation or unauthorised access to the back end, and that the overall controls are operating effectively. In audit language, these are **general IT controls (ITGCs)** - the controls that keep the IT environment operating properly and protect the integrity of the information in it.
+ 
+Strip away the jargon, and it comes down to four questions:
+ 
+1. **Who Can Get In? (Access):** Does every user have a unique login? Is administrator access to the back end restricted? Are leavers removed promptly and is access reviewed periodically? Critically - can anyone edit historical readings directly in the database?
+2. **Who Can Change It? (Change Management):** When someone changes a calculation, an emission factor, a pulse value or a scaling factor, is the change requested, tested, approved and logged? Can you show your assurer which emission factor applied in March versus November?
+3. **Does It Run as Intended? (Operations and Data Integrity):** Are failed transfers, data gaps and outliers flagged and followed up? Does the system distinguish between a genuine "zero" and "no data received"? Are backups taken, and can they actually be restored?
+4. **Who Else Is Involved? (Service Organisations):** If your ESG platform or telemetry system is cloud-hosted, ask the provider for an independent controls report (an ISAE 3402, SOC 1 or SOC 2 Type 2 report) covering your reporting period - and check which "complementary user entity controls" the report says remain **your** responsibility.
+ 
+Alongside these sit the controls inside the application itself: is the calculation logic tested, and are the spreadsheets that inevitably sit between systems locked, version-controlled and reviewed?
+ 
+The good news is that this is well-trodden ground. The [IFAC guidance on governance and controls for sustainability information](https://www.ifac.org/publications/building-trust-sustainability-reporting-and-preparing-assurance-governance-and-controls) sets out how extending your existing financial reporting controls to sustainability data, through a systematic annual cycle of governance and control activities, reduces the likelihood of modified assurance conclusions.
+ 
+***Pro Tip:*** *Pick one material KPI and walk it from the instrument to the report with your IT, operations and sustainability teams in the same room. The gaps usually reveal themselves within the first hour.*
+ 
+---
+ 
+## It's Not Just Water Meters
+The same principles apply to **any system that is fully or semi-automated**. Typical examples we see include:
+ 
+- ***Clocking and access-control systems:*** These capture the hours worked that form the denominator of your Injury Frequency Rates (TRIFR, LTIFR etc.). A key metric for mining, construction, and agriculture.
+- ***Electricity and smart meters:*** These drive Scope 2 emissions and energy intensity tracking and reporting, and would carry even more weight under hourly reporting (with the new Scope 2 guidance) which will increase the demand for accurate reporting.
+- ***Automated diesel pump and fuel-management systems:*** Often the largest source of Scope 1 emissions for mining, agriculture and logistics, and directly relevant to carbon tax.
+- ***SO2 and stack-emission calculation systems:*** These support Atmospheric Emission Licence compliance, where regulators and communities alike expect defensible numbers.
+- ***Weighbridges and waste-tracking systems:*** Tonnages sent to landfill or recycling are only as reliable as the system recording them.
+- ***ESG software platforms and AI tools:*** As platforms automate data mapping and estimation, King V's expectation of clear accountability for AI outputs applies directly to your reported figures.
+ 
+---
+ 
+## The Silver Lining: Audit-Ready Data Is Better Data
+Is this going to be more work? Yes, but it also achieves something far more valuable than a clean assurance report.
+ 
+- ***Fewer overruns and lower assurance costs:*** A documented evidence chain means fewer queries, fewer extended procedures and fewer unbudgeted hours.
+- ***Cleaner conclusions:*** A modified assurance conclusion is visible to lenders, investors and customers. Preventing one is far cheaper than explaining one.
+- ***Access to finance:*** Sustainability-Linked Loan margin adjustments and sustainable bond reporting depend on KPIs that can be independently verified. The IRBA highlights the rapid growth of sustainable bonds in South Africa and the central role assurance plays in their credibility.
+- ***Operational insight:*** The same reconciliation that catches a data-logger outage also catches leaks, faulty meters and fuel losses - issues that cost money long before they cost you an assurance conclusion.
+- ***Future-proofing:*** The controls you build now serve ISSA 5000, the coming carbon budget regime and the move to hourly Scope 2 reporting.
+ 
+***Digitisation was the first step. Proving your digital data can be trusted is the step that ensures its reliability and value.***
+ 
+---
+ 
+## Is Your Data Infrastructure Ready for ISSA 5000?
+With the first ISSA 5000 reporting periods starting in 2027, the window to fix data flows before they are tested is open right now - but it is closing.
+ 
+***Can your systems prove what your reports claim?***
+ 
+- **Evidence Chain:** Can you trace your five most material KPIs from the physical instrument to the reported figure?
+- **Totaliser Coverage:** Do your critical meters have totalisers, and are dated readings captured at the start and end of each reporting period?
+- **Access Control:** Who can edit historical data in your ESG platform, and when was that access last reviewed?
+- **Change Logs:** Can you show which emission factor or calculation version applied in each month of the year?
+- **Service Providers:** Have you obtained an independent controls report from your ESG software or telemetry provider that covers your reporting period?
+- **Governance:** Has your board or audit committee approved the nature and scope of assurance over your sustainability KPIs, as King V recommends?
+ 
+*To explore how the wider reporting landscape affects private businesses, read our insight on [Private Companies and ISSB](https://www.rebalanceimpact.com/insights/private-non-listed-companies-and-ISSB).*
+ 
+If you are intending to digitise your business, or have already started the journey and are not sure whether your assurance provider will give you the green light, click [here](/#contact-and-quote) to reach out to our team to discuss your ESG data systems and see how we can help you get audit-ready.
+ 
+## FAQ
+**Is sustainability assurance mandatory in South Africa?**
+> Not yet. The IRBA confirmed in March 2026 that sustainability assurance is currently voluntary in South Africa. However, King V recommends that governing bodies approve the scope of assurance over external reports, JSE-listed companies apply King V through the Listings Requirements, and lenders, investors and multinational customers increasingly require assured data. South African companies that are part of groups reporting under foreign regimes such as the EU's CSRD may also face assurance requirements set by those jurisdictions.
+ 
+**How does this differ if I am getting limited versus reasonable assurance?**
+> Under limited assurance, auditors only evaluate the basic design of IT processes, making spreadsheets and semi-automated setups acceptable without deep testing of IT controls. Under reasonable assurance, auditors must test the operating effectiveness of IT General Controls (ITGCs) - including user access rights, system change logs, and automated application logic. For each IT system for a reasonable assurance engagement, the question comes down to why we can rely on the system and how they have managed to conclude on that. Limited assurance will still require a detailed understanding of what is in place, how it works, and why reliance can be placed on it. Detailed testing may be seen as necessary depending on the risk concluded by your assurance provider.
+ 
+**When does ISSA 5000 apply to South African companies?**
+> ISSA 5000 applies to assurance engagements on sustainability information reported for periods beginning on or after 15 December 2026. The IRBA notes that this effectively makes it applicable from December 2027 year-ends onwards, with early adoption permitted. ISAE 3410 for greenhouse gas statements is withdrawn from the same date, so GHG assurance will also be performed under ISSA 5000.
+ 
+**Is a meter calibration certificate enough evidence for my sustainability auditor?**
+> On its own, usually not. A calibration certificate shows that the meter measured accurately when it was tested, but it does not prove that the system reading the meter captured, transferred and processed that data correctly throughout the reporting period. Your assurance provider may look for a reconciliation (such as a totaliser comparison) or evidence that the controls over the IT system operated effectively for the whole period.
+ 
+**What is a totaliser reconciliation and how does it work?**
+> A totaliser is a cumulative, non-resettable register on a meter that records the total volume measured since installation. By recording dated totaliser readings at the start and end of your reporting period and comparing the movement to the total captured by your data system, you can demonstrate that the system recorded the meter correctly across the whole period. Differences point to data gaps, duplication or configuration errors that need to be investigated before assurance.
+ 
+**Our ESG data sits on a cloud platform - what will our assurance provider ask for?**
+> Expect questions about who can access and change the data, how calculation and emission factor changes are controlled, and how data gaps are detected. Many providers can supply an independent controls report, such as an ISAE 3402, SOC 1 or SOC 2 Type 2 report, covering the period. Request it early, confirm that it covers the systems and period relevant to your reporting, and make sure you are operating the complementary controls the report says remain your responsibility.
+`,
+    schema: `
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is sustainability assurance mandatory in South Africa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not yet. The IRBA confirmed in March 2026 that sustainability assurance is currently voluntary in South Africa. However, King V recommends that governing bodies approve the scope of assurance over external reports, JSE-listed companies apply King V through the Listings Requirements, and lenders, investors and multinational customers increasingly require assured data. South African companies that are part of groups reporting under foreign regimes such as the EU's CSRD may also face assurance requirements set by those jurisdictions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does this differ if I am getting limited versus reasonable assurance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under limited assurance, auditors only evaluate the basic design of IT processes, making spreadsheets and semi-automated setups acceptable without deep testing of IT controls. Under reasonable assurance, auditors must test the operating effectiveness of IT General Controls (ITGCs) - including user access rights, system change logs, and automated application logic. For each IT system for a reasonable assurance engagement, the question comes down to why we can rely on the system and how they have managed to conclude on that. Limited assurance will still require a detailed understanding of what is in place, how it works, and why reliance can be placed on it. Detailed testing may be seen as necessary depending on the risk concluded by your assurance provider."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does ISSA 5000 apply to South African companies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ISSA 5000 applies to assurance engagements on sustainability information reported for periods beginning on or after 15 December 2026. The IRBA notes that this effectively makes it applicable from December 2027 year-ends onwards, with early adoption permitted. ISAE 3410 for greenhouse gas statements is withdrawn from the same date, so GHG assurance will also be performed under ISSA 5000."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is a meter calibration certificate enough evidence for my sustainability auditor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On its own, usually not. A calibration certificate shows that the meter measured accurately when it was tested, but it does not prove that the system reading the meter captured, transferred and processed that data correctly throughout the reporting period. Your assurance provider may look for a reconciliation (such as a totaliser comparison) or evidence that the controls over the IT system operated effectively for the whole period."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a totaliser reconciliation and how does it work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A totaliser is a cumulative, non-resettable register on a meter that records the total volume measured since installation. By recording dated totaliser readings at the start and end of your reporting period and comparing the movement to the total captured by your data system, you can demonstrate that the system recorded the meter correctly across the whole period. Differences point to data gaps, duplication or configuration errors that need to be investigated before assurance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Our ESG data sits on a cloud platform - what will our assurance provider ask for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Expect questions about who can access and change the data, how calculation and emission factor changes are controlled, and how data gaps are detected. Many providers can supply an independent controls report, such as an ISAE 3402, SOC 1 or SOC 2 Type 2 report, covering the period. Request it early, confirm that it covers the systems and period relevant to your reporting, and make sure you are operating the complementary controls the report says remain your responsibility."
+            }
+          }
+        ]
+      }
+  </script>
   `
   },
 ];
