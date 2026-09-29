@@ -203,7 +203,7 @@ const FeaturedInsightSection = ({ articles = [], featuredSlug = null }) => {
           
           <div className="shrink-0 lg:mt-0 mt-4">
             <Button
-              href={`/insights/${displayArticle.slug}`}
+              href={`/insights/${displayArticle.slug}/`}
               variant="primary"
               icon={ArrowRight}
             >

@@ -21,7 +21,7 @@ const FeaturedInsight = () => {
         <p className="insight-blurb">{latestArticle.blurb}</p>
         
         {/* The SEO-Friendly React Router Link */}
-        <Link to={`/insights/${latestArticle.slug}`} className="insight-button">
+        <Link to={`/insights/${latestArticle.slug}/`} className="insight-button">
           Read the Full Insight <span>&rarr;</span>
         </Link>
       </div>
