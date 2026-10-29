@@ -87,9 +87,11 @@ const DataKPIsPage = () => {
         breadcrumb={[{ label: 'Data Solutions' }]}
       />
 
-      {/* Page contents: grouped links on large screens, dropdown on smaller screens */}
+      {/* Page contents: sticky dropdown on smaller screens, sidebar on large screens */}
+      <div className="xl:grid xl:grid-cols-[14rem_minmax(0,1fr)]">
       <SectionNav sections={pageSections} />
 
+      <div className="min-w-0">
       {/* Intro Section */}
       <section className="py-20 md:py-28 bg-cream">
         <Container size="narrow">
@@ -139,7 +141,7 @@ const DataKPIsPage = () => {
       </section>
 
       {/* Interactive Dashboard Section */}
-      <section id="dashboard" className="scroll-mt-32 py-20 md:py-28 bg-sand-light">
+      <section id="dashboard" className="scroll-mt-32 xl:scroll-mt-20 py-20 md:py-28 bg-sand-light">
         <Container size="wide">
           <SectionHeading
             label="Data & Insights"
@@ -156,7 +158,7 @@ const DataKPIsPage = () => {
       </section>
 
       {/* Data Process Section */}
-      <section id="methodology" className="scroll-mt-32 py-20 md:py-28 bg-cream">
+      <section id="methodology" className="scroll-mt-32 xl:scroll-mt-20 py-20 md:py-28 bg-cream">
         <Container>
           <SectionHeading
             label="Our Methodology"
@@ -203,7 +205,7 @@ const DataKPIsPage = () => {
       </section>
 
       {/* Automation Section */}
-      <section id="automation" className="scroll-mt-32 py-20 md:py-28 bg-sand-light">
+      <section id="automation" className="scroll-mt-32 xl:scroll-mt-20 py-20 md:py-28 bg-sand-light">
         <Container>
           <SectionHeading
             label="Automation"
@@ -244,7 +246,7 @@ const DataKPIsPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="capabilities" className="scroll-mt-32 py-20 md:py-28 bg-cream">
+      <section id="capabilities" className="scroll-mt-32 xl:scroll-mt-20 py-20 md:py-28 bg-cream">
         <Container>
           <SectionHeading
             label="Capabilities"
@@ -273,6 +275,8 @@ const DataKPIsPage = () => {
           </div>
         </Container>
       </section>
+      </div>
+      </div>
 
       {/* CTA Banner */}
       <CTABanner

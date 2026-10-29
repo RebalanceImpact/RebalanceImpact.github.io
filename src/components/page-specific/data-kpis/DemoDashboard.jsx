@@ -65,9 +65,10 @@ const DemoDashboard = () => {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_14rem] xl:items-start">
-      <div className="order-2 min-w-0 overflow-hidden rounded-2xl bg-cream shadow-xl ring-1 ring-black/5 xl:order-1">
-        <div className="flex flex-col-reverse gap-2 bg-forest-deep px-4 pt-3 sm:flex-row sm:items-end sm:justify-between md:px-6">
-          <div role="tablist" aria-label="Dashboard pages" className="-mx-4 flex min-w-0 gap-1 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+      {/* The header stacks by the dashboard's own width, so the tabs never scroll beside the page contents */}
+      <div className="@container order-2 min-w-0 overflow-hidden rounded-2xl bg-cream shadow-xl ring-1 ring-black/5 xl:order-1">
+        <div className="flex flex-col-reverse gap-2 bg-forest-deep px-4 pt-3 @min-[52rem]:flex-row @min-[52rem]:items-end @min-[52rem]:justify-between md:px-6">
+          <div role="tablist" aria-label="Dashboard pages" className="-mx-4 flex min-w-0 gap-1 overflow-x-auto px-4 @min-[52rem]:mx-0 @min-[52rem]:px-0">
             {view.tabs.map((t) => (
               <button
                 key={t.id}
@@ -86,7 +87,7 @@ const DemoDashboard = () => {
           <button
             type="button"
             onClick={() => setViewId(view.switchTo)}
-            className="inline-flex flex-shrink-0 items-center gap-2 self-end rounded-lg bg-accent px-3 py-1.5 text-xs md:text-sm font-semibold text-white shadow-md transition-colors hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-sandstone sm:mb-2 sm:self-auto"
+            className="inline-flex flex-shrink-0 items-center gap-2 self-end rounded-lg bg-accent px-3 py-1.5 text-xs md:text-sm font-semibold text-white shadow-md transition-colors hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-sandstone @min-[52rem]:mb-2 @min-[52rem]:self-auto"
           >
             <ArrowLeftRight className="h-4 w-4" aria-hidden="true" />
             {view.switchLabel}
@@ -98,7 +99,7 @@ const DemoDashboard = () => {
         </div>
       </div>
 
-      <div className="order-1 xl:sticky xl:top-36 xl:order-2">
+      <div className="order-1 xl:sticky xl:top-28 xl:order-2">
         <DashboardGuide steps={view.steps} done={done[viewId]} />
       </div>
     </div>
