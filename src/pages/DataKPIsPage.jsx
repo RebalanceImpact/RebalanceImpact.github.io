@@ -1,12 +1,16 @@
-import { Database, Target, LineChart, Users } from 'lucide-react';
+import {
+  Database, Target, LineChart, Users, Workflow, ArrowRight,
+  Zap, Truck, Landmark, ScanText, Receipt, PackageCheck, BellRing,
+} from 'lucide-react';
 import { PageWrapper, SEOHead } from '../components/layout';
 import { Container, SectionHeading, Card } from '../components/ui';
-import { HeroSection, StatCounter, CTABanner } from '../components/shared';
+import { HeroSection, CTABanner } from '../components/shared';
 import SchemaMarkup, { generateWebPageSchema, generateBreadcrumbSchema } from '../components/SchemaMarkup';
-import PowerBIEmbed from '../components/page-specific/data-kpis/PowerBIEmbed';
+import DemoDashboard from '../components/page-specific/data-kpis/DemoDashboard';
+import SectionNav from '../components/page-specific/data-kpis/SectionNav';
 import { pageMetadata } from '../config/siteMetadata';
 import { variants, transitions } from '../config/motion';
-import { dataProcess, powerBIConfig } from '../data/kpis';
+import { dataProcess, dataServices, automationTasks, capabilities } from '../data/kpis';
 import { motion } from 'framer-motion';
 
 // Data KPIs page schemas
@@ -17,10 +21,30 @@ const dataKPIsBreadcrumb = generateBreadcrumbSchema([
 
 const dataKPIsPageSchema = generateWebPageSchema({
   name: 'Data Solutions | Rebalance Impact',
-  description: 'Transform your data into actionable insights with our comprehensive data management, analytics, and interactive Power BI dashboards.',
+  description: 'Transform your data into actionable insights with comprehensive data management, analytics, interactive dashboards and automation.',
   url: 'https://www.rebalanceimpact.com/data-kpis/',
   breadcrumb: dataKPIsBreadcrumb
 });
+
+// "On this page" groups for the section bar
+const pageSections = [
+  {
+    id: 'data-group',
+    label: 'Data & Insights',
+    children: [
+      { id: 'dashboard', label: 'Interactive Dashboard' },
+      { id: 'methodology', label: 'How We Handle Your Data' },
+    ],
+  },
+  {
+    id: 'automation-group',
+    label: 'Automation',
+    children: [
+      { id: 'automation', label: 'What We Automate' },
+      { id: 'capabilities', label: 'Platform Capabilities' },
+    ],
+  },
+];
 
 // Software Application schema for the dashboard
 const dashboardSchema = {
@@ -29,7 +53,7 @@ const dashboardSchema = {
   "name": "Rebalance Impact Dashboard",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web Browser",
-  "description": "Interactive performance dashboard built on Power BI for monitoring and visualizing sustainability metrics.",
+  "description": "Interactive performance dashboards for monitoring sustainability, health and safety, climate-related financial metrics and day-to-day business performance.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -43,6 +67,8 @@ const dashboardSchema = {
 
 const DataKPIsPage = () => {
   const processIcons = [Database, Target, LineChart, Users];
+  const serviceIcons = [LineChart, Workflow];
+  const taskIcons = [Zap, Truck, Landmark, ScanText, Receipt, PackageCheck, BellRing];
 
   return (
     <PageWrapper>
@@ -57,9 +83,12 @@ const DataKPIsPage = () => {
       <HeroSection
         variant="inner"
         title="Data Solutions"
-        subtitle="Transform your data into actionable insights with our comprehensive data management and analytics capabilities."
+        subtitle="Transform your data into actionable insights, and free up your team's time, with our data management, analytics and automation capabilities."
         breadcrumb={[{ label: 'Data Solutions' }]}
       />
+
+      {/* Page contents: grouped links on large screens, dropdown on smaller screens */}
+      <SectionNav sections={pageSections} />
 
       {/* Intro Section */}
       <section className="py-20 md:py-28 bg-cream">
@@ -73,32 +102,61 @@ const DataKPIsPage = () => {
             className="text-center"
           >
             <p className="text-lg md:text-xl text-charcoal leading-relaxed">
-              {powerBIConfig.description}{' '}
+              We bring your financial and non-financial data together in one place, monitor it through
+              interactive dashboards, and automate the routine work around it.{' '}
               <span className="font-bold text-accent">
                 Dynamic insights can empower decisions.
               </span>
             </p>
           </motion.div>
+
+          <div className="mt-12 grid sm:grid-cols-2 gap-6">
+            {dataServices.map((service, index) => {
+              const Icon = serviceIcons[index];
+              return (
+                <motion.a
+                  key={service.id}
+                  href={service.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  className="group block rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-forest" />
+                  </div>
+                  <h3 className="font-sans font-bold text-lg text-forest-deep mb-2">{service.title}</h3>
+                  <p className="text-charcoal-light text-sm leading-relaxed mb-4">{service.description}</p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent group-hover:text-accent-hover">
+                    Explore <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </motion.a>
+              );
+            })}
+          </div>
         </Container>
       </section>
 
       {/* Interactive Dashboard Section */}
-      <section className="py-16 md:py-20 bg-sand-light">
-        <Container>
+      <section id="dashboard" className="scroll-mt-32 py-20 md:py-28 bg-sand-light">
+        <Container size="wide">
           <SectionHeading
+            label="Data & Insights"
             title="Interactive Dashboard Demo"
             subtitle="Click on elements within the dashboard to explore interactions."
             className="mb-10"
           />
-          <PowerBIEmbed
-            embedUrl={powerBIConfig.embedUrl}
-            title={powerBIConfig.title}
-          />
+          <DemoDashboard />
+          <p className="mt-8 max-w-3xl mx-auto text-center text-charcoal-light leading-relaxed">
+            These dashboards are examples. Every solution we build is tailored to what you want to see and the
+            measures that matter most to your business.
+          </p>
         </Container>
       </section>
 
       {/* Data Process Section */}
-      <section className="py-20 md:py-28 bg-cream">
+      <section id="methodology" className="scroll-mt-32 py-20 md:py-28 bg-cream">
         <Container>
           <SectionHeading
             label="Our Methodology"
@@ -144,28 +202,49 @@ const DataKPIsPage = () => {
         </Container>
       </section>
 
-      {/* KPI Metrics Section - Hidden per client request, kept for future use
-      <section className="py-20 md:py-28 bg-forest-deep relative overflow-hidden">
-        <div className="absolute inset-0 noise-overlay" />
-        <Container className="relative z-10">
+      {/* Automation Section */}
+      <section id="automation" className="scroll-mt-32 py-20 md:py-28 bg-sand-light">
+        <Container>
           <SectionHeading
-            label="Impact"
-            title="Measurable Results"
-            theme="dark"
+            label="Automation"
+            title="Less Time on Routine Work"
+            subtitle="Data capture, reconciliations and reporting can take days every month. We automate these repetitive tasks so your team can focus on what matters."
             className="mb-16"
           />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <StatCounter value={100} suffix="%" label="Data Accuracy" theme="dark" />
-            <StatCounter value={50} suffix="%" label="Time Saved" theme="dark" />
-            <StatCounter value={360} suffix="°" label="Visibility" theme="dark" />
-            <StatCounter value={24} suffix="/7" label="Access" theme="dark" />
+
+          {/* Flex rather than grid so a part-filled last row sits centred */}
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+            {automationTasks.map((task, index) => {
+              const Icon = taskIcons[index];
+              return (
+                <motion.div
+                  key={task.id}
+                  className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: (index % 3) * 0.1, duration: 0.5 }}
+                >
+                  <Card variant="default" padding="default" hover className="h-full">
+                    <div className="w-12 h-12 rounded-xl bg-forest/10 flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-forest" />
+                    </div>
+                    <h3 className="font-sans font-bold text-lg text-forest-deep mb-2">
+                      {task.title}
+                    </h3>
+                    <p className="text-charcoal-light text-sm leading-relaxed">
+                      {task.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </Container>
       </section>
-      */}
 
       {/* Features Section */}
-      <section className="py-20 md:py-28 bg-sand-light">
+      <section id="capabilities" className="scroll-mt-32 py-20 md:py-28 bg-cream">
         <Container>
           <SectionHeading
             label="Capabilities"
@@ -173,34 +252,9 @@ const DataKPIsPage = () => {
             className="mb-16"
           />
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Centralized Data Hub',
-                description: 'Consolidate data from multiple sources into a single, reliable platform.',
-              },
-              {
-                title: 'Custom Dashboards',
-                description: 'Tailored visualizations that highlight the metrics most important to your stakeholders.',
-              },
-              {
-                title: '24/7 Access',
-                description: 'Access your dashboards and data anytime, anywhere, from any device.',
-              },
-              {
-                title: 'Target Tracking',
-                description: 'Set, monitor, and report on financial and non-financial targets with real-time progress updates.',
-              },
-              {
-                title: 'Scenario Modeling',
-                description: 'Model the impact of strategic decisions on your Sustainability and financial KPIs.',
-              },
-              {
-                title: 'Audit Trail',
-                description: 'Complete transparency and traceability for all data changes and calculations.',
-              },
-            ].map((feature, index) => (
+            {capabilities.map((feature, index) => (
               <motion.div
-                key={index}
+                key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -26,7 +26,7 @@ export const pageMetadata = {
   },
   dataKpis: {
     title: 'Data Solutions | Rebalance Impact',
-    description: 'Transform your data into actionable insights with our data collection, analytics, and visualization solutions.',
+    description: 'Transform your data into actionable insights with our data collection, analytics, visualization and automation solutions.',
   },
   newsMedia: {
     title: 'Industry Insights | Rebalance Impact',
