@@ -144,7 +144,8 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <Container className="py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sand-light/60">
-            <p>© {currentYear} Rebalance Impact. All rights reserved.</p>
+            {/* The prerendered year is the build year; let React update it without a hydration error */}
+            <p suppressHydrationWarning>© {currentYear} Rebalance Impact. All rights reserved.</p>
             <p>
               Digital Wizardry by{' '}
               <a

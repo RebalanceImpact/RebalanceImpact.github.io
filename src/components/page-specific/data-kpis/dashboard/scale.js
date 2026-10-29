@@ -25,6 +25,8 @@ export const linear = (domain, range) => (v) =>
 /**
  * Track an element's rendered width so SVG charts draw at true pixel size
  * (text stays readable on phones instead of shrinking with a viewBox).
+ * The react-snap prerender keeps the fallback width, so the saved HTML matches
+ * the browser's first render and hydration doesn't keep stale chart sizes.
  */
 export const useElementWidth = (fallback = 640) => {
   const ref = useRef(null);
@@ -32,7 +34,7 @@ export const useElementWidth = (fallback = 640) => {
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || typeof ResizeObserver === 'undefined') return undefined;
+    if (!el || typeof ResizeObserver === 'undefined' || navigator.userAgent === 'ReactSnap') return undefined;
     const observer = new ResizeObserver(([entry]) => {
       setWidth(Math.max(240, Math.floor(entry.contentRect.width)));
     });

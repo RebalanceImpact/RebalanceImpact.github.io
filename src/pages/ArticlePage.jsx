@@ -52,7 +52,7 @@ const ArticlePage = () => {
           <div className="flex items-center text-sm text-sand-light gap-4">
             <span>By {article.author}</span>
             <span>•</span>
-            <span>{new Date(article.datePublished).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            <span>{new Date(article.datePublished).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</span>
           </div>
         </Container>
       </header>
