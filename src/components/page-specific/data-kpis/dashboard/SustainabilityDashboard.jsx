@@ -58,6 +58,17 @@ const units = {
 const pctChange = (now, before) => (before ? ((now - before) / before) * 100 : 0);
 const utilitySpend = (r) => costs.electricity(r) + costs.fuel(r) + costs.water(r);
 const isTransition = (risk) => risk.type.startsWith('Transition');
+// Climate-related cost components, stacked bottom first: transition costs in
+// greens, physical losses in browns. `risk` links each to its risk table row,
+// and `initiatives` lists the initiatives that reduce it.
+const COST_PARTS = [
+  { risk: 'fuel', name: 'Fuel', color: COLORS.first, initiatives: ['fleet'] },
+  { risk: 'electricity', name: 'Electricity', color: '#6E8F6B', initiatives: ['solar'] },
+  { risk: 'carbon', name: 'Carbon tax', color: COLORS.second, initiatives: ['fleet'] },
+  { risk: 'drought', name: 'Drought & water', color: COLORS.third, initiatives: ['water'] },
+  { risk: 'flood', name: 'Flooding', color: '#7A5232', initiatives: [] },
+];
+
 const lowerText = (share) => (share >= 0.005 ? `${Math.round(share * 100)}% lower` : '—');
 
 /** Two bars per location (e.g. now vs 2030); clicking a row filters to that location. */
@@ -447,34 +458,60 @@ const SustainabilityDashboard = ({ tab, onAction = () => {} }) => {
     const chosen = summary.filter((i) => initiatives.includes(i.id) && (location === 'all' || i.locations.includes(location)));
     const siteIds = location === 'all' ? LOCATIONS.map((l) => l.id) : [location];
 
+    // One stacked area per cost (only those that apply to the location), with
+    // the no-further-action total on top when initiatives are included.
+    // Selecting a cost narrows the chart, cards and location bars to it.
+    const costParts = COST_PARTS.filter((c) => climate.points.some((p) => p.parts[c.risk] > 0));
+    const focus = costParts.find((c) => c.name === highlight) || null;
+    const focusRow = focus ? climate.risks.find((r) => r.id === focus.risk) : null;
+    const toggleCost = (risk) => {
+      const part = costParts.find((c) => c.risk === risk);
+      if (part) setHighlight(highlight === part.name ? null : part.name);
+    };
+    const bauLine = {
+      id: 'bau',
+      name: focus ? `${focus.name}, no further action` : 'Total, no further action',
+      color: '#2C2C2C',
+      dotted: true,
+      selectable: false,
+      values: climate.points.map((p) => (p.bau === null ? null : focus ? p.bauParts[focus.risk] : p.bau)),
+    };
     const outlookLines = [
-      { id: 'actual', name: 'Actual', color: COLORS.first, values: climate.points.map((p) => p.actual) },
-      ...(initiatives.length
-        ? [
-            { id: 'bau', name: 'Forecast, no further action', color: COLORS.prior, dotted: true, values: climate.points.map((p) => p.bau) },
-            { id: 'planned', name: 'Forecast with initiatives', color: COLORS.first, dotted: true, values: climate.points.map((p) => p.planned) },
-          ]
-        : [{ id: 'bau', name: 'Forecast', color: COLORS.first, dotted: true, values: climate.points.map((p) => p.bau) }]),
+      ...(focus ? [focus] : costParts).map((c) => ({
+        id: c.name,
+        name: c.name,
+        color: c.color,
+        stack: true,
+        values: climate.points.map((p) => p.parts[c.risk]),
+      })),
+      ...(initiatives.length ? [bauLine] : []),
     ];
+    const legendItems = [...costParts.map((c) => ({ ...c, stack: true })), ...(initiatives.length ? [bauLine] : [])];
 
     const outlookPanel = {
-      title: `Climate-Related Costs to ${TARGET_YEAR}`,
+      title: `Climate-Related Costs to ${TARGET_YEAR}${focus ? ` · ${focus.name}` : ''}`,
       size: 'wide',
       actions: initiativePicker,
       body: (
         <>
-          <Legend items={outlookLines} />
-          <InitiativeChips initiatives={summary} selected={initiatives} />
+          <Legend items={legendItems} selected={highlight} onSelect={setHighlight} />
+          <InitiativeChips initiatives={summary} selected={initiatives} relevant={focus ? focus.initiatives : undefined} />
           <TrendChart
             labels={years}
             series={outlookLines}
             format={units.rand}
-            fitted
             selected={year - BASE_YEAR}
             onSelect={selectYearIndex}
-            ariaLabel={`Climate-related costs, actual and forecast to ${TARGET_YEAR}`}
+            forecastAfter={year - BASE_YEAR}
+            ariaLabel={`Climate-related costs${focus ? `, ${focus.name.toLowerCase()} only` : ' by type'}, actual and forecast to ${TARGET_YEAR}`}
           />
-          <p className="mt-2 text-xs text-charcoal-light">Energy, fuel, carbon tax and expected losses from drought and flooding.</p>
+          <p className="mt-2 text-xs text-charcoal-light">
+            {!focus
+              ? 'Lighter areas are the forecast with the selected initiatives. Hover a year to see each cost’s share, or click a cost to see its forecast on its own.'
+              : focus.initiatives.some((id) => initiatives.includes(id))
+                ? `Showing ${focus.name.toLowerCase()} only: its forecast with the initiatives that reduce it, and the dotted line without them. Click it again to see all costs.`
+                : `Showing ${focus.name.toLowerCase()} only. None of the selected initiatives reduce it, so its forecast is the same either way. Click it again to see all costs.`}
+          </p>
         </>
       ),
     };
@@ -496,10 +533,23 @@ const SustainabilityDashboard = ({ tab, onAction = () => {} }) => {
             </thead>
             <tbody className="tabular-nums">
               {climate.risks.map((r) => (
-                <tr key={r.id} className="border-b border-black/5 last:border-0">
+                <tr
+                  key={r.id}
+                  onClick={() => toggleCost(r.id)}
+                  className={`cursor-pointer border-b border-black/5 transition-opacity last:border-0 hover:bg-sand-light/60 ${
+                    focus && focus.risk !== r.id ? 'opacity-40' : ''
+                  }`}
+                >
                   <td className="py-2.5 pr-4">
-                    <div className="font-medium text-charcoal">{r.name}</div>
-                    <div className="text-xs text-charcoal-light">{r.type}</div>
+                    <div className="flex items-center gap-2 font-medium text-charcoal">
+                      <span
+                        className="h-2.5 w-2.5 flex-shrink-0 rounded-sm"
+                        style={{ backgroundColor: COST_PARTS.find((c) => c.risk === r.id).color }}
+                        aria-hidden="true"
+                      />
+                      {r.name}
+                    </div>
+                    <div className="pl-[18px] text-xs text-charcoal-light">{r.type}</div>
                   </td>
                   <td className="py-2.5 pr-4">
                     <span
@@ -569,14 +619,16 @@ const SustainabilityDashboard = ({ tab, onAction = () => {} }) => {
       const risks = climateOutlook(year, l.id, initiatives).risks;
       return {
         ...l,
-        segments: [
-          { name: 'Transition risk', color: COLORS.first, value: sum(risks.filter(isTransition), 'planned') },
-          { name: 'Physical risk', color: COLORS.third, value: sum(risks.filter((r) => !isTransition(r)), 'planned') },
-        ],
+        segments: focus
+          ? [{ name: focus.name, color: focus.color, value: risks.find((r) => r.id === focus.risk)?.planned ?? 0 }]
+          : [
+              { name: 'Transition risk', color: COLORS.first, value: sum(risks.filter(isTransition), 'planned') },
+              { name: 'Physical risk', color: COLORS.third, value: sum(risks.filter((r) => !isTransition(r)), 'planned') },
+            ],
       };
     });
     const exposurePanel = {
-      title: `Cost Exposure by Location, ${TARGET_YEAR}`,
+      title: `Cost Exposure by Location, ${TARGET_YEAR}${focus ? ` · ${focus.name}` : ''}`,
       body: withLegend(exposureRows[0].segments, <LocationBars rows={exposureRows} format={units.rand} selected={location} onSelect={setLocation} />, 'square'),
     };
 
@@ -595,8 +647,16 @@ const SustainabilityDashboard = ({ tab, onAction = () => {} }) => {
         cards: [
           { label: 'Utility & Fuel Spend', unit: `R · ${periodLabel}`, value: fmt.rand(spend) },
           { label: 'Carbon Tax', unit: `R · ${periodLabel}, estimated`, value: fmt.rand(carbonTax) },
-          { label: 'Climate Cost Exposure', unit: `R per year by ${TARGET_YEAR}`, value: fmt.rand(climate.total2030) },
-          { label: 'Lower with Initiatives', unit: `${TARGET_YEAR} costs vs no further action`, value: `${Math.round(climate.lower2030 * 100)}%` },
+          {
+            label: 'Climate Cost Exposure',
+            unit: `${focus ? `${focus.name} · ` : ''}R per year by ${TARGET_YEAR}`,
+            value: fmt.rand(focusRow ? focusRow.planned : climate.total2030),
+          },
+          {
+            label: 'Lower with Initiatives',
+            unit: `${TARGET_YEAR} ${focus ? focus.name.toLowerCase() : 'costs'} vs no further action`,
+            value: `${Math.round((focusRow ? focusRow.lower : climate.lower2030) * 100)}%`,
+          },
           { label: 'Emissions Avoided', unit: `tCO₂e per year by ${TARGET_YEAR}`, value: fmt.count(sum(chosen, 'tCO2e')) },
         ],
         panels: [outlookPanel, planPanel, riskPanel, exposurePanel],

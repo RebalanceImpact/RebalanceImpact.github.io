@@ -303,7 +303,9 @@ export const gridOutlook = (year, location, initiativeIds) => ({
  * Climate-related costs by year: actuals from the base year to the selected
  * year, then a forecast to 2030 with and without the selected initiatives
  * (which ramp in over two years). Each row of the risk table is one cost
- * component, so the table and the chart always add up.
+ * component, so the table and the chart always add up. `parts` splits each
+ * year into those components: actuals, then the forecast with initiatives;
+ * `bauParts` splits the no-further-action forecast the same way.
  */
 export const climateOutlook = (year, location, initiativeIds) => {
   const rows = select(year, location);
@@ -357,6 +359,8 @@ export const climateOutlook = (year, location, initiativeIds) => {
       actual: k <= 0 ? total(actual(y)) : null,
       bau: k >= 0 ? total(project(k, false)) : null,
       planned: k >= 0 ? total(project(k, true)) : null,
+      parts: k <= 0 ? actual(y) : project(k, true),
+      bauParts: k >= 0 ? project(k, false) : null,
     };
   });
 

@@ -1,19 +1,20 @@
 import StatCard from './StatCard';
 
 const LegendKey = ({ item, shape }) => {
-  if (shape === 'square') return <span className="h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: item.color }} />;
+  if (shape === 'square' || item.stack) return <span className="h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: item.color }} />;
   if (item.dotted) return <span className="w-4 border-t-[3px] border-dotted" style={{ borderColor: item.color }} />;
   return <span className={`w-4 rounded-full ${item.thin ? 'h-px' : 'h-0.5'}`} style={{ backgroundColor: item.color }} />;
 };
 
 /**
  * Series legend. With `onSelect`, each item is a toggle that highlights that
- * series (`selected` is its name) across the linked charts.
+ * series (`selected` is its name) across the linked charts, unless the item
+ * sets `selectable: false`.
  */
 export const Legend = ({ items, shape = 'line', selected = null, onSelect }) => (
   <ul className="mb-3 flex flex-wrap gap-x-1 gap-y-1 text-xs text-charcoal-light">
     {items.map((item) =>
-      onSelect ? (
+      onSelect && item.selectable !== false ? (
         <li key={item.name}>
           <button
             type="button"

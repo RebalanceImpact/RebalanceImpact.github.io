@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { niceTicks, linear, useElementWidth } from './scale';
 
 const MARGIN = { top: 12, right: 16, bottom: 26, left: 48 };
@@ -11,6 +11,9 @@ const DOTTED = '0.1 5';
  *   forecast and `thin` a reference line such as a target pathway.
  * - `area` washes the last series (true) or every series ('all') down to the
  *   baseline; with 'all', a series with `area: false` stays a plain line.
+ * - Series marked `stack` are drawn as stacked areas, bottom first, and the
+ *   tooltip gives each one's share of the stack. `forecastAfter` (an index)
+ *   lightens the areas after it and marks where the forecast starts.
  * - `fitted` fits the axis to the data instead of starting at zero.
  * - With `onSelect`, clicking (or Enter on) a point selects that index and
  *   `selected` keeps it marked; clicking it again clears it.
@@ -26,14 +29,26 @@ const TrendChart = ({
   selected = null,
   onSelect,
   highlight = null,
+  forecastAfter = null,
   ariaLabel,
 }) => {
   const [containerRef, width] = useElementWidth(560);
   const [hover, setHover] = useState(null);
+  const clipId = useId().replace(/:/g, '');
+
+  const lines = series.filter((s) => !s.stack);
+  const bands = series
+    .filter((s) => s.stack)
+    .reduce((acc, s) => {
+      const lower = acc.length ? acc[acc.length - 1].top : labels.map(() => 0);
+      const upper = s.values.map((v, i) => (v === null ? null : lower[i] + v));
+      return [...acc, { ...s, lower, upper, top: upper.map((v, i) => v ?? lower[i]) }];
+    }, []);
+  const stackTotal = bands.length ? bands[bands.length - 1].top : [];
 
   const innerW = width - MARGIN.left - MARGIN.right;
   const innerH = height - MARGIN.top - MARGIN.bottom;
-  const values = series.flatMap((s) => s.values).filter((v) => v !== null);
+  const values = [...lines.flatMap((s) => s.values), ...bands.flatMap((b) => b.upper)].filter((v) => v !== null);
   const lo = Math.min(...values);
   const hi = Math.max(...values, 0);
   const pad = (hi - lo) * 0.2;
@@ -45,8 +60,15 @@ const TrendChart = ({
   const labelEvery = width < 420 && labels.length > 6 ? 2 : 1;
   const linePath = (vals) =>
     vals.map((v, i) => (v === null ? '' : `${i && vals[i - 1] !== null ? 'L' : 'M'}${x(i)},${y(v)}`)).join('');
+  const bandPath = (b) => {
+    const idx = b.upper.flatMap((v, i) => (v === null ? [] : [i]));
+    const top = idx.map((i, j) => `${j ? 'L' : 'M'}${x(i)},${y(b.upper[i])}`).join('');
+    const bottom = [...idx].reverse().map((i) => `L${x(i)},${y(b.lower[i])}`).join('');
+    return `${top}${bottom}Z`;
+  };
+  const split = forecastAfter !== null && forecastAfter < last ? x(forecastAfter) : null;
   const faded = (s) => highlight !== null && s.id !== highlight;
-  const washed = area === 'all' ? series.filter((s) => s.area !== false) : area ? [series[series.length - 1]] : [];
+  const washed = area === 'all' ? lines.filter((s) => s.area !== false) : area ? lines.slice(-1) : [];
 
   const indexFromPointer = (event) => {
     const rect = event.currentTarget.ownerSVGElement.getBoundingClientRect();
@@ -70,7 +92,10 @@ const TrendChart = ({
 
   const shown = hover;
   const tipX = shown !== null ? MARGIN.left + x(shown) : 0;
-  const flip = tipX > width * 0.6;
+  // Open the tooltip on the roomier side, kept within the chart's width.
+  const tipW = bands.length ? 230 : 150;
+  const flip = tipX > width * 0.6 || tipX + 12 + tipW > width;
+  const tipOffset = Math.max(0, Math.min(width - tipW, flip ? width - tipX + 12 : tipX + 12));
   const markers = [...new Set([selected, hover].filter((i) => i !== null))];
 
   return (
@@ -96,7 +121,7 @@ const TrendChart = ({
             </g>
           ))}
 
-          {selected !== null && (
+          {selected !== null && !bands.length && (
             <rect x={x(selected) - Math.max(8, step / 2)} width={Math.max(16, step)} height={innerH} fill="#F5F0E8" rx="6" />
           )}
 
@@ -125,7 +150,41 @@ const TrendChart = ({
               />
             ))}
 
-          {series.map((s) => (
+          {split !== null && (
+            <defs>
+              <clipPath id={`${clipId}-actual`}>
+                <rect x={-1} width={split + 1} height={innerH} />
+              </clipPath>
+              <clipPath id={`${clipId}-forecast`}>
+                <rect x={split} width={innerW - split + 1} height={innerH} />
+              </clipPath>
+            </defs>
+          )}
+
+          {bands.map((b) => (
+            <g key={`band-${b.id}`} opacity={faded(b) ? 0.15 : 1} className="transition-opacity">
+              {split === null ? (
+                <path d={bandPath(b)} fill={b.color} fillOpacity="0.85" />
+              ) : (
+                <>
+                  <path d={bandPath(b)} fill={b.color} fillOpacity="0.85" clipPath={`url(#${clipId}-actual)`} />
+                  <path d={bandPath(b)} fill={b.color} fillOpacity="0.45" clipPath={`url(#${clipId}-forecast)`} />
+                </>
+              )}
+              <path d={linePath(b.upper)} fill="none" stroke="#fff" strokeWidth="1" />
+            </g>
+          ))}
+
+          {split !== null && (
+            <g>
+              <line x1={split} x2={split} y2={innerH} stroke="#2C2C2C" strokeOpacity="0.35" strokeDasharray="3 3" />
+              <text x={split + 6} y={10} className="fill-charcoal-light text-[11px]">
+                Forecast
+              </text>
+            </g>
+          )}
+
+          {lines.map((s) => (
             <path
               key={s.id}
               d={linePath(s.values)}
@@ -143,7 +202,7 @@ const TrendChart = ({
           {markers.map((i) => (
             <g key={`marker-${i}`}>
               {i === hover && <line x1={x(i)} x2={x(i)} y2={innerH} stroke="#2C2C2C" strokeOpacity="0.3" strokeWidth="1" />}
-              {series.map((s) =>
+              {lines.map((s) =>
                 s.values[i] === null || faded(s) ? null : (
                   <circle key={s.id} cx={x(i)} cy={y(s.values[i])} r="4.5" fill={s.color} stroke="#fff" strokeWidth="2" />
                 )
@@ -166,11 +225,34 @@ const TrendChart = ({
 
       {shown !== null && (
         <div
-          className="pointer-events-none absolute top-0 z-10 min-w-[150px] rounded-lg bg-white px-3 py-2 text-sm shadow-lg ring-1 ring-black/5"
-          style={flip ? { right: width - tipX + 12 } : { left: tipX + 12 }}
+          className={`pointer-events-none absolute top-0 z-10 rounded-lg bg-white px-3 py-2 text-sm shadow-lg ring-1 ring-black/5 ${
+            bands.length ? 'min-w-[210px]' : 'min-w-[150px]'
+          }`}
+          style={flip ? { right: tipOffset } : { left: tipOffset }}
         >
           <div className="mb-1 text-xs font-medium text-charcoal-light">{labels[shown].long}</div>
-          {series.map((s) =>
+          {[...bands].reverse().map((b) =>
+            b.values[shown] === null ? null : (
+              <div key={b.id} className={`flex items-center gap-2 py-0.5 ${faded(b) ? 'opacity-50' : ''}`}>
+                <span className="h-2.5 w-2.5 flex-shrink-0 rounded-sm" style={{ backgroundColor: b.color }} />
+                <span className="font-semibold text-charcoal tabular-nums">{format(b.values[shown])}</span>
+                <span className="text-xs text-charcoal-light">{b.name}</span>
+                {bands.length > 1 && (
+                  <span className="ml-auto pl-2 text-xs text-charcoal-light tabular-nums">
+                    {stackTotal[shown] ? Math.round((b.values[shown] / stackTotal[shown]) * 100) : 0}%
+                  </span>
+                )}
+              </div>
+            )
+          )}
+          {bands.length > 1 && (
+            <div className="mt-0.5 flex items-center gap-2 border-t border-black/5 pt-1">
+              <span className="w-2.5 flex-shrink-0" />
+              <span className="font-semibold text-charcoal tabular-nums">{format(stackTotal[shown])}</span>
+              <span className="text-xs text-charcoal-light">Total</span>
+            </div>
+          )}
+          {lines.map((s) =>
             s.values[shown] === null ? null : (
               <div key={s.id} className={`flex items-center gap-2 py-0.5 ${faded(s) ? 'opacity-50' : ''}`}>
                 <span
