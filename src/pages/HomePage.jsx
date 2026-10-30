@@ -189,7 +189,8 @@ const FeaturedInsightSection = ({ articles = [], featuredSlug = null }) => {
                 {new Date(displayArticle.datePublished).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
-                  year: 'numeric'
+                  year: 'numeric',
+                  timeZone: 'UTC'
                 })}
               </span>
             </div>
