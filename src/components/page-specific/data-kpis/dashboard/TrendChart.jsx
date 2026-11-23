@@ -122,7 +122,7 @@ const TrendChart = ({
           ))}
 
           {selected !== null && !bands.length && (
-            <rect x={x(selected) - Math.max(8, step / 2)} width={Math.max(16, step)} height={innerH} fill="#F5F0E8" rx="6" />
+            <rect x={x(selected) - Math.max(8, step / 2)} width={Math.max(16, step)} height={innerH} fill="#F6EFE6" rx="6" />
           )}
 
           {labels.map((label, i) =>

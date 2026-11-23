@@ -23,9 +23,9 @@ import { Legend, Segmented, MonthSelect, FilterChip, Report } from './ui';
 const SERIES_COLORS = [COLORS.first, COLORS.second, COLORS.third, COLORS.prior];
 // Money in is green and money out is brown: client revenue in shades of
 // green, expense types in shades of brown, largest category darkest.
-const CLIENT_COLORS = ['#334C33', '#5E7F5B', '#8BA888', '#C3D5C0'];
-const EXPENSE_COLORS = ['#4F341F', '#7A5232', '#A36F47', '#C99D73', '#E3D3BF'];
-const EXPENSE_LINE = '#4F341F';
+const CLIENT_COLORS = ['#16502E', '#3F7A55', '#8DB39B', '#C9DDCF'];
+const EXPENSE_COLORS = ['#6E3418', '#9C4A27', '#CC7248', '#E3A27E', '#F8DECC'];
+const EXPENSE_LINE = '#6E3418';
 const rand = (v, short) => fmt.rand(v, short);
 const partiesOf = (client) => client.parties || [client.name];
 const clientOfParty = (party) => CLIENTS.find((c) => partiesOf(c).includes(party));

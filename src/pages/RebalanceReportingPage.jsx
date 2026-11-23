@@ -11,6 +11,7 @@ import CTABanner from '../components/shared/CTABanner';
 import VideoPlayer from '../components/shared/VideoPlayer';
 import PageContents from '../components/page-specific/reporting/PageContents';
 import StepViewer from '../components/page-specific/rebalance-reporting/StepViewer';
+import RotatingWord from '../components/page-specific/rebalance-reporting/RotatingWord';
 import { variants, transitions } from '../config/motion';
 import {
   rebalanceReportingImages,
@@ -29,10 +30,13 @@ import {
 const PAGE_PATH = '/rebalance-reporting/';
 const REPORT_PARAM = 'report';
 
-// "Reporting" and "Sooner." use the site accent (the Get a Quote button colour);
+// "Reporting" and the looping tagline word use the site accent (the Get a Quote button colour);
 // the app icon tile colour comes from the product video
 const WORDMARK_ORANGE = 'text-accent';
 const ICON_TILE = 'bg-[#FCF8EF]';
+
+// Words that loop, one a second, after "Your report. Your voice."
+const TAGLINE_WORDS = ['Sooner.', 'Clearer.', 'Credible.', 'Memorable.', 'Together.'];
 
 // Icons named in the data file
 const ICONS = { Sprout, BookOpen, ShieldCheck, History, Quote, FileSearch };
@@ -253,7 +257,8 @@ const RebalanceReportingPage = () => {
               By Rebalance Impact
             </p>
             <p className="mt-8 font-display text-2xl md:text-3xl text-sand-light">
-              Your report. Your voice. <span className={WORDMARK_ORANGE}>Sooner.</span>
+              Your report. Your voice.{' '}
+              <RotatingWord words={TAGLINE_WORDS} className={WORDMARK_ORANGE} />
             </p>
             <p className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-sand-light/85 leading-relaxed">
               AI-driven drafting and a shared workspace for annual and impact reports. Drafted in your

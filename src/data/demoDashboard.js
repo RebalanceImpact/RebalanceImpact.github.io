@@ -28,20 +28,20 @@ export const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'A
 
 // Site palette only. Slot order is fixed: first series, second, third, prior year.
 export const COLORS = {
-  first: '#334C33',
-  second: '#A9C2A6',
-  third: '#B07D55',
-  prior: '#D4C5A9',
+  first: '#16502E',
+  second: '#8DB39B',
+  third: '#CC7248',
+  prior: '#E8CDB8',
 };
 
 // Hazard ratings, one hue light to dark: low to very high.
-export const RATING_COLORS = ['#E3D3BF', '#CFA77F', '#B07D55', '#7A5232'];
+export const RATING_COLORS = ['#F8DECC', '#E3A27E', '#CC7248', '#9C4A27'];
 
 // Time horizons for climate-related risks, one hue dark to light: nearest first.
 export const HORIZONS = {
-  short: { name: 'Short term', span: 'to 2027', color: '#334C33', dark: true },
-  medium: { name: 'Medium term', span: '2028 to 2030', color: '#8BA888' },
-  long: { name: 'Long term', span: 'beyond 2030', color: '#D3DFD0' },
+  short: { name: 'Short term', span: 'to 2027', color: '#16502E', dark: true },
+  medium: { name: 'Medium term', span: '2028 to 2030', color: '#8DB39B' },
+  long: { name: 'Long term', span: 'beyond 2030', color: '#C9DDCF' },
 };
 
 // Seeded PRNG so every visitor (and the prerender) sees identical numbers.

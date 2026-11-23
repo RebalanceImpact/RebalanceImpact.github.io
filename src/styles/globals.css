@@ -2,18 +2,18 @@
 
 /* Tailwind v4 Theme Configuration */
 @theme {
-  /* Colors */
-  --color-forest-deep: #1B3A1B;
-  --color-forest: #334C33;
-  --color-forest-light: #4A6B4A;
-  --color-sage: #8BA888;
-  --color-sandstone: #D4C5A9;
-  --color-sand-light: #F5F0E8;
-  --color-cream: #FAFAF5;
+  /* Colors: green, terracotta and cream from the RebalanceReporting videos */
+  --color-forest-deep: #104628;
+  --color-forest: #16502E;
+  --color-forest-light: #2E6B47;
+  --color-sage: #8DB39B;
+  --color-sandstone: #E8CDB8;
+  --color-sand-light: #F6EFE6;
+  --color-cream: #FCF8F0;
   --color-charcoal: #2C2C2C;
   --color-charcoal-light: #5A5A5A;
-  --color-accent: #C8956C;
-  --color-accent-hover: #B07D55;
+  --color-accent: #CC7248;
+  --color-accent-hover: #B35F38;
 
   /* Fonts */
   --font-display: 'DM Serif Display', serif;
@@ -251,7 +251,7 @@
 .prose p:not(:has(span, a, br)):has(> em:only-child > strong:only-child) {
   display: block !important;
   font-size: 1.1rem !important;
-  color: #B07D55 !important; 
+  color: #B35F38 !important; 
   font-style: italic !important;
   font-weight: 900 !important; 
   line-height: 1.6 !important;
@@ -304,7 +304,7 @@ blockquote {
 
 blockquote h3 {
   margin-top: 0 !important;
-  color: #4A6B4A !important;
+  color: #2E6B47 !important;
   font-size: 1.15rem !important;
   margin-bottom: 1rem !important;
 }
@@ -323,7 +323,7 @@ blockquote li {
 }
 
 blockquote li strong {
-  color: #B07D55;
+  color: #B35F38;
   display: block; 
   font-size: 0.8rem;
   text-transform: uppercase;

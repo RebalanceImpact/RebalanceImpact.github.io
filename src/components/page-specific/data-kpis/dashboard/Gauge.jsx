@@ -30,9 +30,9 @@ const Gauge = ({ value, target, max, format, caption, targetLabel = 'Target' }) 
   return (
     <div className="flex flex-col items-center">
       <svg width={W} height={H} overflow="visible" role="img" aria-label={`${caption}: ${format(value)} against ${targetLabel.toLowerCase()} of ${format(target)}`}>
-        <path d={arc(0, 1)} fill="none" stroke="#F5F0E8" strokeWidth={STROKE} />
-        {fill > 0 && <path d={arc(0, fill)} fill="none" stroke="#334C33" strokeWidth={STROKE} className="transition-all duration-500" />}
-        <line x1={tx1} y1={ty1} x2={tx2} y2={ty2} stroke="#B07D55" strokeWidth="3" strokeLinecap="round" />
+        <path d={arc(0, 1)} fill="none" stroke="#F6EFE6" strokeWidth={STROKE} />
+        {fill > 0 && <path d={arc(0, fill)} fill="none" stroke="#16502E" strokeWidth={STROKE} className="transition-all duration-500" />}
+        <line x1={tx1} y1={ty1} x2={tx2} y2={ty2} stroke="#B35F38" strokeWidth="3" strokeLinecap="round" />
         <text x={lx} y={ly} textAnchor={mark > 0.6 ? 'start' : mark < 0.4 ? 'end' : 'middle'} className="fill-charcoal text-[11px] font-semibold">
           {format(target)}
         </text>

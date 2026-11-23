@@ -66,7 +66,7 @@ const COST_PARTS = [
   { risk: 'electricity', name: 'Electricity', color: '#6E8F6B', initiatives: ['solar'] },
   { risk: 'carbon', name: 'Carbon tax', color: COLORS.second, initiatives: ['fleet'] },
   { risk: 'drought', name: 'Drought & water', color: COLORS.third, initiatives: ['water'] },
-  { risk: 'flood', name: 'Flooding', color: '#7A5232', initiatives: [] },
+  { risk: 'flood', name: 'Flooding', color: '#9C4A27', initiatives: [] },
 ];
 
 const lowerText = (share) => (share >= 0.005 ? `${Math.round(share * 100)}% lower` : '—');

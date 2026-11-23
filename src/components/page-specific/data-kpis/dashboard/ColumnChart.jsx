@@ -62,7 +62,7 @@ const ColumnChart = ({ labels, series, format, selected, onSelect, height = 230,
                 onBlur={() => setHover(null)}
                 className="cursor-pointer focus:outline-none"
               >
-                <rect x={band * i} width={band} height={innerH} fill={selected === i ? '#F5F0E8' : 'transparent'} rx="6" />
+                <rect x={band * i} width={band} height={innerH} fill={selected === i ? '#F6EFE6' : 'transparent'} rx="6" />
                 {series.map((s, si) => {
                   const h = innerH - y(s.values[i]);
                   return (
