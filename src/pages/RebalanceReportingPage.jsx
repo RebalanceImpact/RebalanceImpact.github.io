@@ -29,8 +29,9 @@ import {
 const PAGE_PATH = '/rebalance-reporting/';
 const REPORT_PARAM = 'report';
 
-// Brand colours of the RebalanceReporting wordmark and its app icon tile (from the product video)
-const WORDMARK_ORANGE = 'text-[#E3885C]';
+// "Reporting" and "Sooner." use the site accent (the Get a Quote button colour);
+// the app icon tile colour comes from the product video
+const WORDMARK_ORANGE = 'text-accent';
 const ICON_TILE = 'bg-[#FCF8EF]';
 
 // Icons named in the data file

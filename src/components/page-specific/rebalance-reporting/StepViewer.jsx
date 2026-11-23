@@ -68,7 +68,9 @@ const StepViewer = ({ groups }) => {
         </div>
 
         {/* All screens load together so switching is instant; only the chosen one shows */}
-        <div className="relative" style={{ aspectRatio: `${steps[0].width} / ${steps[0].height}` }}>
+        {/* Screens are stacked in one grid cell, so the box is as tall as the tallest screen */}
+        <div className="grid w-full items-start">
+
           {steps.map((step) => {
             const isActive = step.number === activeNumber;
             return (
@@ -80,8 +82,8 @@ const StepViewer = ({ groups }) => {
                 width={step.width}
                 height={step.height}
                 loading="lazy"
-                className={`absolute top-0 left-0 w-full h-auto rounded-xl shadow-xl transition-opacity duration-500 ${
-                  isActive ? 'opacity-100' : 'opacity-0'
+                className={`col-start-1 row-start-1 w-full h-auto rounded-xl shadow-xl transition-opacity duration-500 ${
+                  isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
               />
             );
