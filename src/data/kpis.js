@@ -112,11 +112,4 @@ export const capabilities = [
   },
 ];
 
-// Kept for reference while the Power BI subscription is active; the page now uses DemoDashboard.
-export const powerBIConfig = {
-  embedUrl: "https://app.powerbi.com/view?r=eyJrIjoiMmI3ZWMwNzEtZTFmZS00NmQ2LTk1ZmEtOGVhZTQxYmRmMjMyIiwidCI6IjYzOGRlYjljLTEwZDQtNGZiYi1hMjc2LWY0NWM1Y2ZkYWE5MiJ9",
-  title: "ESG Performance Dashboard",
-  description: "See how your data is monitored and transformed with this interactive template. Built on trusted visualization platforms like Power BI, our dashboards showcase how dynamic insights can empower your decisions.",
-};
-
 export default stats;
