@@ -14,6 +14,7 @@ import NewToESGPage from './pages/NewToESGPage';
 import DataKPIsPage from './pages/DataKPIsPage';
 import NewsMediaPage from './pages/NewsMediaPage';
 import SustainableReportingPage from './pages/SustainableReportingPage';
+import RebalanceReportingPage from './pages/RebalanceReportingPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ArticlePage from './pages/ArticlePage';
 
@@ -62,6 +63,8 @@ function App() {
             <Route path="/news-media/" element={<NewsMediaPage />} />
             <Route path="/insights/:slug/" element={<ArticlePage />} />
             <Route path="/sustainable-reporting/" element={<SustainableReportingPage />} />
+            {/* Unlisted: shared by link only. Not in the nav, footer or sitemap (see vite.config.js). */}
+            <Route path="/rebalance-reporting/" element={<RebalanceReportingPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AnimatePresence>

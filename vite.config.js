@@ -14,6 +14,7 @@ const coreRoutes = [
   '/data-kpis/',
   '/news-media/',
   '/new-to-esg-reporting/',
+  // '/rebalance-reporting/' is unlisted (shared by link only), so it stays out of the sitemap.
 ];
 
 // Article routes come from the data file so new articles are picked up automatically.

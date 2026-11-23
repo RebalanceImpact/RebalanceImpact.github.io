@@ -51,6 +51,7 @@
   },
   "reactSnap": {
     "source": "dist",
+    "include": ["/", "/rebalance-reporting/"],
     "skipThirdPartyRequests": true,
     "minifyHtml": false,
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
