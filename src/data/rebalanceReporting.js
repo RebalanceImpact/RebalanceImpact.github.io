@@ -240,18 +240,18 @@ export const annualReportCapabilities = {
 
 // ---------------------------------------------------------------------------
 // Annual reports version of the unlisted page, following the annual video.
-// That video still shows the old ReportForge name, so its stills are cropped below the app's title bar.
+// (65.5 seconds, WebM: VP9 video with Opus audio)
 
 const annualReportVideo = {
-  src: '/assets/videos/rebalance-reporting-annual.mp4',
+  src: '/assets/videos/rebalance-reporting-annual.webm',
   poster: `${IMAGES}/annual-poster-title-card.jpg`,
   duration: '1 min',
   title: 'RebalanceReporting for annual reports',
   chapters: [
-    { label: 'How we draft', time: 8.7 },
-    { label: 'Built for assurance', time: 23.1 },
-    { label: 'Your team', time: 27.2 },
-    { label: 'The finished report', time: 50.3 },
+    { label: 'How we draft', time: 8.8 },
+    { label: 'Built for assurance', time: 26.8 },
+    { label: 'Your team', time: 31.3 },
+    { label: 'The finished report', time: 52.2 },
   ],
 };
 
@@ -278,7 +278,7 @@ const annualReportFeatures = [
   },
 ];
 
-const annualStill = (file) => ({ image: `${IMAGES}/${file}`, width: 1048, height: 814 });
+const annualStill = (file) => ({ image: `${IMAGES}/${file}`, width: 1048, height: 884 });
 
 const annualReportVideoSteps = [
   {
@@ -289,14 +289,14 @@ const annualReportVideoSteps = [
         title: 'Learns your voice',
         description: 'Upload past reports, interim updates, brand guidelines and your data pack. RebalanceReporting learns how you write: your voice, spelling, structure and look.',
         ...annualStill('annual-step-01-voice.jpg'),
-        alt: 'Files page with two past sustainability reports, an interim update, brand guidelines and a data pack uploaded, and what was learned from them: voice, spelling, structure and look',
+        alt: 'Files page with the 2025 and 2024 sustainability reports, an interim update, brand guidelines and a data pack uploaded, and what was learned from them: voice, spelling, structure and look',
       },
       {
         number: '02',
         title: 'Answers become the draft',
         description: 'Quick, guided questions go to the right people. Their answers and data flow straight into your first draft.',
         ...annualStill('annual-step-02-answers.jpg'),
-        alt: 'Question 14 of 22, "What helped you reduce lost-time injuries this year?", answered and added to the first draft on page 82',
+        alt: 'Question 14 of 22, "What helped you reduce lost-time injuries this year?", being answered by the safety manager',
       },
       {
         number: '03',
@@ -322,7 +322,7 @@ const annualReportVideoSteps = [
         title: 'One portal. Your whole team.',
         description: 'Invite colleagues and give each the right access, with their chapters and due dates.',
         ...annualStill('annual-step-05-team.jpg'),
-        alt: 'The report team page listing a sustainability lead, finance, HR and operations managers and Rebalance Impact, each with their role',
+        alt: 'The report team page listing a sustainability lead, finance, HR, safety and operations managers and Rebalance Impact, each with their role',
       },
       {
         number: '06',
@@ -330,7 +330,7 @@ const annualReportVideoSteps = [
         description: 'Every word, number and image can be changed in place. Change a figure once and it updates everywhere it appears.',
         image: `${IMAGES}/annual-step-06-edit.jpg`,
         width: 1228,
-        height: 814,
+        height: 884,
         alt: 'The page editor showing an emissions figure updated in six places across the report',
       },
       {
@@ -349,15 +349,15 @@ const annualReportSamples = [
     src: `${IMAGES}/annual-page-at-a-glance.jpg`,
     width: 1036,
     height: 736,
-    caption: '2025 at a glance',
-    alt: 'Sample sustainability report page "2025 at a glance", with eight headline figures on people, emissions, energy and procurement',
+    caption: '2026 at a glance',
+    alt: 'Sample sustainability report page "2026 at a glance", with eight headline figures on people, emissions, energy and procurement',
   },
   {
-    src: `${IMAGES}/annual-page-case-study.jpg`,
+    src: `${IMAGES}/annual-page-narrative.jpg`,
     width: 1036,
     height: 736,
-    caption: 'A case study page',
-    alt: 'Sample sustainability report page "Human rights: a year of progress", a case study with a photo, two columns of text and two figures',
+    caption: 'A narrative page',
+    alt: 'Sample sustainability report page "Enterprise development", with two columns of text on tax transparency, infrastructure partnerships and economic value, a photo and a headline figure',
   },
 ];
 
